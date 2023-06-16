@@ -8,3 +8,10 @@
 
 /* General */
 "General.AppName" = "Scout Camp";
+
+/* Login */
+"Login.TitleText.Title" = "Login";
+"Login.UsernameField.Title" = "Nazwa użytkownika";
+"Login.PasswordField.Title" = "Hasło";
+"Login.LoginButton.Title" = "Zaloguj się";
+"Login.RegisterNav.Title" = "Nie masz konta? Zarejestruj się";
