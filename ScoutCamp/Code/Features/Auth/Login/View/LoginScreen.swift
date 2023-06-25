@@ -22,6 +22,12 @@ struct LoginScreen: View {
                 VStack {
                     Spacer()
 
+                    Text("General.AppName".localized.uppercased()).foregroundColor(.primaryColor)
+                        .font(.system(size: 48, weight: .bold, design: .rounded))
+                        .scaledToFill()
+
+                    Spacer()
+
                     Image(systemName: "person.text.rectangle.fill")
                         .font(.system(size: 128))
                         .foregroundColor(Color.primaryColor)
@@ -30,12 +36,17 @@ struct LoginScreen: View {
                     Spacer()
 
                     VStack(spacing: 24) {
-                        TextField("Login.UsernameField.Title", text: $viewModel.username)
-                            .withLoginTextFieldStyle()
-                        SecureField("Login.PasswordField.Title", text: $viewModel.username)
-                            .withLoginTextFieldStyle()
+                        EntryField(symbolName: "person.fill",
+                                   placeholder: "Login.UsernameField.Title",
+                                   prompt: viewModel.usernamePrompt,
+                                   field: $viewModel.username)
+                        EntryField(symbolName: "lock.fill",
+                                   placeholder: "Login.PasswordField.Title",
+                                   prompt: viewModel.passwordPrompt,
+                                   field: $viewModel.password,
+                                   isSecure: true)
                     }
-
+                    
                     Spacer()
 
                     Button("Login.LoginButton.Title", action: viewModel.login)
@@ -47,7 +58,9 @@ struct LoginScreen: View {
                         Text("Login.RegisterNav.Title")
                             .foregroundColor(.white)
                     }
-                }.padding(32.0)
+                }
+                .padding(32.0)
+                .errorAlert(error: $viewModel.error)
             }
         }
     }

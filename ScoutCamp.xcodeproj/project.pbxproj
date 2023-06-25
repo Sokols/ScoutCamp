@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0D58F22A483A410072EF1F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D58F12A483A410072EF1F /* Error.swift */; };
 		3F1E132A2A38F17300CB64FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E13292A38F17300CB64FD /* Preview Assets.xcassets */; };
 		3F1E132F2A38F43900CB64FD /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132C2A38F43900CB64FD /* Podfile.lock */; };
 		3F1E13302A38F43900CB64FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132D2A38F43900CB64FD /* README.md */; };
@@ -25,6 +26,8 @@
 		3F2E56042A3C5BE400E3BC30 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56032A3C5BE400E3BC30 /* View+Extensions.swift */; };
 		3F2E56072A3C5FE200E3BC30 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56062A3C5FE200E3BC30 /* ButtonStyles.swift */; };
 		3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */; };
+		3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560A2A3C797F00E3BC30 /* Validation.swift */; };
+		3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */; };
 		3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549B2A365E0D00498112 /* ScoutCampApp.swift */; };
 		3FED549E2A365E0D00498112 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549D2A365E0D00498112 /* ContentView.swift */; };
 		3FED54A02A365E0E00498112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FED549F2A365E0E00498112 /* Assets.xcassets */; };
@@ -54,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		02209F90280C652719E2F53D /* Pods-ScoutCamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoutCamp.debug.xcconfig"; path = "Target Support Files/Pods-ScoutCamp/Pods-ScoutCamp.debug.xcconfig"; sourceTree = "<group>"; };
+		3F0D58F12A483A410072EF1F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		3F1E13292A38F17300CB64FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3F1E132C2A38F43900CB64FD /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		3F1E132D2A38F43900CB64FD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		3F2E56032A3C5BE400E3BC30 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		3F2E56062A3C5FE200E3BC30 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
+		3F2E560A2A3C797F00E3BC30 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryField.swift; sourceTree = "<group>"; };
 		3FED54982A365E0D00498112 /* ScoutCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoutCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED549B2A365E0D00498112 /* ScoutCampApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampApp.swift; sourceTree = "<group>"; };
 		3FED549D2A365E0D00498112 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -225,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				3F2E55E92A39DE3500E3BC30 /* LoadingIndicator.swift */,
+				3F2E560A2A3C797F00E3BC30 /* Validation.swift */,
+				3F0D58F12A483A410072EF1F /* Error.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -232,6 +240,7 @@
 		3F2E55ED2A39DFAE00E3BC30 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -558,9 +567,11 @@
 				3F2E55FA2A3C494F00E3BC30 /* RegisterResponse.swift in Sources */,
 				3F2E55EA2A39DE3500E3BC30 /* LoadingIndicator.swift in Sources */,
 				3F2E55F82A3C491900E3BC30 /* RegisterRequest.swift in Sources */,
+				3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */,
 				3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */,
 				3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */,
 				3FFFCA7C2A38EB5200481DAE /* String+Extensions.swift in Sources */,
+				3F0D58F22A483A410072EF1F /* Error.swift in Sources */,
 				3F2E55FC2A3C498000E3BC30 /* RegisterAction.swift in Sources */,
 				3F2E55DF2A39DC6900E3BC30 /* LoginRequest.swift in Sources */,
 				3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */,
@@ -570,6 +581,7 @@
 				3F2E55DD2A39DC4E00E3BC30 /* LoginResponse.swift in Sources */,
 				3F2E56072A3C5FE200E3BC30 /* ButtonStyles.swift in Sources */,
 				3F2E56042A3C5BE400E3BC30 /* View+Extensions.swift in Sources */,
+				3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */,
 				3F2E55E32A39DD0100E3BC30 /* LoginAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -755,6 +767,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -791,6 +804,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

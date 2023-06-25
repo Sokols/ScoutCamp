@@ -8,6 +8,7 @@
 
 /* General */
 "General.AppName" = "Scout Camp";
+"General.Ok" = "OK";
 
 /* Login */
 "Login.TitleText.Title" = "Login";
@@ -15,3 +16,21 @@
 "Login.PasswordField.Title" = "Hasło";
 "Login.LoginButton.Title" = "Zaloguj się";
 "Login.RegisterNav.Title" = "Nie masz konta? Zarejestruj się";
+
+/* Register */
+"Register.TitleText.Title" = "Rejestracja";
+"Register.EmailField.Title" = "Email";
+"Register.UsernameField.Title" = "Nazwa użytkownika";
+"Register.PasswordField.Title" = "Hasło";
+"Register.ConfirmPasswordField.Title" = "Potwierdź hasło";
+"Register.RegisterButton.Title" = "Zarejestruj się";
+"Register.LoginNav.Title" = "Masz już konto? Zaloguj się";
+
+/* Validation */
+"Validation.Field.MinCharacters" = "Minimum %@ znaków";
+"Validation.Email.Invalid" = "Niepoprawny email";
+"Validation.Password.MustMatch" = "Hasła muszą być takie same";
+
+/* Errors */
+"Error.FailedRegister.Title" = "Rejestracja nieudana";
+"Error.FaieldRegister.Message" = "Proszę sprawdzić wprowadzone dane.";
