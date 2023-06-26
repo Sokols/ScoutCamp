@@ -37,19 +37,22 @@ struct LoginScreen: View {
 
                     VStack(spacing: 24) {
                         EntryField(symbolName: "person.fill",
-                                   placeholder: "Login.UsernameField.Title",
-                                   prompt: viewModel.usernamePrompt,
-                                   field: $viewModel.username)
+                                   placeholder: "Login.EmailField.Title",
+                                   prompt: viewModel.emailPrompt,
+                                   field: $viewModel.email)
+                        .keyboardType(.emailAddress)
                         EntryField(symbolName: "lock.fill",
                                    placeholder: "Login.PasswordField.Title",
                                    prompt: viewModel.passwordPrompt,
                                    field: $viewModel.password,
                                    isSecure: true)
                     }
-                    
+
                     Spacer()
 
-                    Button("Login.LoginButton.Title", action: viewModel.login)
+                    Button("Login.LoginButton.Title", action: {
+                        signIn()
+                    })
                         .buttonStyle(MainActionButton())
 
                     Spacer()
@@ -61,6 +64,16 @@ struct LoginScreen: View {
                 }
                 .padding(32.0)
                 .errorAlert(error: $viewModel.error)
+            }
+        }
+    }
+
+    private func signIn() {
+        LoadingIndicator.showLoadingIndicator()
+        viewModel.signIn { isSuccess, _ in
+            LoadingIndicator.hideLoadingIndicator()
+            if isSuccess {
+                // TODO: Implement navigation
             }
         }
     }

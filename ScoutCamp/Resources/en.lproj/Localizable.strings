@@ -11,7 +11,7 @@
 "General.Ok" = "OK";
 
 /* Login */
-"Login.UsernameField.Title" = "Username";
+"Login.EmailField.Title" = "Email";
 "Login.PasswordField.Title" = "Password";
 "Login.LoginButton.Title" = "Sign in";
 "Login.RegisterNav.Title" = "Don't have an account? Sign up";
@@ -19,7 +19,6 @@
 /* Register */
 "Register.TitleText.Title" = "Registration";
 "Register.EmailField.Title" = "Email";
-"Register.UsernameField.Title" = "Username";
 "Register.PasswordField.Title" = "Password";
 "Register.ConfirmPasswordField.Title" = "Confirm password";
 "Register.RegisterButton.Title" = "Sign up";

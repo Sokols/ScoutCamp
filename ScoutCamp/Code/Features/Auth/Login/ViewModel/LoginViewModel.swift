@@ -9,10 +9,12 @@ import Combine
 
 class LoginViewModel: ObservableObject {
 
-    @Published var username: String = ""
-    @Published var password: String = ""
+    private let authService: AuthService
     
-    @Published var isUsernameValid = false
+    @Published var email: String = ""
+    @Published var password: String = ""
+
+    @Published var isEmailValid = false
     @Published var isPasswordValid = false
     @Published var canSubmit = false
     @Published var isSubmitClicked = false
@@ -21,17 +23,18 @@ class LoginViewModel: ObservableObject {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    var usernamePrompt: String {
-        isUsernameValid || !isSubmitClicked ? "" : "Validation.Field.CannotBeEmpty".localized
+    var emailPrompt: String {
+        isEmailValid || !isSubmitClicked ? "" : "Validation.Email.Invalid".localized
     }
     var passwordPrompt: String {
         isPasswordValid || !isSubmitClicked ? "" : "Validation.Field.CannotBeEmpty".localized
     }
 
-    init() {
-        $username
-            .map { Validation.isRequiredFieldValid($0) }
-            .assign(to: \.isUsernameValid, on: self)
+    init(_ authService: AuthService = AuthService()) {
+        self.authService = authService
+        $email
+            .map { Validation.isEmailValid($0) }
+            .assign(to: \.isEmailValid, on: self)
             .store(in: &cancellables)
 
         $password
@@ -40,31 +43,27 @@ class LoginViewModel: ObservableObject {
             .store(in: &cancellables)
 
         $isSubmitClicked
-            .map { !$0 || (self.isUsernameValid && self.isPasswordValid) }
+            .map { !$0 || (self.isEmailValid && self.isPasswordValid) }
             .assign(to: \.canSubmit, on: self)
             .store(in: &cancellables)
 
-        Publishers.CombineLatest($isUsernameValid, $isPasswordValid)
+        Publishers.CombineLatest($isEmailValid, $isPasswordValid)
             .map { [$0, $1].allSatisfy({ $0 }) || !self.isSubmitClicked }
             .assign(to: \.canSubmit, on: self)
             .store(in: &cancellables)
     }
 
-    func login() {
+    func signIn(completion: @escaping CheckCompletion) {
         if !isSubmitClicked {
             isSubmitClicked = true
         }
         if !canSubmit {
+            completion(false, nil)
             return
         }
-        LoginAction(
-            parameters: LoginRequest(
-                username: username,
-                password: password
-            )
-        ).call { _ in
-            // TODO: Login successful, navigate to the Home screen
-            self.error = Error.generalError
+        authService.signIn(email: email, password: password) { [weak self] isSuccess, error in
+            self?.error = error
+            completion(isSuccess, error)
         }
     }
 }

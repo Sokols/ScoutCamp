@@ -30,10 +30,6 @@ struct RegisterScreen: View {
                 Spacer()
 
                 VStack(spacing: 16) {
-                    EntryField(symbolName: "person.fill",
-                               placeholder: "Register.UsernameField.Title",
-                               prompt: viewModel.usernamePrompt,
-                               field: $viewModel.username)
                     EntryField(symbolName: "envelope.fill",
                                placeholder: "Register.EmailField.Title",
                                prompt: viewModel.emailPrompt,
@@ -54,7 +50,7 @@ struct RegisterScreen: View {
                 Spacer()
 
                 Button("Register.RegisterButton.Title", action: {
-                    viewModel.register()
+                    registerUser()
                 })
                 .buttonStyle(MainActionButton())
                 .disabled(!viewModel.canSubmit)
@@ -74,6 +70,16 @@ struct RegisterScreen: View {
             .errorAlert(error: $viewModel.error)
         }
         .navigationBarHidden(true)
+    }
+
+    private func registerUser() {
+        LoadingIndicator.showLoadingIndicator()
+        viewModel.register { isSuccess, _ in
+            LoadingIndicator.hideLoadingIndicator()
+            if isSuccess {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
     }
 }
 
