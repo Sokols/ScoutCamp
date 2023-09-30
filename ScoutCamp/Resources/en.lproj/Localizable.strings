@@ -35,3 +35,10 @@
 "Error.GeneralError.Message" = "Something went wrong";
 "Error.FailedRegister.Title" = "Register failed";
 "Error.FaieldRegister.Message" = "Please re-check provided data.";
+
+/* Home */
+"Home.Name" = "Home";
+
+/* Settings */
+"Settings.Name" = "Settings";
+"Settings.Logout" = "Log out";

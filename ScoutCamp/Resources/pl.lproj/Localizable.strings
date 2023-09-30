@@ -33,3 +33,10 @@
 /* Errors */
 "Error.FailedRegister.Title" = "Rejestracja nieudana";
 "Error.FaieldRegister.Message" = "Proszę sprawdzić wprowadzone dane.";
+
+/* Home */
+"Home.Name" = "Strona główna";
+
+/* Settings */
+"Settings.Name" = "Ustawienia";
+"Settings.Logout" = "Wyloguj się";

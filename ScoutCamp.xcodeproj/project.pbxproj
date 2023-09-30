@@ -28,6 +28,9 @@
 		3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */; };
 		3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560A2A3C797F00E3BC30 /* Validation.swift */; };
 		3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */; };
+		3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */; };
+		3F7C59ED2A9C8CAF00AA64AA /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59EC2A9C8CAF00AA64AA /* SettingsScreen.swift */; };
+		3F7C59F02A9C8E1000AA64AA /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59EF2A9C8E1000AA64AA /* SettingsViewModel.swift */; };
 		3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549B2A365E0D00498112 /* ScoutCampApp.swift */; };
 		3FED549E2A365E0D00498112 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549D2A365E0D00498112 /* ContentView.swift */; };
 		3FED54A02A365E0E00498112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FED549F2A365E0E00498112 /* Assets.xcassets */; };
@@ -78,6 +81,9 @@
 		3F2E560A2A3C797F00E3BC30 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryField.swift; sourceTree = "<group>"; };
 		3F6B18632A52CDFD00F3C665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
+		3F7C59EC2A9C8CAF00AA64AA /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		3F7C59EF2A9C8E1000AA64AA /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		3FED54982A365E0D00498112 /* ScoutCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoutCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED549B2A365E0D00498112 /* ScoutCampApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampApp.swift; sourceTree = "<group>"; };
 		3FED549D2A365E0D00498112 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -189,7 +195,6 @@
 		3F1E13362A38F7FC00CB64FD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3F6B18632A52CDFD00F3C665 /* Info.plist */,
 				3FFFCA862A38ED8700481DAE /* Localizable.strings */,
 				3FED549F2A365E0E00498112 /* Assets.xcassets */,
 			);
@@ -199,32 +204,18 @@
 		3F1E13372A39BF3600CB64FD /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				3F1E13392A39BF6200CB64FD /* View */,
-				3F1E13382A39BF5800CB64FD /* ViewModel */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		3F1E13382A39BF5800CB64FD /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
+				3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */,
 				3F2E55E42A39DD6B00E3BC30 /* LoginViewModel.swift */,
 			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3F1E13392A39BF6200CB64FD /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */,
-			);
-			path = View;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		3F286EA82A49A9E000BA00BE /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3F7C59EA2A9C8C9300AA64AA /* Settings */,
 				3F286EA92A49A9EA00BA00BE /* Home */,
+				3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -232,17 +223,9 @@
 		3F286EA92A49A9EA00BA00BE /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				3F286EAA2A49A9F000BA00BE /* View */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		3F286EAA2A49A9F000BA00BE /* View */ = {
-			isa = PBXGroup;
-			children = (
 				3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */,
 			);
-			path = View;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		3F2E55E82A39DE2800E3BC30 /* Helpers */ = {
@@ -275,26 +258,10 @@
 		3F2E55F12A3C484000E3BC30 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				3F2E55F42A3C486100E3BC30 /* View */,
-				3F2E55F52A3C486800E3BC30 /* ViewModel */,
-			);
-			path = Register;
-			sourceTree = "<group>";
-		};
-		3F2E55F42A3C486100E3BC30 /* View */ = {
-			isa = PBXGroup;
-			children = (
+				3F2E55FD2A3C49B700E3BC30 /* RegisterViewModel.swift */,
 				3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3F2E55F52A3C486800E3BC30 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3F2E55FD2A3C49B700E3BC30 /* RegisterViewModel.swift */,
-			);
-			path = ViewModel;
+			path = Register;
 			sourceTree = "<group>";
 		};
 		3F2E56052A3C5FD800E3BC30 /* Styles */ = {
@@ -303,6 +270,15 @@
 				3F2E56062A3C5FE200E3BC30 /* ButtonStyles.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		3F7C59EA2A9C8C9300AA64AA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3F7C59EF2A9C8E1000AA64AA /* SettingsViewModel.swift */,
+				3F7C59EC2A9C8CAF00AA64AA /* SettingsScreen.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		3FED548F2A365E0D00498112 = {
@@ -336,6 +312,7 @@
 				3F1E13332A38F69300CB64FD /* Code */,
 				3F1E13362A38F7FC00CB64FD /* Resources */,
 				3F1E13282A38F17300CB64FD /* Preview Content */,
+				3F6B18632A52CDFD00F3C665 /* Info.plist */,
 			);
 			path = ScoutCamp;
 			sourceTree = "<group>";
@@ -586,10 +563,13 @@
 				3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */,
 				3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */,
 				3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */,
+				3F7C59F02A9C8E1000AA64AA /* SettingsViewModel.swift in Sources */,
 				3FFFCA7C2A38EB5200481DAE /* String+Extensions.swift in Sources */,
 				3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */,
 				3F0D58F22A483A410072EF1F /* Error.swift in Sources */,
 				3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */,
+				3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */,
+				3F7C59ED2A9C8CAF00AA64AA /* SettingsScreen.swift in Sources */,
 				3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */,
 				3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */,
 				3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */,
