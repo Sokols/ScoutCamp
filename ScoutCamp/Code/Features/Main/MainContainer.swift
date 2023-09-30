@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainContainer: View {
     @EnvironmentObject private var authService: AuthService
+    
     var body: some View {
         TabView {
             HomeScreen()

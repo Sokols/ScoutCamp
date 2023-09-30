@@ -258,8 +258,8 @@
 		3F2E55F12A3C484000E3BC30 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				3F2E55FD2A3C49B700E3BC30 /* RegisterViewModel.swift */,
 				3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */,
+				3F2E55FD2A3C49B700E3BC30 /* RegisterViewModel.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";

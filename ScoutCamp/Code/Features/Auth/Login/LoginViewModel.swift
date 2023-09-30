@@ -7,6 +7,7 @@
 
 import Combine
 
+@MainActor
 class LoginViewModel: ObservableObject {
 
     private let authService: AuthService
@@ -20,6 +21,7 @@ class LoginViewModel: ObservableObject {
     @Published var isSubmitClicked = false
 
     @Published var error: Error?
+    @Published var isLoading = false
 
     private var cancellables: Set<AnyCancellable> = []
 
@@ -53,15 +55,17 @@ class LoginViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    func signIn() {
+    func signIn() async {
         if !isSubmitClicked {
             isSubmitClicked = true
         }
         if !canSubmit {
             return
         }
-        authService.signIn(email: email, password: password) { [weak self] error in
-            self?.error = error
+        isLoading = true
+        if let error = await authService.signIn(email: email, password: password) {
+            self.error = error
         }
+        isLoading = false
     }
 }

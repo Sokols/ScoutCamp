@@ -54,10 +54,14 @@ struct RegisterScreen: View {
 
                 Spacer()
 
-                Button("Register.RegisterButton.Title", action: viewModel.register)
-                    .buttonStyle(MainActionButton())
-                    .disabled(!viewModel.canSubmit)
-                    .opacity(viewModel.canSubmit ? 1.0 : 0.6)
+                Button("Register.RegisterButton.Title", action: {
+                    Task {
+                        await viewModel.register()
+                    }
+                })
+                .buttonStyle(MainActionButton())
+                .disabled(!viewModel.canSubmit)
+                .opacity(viewModel.canSubmit ? 1.0 : 0.6)
 
                 Spacer()
 
@@ -73,6 +77,7 @@ struct RegisterScreen: View {
             .errorAlert(error: $viewModel.error)
         }
         .navigationBarHidden(true)
+        .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
     }
 }
 

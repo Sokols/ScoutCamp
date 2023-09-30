@@ -57,8 +57,12 @@ struct LoginScreen: View {
 
                     Spacer()
 
-                    Button("Login.LoginButton.Title", action: viewModel.signIn)
-                        .buttonStyle(MainActionButton())
+                    Button("Login.LoginButton.Title", action: {
+                        Task {
+                            await viewModel.signIn()
+                        }
+                    })
+                    .buttonStyle(MainActionButton())
 
                     Spacer()
 
@@ -68,9 +72,10 @@ struct LoginScreen: View {
                     }
                 }
                 .padding(32.0)
-                .errorAlert(error: $viewModel.error)
             }
         }
+        .errorAlert(error: $viewModel.error)
+        .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
     }
 }
 

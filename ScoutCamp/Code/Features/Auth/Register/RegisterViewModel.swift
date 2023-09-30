@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 class RegisterViewModel: ObservableObject {
 
     private let authService: AuthService
@@ -23,6 +24,7 @@ class RegisterViewModel: ObservableObject {
     @Published var isSubmitClicked = false
 
     @Published var error: Error?
+    @Published var isLoading = false
 
     private var cancellables: Set<AnyCancellable> = []
 
@@ -65,15 +67,17 @@ class RegisterViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    func register() {
+    func register() async {
         if !isSubmitClicked {
             isSubmitClicked = true
         }
         if !canSubmit {
             return
         }
-        authService.signUp(email: email, password: password) { [weak self] error in
-            self?.error = error
+        isLoading = true
+        if let error = await authService.signUp(email: email, password: password) {
+            self.error = error
         }
+        isLoading = false
     }
 }

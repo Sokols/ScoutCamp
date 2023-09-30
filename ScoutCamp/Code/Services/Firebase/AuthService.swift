@@ -8,6 +8,7 @@
 import FirebaseAuth
 import Foundation
 
+@MainActor
 class AuthService: ObservableObject {
     @Published var loggedInUser: User?
 
@@ -19,24 +20,23 @@ class AuthService: ObservableObject {
 
     // MARK: - Public methods
 
-    func signIn(email: String, password: String, completion: @escaping (Error?) -> Void) {
-        auth.signIn(withEmail: email, password: password) { [weak self] result, error in
-            if let user = result?.user {
-                self?.loggedInUser = user
-            }
-            completion(error)
+    func signIn(email: String, password: String) async -> Error? {
+        do {
+            let response = try await auth.signIn(withEmail: email, password: password)
+            self.loggedInUser = response.user
+            return nil
+        } catch {
+            return error
         }
     }
 
-    func signUp(email: String, password: String, completion: @escaping (Error?) -> Void) {
-        auth.createUser(withEmail: email, password: password) { result, error in
-            if let user = result?.user {
-                user.sendEmailVerification() { error in
-                    completion(error)
-                }
-            } else if let error = error {
-                completion(error)
-            }
+    func signUp(email: String, password: String) async -> Error? {
+        do {
+            let response = try await auth.createUser(withEmail: email, password: password)
+            self.loggedInUser = response.user
+            return nil
+        } catch {
+            return error
         }
     }
 
@@ -45,13 +45,13 @@ class AuthService: ObservableObject {
         loggedInUser = nil
     }
 
-    func deleteAccount(completion: @escaping (Error?) -> Void) {
-        loggedInUser?.delete { [weak self] error in
-            guard let self = self else { return }
-            completion(error)
-            if error == nil {
-                self.loggedInUser = nil
-            }
+    func deleteAccount() async -> Error? {
+        do {
+            try await loggedInUser?.delete()
+            self.loggedInUser = nil
+            return nil
+        } catch {
+            return error
         }
     }
 }
