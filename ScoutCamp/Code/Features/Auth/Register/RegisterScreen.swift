@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct RegisterScreen: View {
-
-    @State private var showAlert = false
-    @ObservedObject var viewModel = RegisterViewModel()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @StateObject private var viewModel: RegisterViewModel
+    @State private var showAlert = false
+
+    init(authService: AuthService) {
+        _viewModel = StateObject(
+            wrappedValue: RegisterViewModel(authService: authService)
+        )
+    }
 
     var body: some View {
         ZStack {
@@ -30,10 +35,6 @@ struct RegisterScreen: View {
                 Spacer()
 
                 VStack(spacing: 16) {
-                    EntryField(symbolName: "person.fill",
-                               placeholder: "Register.UsernameField.Title",
-                               prompt: viewModel.usernamePrompt,
-                               field: $viewModel.username)
                     EntryField(symbolName: "envelope.fill",
                                placeholder: "Register.EmailField.Title",
                                prompt: viewModel.emailPrompt,
@@ -54,7 +55,9 @@ struct RegisterScreen: View {
                 Spacer()
 
                 Button("Register.RegisterButton.Title", action: {
-                    viewModel.register()
+                    Task {
+                        await viewModel.register()
+                    }
                 })
                 .buttonStyle(MainActionButton())
                 .disabled(!viewModel.canSubmit)
@@ -74,11 +77,12 @@ struct RegisterScreen: View {
             .errorAlert(error: $viewModel.error)
         }
         .navigationBarHidden(true)
+        .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
     }
 }
 
 struct RegisterScreen_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterScreen()
+        RegisterScreen(authService: AuthService())
     }
 }

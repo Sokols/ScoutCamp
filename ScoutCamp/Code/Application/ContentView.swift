@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject private var authService: AuthService
+
     var body: some View {
-        LoginScreen()
+        NavigationView {
+            Group {
+                if authService.loggedInUser != nil {
+                    MainContainer()
+                } else {
+                    LoginScreen(authService: authService)
+                }
+            }
+            .transition(.move(edge: .bottom))
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(AuthService())
     }
 }

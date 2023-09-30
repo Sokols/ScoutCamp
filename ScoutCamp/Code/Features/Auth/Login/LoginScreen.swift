@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct LoginScreen: View {
+    @EnvironmentObject private var authService: AuthService
 
-    @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
+    @StateObject private var viewModel: LoginViewModel
+
+    init(authService: AuthService) {
+        _viewModel = StateObject(
+            wrappedValue: LoginViewModel(authService: authService)
+        )
+    }
 
     var body: some View {
         NavigationView {
@@ -37,37 +44,43 @@ struct LoginScreen: View {
 
                     VStack(spacing: 24) {
                         EntryField(symbolName: "person.fill",
-                                   placeholder: "Login.UsernameField.Title",
-                                   prompt: viewModel.usernamePrompt,
-                                   field: $viewModel.username)
+                                   placeholder: "Login.EmailField.Title",
+                                   prompt: viewModel.emailPrompt,
+                                   field: $viewModel.email)
+                        .keyboardType(.emailAddress)
                         EntryField(symbolName: "lock.fill",
                                    placeholder: "Login.PasswordField.Title",
                                    prompt: viewModel.passwordPrompt,
                                    field: $viewModel.password,
                                    isSecure: true)
                     }
-                    
-                    Spacer()
-
-                    Button("Login.LoginButton.Title", action: viewModel.login)
-                        .buttonStyle(MainActionButton())
 
                     Spacer()
 
-                    NavigationLink(destination: RegisterScreen()) {
+                    Button("Login.LoginButton.Title", action: {
+                        Task {
+                            await viewModel.signIn()
+                        }
+                    })
+                    .buttonStyle(MainActionButton())
+
+                    Spacer()
+
+                    NavigationLink(destination: RegisterScreen(authService: authService)) {
                         Text("Login.RegisterNav.Title")
                             .foregroundColor(.white)
                     }
                 }
                 .padding(32.0)
-                .errorAlert(error: $viewModel.error)
             }
         }
+        .errorAlert(error: $viewModel.error)
+        .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
     }
 }
 
 struct LoginScreen_Previews: PreviewProvider {
     static var previews: some View {
-        LoginScreen()
+        LoginScreen(authService: AuthService())
     }
 }

@@ -7,17 +7,19 @@
 
 import Foundation
 
-enum Error: LocalizedError {
+typealias CheckCompletion = (_ isSuccess: Bool, _ error: Error?) -> Void
+
+enum AppError: LocalizedError {
     case generalError
 
-    var errorDescription: String? {
+    var errorDescription: String {
         switch self {
         case .generalError:
             return "Error.GeneralError.Title"
         }
     }
 
-    var recoverySuggestion: String? {
+    var recoverySuggestion: String {
         switch self {
         case .generalError:
             return "Error.GeneralError.Message"
@@ -26,16 +28,18 @@ enum Error: LocalizedError {
 }
 
 struct LocalizedAlertError: LocalizedError {
-    let underlyingError: LocalizedError
-    var errorDescription: String? {
-        underlyingError.errorDescription?.localized
-    }
-    var recoverySuggestion: String? {
-        underlyingError.recoverySuggestion?.localized
-    }
+    var errorDescription: String?
+    var recoverySuggestion: String?
 
     init?(error: Error?) {
-        guard let localizedError = error else { return nil }
-        underlyingError = localizedError
+        guard let error = error else { return nil }
+        errorDescription = "General.AppName".localized
+        recoverySuggestion = error.localizedDescription
+    }
+
+    init?(error: AppError?) {
+        guard let error = error else { return nil }
+        errorDescription = error.errorDescription.localized
+        recoverySuggestion = error.recoverySuggestion.localized
     }
 }

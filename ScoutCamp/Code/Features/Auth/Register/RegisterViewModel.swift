@@ -8,30 +8,28 @@
 import Foundation
 import Combine
 
+@MainActor
 class RegisterViewModel: ObservableObject {
 
+    private let authService: AuthService
+
     @Published var email: String = ""
-    @Published var username: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
 
     @Published var isEmailValid = false
-    @Published var isUsernameValid = false
     @Published var isPasswordValid = false
     @Published var isConfirmPasswordValid = false
     @Published var canSubmit = false
     @Published var isSubmitClicked = false
 
     @Published var error: Error?
+    @Published var isLoading = false
 
     private var cancellables: Set<AnyCancellable> = []
 
     var emailPrompt: String {
         isEmailValid || !isSubmitClicked ? "" : "Validation.Email.Invalid"
-    }
-    var usernamePrompt: String {
-        isUsernameValid || !isSubmitClicked ? "" : "Validation.Field.MinCharacters"
-            .localized(arguments: Validation.usernameMinChars.description)
     }
     var passwordPrompt: String {
         isPasswordValid || !isSubmitClicked ? "" : "Validation.Field.MinCharacters"
@@ -41,15 +39,11 @@ class RegisterViewModel: ObservableObject {
         isConfirmPasswordValid || !isSubmitClicked ? "" : "Validation.Password.MustMatch"
     }
 
-    init() {
+    init(authService: AuthService) {
+        self.authService = authService
         $email
             .map { Validation.isEmailValid($0) }
             .assign(to: \.isEmailValid, on: self)
-            .store(in: &cancellables)
-
-        $username
-            .map { Validation.isUsernameCharsNumberValid($0) }
-            .assign(to: \.isUsernameValid, on: self)
             .store(in: &cancellables)
 
         $password
@@ -63,33 +57,27 @@ class RegisterViewModel: ObservableObject {
             .store(in: &cancellables)
 
         $isSubmitClicked
-            .map { !$0 || (self.isEmailValid && self.isUsernameValid
-                && self.isPasswordValid && self.isConfirmPasswordValid) }
+            .map { !$0 || (self.isEmailValid && self.isPasswordValid && self.isConfirmPasswordValid) }
             .assign(to: \.canSubmit, on: self)
             .store(in: &cancellables)
 
-        Publishers.CombineLatest4($isEmailValid, $isUsernameValid, $isPasswordValid, $isConfirmPasswordValid)
-            .map { [$0, $1, $2, $3].allSatisfy({ $0 }) || !self.isSubmitClicked }
+        Publishers.CombineLatest3($isEmailValid, $isPasswordValid, $isConfirmPasswordValid)
+            .map { [$0, $1, $2].allSatisfy({ $0 }) || !self.isSubmitClicked }
             .assign(to: \.canSubmit, on: self)
             .store(in: &cancellables)
     }
 
-    func register() {
+    func register() async {
         if !isSubmitClicked {
             isSubmitClicked = true
         }
         if !canSubmit {
             return
         }
-        RegisterAction(
-            parameters: RegisterRequest(
-                email: email,
-                username: username,
-                password: password
-            )
-        ).call { _ in
-            // TODO: Implement proper register completion
-            self.error = Error.generalError
+        isLoading = true
+        if let error = await authService.signUp(email: email, password: password) {
+            self.error = error
         }
+        isLoading = false
     }
 }
