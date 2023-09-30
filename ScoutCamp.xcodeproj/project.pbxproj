@@ -7,13 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0D58F22A483A410072EF1F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D58F12A483A410072EF1F /* Error.swift */; };
+		3F0D58F42A4845890072EF1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F0D58F32A4845890072EF1F /* GoogleService-Info.plist */; };
+		3F0D58F72A484BE40072EF1F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3F0D58F62A484BE40072EF1F /* FirebaseAnalytics */; };
+		3F0D58F92A484BE40072EF1F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3F0D58F82A484BE40072EF1F /* FirebaseAuth */; };
+		3F0D58FB2A484BE40072EF1F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3F0D58FA2A484BE40072EF1F /* FirebaseCrashlytics */; };
+		3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */; };
+		3F1E132A2A38F17300CB64FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E13292A38F17300CB64FD /* Preview Assets.xcassets */; };
+		3F1E132F2A38F43900CB64FD /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132C2A38F43900CB64FD /* Podfile.lock */; };
+		3F1E13302A38F43900CB64FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132D2A38F43900CB64FD /* README.md */; };
+		3F1E13312A38F43900CB64FD /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132E2A38F43900CB64FD /* Podfile */; };
+		3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */; };
+		3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E42A39DD6B00E3BC30 /* LoginViewModel.swift */; };
+		3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */; };
+		3F2E55EA2A39DE3500E3BC30 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E92A39DE3500E3BC30 /* LoadingIndicator.swift */; };
+		3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55FD2A3C49B700E3BC30 /* RegisterViewModel.swift */; };
+		3F2E56002A3C4E1500E3BC30 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55FF2A3C4E1500E3BC30 /* Color+Extensions.swift */; };
+		3F2E56042A3C5BE400E3BC30 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56032A3C5BE400E3BC30 /* View+Extensions.swift */; };
+		3F2E56072A3C5FE200E3BC30 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56062A3C5FE200E3BC30 /* ButtonStyles.swift */; };
+		3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */; };
+		3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560A2A3C797F00E3BC30 /* Validation.swift */; };
+		3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */; };
+		3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */; };
+		3F7C59ED2A9C8CAF00AA64AA /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59EC2A9C8CAF00AA64AA /* SettingsScreen.swift */; };
+		3F7C59F02A9C8E1000AA64AA /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59EF2A9C8E1000AA64AA /* SettingsViewModel.swift */; };
 		3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549B2A365E0D00498112 /* ScoutCampApp.swift */; };
 		3FED549E2A365E0D00498112 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549D2A365E0D00498112 /* ContentView.swift */; };
 		3FED54A02A365E0E00498112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FED549F2A365E0E00498112 /* Assets.xcassets */; };
-		3FED54A32A365E0E00498112 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FED54A22A365E0E00498112 /* Preview Assets.xcassets */; };
 		3FED54AD2A365E0E00498112 /* ScoutCampTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED54AC2A365E0E00498112 /* ScoutCampTests.swift */; };
 		3FED54B72A365E0F00498112 /* ScoutCampUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED54B62A365E0F00498112 /* ScoutCampUITests.swift */; };
 		3FED54B92A365E0F00498112 /* ScoutCampUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED54B82A365E0F00498112 /* ScoutCampUITestsLaunchTests.swift */; };
+		3FFFCA7C2A38EB5200481DAE /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFFCA7B2A38EB5200481DAE /* String+Extensions.swift */; };
+		3FFFCA842A38ED8700481DAE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FFFCA862A38ED8700481DAE /* Localizable.strings */; };
+		9AD00DB9B13DD5257A15B64D /* Pods_ScoutCamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5DC73E3745160FE1236FF61 /* Pods_ScoutCamp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,16 +60,43 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15A449AF8D5143BC1313AFEA /* Pods-ScoutCamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoutCamp.debug.xcconfig"; path = "Target Support Files/Pods-ScoutCamp/Pods-ScoutCamp.debug.xcconfig"; sourceTree = "<group>"; };
+		27D79694798C33BFC1BF8B9F /* Pods-ScoutCamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoutCamp.release.xcconfig"; path = "Target Support Files/Pods-ScoutCamp/Pods-ScoutCamp.release.xcconfig"; sourceTree = "<group>"; };
+		3F0D58F12A483A410072EF1F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		3F0D58F32A4845890072EF1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		3F1E13292A38F17300CB64FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3F1E132C2A38F43900CB64FD /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		3F1E132D2A38F43900CB64FD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3F1E132E2A38F43900CB64FD /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		3F2E55E42A39DD6B00E3BC30 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		3F2E55E92A39DE3500E3BC30 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		3F2E55FD2A3C49B700E3BC30 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		3F2E55FF2A3C4E1500E3BC30 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		3F2E56032A3C5BE400E3BC30 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		3F2E56062A3C5FE200E3BC30 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
+		3F2E560A2A3C797F00E3BC30 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryField.swift; sourceTree = "<group>"; };
+		3F6B18632A52CDFD00F3C665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
+		3F7C59EC2A9C8CAF00AA64AA /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		3F7C59EF2A9C8E1000AA64AA /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		3FED54982A365E0D00498112 /* ScoutCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoutCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED549B2A365E0D00498112 /* ScoutCampApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampApp.swift; sourceTree = "<group>"; };
 		3FED549D2A365E0D00498112 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3FED549F2A365E0E00498112 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3FED54A22A365E0E00498112 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3FED54A82A365E0E00498112 /* ScoutCampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoutCampTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED54AC2A365E0E00498112 /* ScoutCampTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampTests.swift; sourceTree = "<group>"; };
 		3FED54B22A365E0F00498112 /* ScoutCampUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoutCampUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED54B62A365E0F00498112 /* ScoutCampUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampUITests.swift; sourceTree = "<group>"; };
 		3FED54B82A365E0F00498112 /* ScoutCampUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3FFFCA7B2A38EB5200481DAE /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		3FFFCA852A38ED8700481DAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3FFFCA872A38EDA100481DAE /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D5DC73E3745160FE1236FF61 /* Pods_ScoutCamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScoutCamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +104,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F0D58F72A484BE40072EF1F /* FirebaseAnalytics in Frameworks */,
+				3F0D58FB2A484BE40072EF1F /* FirebaseCrashlytics in Frameworks */,
+				3F0D58F92A484BE40072EF1F /* FirebaseAuth in Frameworks */,
+				9AD00DB9B13DD5257A15B64D /* Pods_ScoutCamp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,13 +128,171 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F0D58FC2A48BE630072EF1F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3F0D58FD2A48BE6D0072EF1F /* Firebase */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3F0D58FD2A48BE6D0072EF1F /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		3F1E13282A38F17300CB64FD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3F1E13292A38F17300CB64FD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3F1E132B2A38F25100CB64FD /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3FED54AB2A365E0E00498112 /* ScoutCampTests */,
+				3FED54B52A365E0F00498112 /* ScoutCampUITests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		3F1E13332A38F69300CB64FD /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				3F1E13352A38F7D100CB64FD /* Application */,
+				3F0D58FC2A48BE630072EF1F /* Services */,
+				3FFFCA772A38EAE200481DAE /* Features */,
+				3F1E13342A38F69D00CB64FD /* Utils */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		3F1E13342A38F69D00CB64FD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3F2E56052A3C5FD800E3BC30 /* Styles */,
+				3F2E55ED2A39DFAE00E3BC30 /* Widgets */,
+				3F2E55E82A39DE2800E3BC30 /* Helpers */,
+				3FFFCA7A2A38EB0300481DAE /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3F1E13352A38F7D100CB64FD /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3FED549B2A365E0D00498112 /* ScoutCampApp.swift */,
+				3FED549D2A365E0D00498112 /* ContentView.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3F1E13362A38F7FC00CB64FD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3FFFCA862A38ED8700481DAE /* Localizable.strings */,
+				3FED549F2A365E0E00498112 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3F1E13372A39BF3600CB64FD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */,
+				3F2E55E42A39DD6B00E3BC30 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3F286EA82A49A9E000BA00BE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3F7C59EA2A9C8C9300AA64AA /* Settings */,
+				3F286EA92A49A9EA00BA00BE /* Home */,
+				3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3F286EA92A49A9EA00BA00BE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3F2E55E82A39DE2800E3BC30 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3F2E55E92A39DE3500E3BC30 /* LoadingIndicator.swift */,
+				3F2E560A2A3C797F00E3BC30 /* Validation.swift */,
+				3F0D58F12A483A410072EF1F /* Error.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3F2E55ED2A39DFAE00E3BC30 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		3F2E55F02A3C483A00E3BC30 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				3F2E55F12A3C484000E3BC30 /* Register */,
+				3F1E13372A39BF3600CB64FD /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		3F2E55F12A3C484000E3BC30 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */,
+				3F2E55FD2A3C49B700E3BC30 /* RegisterViewModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		3F2E56052A3C5FD800E3BC30 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				3F2E56062A3C5FE200E3BC30 /* ButtonStyles.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		3F7C59EA2A9C8C9300AA64AA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3F7C59EF2A9C8E1000AA64AA /* SettingsViewModel.swift */,
+				3F7C59EC2A9C8CAF00AA64AA /* SettingsScreen.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		3FED548F2A365E0D00498112 = {
 			isa = PBXGroup;
 			children = (
 				3FED549A2A365E0D00498112 /* ScoutCamp */,
-				3FED54AB2A365E0E00498112 /* ScoutCampTests */,
-				3FED54B52A365E0F00498112 /* ScoutCampUITests */,
+				3F1E132B2A38F25100CB64FD /* Tests */,
 				3FED54992A365E0D00498112 /* Products */,
+				E54D8EA202B6EFD451F9C118 /* Pods */,
+				3F0D58F32A4845890072EF1F /* GoogleService-Info.plist */,
+				3F1E132D2A38F43900CB64FD /* README.md */,
+				3F1E132E2A38F43900CB64FD /* Podfile */,
+				3F1E132C2A38F43900CB64FD /* Podfile.lock */,
+				A86CC5EA7B0A916AEF79F284 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,20 +309,12 @@
 		3FED549A2A365E0D00498112 /* ScoutCamp */ = {
 			isa = PBXGroup;
 			children = (
-				3FED549B2A365E0D00498112 /* ScoutCampApp.swift */,
-				3FED549D2A365E0D00498112 /* ContentView.swift */,
-				3FED549F2A365E0E00498112 /* Assets.xcassets */,
-				3FED54A12A365E0E00498112 /* Preview Content */,
+				3F1E13332A38F69300CB64FD /* Code */,
+				3F1E13362A38F7FC00CB64FD /* Resources */,
+				3F1E13282A38F17300CB64FD /* Preview Content */,
+				3F6B18632A52CDFD00F3C665 /* Info.plist */,
 			);
 			path = ScoutCamp;
-			sourceTree = "<group>";
-		};
-		3FED54A12A365E0E00498112 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				3FED54A22A365E0E00498112 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		3FED54AB2A365E0E00498112 /* ScoutCampTests */ = {
@@ -127,6 +334,42 @@
 			path = ScoutCampUITests;
 			sourceTree = "<group>";
 		};
+		3FFFCA772A38EAE200481DAE /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3F286EA82A49A9E000BA00BE /* Main */,
+				3F2E55F02A3C483A00E3BC30 /* Auth */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		3FFFCA7A2A38EB0300481DAE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3FFFCA7B2A38EB5200481DAE /* String+Extensions.swift */,
+				3F2E55FF2A3C4E1500E3BC30 /* Color+Extensions.swift */,
+				3F2E56032A3C5BE400E3BC30 /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A86CC5EA7B0A916AEF79F284 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5DC73E3745160FE1236FF61 /* Pods_ScoutCamp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E54D8EA202B6EFD451F9C118 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15A449AF8D5143BC1313AFEA /* Pods-ScoutCamp.debug.xcconfig */,
+				27D79694798C33BFC1BF8B9F /* Pods-ScoutCamp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,15 +377,22 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FED54BC2A365E0F00498112 /* Build configuration list for PBXNativeTarget "ScoutCamp" */;
 			buildPhases = (
+				AFF5371ABD18A1466196C483 /* [CP] Check Pods Manifest.lock */,
 				3FED54942A365E0D00498112 /* Sources */,
 				3FED54952A365E0D00498112 /* Frameworks */,
 				3FED54962A365E0D00498112 /* Resources */,
+				3F1E13322A38F4CC00CB64FD /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ScoutCamp;
+			packageProductDependencies = (
+				3F0D58F62A484BE40072EF1F /* FirebaseAnalytics */,
+				3F0D58F82A484BE40072EF1F /* FirebaseAuth */,
+				3F0D58FA2A484BE40072EF1F /* FirebaseCrashlytics */,
+			);
 			productName = ScoutCamp;
 			productReference = 3FED54982A365E0D00498112 /* ScoutCamp.app */;
 			productType = "com.apple.product-type.application";
@@ -213,8 +463,12 @@
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
 			mainGroup = 3FED548F2A365E0D00498112;
+			packageReferences = (
+				3F0D58F52A484BE40072EF1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3FED54992A365E0D00498112 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,8 +485,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FED54A32A365E0E00498112 /* Preview Assets.xcassets in Resources */,
+				3F1E13312A38F43900CB64FD /* Podfile in Resources */,
+				3F1E132A2A38F17300CB64FD /* Preview Assets.xcassets in Resources */,
+				3FFFCA842A38ED8700481DAE /* Localizable.strings in Resources */,
+				3F1E13302A38F43900CB64FD /* README.md in Resources */,
+				3F1E132F2A38F43900CB64FD /* Podfile.lock in Resources */,
 				3FED54A02A365E0E00498112 /* Assets.xcassets in Resources */,
+				3F0D58F42A4845890072EF1F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,13 +511,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F1E13322A38F4CC00CB64FD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		AFF5371ABD18A1466196C483 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ScoutCamp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3FED54942A365E0D00498112 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3FED549E2A365E0D00498112 /* ContentView.swift in Sources */,
+				3F2E55EA2A39DE3500E3BC30 /* LoadingIndicator.swift in Sources */,
+				3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */,
+				3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */,
+				3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */,
+				3F7C59F02A9C8E1000AA64AA /* SettingsViewModel.swift in Sources */,
+				3FFFCA7C2A38EB5200481DAE /* String+Extensions.swift in Sources */,
+				3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */,
+				3F0D58F22A483A410072EF1F /* Error.swift in Sources */,
+				3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */,
+				3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */,
+				3F7C59ED2A9C8CAF00AA64AA /* SettingsScreen.swift in Sources */,
+				3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */,
+				3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */,
 				3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */,
+				3F2E56002A3C4E1500E3BC30 /* Color+Extensions.swift in Sources */,
+				3F2E56072A3C5FE200E3BC30 /* ButtonStyles.swift in Sources */,
+				3F2E56042A3C5BE400E3BC30 /* View+Extensions.swift in Sources */,
+				3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,11 +612,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		3FFFCA862A38ED8700481DAE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FFFCA852A38ED8700481DAE /* en */,
+				3FFFCA872A38EDA100481DAE /* pl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		3FED54BA2A365E0F00498112 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -345,7 +676,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -359,6 +690,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -399,7 +731,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -411,19 +743,25 @@
 		};
 		3FED54BD2A365E0F00498112 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15A449AF8D5143BC1313AFEA /* Pods-ScoutCamp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ScoutCamp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ScoutCamp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Scout Camp";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -431,6 +769,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sokol.ScoutCamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -439,19 +780,25 @@
 		};
 		3FED54BE2A365E0F00498112 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27D79694798C33BFC1BF8B9F /* Pods-ScoutCamp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ScoutCamp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ScoutCamp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Scout Camp";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +806,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sokol.ScoutCamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -577,6 +927,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3F0D58F52A484BE40072EF1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F0D58F62A484BE40072EF1F /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F0D58F52A484BE40072EF1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		3F0D58F82A484BE40072EF1F /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F0D58F52A484BE40072EF1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		3F0D58FA2A484BE40072EF1F /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F0D58F52A484BE40072EF1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3FED54902A365E0D00498112 /* Project object */;
 }

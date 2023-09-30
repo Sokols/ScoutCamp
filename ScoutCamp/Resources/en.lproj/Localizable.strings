@@ -1,0 +1,44 @@
+/* 
+  Localizable.strings
+  ScoutCamp
+
+  Created by Igor SOKÓŁ on 13/06/2023.
+  
+*/
+
+/* General */
+"General.AppName" = "Scout Camp";
+"General.Ok" = "OK";
+
+/* Login */
+"Login.EmailField.Title" = "Email";
+"Login.PasswordField.Title" = "Password";
+"Login.LoginButton.Title" = "Sign in";
+"Login.RegisterNav.Title" = "Don't have an account? Sign up";
+
+/* Register */
+"Register.TitleText.Title" = "Registration";
+"Register.EmailField.Title" = "Email";
+"Register.PasswordField.Title" = "Password";
+"Register.ConfirmPasswordField.Title" = "Confirm password";
+"Register.RegisterButton.Title" = "Sign up";
+"Register.LoginNav.Title" = "Already have an account? Sign in";
+
+/* Validation */
+"Validation.Field.CannotBeEmpty" = "Field cannot be empty";
+"Validation.Field.MinCharacters" = "%@ characters minimum";
+"Validation.Email.Invalid" = "Invalid email";
+"Validation.Password.MustMatch" = "Password fields don't match";
+
+/* Errors */
+"Error.GeneralError.Title" = "Error";
+"Error.GeneralError.Message" = "Something went wrong";
+"Error.FailedRegister.Title" = "Register failed";
+"Error.FaieldRegister.Message" = "Please re-check provided data.";
+
+/* Home */
+"Home.Name" = "Home";
+
+/* Settings */
+"Settings.Name" = "Settings";
+"Settings.Logout" = "Log out";
