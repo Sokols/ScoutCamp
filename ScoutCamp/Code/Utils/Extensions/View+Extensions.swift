@@ -22,6 +22,7 @@ extension View {
 
     func errorAlert(error: Binding<Error?>, buttonTitle: String = "General.Ok") -> some View {
         let localizedAlertError = LocalizedAlertError(error: error.wrappedValue)
+        print(localizedAlertError)
         return alert(isPresented: .constant(localizedAlertError != nil), error: localizedAlertError) { _ in
             Button(buttonTitle.localized) {
                 error.wrappedValue = nil

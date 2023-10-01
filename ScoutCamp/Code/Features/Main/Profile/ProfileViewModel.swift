@@ -1,5 +1,5 @@
 //
-//  SettingsViewModel.swift
+//  ProfileViewModel.swift
 //  ScoutCamp
 //
 //  Created by Igor SOKÓŁ on 28/08/2023.
@@ -8,7 +8,7 @@
 import Combine
 
 @MainActor
-class SettingsViewModel: ObservableObject {
+class ProfileViewModel: ObservableObject {
 
     private let authService: AuthService
 

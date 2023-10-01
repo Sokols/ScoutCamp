@@ -13,6 +13,14 @@
 		3F0D58F92A484BE40072EF1F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3F0D58F82A484BE40072EF1F /* FirebaseAuth */; };
 		3F0D58FB2A484BE40072EF1F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3F0D58FA2A484BE40072EF1F /* FirebaseCrashlytics */; };
 		3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */; };
+		3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421CC2AC9A9B400EA364A /* MyTeamsScreen.swift */; };
+		3F1421CF2AC9AA1900EA364A /* MyTeamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421CE2AC9AA1900EA364A /* MyTeamsViewModel.swift */; };
+		3F1421D12AC9AB4500EA364A /* TeamsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421D02AC9AB4500EA364A /* TeamsService.swift */; };
+		3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421D22AC9AB8A00EA364A /* BaseService.swift */; };
+		3F1421D52AC9B09400EA364A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F1421D42AC9B09400EA364A /* FirebaseFirestoreSwift */; };
+		3F1421D82AC9B78300EA364A /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421D72AC9B78300EA364A /* Team.swift */; };
+		3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421DD2ACA084500EA364A /* CreateEditTeamScreen.swift */; };
+		3F1421E12ACA086200EA364A /* CreateEditTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421E02ACA086200EA364A /* CreateEditTeamViewModel.swift */; };
 		3F1E132A2A38F17300CB64FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E13292A38F17300CB64FD /* Preview Assets.xcassets */; };
 		3F1E132F2A38F43900CB64FD /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132C2A38F43900CB64FD /* Podfile.lock */; };
 		3F1E13302A38F43900CB64FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132D2A38F43900CB64FD /* README.md */; };
@@ -28,9 +36,10 @@
 		3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */; };
 		3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560A2A3C797F00E3BC30 /* Validation.swift */; };
 		3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */; };
+		3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F78A0122AC88E7000945FDE /* FirebaseFirestore */; };
+		3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0142AC890F100945FDE /* ProfileViewModel.swift */; };
+		3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0152AC890F100945FDE /* ProfileScreen.swift */; };
 		3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */; };
-		3F7C59ED2A9C8CAF00AA64AA /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59EC2A9C8CAF00AA64AA /* SettingsScreen.swift */; };
-		3F7C59F02A9C8E1000AA64AA /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59EF2A9C8E1000AA64AA /* SettingsViewModel.swift */; };
 		3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549B2A365E0D00498112 /* ScoutCampApp.swift */; };
 		3FED549E2A365E0D00498112 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549D2A365E0D00498112 /* ContentView.swift */; };
 		3FED54A02A365E0E00498112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FED549F2A365E0E00498112 /* Assets.xcassets */; };
@@ -65,6 +74,13 @@
 		3F0D58F12A483A410072EF1F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		3F0D58F32A4845890072EF1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		3F1421CC2AC9A9B400EA364A /* MyTeamsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTeamsScreen.swift; sourceTree = "<group>"; };
+		3F1421CE2AC9AA1900EA364A /* MyTeamsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTeamsViewModel.swift; sourceTree = "<group>"; };
+		3F1421D02AC9AB4500EA364A /* TeamsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsService.swift; sourceTree = "<group>"; };
+		3F1421D22AC9AB8A00EA364A /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		3F1421D72AC9B78300EA364A /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		3F1421DD2ACA084500EA364A /* CreateEditTeamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditTeamScreen.swift; sourceTree = "<group>"; };
+		3F1421E02ACA086200EA364A /* CreateEditTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditTeamViewModel.swift; sourceTree = "<group>"; };
 		3F1E13292A38F17300CB64FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3F1E132C2A38F43900CB64FD /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		3F1E132D2A38F43900CB64FD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -81,9 +97,9 @@
 		3F2E560A2A3C797F00E3BC30 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryField.swift; sourceTree = "<group>"; };
 		3F6B18632A52CDFD00F3C665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F78A0142AC890F100945FDE /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		3F78A0152AC890F100945FDE /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
-		3F7C59EC2A9C8CAF00AA64AA /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
-		3F7C59EF2A9C8E1000AA64AA /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		3FED54982A365E0D00498112 /* ScoutCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoutCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED549B2A365E0D00498112 /* ScoutCampApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampApp.swift; sourceTree = "<group>"; };
 		3FED549D2A365E0D00498112 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,7 +123,9 @@
 				3F0D58F72A484BE40072EF1F /* FirebaseAnalytics in Frameworks */,
 				3F0D58FB2A484BE40072EF1F /* FirebaseCrashlytics in Frameworks */,
 				3F0D58F92A484BE40072EF1F /* FirebaseAuth in Frameworks */,
+				3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */,
 				9AD00DB9B13DD5257A15B64D /* Pods_ScoutCamp.framework in Frameworks */,
+				3F1421D52AC9B09400EA364A /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,17 +149,37 @@
 		3F0D58FC2A48BE630072EF1F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3F0D58FD2A48BE6D0072EF1F /* Firebase */,
+				3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */,
+				3F1421D02AC9AB4500EA364A /* TeamsService.swift */,
+				3F1421D22AC9AB8A00EA364A /* BaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		3F0D58FD2A48BE6D0072EF1F /* Firebase */ = {
+		3F1421CB2AC9A9A500EA364A /* MyTeams */ = {
 			isa = PBXGroup;
 			children = (
-				3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */,
+				3F1421CC2AC9A9B400EA364A /* MyTeamsScreen.swift */,
+				3F1421CE2AC9AA1900EA364A /* MyTeamsViewModel.swift */,
 			);
-			path = Firebase;
+			path = MyTeams;
+			sourceTree = "<group>";
+		};
+		3F1421D62AC9B77800EA364A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F1421D72AC9B78300EA364A /* Team.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3F1421DF2ACA084900EA364A /* CreateEditTeam */ = {
+			isa = PBXGroup;
+			children = (
+				3F1421DD2ACA084500EA364A /* CreateEditTeamScreen.swift */,
+				3F1421E02ACA086200EA364A /* CreateEditTeamViewModel.swift */,
+			);
+			path = CreateEditTeam;
 			sourceTree = "<group>";
 		};
 		3F1E13282A38F17300CB64FD /* Preview Content */ = {
@@ -164,6 +202,7 @@
 		3F1E13332A38F69300CB64FD /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				3F1421D62AC9B77800EA364A /* Models */,
 				3F1E13352A38F7D100CB64FD /* Application */,
 				3F0D58FC2A48BE630072EF1F /* Services */,
 				3FFFCA772A38EAE200481DAE /* Features */,
@@ -213,7 +252,7 @@
 		3F286EA82A49A9E000BA00BE /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				3F7C59EA2A9C8C9300AA64AA /* Settings */,
+				3F7C59EA2A9C8C9300AA64AA /* Profile */,
 				3F286EA92A49A9EA00BA00BE /* Home */,
 				3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */,
 			);
@@ -272,13 +311,15 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
-		3F7C59EA2A9C8C9300AA64AA /* Settings */ = {
+		3F7C59EA2A9C8C9300AA64AA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				3F7C59EF2A9C8E1000AA64AA /* SettingsViewModel.swift */,
-				3F7C59EC2A9C8CAF00AA64AA /* SettingsScreen.swift */,
+				3F1421DF2ACA084900EA364A /* CreateEditTeam */,
+				3F1421CB2AC9A9A500EA364A /* MyTeams */,
+				3F78A0152AC890F100945FDE /* ProfileScreen.swift */,
+				3F78A0142AC890F100945FDE /* ProfileViewModel.swift */,
 			);
-			path = Settings;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		3FED548F2A365E0D00498112 = {
@@ -392,6 +433,8 @@
 				3F0D58F62A484BE40072EF1F /* FirebaseAnalytics */,
 				3F0D58F82A484BE40072EF1F /* FirebaseAuth */,
 				3F0D58FA2A484BE40072EF1F /* FirebaseCrashlytics */,
+				3F78A0122AC88E7000945FDE /* FirebaseFirestore */,
+				3F1421D42AC9B09400EA364A /* FirebaseFirestoreSwift */,
 			);
 			productName = ScoutCamp;
 			productReference = 3FED54982A365E0D00498112 /* ScoutCamp.app */;
@@ -559,23 +602,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FED549E2A365E0D00498112 /* ContentView.swift in Sources */,
+				3F1421CF2AC9AA1900EA364A /* MyTeamsViewModel.swift in Sources */,
 				3F2E55EA2A39DE3500E3BC30 /* LoadingIndicator.swift in Sources */,
+				3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */,
+				3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */,
 				3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */,
+				3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */,
 				3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */,
 				3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */,
-				3F7C59F02A9C8E1000AA64AA /* SettingsViewModel.swift in Sources */,
 				3FFFCA7C2A38EB5200481DAE /* String+Extensions.swift in Sources */,
 				3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */,
 				3F0D58F22A483A410072EF1F /* Error.swift in Sources */,
+				3F1421D82AC9B78300EA364A /* Team.swift in Sources */,
+				3F1421E12ACA086200EA364A /* CreateEditTeamViewModel.swift in Sources */,
 				3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */,
+				3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */,
 				3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */,
-				3F7C59ED2A9C8CAF00AA64AA /* SettingsScreen.swift in Sources */,
 				3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */,
 				3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */,
+				3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */,
 				3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */,
 				3F2E56002A3C4E1500E3BC30 /* Color+Extensions.swift in Sources */,
 				3F2E56072A3C5FE200E3BC30 /* ButtonStyles.swift in Sources */,
 				3F2E56042A3C5BE400E3BC30 /* View+Extensions.swift in Sources */,
+				3F1421D12AC9AB4500EA364A /* TeamsService.swift in Sources */,
 				3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -954,6 +1004,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F0D58F52A484BE40072EF1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		3F1421D42AC9B09400EA364A /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F0D58F52A484BE40072EF1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		3F78A0122AC88E7000945FDE /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F0D58F52A484BE40072EF1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
