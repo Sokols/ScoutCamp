@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainContainer: View {
     @EnvironmentObject private var authService: AuthService
-    
+
     var body: some View {
         TabView {
             HomeScreen()
@@ -20,14 +20,16 @@ struct MainContainer: View {
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
-            Text("Notification")
+            MyTeamsScreen()
                 .tabItem {
-                    Label("Notification", systemImage: "bell")
+                    Label("My Teams", systemImage: "person.2.fill")
                 }
-            SettingsScreen(authService: authService)
-                .tabItem {
-                    Label("Settings.Name".localized, systemImage: "gearshape")
-                }
+            ZStack {
+                ProfileScreen(authService: authService)
+            }
+            .tabItem {
+                Label("Profile.Name".localized, systemImage: "person.crop.circle.fill")
+            }
         }
     }
 }
@@ -35,5 +37,6 @@ struct MainContainer: View {
 struct MainContainer_Previews: PreviewProvider {
     static var previews: some View {
         MainContainer()
+            .environmentObject(AuthService())
     }
 }

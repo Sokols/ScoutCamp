@@ -39,6 +39,6 @@
 /* Home */
 "Home.Name" = "Home";
 
-/* Settings */
-"Settings.Name" = "Settings";
-"Settings.Logout" = "Log out";
+/* Profile */
+"Profile.Name" = "Profile";
+"Profile.Logout" = "Log out";
