@@ -20,9 +20,9 @@ struct MainContainer: View {
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
-            Text("Notification")
+            MyTeamsScreen()
                 .tabItem {
-                    Label("Notification", systemImage: "bell")
+                    Label("My Teams", systemImage: "person.2.fill")
                 }
             ZStack {
                 ProfileScreen(authService: authService)

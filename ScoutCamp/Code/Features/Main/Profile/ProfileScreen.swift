@@ -83,7 +83,6 @@ struct ProfileScreen: View {
     private var optionItems: [OptionItem] {
         [
             OptionItem(title: "Edit profile", navigationScreen: AnyView(Text("Edit profile"))),
-            OptionItem(title: "My teams", navigationScreen: AnyView(MyTeamsScreen())),
             OptionItem(title: "Settings", navigationScreen: AnyView(Text("Settings")))
         ]
     }

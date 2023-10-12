@@ -17,7 +17,8 @@ enum FirebaseCollection: String {
 }
 
 typealias FirebaseModel = Codable
-typealias ResultArray<T : FirebaseModel> = ([T]?, Error?)
+typealias ResultArray<T: FirebaseModel> = ([T]?, Error?)
+typealias ResultObject<T: FirebaseModel> = (T?, Error?)
 
 class BaseService: NSObject {
     func fetch<T: FirebaseModel>(query: Query) async -> ResultArray<T> {
@@ -44,7 +45,7 @@ class BaseService: NSObject {
         }
     }
 
-    //MARK: - Pagination
+    // MARK: - Pagination
 
     func getUserItems<T: FirebaseModel>(
         collection: FirebaseCollection,
@@ -55,7 +56,6 @@ class BaseService: NSObject {
         guard let uid = Auth.auth().currentUser?.uid else {
             return (nil, nil)
         }
-        print("ID: \(uid)")
         return await getItemsForUser(
             paramName: "userId",
             paramValue: uid,
