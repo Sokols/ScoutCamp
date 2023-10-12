@@ -8,18 +8,6 @@
 import SwiftUI
 
 extension View {
-    func withLoginTextFieldStyle() -> some View {
-        return self
-            .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
-            .foregroundColor(.primaryColor)
-            .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .foregroundColor(.white)
-                    .opacity(0.8)
-                    .shadow(radius: 10, y: 10)
-            )
-    }
-
     func errorAlert(error: Binding<Error?>, buttonTitle: String = "General.Ok") -> some View {
         let localizedAlertError = LocalizedAlertError(error: error.wrappedValue)
         return alert(isPresented: .constant(localizedAlertError != nil), error: localizedAlertError) { _ in
@@ -28,6 +16,19 @@ extension View {
             }
         } message: { error in
             Text(error.recoverySuggestion?.localized ?? "")
+        }
+    }
+
+    /// Applies the given transform if the given condition evaluates to `true`.
+    /// - Parameters:
+    ///   - condition: The condition to evaluate.
+    ///   - transform: The transform to apply to the source `View`.
+    /// - Returns: Either the original `View` or the modified `View` if the condition is `true`.
+    @ViewBuilder func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+        if condition {
+            transform(self)
+        } else {
+            self
         }
     }
 }

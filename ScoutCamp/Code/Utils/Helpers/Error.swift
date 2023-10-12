@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias CheckCompletion = (_ isSuccess: Bool, _ error: Error?) -> Void
-
 enum AppError: LocalizedError {
     case generalError
 
