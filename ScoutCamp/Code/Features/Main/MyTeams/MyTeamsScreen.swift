@@ -38,7 +38,6 @@ struct MyTeamsScreen: View {
                         .listRowSeparator(.hidden)
                     }
                     .listStyle(PlainListStyle())
-                    
                     .padding(.vertical)
                 }
 

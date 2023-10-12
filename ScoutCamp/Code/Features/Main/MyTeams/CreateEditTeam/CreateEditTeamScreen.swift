@@ -10,6 +10,7 @@ import SwiftUI
 struct CreateEditTeamScreen: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject private var viewModel: CreateEditTeamViewModel
+    @State private var showDeleteTeamAlert = false
 
     init(teamToEdit: Team?) {
         _viewModel = StateObject(
@@ -45,36 +46,81 @@ struct CreateEditTeamScreen: View {
                 field: $viewModel.name
             )
 
-            Button(viewModel.isEditFlow ? "Save" : "Create") {
-                Task { await viewModel.save() }
+            Button(viewModel.isEditFlow ? "Save" : "Create", action: saveTeam)
+                .disabled(!viewModel.isActionAvailable)
+                .buttonStyle(MainActionButton(isDisabled: !viewModel.isActionAvailable))
+
+            if viewModel.isEditFlow {
+                Button(action: onDeleteTeamClicked) {
+                    Text("Delete Team")
+                        .underline()
+                        .padding(.top)
+                }
             }
-            .disabled(!viewModel.isActionAvailable)
-            .buttonStyle(MainActionButton(isDisabled: !viewModel.isActionAvailable))
         }
         .padding()
         .errorAlert(error: $viewModel.error)
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
-        .padding()
         .onAppear {
-            Task {
-                await viewModel.fetchRegiments()
-            }
+            fetchRegiments()
         }
         .onChange(of: viewModel.selectedRegiment) { _ in
-            Task {
-                await viewModel.fetchTroops()
-            }
+            fetchTroops()
         }
-        .onChange(of: viewModel.newUpdatedTeam) { newValue in
-            if newValue != nil {
-                self.presentationMode.wrappedValue.dismiss()
-            }
+        .onChange(of: viewModel.newUpdatedTeam) { _ in
+            self.presentationMode.wrappedValue.dismiss()
+        }
+        .alert("Are you sure?", isPresented: $showDeleteTeamAlert) {
+            Button("Yes", action: deleteTeam)
+            Button("Cancel", role: .cancel) { showDeleteTeamAlert = false }
+        } message: {
+            Text("This action cannot be undone.")
+        }
+    }
+
+    // MARK: - Actions
+
+    private func onDeleteTeamClicked() {
+        showDeleteTeamAlert = true
+    }
+
+    // MARK: - Data operations
+
+    private func saveTeam() {
+        Task {
+            await viewModel.save()
+        }
+    }
+
+    private func fetchRegiments() {
+        Task {
+            await viewModel.fetchRegiments()
+        }
+    }
+
+    private func fetchTroops() {
+        Task {
+            await viewModel.fetchTroops()
+        }
+    }
+
+    private func deleteTeam() {
+        Task {
+            await viewModel.deleteTeam()
         }
     }
 }
 
 struct CreateEditTeamScreen_Previews: PreviewProvider {
     static var previews: some View {
-        CreateEditTeamScreen(teamToEdit: nil)
+        let team = Team(
+            id: "",
+            userId: "",
+            troopId: "",
+            regimentId: "",
+            name: "Team name",
+            createdAt: .now
+        )
+        CreateEditTeamScreen(teamToEdit: team)
     }
 }

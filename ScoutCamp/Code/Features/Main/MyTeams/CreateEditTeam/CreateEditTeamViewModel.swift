@@ -90,6 +90,19 @@ class CreateEditTeamViewModel: ObservableObject {
 
     // MARK: - Team operations
 
+    @MainActor
+    func deleteTeam() async {
+        guard let team = teamToEdit else { return }
+        isLoading = true
+        let error = await teamsService.deleteTeam(teamId: team.id)
+        isLoading = false
+        if let error {
+            self.error = error
+        } else {
+            self.newUpdatedTeam = nil
+        }
+    }
+
     func save() async {
         if isEditFlow {
             await updateTeam()
