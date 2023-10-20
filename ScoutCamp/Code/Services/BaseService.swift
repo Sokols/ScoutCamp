@@ -11,9 +11,19 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 enum FirebaseCollection: String {
+    case categories
+    case categorizationPeriods
+    case categorizationSheetTasks
+    case categorizationSheets
+    case categorizationTasks
     case regiments
-    case troops
+    case sheetTypes
+    case taskCategories
+    case taskCategorizationSheetTasks
+    case taskCategorizationSheets
     case teams
+    case troops
+    case users
 }
 
 typealias FirebaseModel = Codable

@@ -36,12 +36,24 @@
 		3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */; };
 		3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560A2A3C797F00E3BC30 /* Validation.swift */; };
 		3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */; };
+		3F38141F2AE29BBB00B4C0E3 /* BaseDictionaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38141E2AE29BBB00B4C0E3 /* BaseDictionaryModel.swift */; };
+		3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */; };
+		3F4F65802ADE78DA003B2F0A /* CategorizationSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */; };
 		3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F78A0122AC88E7000945FDE /* FirebaseFirestore */; };
 		3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0142AC890F100945FDE /* ProfileViewModel.swift */; };
 		3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0152AC890F100945FDE /* ProfileScreen.swift */; };
 		3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */; };
 		3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4132AD41AEF000E455F /* DropdownField.swift */; };
 		3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */; };
+		3FE3A42C2ADD50F3000E455F /* CategorizationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42B2ADD50F3000E455F /* CategorizationTask.swift */; };
+		3FE3A42E2ADD5252000E455F /* TaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42D2ADD5252000E455F /* TaskCategory.swift */; };
+		3FE3A4302ADD52B4000E455F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42F2ADD52B4000E455F /* Category.swift */; };
+		3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */; };
+		3FE3A4342ADD5BF7000E455F /* CategorizationTasksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4332ADD5BF7000E455F /* CategorizationTasksService.swift */; };
+		3FE3A4362ADD5C4E000E455F /* TaskCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4352ADD5C4E000E455F /* TaskCategoriesService.swift */; };
+		3FE3A43B2ADD5FC6000E455F /* CategorizationHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */; };
+		3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */; };
+		3FE3A43F2ADD60BA000E455F /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */; };
 		3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549B2A365E0D00498112 /* ScoutCampApp.swift */; };
 		3FED549E2A365E0D00498112 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549D2A365E0D00498112 /* ContentView.swift */; };
 		3FED54A02A365E0E00498112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FED549F2A365E0E00498112 /* Assets.xcassets */; };
@@ -98,12 +110,24 @@
 		3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		3F2E560A2A3C797F00E3BC30 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryField.swift; sourceTree = "<group>"; };
+		3F38141E2AE29BBB00B4C0E3 /* BaseDictionaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDictionaryModel.swift; sourceTree = "<group>"; };
+		3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetScreen.swift; sourceTree = "<group>"; };
+		3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetViewModel.swift; sourceTree = "<group>"; };
 		3F6B18632A52CDFD00F3C665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F78A0142AC890F100945FDE /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3F78A0152AC890F100945FDE /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
 		3FE3A4132AD41AEF000E455F /* DropdownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownField.swift; sourceTree = "<group>"; };
 		3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
+		3FE3A42B2ADD50F3000E455F /* CategorizationTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationTask.swift; sourceTree = "<group>"; };
+		3FE3A42D2ADD5252000E455F /* TaskCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCategory.swift; sourceTree = "<group>"; };
+		3FE3A42F2ADD52B4000E455F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
+		3FE3A4332ADD5BF7000E455F /* CategorizationTasksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationTasksService.swift; sourceTree = "<group>"; };
+		3FE3A4352ADD5C4E000E455F /* TaskCategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCategoriesService.swift; sourceTree = "<group>"; };
+		3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationHomeScreen.swift; sourceTree = "<group>"; };
+		3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationHomeViewModel.swift; sourceTree = "<group>"; };
+		3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		3FED54982A365E0D00498112 /* ScoutCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoutCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED549B2A365E0D00498112 /* ScoutCampApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampApp.swift; sourceTree = "<group>"; };
 		3FED549D2A365E0D00498112 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -154,8 +178,11 @@
 			isa = PBXGroup;
 			children = (
 				3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */,
-				3F1421D02AC9AB4500EA364A /* TeamsService.swift */,
 				3F1421D22AC9AB8A00EA364A /* BaseService.swift */,
+				3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */,
+				3FE3A4332ADD5BF7000E455F /* CategorizationTasksService.swift */,
+				3FE3A4352ADD5C4E000E455F /* TaskCategoriesService.swift */,
+				3F1421D02AC9AB4500EA364A /* TeamsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -173,6 +200,10 @@
 		3F1421D62AC9B77800EA364A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3F38141E2AE29BBB00B4C0E3 /* BaseDictionaryModel.swift */,
+				3FE3A42F2ADD52B4000E455F /* Category.swift */,
+				3FE3A42B2ADD50F3000E455F /* CategorizationTask.swift */,
+				3FE3A42D2ADD5252000E455F /* TaskCategory.swift */,
 				3F1421D72AC9B78300EA364A /* Team.swift */,
 			);
 			path = Models;
@@ -257,6 +288,7 @@
 		3F286EA82A49A9E000BA00BE /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3FE3A4372ADD5F86000E455F /* Categorization */,
 				3F1421CB2AC9A9A500EA364A /* MyTeams */,
 				3F7C59EA2A9C8C9300AA64AA /* Profile */,
 				3F286EA92A49A9EA00BA00BE /* Home */,
@@ -288,6 +320,7 @@
 			children = (
 				3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */,
 				3FE3A4132AD41AEF000E455F /* DropdownField.swift */,
+				3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -319,6 +352,15 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
+		3F4F657C2ADE782C003B2F0A /* CategorizationSheet */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */,
+				3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */,
+			);
+			path = CategorizationSheet;
+			sourceTree = "<group>";
+		};
 		3F7C59EA2A9C8C9300AA64AA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +368,16 @@
 				3F78A0142AC890F100945FDE /* ProfileViewModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		3FE3A4372ADD5F86000E455F /* Categorization */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F657C2ADE782C003B2F0A /* CategorizationSheet */,
+				3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */,
+				3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */,
+			);
+			path = Categorization;
 			sourceTree = "<group>";
 		};
 		3FED548F2A365E0D00498112 = {
@@ -607,32 +659,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FE3A42E2ADD5252000E455F /* TaskCategory.swift in Sources */,
+				3FE3A42C2ADD50F3000E455F /* CategorizationTask.swift in Sources */,
 				3FED549E2A365E0D00498112 /* ContentView.swift in Sources */,
+				3FE3A4302ADD52B4000E455F /* Category.swift in Sources */,
+				3FE3A43B2ADD5FC6000E455F /* CategorizationHomeScreen.swift in Sources */,
 				3F1421CF2AC9AA1900EA364A /* MyTeamsViewModel.swift in Sources */,
 				3F2E55EA2A39DE3500E3BC30 /* LoadingIndicator.swift in Sources */,
+				3FE3A4362ADD5C4E000E455F /* TaskCategoriesService.swift in Sources */,
 				3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */,
+				3FE3A4342ADD5BF7000E455F /* CategorizationTasksService.swift in Sources */,
 				3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */,
 				3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */,
+				3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */,
 				3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */,
 				3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */,
 				3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */,
+				3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */,
 				3FFFCA7C2A38EB5200481DAE /* String+Extensions.swift in Sources */,
 				3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */,
 				3F0D58F22A483A410072EF1F /* Error.swift in Sources */,
 				3F1421D82AC9B78300EA364A /* Team.swift in Sources */,
 				3F1421E12ACA086200EA364A /* CreateEditTeamViewModel.swift in Sources */,
+				3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */,
 				3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */,
+				3F4F65802ADE78DA003B2F0A /* CategorizationSheetViewModel.swift in Sources */,
 				3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */,
 				3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */,
 				3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */,
 				3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */,
 				3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */,
+				3F38141F2AE29BBB00B4C0E3 /* BaseDictionaryModel.swift in Sources */,
 				3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */,
 				3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */,
 				3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */,
 				3F2E56002A3C4E1500E3BC30 /* Color+Extensions.swift in Sources */,
 				3F2E56072A3C5FE200E3BC30 /* ButtonStyles.swift in Sources */,
 				3F2E56042A3C5BE400E3BC30 /* View+Extensions.swift in Sources */,
+				3FE3A43F2ADD60BA000E455F /* FloatingActionButton.swift in Sources */,
 				3F1421D12AC9AB4500EA364A /* TeamsService.swift in Sources */,
 				3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */,
 			);

@@ -47,13 +47,7 @@ struct MyTeamsScreen: View {
             .padding()
 
             NavigationLink(destination: CreateEditTeamScreen(teamToEdit: nil)) {
-                Image(systemName: "plus")
-                    .font(.title.weight(.semibold))
-                    .padding()
-                    .background(Color.secondaryColor)
-                    .foregroundColor(.white)
-                    .clipShape(Circle())
-                    .shadow(radius: 4, x: 0, y: 4)
+                FloatingActionButton()
             }
         }
         .padding()

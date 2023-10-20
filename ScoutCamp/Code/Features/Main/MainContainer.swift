@@ -16,9 +16,9 @@ struct MainContainer: View {
                 .tabItem {
                     Label("Home.Name".localized, systemImage: "house")
                 }
-            Text("Search")
+            CategorizationHomeScreen()
                 .tabItem {
-                    Label("Search", systemImage: "magnifyingglass")
+                    Label("Categorization", systemImage: "doc.on.doc")
                 }
             MyTeamsScreen()
                 .tabItem {
