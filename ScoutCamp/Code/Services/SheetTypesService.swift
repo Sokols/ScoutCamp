@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+protocol SheetTypesServiceProtocol {
+    func getSheetTypes() async -> ResultArray<SheetType>
+}
+
+class SheetTypesService: BaseService, SheetTypesServiceProtocol {
+    func getSheetTypes() async -> ResultArray<SheetType> {
+        await getAll(collection: .sheetTypes)
+    }
+}

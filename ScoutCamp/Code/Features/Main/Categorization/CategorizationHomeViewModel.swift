@@ -26,6 +26,10 @@ class CategorizationHomeViewModel: ObservableObject {
         selectedTeam = option
     }
 
+    func getTeam() -> Team? {
+        return userTeams.first(where: {$0.id == selectedTeam?.key})
+    }
+
     func fetchMyTeams() async {
         isLoading = true
         let result = await teamsService.getUserTeams()

@@ -36,8 +36,10 @@ struct CategorizationHomeScreen: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
 
-            NavigationLink(destination: CategorizationSheetScreen()) {
-                FloatingActionButton()
+            if let team = viewModel.getTeam() {
+                NavigationLink(destination: CategorizationSheetScreen(team: team)) {
+                    FloatingActionButton()
+                }
             }
         }
         .padding()

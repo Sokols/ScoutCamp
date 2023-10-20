@@ -19,8 +19,8 @@ enum FirebaseCollection: String {
     case regiments
     case sheetTypes
     case taskCategories
-    case taskCategorizationSheetTasks
-    case taskCategorizationSheets
+    case teamCategorizationSheetTasks
+    case teamCategorizationSheets
     case teams
     case troops
     case users

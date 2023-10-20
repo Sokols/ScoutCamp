@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct SheetType: FirebaseDictionary {
+    var id: String
+    var name: String
+}

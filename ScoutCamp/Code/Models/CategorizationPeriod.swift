@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct CategorizationPeriod: FirebaseDictionary {
+    var id: String
+    var name: String
+}
