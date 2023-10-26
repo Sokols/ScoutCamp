@@ -13,12 +13,13 @@ struct TeamCategorizationSheet: FirebaseModel, Identifiable, Equatable, Hashable
 
     let categorizationSheetId: String
     let teamId: String
+    let categoryId: String?
 
     let points: Int
     let isDraft: Bool
 
     let createdAt: Date
-    let upatedAt: Date
+    let updatedAt: Date
 }
 
 extension TeamCategorizationSheet {
@@ -27,10 +28,11 @@ extension TeamCategorizationSheet {
             "id": id,
             "categorizationSheetId": categorizationSheetId,
             "teamId": teamId,
+            "categoryId": categoryId,
             "points": points,
             "isDraft": isDraft,
             "createdAt": createdAt,
-            "upatedAt": upatedAt
+            "updatedAt": updatedAt
         ]
 
         return map.compactMapValues { $0 }

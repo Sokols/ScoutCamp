@@ -28,7 +28,7 @@
 		3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */; };
 		3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E42A39DD6B00E3BC30 /* LoginViewModel.swift */; };
 		3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */; };
-		3F2E55EA2A39DE3500E3BC30 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E92A39DE3500E3BC30 /* LoadingIndicator.swift */; };
+		3F2E55EA2A39DE3500E3BC30 /* ActivityIndicatorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E92A39DE3500E3BC30 /* ActivityIndicatorModifier.swift */; };
 		3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55FD2A3C49B700E3BC30 /* RegisterViewModel.swift */; };
 		3F2E56002A3C4E1500E3BC30 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55FF2A3C4E1500E3BC30 /* Color+Extensions.swift */; };
 		3F2E56042A3C5BE400E3BC30 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56032A3C5BE400E3BC30 /* View+Extensions.swift */; };
@@ -49,13 +49,16 @@
 		3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetTask.swift */; };
 		3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift */; };
 		3F3814372AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */; };
-		3F3814392AE2A6C400B4C0E3 /* TeamCategoriationSheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814382AE2A6C400B4C0E3 /* TeamCategoriationSheetsService.swift */; };
+		3F3814392AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */; };
 		3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */; };
 		3F4F65802ADE78DA003B2F0A /* CategorizationSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */; };
+		3F5438442AE7E05500C9AEB8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5438432AE7E05500C9AEB8 /* HomeViewModel.swift */; };
+		3F54384C2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F54384B2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift */; };
 		3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F78A0122AC88E7000945FDE /* FirebaseFirestore */; };
 		3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0142AC890F100945FDE /* ProfileViewModel.swift */; };
 		3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0152AC890F100945FDE /* ProfileScreen.swift */; };
 		3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */; };
+		3FDF9A3F2AE6E2A300F5F111 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */; };
 		3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4132AD41AEF000E455F /* DropdownField.swift */; };
 		3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */; };
 		3FE3A42C2ADD50F3000E455F /* CategorizationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42B2ADD50F3000E455F /* CategorizationTask.swift */; };
@@ -114,7 +117,7 @@
 		3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		3F2E55E42A39DD6B00E3BC30 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
-		3F2E55E92A39DE3500E3BC30 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		3F2E55E92A39DE3500E3BC30 /* ActivityIndicatorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorModifier.swift; sourceTree = "<group>"; };
 		3F2E55FD2A3C49B700E3BC30 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		3F2E55FF2A3C4E1500E3BC30 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		3F2E56032A3C5BE400E3BC30 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
@@ -135,13 +138,16 @@
 		3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetTask.swift; sourceTree = "<group>"; };
 		3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetTasksService.swift; sourceTree = "<group>"; };
 		3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheet.swift; sourceTree = "<group>"; };
-		3F3814382AE2A6C400B4C0E3 /* TeamCategoriationSheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategoriationSheetsService.swift; sourceTree = "<group>"; };
+		3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetsService.swift; sourceTree = "<group>"; };
 		3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetScreen.swift; sourceTree = "<group>"; };
 		3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetViewModel.swift; sourceTree = "<group>"; };
+		3F5438432AE7E05500C9AEB8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		3F54384B2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetItemView.swift; sourceTree = "<group>"; };
 		3F6B18632A52CDFD00F3C665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F78A0142AC890F100945FDE /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3F78A0152AC890F100945FDE /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
+		3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		3FE3A4132AD41AEF000E455F /* DropdownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownField.swift; sourceTree = "<group>"; };
 		3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
 		3FE3A42B2ADD50F3000E455F /* CategorizationTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationTask.swift; sourceTree = "<group>"; };
@@ -201,8 +207,8 @@
 		3F0D58FC2A48BE630072EF1F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */,
 				3F1421D22AC9AB8A00EA364A /* BaseService.swift */,
+				3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */,
 				3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */,
 				3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */,
 				3F38142C2AE2A15900B4C0E3 /* CategorizationSheetsService.swift */,
@@ -212,7 +218,7 @@
 				3FE3A4352ADD5C4E000E455F /* TaskCategoriesService.swift */,
 				3F1421D02AC9AB4500EA364A /* TeamsService.swift */,
 				3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift */,
-				3F3814382AE2A6C400B4C0E3 /* TeamCategoriationSheetsService.swift */,
+				3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 		3F1E13342A38F69D00CB64FD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3FDF9A3D2AE6E29500F5F111 /* Modifiers */,
 				3F2E56052A3C5FD800E3BC30 /* Styles */,
 				3F2E55ED2A39DFAE00E3BC30 /* Widgets */,
 				3F2E55E82A39DE2800E3BC30 /* Helpers */,
@@ -337,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */,
+				3F5438432AE7E05500C9AEB8 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -344,7 +352,6 @@
 		3F2E55E82A39DE2800E3BC30 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3F2E55E92A39DE3500E3BC30 /* LoadingIndicator.swift */,
 				3F2E560A2A3C797F00E3BC30 /* Validation.swift */,
 				3F0D58F12A483A410072EF1F /* Error.swift */,
 			);
@@ -397,6 +404,14 @@
 			path = CategorizationSheet;
 			sourceTree = "<group>";
 		};
+		3F54384A2AEA8E8500C9AEB8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F54384B2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3F7C59EA2A9C8C9300AA64AA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,9 +421,19 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		3FDF9A3D2AE6E29500F5F111 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				3F2E55E92A39DE3500E3BC30 /* ActivityIndicatorModifier.swift */,
+				3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		3FE3A4372ADD5F86000E455F /* Categorization */ = {
 			isa = PBXGroup;
 			children = (
+				3F54384A2AEA8E8500C9AEB8 /* Views */,
 				3F4F657C2ADE782C003B2F0A /* CategorizationSheet */,
 				3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */,
 				3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */,
@@ -696,12 +721,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE3A42E2ADD5252000E455F /* TaskCategory.swift in Sources */,
+				3FDF9A3F2AE6E2A300F5F111 /* ViewDidLoadModifier.swift in Sources */,
 				3F3814312AE2A4CA00B4C0E3 /* SheetTypesService.swift in Sources */,
 				3FE3A42C2ADD50F3000E455F /* CategorizationTask.swift in Sources */,
 				3FED549E2A365E0D00498112 /* ContentView.swift in Sources */,
+				3F54384C2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift in Sources */,
 				3FE3A43B2ADD5FC6000E455F /* CategorizationHomeScreen.swift in Sources */,
 				3F1421CF2AC9AA1900EA364A /* MyTeamsViewModel.swift in Sources */,
-				3F2E55EA2A39DE3500E3BC30 /* LoadingIndicator.swift in Sources */,
+				3F2E55EA2A39DE3500E3BC30 /* ActivityIndicatorModifier.swift in Sources */,
 				3FE3A4362ADD5C4E000E455F /* TaskCategoriesService.swift in Sources */,
 				3F3814272AE29F3200B4C0E3 /* CategorizationSheetTask.swift in Sources */,
 				3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */,
@@ -731,7 +758,8 @@
 				3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */,
 				3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */,
 				3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */,
-				3F3814392AE2A6C400B4C0E3 /* TeamCategoriationSheetsService.swift in Sources */,
+				3F5438442AE7E05500C9AEB8 /* HomeViewModel.swift in Sources */,
+				3F3814392AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift in Sources */,
 				3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */,
 				3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */,
 				3F3814372AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift in Sources */,

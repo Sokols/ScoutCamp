@@ -10,17 +10,21 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 
 protocol CategorizationSheetsServiceProtocol {
-    func getCategorizationSheet(for periodId: String, sheetTypeId: String) async -> ResultObject<CategorizationSheet>
+    func getCategorizationSheets() async -> ResultArray<CategorizationSheet>
 }
 
 class CategorizationSheetsService: BaseService, CategorizationSheetsServiceProtocol {
-    func getCategorizationSheet(for periodId: String, sheetTypeId: String) async -> ResultObject<CategorizationSheet> {
-        let query = Firestore.firestore()
-            .collection(FirebaseCollection.categorizationSheets.rawValue)
-            .whereField("periodId", isEqualTo: periodId)
-            .whereField("sheetTypeId", isEqualTo: sheetTypeId)
+    private(set) static var categorizationSheets: [CategorizationSheet] = []
 
-        let response: ResultArray<CategorizationSheet> = await fetch(query: query)
-        return (response.0?.first, response.1)
+    static func categorizationSheetFor(id: String?) -> CategorizationSheet? {
+        return CategorizationSheetsService.categorizationSheets.first { $0.id == id }
+    }
+
+    func getCategorizationSheets() async -> ResultArray<CategorizationSheet> {
+        let result: ResultArray<CategorizationSheet> = await getAll(collection: .categorizationSheets)
+        result.0?.forEach { period in
+            CategorizationSheetsService.categorizationSheets.append(period)
+        }
+        return result
     }
 }

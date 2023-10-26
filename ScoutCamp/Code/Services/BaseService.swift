@@ -30,12 +30,12 @@ typealias FirebaseModel = Codable
 typealias ResultArray<T: FirebaseModel> = ([T]?, Error?)
 typealias ResultObject<T: FirebaseModel> = (T?, Error?)
 
-class BaseService: NSObject {
+class BaseService: ObservableObject {
     func fetch<T: FirebaseModel>(query: Query) async -> ResultArray<T> {
         do {
             let snapshot = try await query.getDocuments()
-            let data = snapshot.documents.compactMap { (doc) -> T? in
-                return try? doc.data(as: T.self)
+            let data = try snapshot.documents.compactMap { (doc) -> T? in
+                return try doc.data(as: T.self)
             }
             return (data, nil)
         } catch {
@@ -46,8 +46,8 @@ class BaseService: NSObject {
     func getAll<T: FirebaseModel>(collection: FirebaseCollection) async -> ResultArray<T> {
         do {
             let snapshot = try await Firestore.firestore().collection(collection.rawValue).getDocuments()
-            let data = snapshot.documents.compactMap { (doc) -> T? in
-                return try? doc.data(as: T.self)
+            let data = try snapshot.documents.compactMap { (doc) -> T? in
+                return try doc.data(as: T.self)
             }
             return (data, nil)
         } catch {
@@ -96,8 +96,8 @@ class BaseService: NSObject {
         }
         do {
             let snapshot = try await query.getDocuments()
-            let data = snapshot.documents.compactMap { (doc) -> T? in
-                return try? doc.data(as: T.self)
+            let data = try snapshot.documents.compactMap { (doc) -> T? in
+                return try doc.data(as: T.self)
             }
             return (data, nil)
         } catch {

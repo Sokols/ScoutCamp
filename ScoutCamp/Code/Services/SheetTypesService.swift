@@ -12,7 +12,17 @@ protocol SheetTypesServiceProtocol {
 }
 
 class SheetTypesService: BaseService, SheetTypesServiceProtocol {
+    private(set) static var sheetTypes: [SheetType] = []
+
+    static func sheetTypeFor(id: String?) -> String {
+        return SheetTypesService.sheetTypes.first { $0.id == id }?.name ?? "-"
+    }
+
     func getSheetTypes() async -> ResultArray<SheetType> {
-        await getAll(collection: .sheetTypes)
+        let result: ResultArray<SheetType> = await getAll(collection: .sheetTypes)
+        result.0?.forEach { sheetType in
+            SheetTypesService.sheetTypes.append(sheetType)
+        }
+        return result
     }
 }

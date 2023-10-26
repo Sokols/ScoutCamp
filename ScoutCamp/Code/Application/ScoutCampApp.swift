@@ -21,12 +21,33 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct ScoutCampApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     @StateObject private var authService = AuthService()
+    @StateObject private var categoriesService = CategoriesService()
+    @StateObject private var categorizationPeriodsService = CategorizationPeriodsService()
+    @StateObject private var categorizationSheetsService = CategorizationSheetsService()
+    @StateObject private var categorizationSheetTasksService = CategorizationSheetTasksService()
+    @StateObject private var categorizationTasksService = CategorizationTasksService()
+    @StateObject private var sheetTypesService = SheetTypesService()
+    @StateObject private var taskCategoriesService = TaskCategoriesService()
+    @StateObject private var teamsService = TeamsService()
+    @StateObject private var teamCategorizationSheetsService = TeamCategorizationSheetsService()
+    @StateObject private var teeamCategorizationSheetTasksService = TeamCategorizationSheetTasksService()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(authService)
+                .environmentObject(categoriesService)
+                .environmentObject(categorizationPeriodsService)
+                .environmentObject(categorizationSheetsService)
+                .environmentObject(categorizationSheetTasksService)
+                .environmentObject(categorizationTasksService)
+                .environmentObject(sheetTypesService)
+                .environmentObject(taskCategoriesService)
+                .environmentObject(teamsService)
+                .environmentObject(teamCategorizationSheetsService)
+                .environmentObject(teeamCategorizationSheetTasksService)
         }
     }
 }

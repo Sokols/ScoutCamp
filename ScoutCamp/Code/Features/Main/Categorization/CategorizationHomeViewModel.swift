@@ -11,16 +11,24 @@ import Combine
 class CategorizationHomeViewModel: ObservableObject {
 
     private let teamsService: TeamServiceProtocol
+    private let teamSheetsService: TeamCategorizationSheetsServiceProtocol
 
     @Published var userTeams: [Team] = []
+    @Published var teamSheets: [TeamCategorizationSheet] = []
     @Published var error: Error?
     @Published var isLoading = false
 
     @Published var selectedTeam: DropdownOption?
 
-    init(teamsService: TeamServiceProtocol) {
+    init(
+        teamsService: TeamServiceProtocol,
+        teamSheetsService: TeamCategorizationSheetsServiceProtocol
+    ) {
         self.teamsService = teamsService
+        self.teamSheetsService = teamSheetsService
     }
+
+    // MARK: - Public methods
 
     func selectTeam(option: DropdownOption) {
         selectedTeam = option
@@ -28,6 +36,18 @@ class CategorizationHomeViewModel: ObservableObject {
 
     func getTeam() -> Team? {
         return userTeams.first(where: {$0.id == selectedTeam?.key})
+    }
+
+    func fetchMySheets() async {
+        guard let teamId = getTeam()?.id else { return }
+        isLoading = true
+        let result = await teamSheetsService.getTeamCategorizationSheets(for: teamId)
+        isLoading = false
+        if let error = result.1 {
+            self.error = error
+        } else if let sheets = result.0 {
+            self.teamSheets = sheets
+        }
     }
 
     func fetchMyTeams() async {

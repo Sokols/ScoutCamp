@@ -27,8 +27,7 @@ struct CategorizationSheetScreen_Previews: PreviewProvider {
         userId: "",
         troopId: "",
         regimentId: "",
-        name: "Test team",
-        createdAt: .now
+        name: "Test team"
     )
     
     static var previews: some View {

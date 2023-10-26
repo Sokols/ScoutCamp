@@ -10,18 +10,21 @@ import SwiftUI
 struct CategorizationHomeScreen: View {
     @StateObject private var viewModel: CategorizationHomeViewModel
 
-    init() {
+    init(
+        teamsService: TeamServiceProtocol,
+        teamSheetsService: TeamCategorizationSheetsServiceProtocol
+    ) {
         _viewModel = StateObject(
-            wrappedValue: CategorizationHomeViewModel(teamsService: TeamsService())
+            wrappedValue: CategorizationHomeViewModel(
+                teamsService: teamsService,
+                teamSheetsService: teamSheetsService
+            )
         )
     }
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            VStack(spacing: 24) {
-                Text("My sheets")
-                    .font(.largeTitle)
-
+            VStack(alignment: .leading) {
                 DropdownField(
                     title: "Current team",
                     placeholder: "Select team",
@@ -31,10 +34,30 @@ struct CategorizationHomeScreen: View {
                 )
                 .zIndex(1)
 
+                Text("My sheets")
+                    .font(.title)
+                    .padding(.vertical)
+
+                Group {
+                    if viewModel.teamSheets.isEmpty {
+                        Text("This team doesn't have any categorization sheets yet. Try to fill one!")
+                            .multilineTextAlignment(.center)
+                    } else {
+                        List {
+                            ForEach(viewModel.teamSheets, id: \.self) { item in
+                                CategorizationSheetItemView(item: item)
+                            }
+                            .listRowSeparator(.hidden)
+                            .listRowInsets(EdgeInsets())
+                        }
+                        .listStyle(PlainListStyle())
+                    }
+                }
+                .padding(.vertical)
+
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding()
 
             if let team = viewModel.getTeam() {
                 NavigationLink(destination: CategorizationSheetScreen(team: team)) {
@@ -45,9 +68,17 @@ struct CategorizationHomeScreen: View {
         .padding()
         .errorAlert(error: $viewModel.error)
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
-        .onAppear {
+        .onLoad {
             Task {
                 await viewModel.fetchMyTeams()
+            }
+            Task {
+                await viewModel.fetchMySheets()
+            }
+        }
+        .onChange(of: viewModel.selectedTeam) { _ in
+            Task {
+                await viewModel.fetchMySheets()
             }
         }
     }
@@ -55,6 +86,9 @@ struct CategorizationHomeScreen: View {
 
 struct CategorizationHomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        CategorizationHomeScreen()
+        CategorizationHomeScreen(
+            teamsService: TeamsService(),
+            teamSheetsService: TeamCategorizationSheetsService()
+        )
     }
 }

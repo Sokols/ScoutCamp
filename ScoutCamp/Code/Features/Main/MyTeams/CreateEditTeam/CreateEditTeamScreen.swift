@@ -118,8 +118,7 @@ struct CreateEditTeamScreen_Previews: PreviewProvider {
             userId: "",
             troopId: "",
             regimentId: "",
-            name: "Team name",
-            createdAt: .now
+            name: "Team name"
         )
         CreateEditTeamScreen(teamToEdit: team)
     }

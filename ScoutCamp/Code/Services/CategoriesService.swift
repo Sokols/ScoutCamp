@@ -12,7 +12,17 @@ protocol CategoriesServiceProtocol {
 }
 
 class CategoriesService: BaseService, CategoriesServiceProtocol {
+    private(set) static var categories: [Category] = []
+
+    static func categoryFor(id: String?) -> String {
+        return CategoriesService.categories.first { $0.id == id }?.name ?? "-"
+    }
+
     func getCategories() async -> ResultArray<Category> {
-        await getAll(collection: .categories)
+        let result: ResultArray<Category> = await getAll(collection: .categories)
+        result.0?.forEach { category in
+            CategoriesService.categories.append(category)
+        }
+        return result
     }
 }

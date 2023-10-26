@@ -40,8 +40,7 @@ class TeamsService: BaseService, TeamServiceProtocol {
             userId: uid,
             troopId: troopId,
             regimentId: regimentId,
-            name: name,
-            createdAt: date
+            name: name
         )
 
         do {
