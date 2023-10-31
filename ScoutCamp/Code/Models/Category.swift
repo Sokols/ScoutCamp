@@ -10,4 +10,5 @@ import Foundation
 struct Category: FirebaseDictionary {
     var id: String
     var name: String
+    var imagePath: String
 }

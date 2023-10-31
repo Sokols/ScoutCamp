@@ -13,7 +13,7 @@ struct TeamCategorizationSheet: FirebaseModel, Identifiable, Equatable, Hashable
 
     let categorizationSheetId: String
     let teamId: String
-    let categoryId: String?
+    let categoryId: String
 
     let points: Int
     let isDraft: Bool

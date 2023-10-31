@@ -6,15 +6,18 @@
 //
 
 import Combine
+import Foundation
 
 @MainActor
 class CategorizationHomeViewModel: ObservableObject {
 
     private let teamsService: TeamServiceProtocol
     private let teamSheetsService: TeamCategorizationSheetsServiceProtocol
+    private let storageManager: StorageManagerProtocol
 
     @Published var userTeams: [Team] = []
     @Published var teamSheets: [TeamCategorizationSheet] = []
+    @Published var categoryUrls: [String: URL] = [:]
     @Published var error: Error?
     @Published var isLoading = false
 
@@ -22,13 +25,19 @@ class CategorizationHomeViewModel: ObservableObject {
 
     init(
         teamsService: TeamServiceProtocol,
-        teamSheetsService: TeamCategorizationSheetsServiceProtocol
+        teamSheetsService: TeamCategorizationSheetsServiceProtocol,
+        storageManager: StorageManagerProtocol
     ) {
         self.teamsService = teamsService
         self.teamSheetsService = teamSheetsService
+        self.storageManager = storageManager
     }
 
     // MARK: - Public methods
+
+    func getUrlForCategoryId(_ id: String) -> URL? {
+        return categoryUrls[id]
+    }
 
     func selectTeam(option: DropdownOption) {
         selectedTeam = option
@@ -61,6 +70,23 @@ class CategorizationHomeViewModel: ObservableObject {
             if let team = userTeams.first {
                 self.selectedTeam = team.toDropdownOption()
             }
+        }
+    }
+
+    func fetchCategoryUrls() async {
+        let categories = CategoriesService.categories
+        isLoading = true
+        do {
+            var urls: [String: URL] = [:]
+            for category in categories {
+                let url = try await storageManager.getImageRef(path: category.imagePath)
+                urls[category.id] = url
+            }
+            self.categoryUrls = urls
+            isLoading = false
+        } catch {
+            isLoading = false
+            self.error = error
         }
     }
 }

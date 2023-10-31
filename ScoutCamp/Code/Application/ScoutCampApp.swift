@@ -33,6 +33,7 @@ struct ScoutCampApp: App {
     @StateObject private var teamsService = TeamsService()
     @StateObject private var teamCategorizationSheetsService = TeamCategorizationSheetsService()
     @StateObject private var teeamCategorizationSheetTasksService = TeamCategorizationSheetTasksService()
+    @StateObject private var storageManager = StorageManager()
 
     var body: some Scene {
         WindowGroup {
@@ -48,6 +49,7 @@ struct ScoutCampApp: App {
                 .environmentObject(teamsService)
                 .environmentObject(teamCategorizationSheetsService)
                 .environmentObject(teeamCategorizationSheetTasksService)
+                .environmentObject(storageManager)
         }
     }
 }

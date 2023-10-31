@@ -12,12 +12,14 @@ struct CategorizationHomeScreen: View {
 
     init(
         teamsService: TeamServiceProtocol,
-        teamSheetsService: TeamCategorizationSheetsServiceProtocol
+        teamSheetsService: TeamCategorizationSheetsServiceProtocol,
+        storageManager: StorageManagerProtocol
     ) {
         _viewModel = StateObject(
             wrappedValue: CategorizationHomeViewModel(
                 teamsService: teamsService,
-                teamSheetsService: teamSheetsService
+                teamSheetsService: teamSheetsService,
+                storageManager: storageManager
             )
         )
     }
@@ -45,7 +47,10 @@ struct CategorizationHomeScreen: View {
                     } else {
                         List {
                             ForEach(viewModel.teamSheets, id: \.self) { item in
-                                CategorizationSheetItemView(item: item)
+                                CategorizationSheetItemView(
+                                    item: item,
+                                    categoryUrl: viewModel.getUrlForCategoryId(item.categoryId)
+                                )
                             }
                             .listRowSeparator(.hidden)
                             .listRowInsets(EdgeInsets())
@@ -65,16 +70,17 @@ struct CategorizationHomeScreen: View {
                 }
             }
         }
-        .padding()
+        .padding(.horizontal)
         .errorAlert(error: $viewModel.error)
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
-        .onLoad {
-            Task {
-                await viewModel.fetchMyTeams()
-            }
-            Task {
-                await viewModel.fetchMySheets()
-            }
+        .task {
+            await viewModel.fetchMyTeams()
+        }
+        .task {
+            await viewModel.fetchMySheets()
+        }
+        .task {
+            await viewModel.fetchCategoryUrls()
         }
         .onChange(of: viewModel.selectedTeam) { _ in
             Task {
@@ -88,7 +94,8 @@ struct CategorizationHomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         CategorizationHomeScreen(
             teamsService: TeamsService(),
-            teamSheetsService: TeamCategorizationSheetsService()
+            teamSheetsService: TeamCategorizationSheetsService(),
+            storageManager: StorageManager()
         )
     }
 }

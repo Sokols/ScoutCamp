@@ -15,6 +15,7 @@ struct MainContainer: View {
     @EnvironmentObject private var categoriesService: CategoriesService
     @EnvironmentObject private var categorizationPeriodsService: CategorizationPeriodsService
     @EnvironmentObject private var categorizationSheetsService: CategorizationSheetsService
+    @EnvironmentObject private var storageManager: StorageManager
 
     var body: some View {
         TabView {
@@ -29,7 +30,8 @@ struct MainContainer: View {
             }
             CategorizationHomeScreen(
                 teamsService: teamsService,
-                teamSheetsService: teamSheetsService
+                teamSheetsService: teamSheetsService,
+                storageManager: storageManager
             )
             .tabItem {
                 Label("Categorization", systemImage: "doc.on.doc")
@@ -58,5 +60,6 @@ struct MainContainer_Previews: PreviewProvider {
             .environmentObject(CategoriesService())
             .environmentObject(CategorizationPeriodsService())
             .environmentObject(CategorizationSheetsService())
+            .environmentObject(StorageManager())
     }
 }

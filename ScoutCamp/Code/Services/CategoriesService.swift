@@ -14,8 +14,8 @@ protocol CategoriesServiceProtocol {
 class CategoriesService: BaseService, CategoriesServiceProtocol {
     private(set) static var categories: [Category] = []
 
-    static func categoryFor(id: String?) -> String {
-        return CategoriesService.categories.first { $0.id == id }?.name ?? "-"
+    static func categoryFor(id: String?) -> Category? {
+        return CategoriesService.categories.first { $0.id == id }
     }
 
     func getCategories() async -> ResultArray<Category> {

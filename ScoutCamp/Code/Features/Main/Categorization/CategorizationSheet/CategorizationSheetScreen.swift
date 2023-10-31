@@ -29,7 +29,7 @@ struct CategorizationSheetScreen_Previews: PreviewProvider {
         regimentId: "",
         name: "Test team"
     )
-    
+
     static var previews: some View {
         CategorizationSheetScreen(team: team)
     }

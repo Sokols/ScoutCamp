@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CategorizationSheetItemView: View {
     let item: TeamCategorizationSheet
+    let categoryUrl: URL?
 
     private let radius: CGFloat = 12
 
@@ -20,19 +21,25 @@ struct CategorizationSheetItemView: View {
         SheetTypesService.sheetTypeFor(id: sheet?.sheetTypeId)
     }
 
-    private var category: String {
+    private var category: Category? {
         CategoriesService.categoryFor(id: item.categoryId)
     }
 
     var body: some View {
         HStack {
-            Image(systemName: "doc.fill")
-                .resizable()
-                .frame(width: 32, height: 36)
-                .padding()
+            AsyncImage(url: categoryUrl) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(maxWidth: 80, alignment: .center)
             VStack(alignment: .leading) {
-                Text("Sheet type: \(sheetType)")
-                Text("Category: \(category)")
+                Text("\(sheetType)")
+                    .font(.system(size: 18, weight: .bold))
+                Text("Category: \(category?.name ?? "-")")
                 Text("Points: \(item.points)")
                 Text("Date: \(item.createdAt.formatted())")
             }
@@ -60,6 +67,6 @@ struct CategorizationSheetItemView_Previews: PreviewProvider {
     )
 
     static var previews: some View {
-        CategorizationSheetItemView(item: item)
+        CategorizationSheetItemView(item: item, categoryUrl: nil)
     }
 }
