@@ -14,8 +14,8 @@ protocol CategorizationPeriodsServiceProtocol {
 class CategorizationPeriodsService: BaseService, CategorizationPeriodsServiceProtocol {
     private(set) static var periods: [CategorizationPeriod] = []
 
-    static func categoryPeriodFor(id: String?) -> String {
-        return CategorizationPeriodsService.periods.first { $0.id == id }?.name ?? "-"
+    static func categoryPeriodFor(id: String?) -> CategorizationPeriod? {
+        return CategorizationPeriodsService.periods.first { $0.id == id }
     }
 
     func getCategorizationPeriods() async -> ResultArray<CategorizationPeriod> {

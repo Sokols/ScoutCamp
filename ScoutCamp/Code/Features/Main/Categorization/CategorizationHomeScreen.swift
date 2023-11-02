@@ -36,17 +36,31 @@ struct CategorizationHomeScreen: View {
                 )
                 .zIndex(1)
 
-                Text("My sheets")
+                Text("Current sheets for period: \(viewModel.currentPeriod?.name ?? "")")
                     .font(.title)
                     .padding(.vertical)
 
                 Group {
-                    if viewModel.teamSheets.isEmpty {
-                        Text("This team doesn't have any categorization sheets yet. Try to fill one!")
+                    if viewModel.currentPeriodTeamSheets.isEmpty {
+                        Text("No sheets.")
+                            .multilineTextAlignment(.center)
+                    } else {
+                        CategorizationSheetsCarouselView(sheets: $viewModel.currentPeriodTeamSheets)
+                            .padding(.horizontal, -16)
+                    }
+                }
+
+                Text("Old sheets")
+                    .font(.title)
+                    .padding(.vertical)
+
+                Group {
+                    if viewModel.oldTeamSheets.isEmpty {
+                        Text("No sheets.")
                             .multilineTextAlignment(.center)
                     } else {
                         List {
-                            ForEach(viewModel.teamSheets, id: \.self) { item in
+                            ForEach(viewModel.oldTeamSheets, id: \.self) { item in
                                 CategorizationSheetItemView(
                                     item: item,
                                     categoryUrl: viewModel.getUrlForCategoryId(item.categoryId)
@@ -70,7 +84,7 @@ struct CategorizationHomeScreen: View {
                 }
             }
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 16)
         .errorAlert(error: $viewModel.error)
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
         .task {

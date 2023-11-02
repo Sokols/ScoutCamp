@@ -7,8 +7,20 @@
 
 import Foundation
 
-struct Category: FirebaseDictionary {
+struct Category: FirebaseModel, Identifiable, Equatable, Hashable {
     var id: String
     var name: String
     var imagePath: String
+}
+
+extension Category {
+    func toCreateMap() -> [String: Any] {
+        let map: [String: Any?] = [
+            "id": id,
+            "name": name,
+            "imagePath": imagePath
+        ]
+
+        return map.compactMapValues { $0 }
+    }
 }

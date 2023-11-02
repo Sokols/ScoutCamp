@@ -15,13 +15,20 @@ class CategorizationHomeViewModel: ObservableObject {
     private let teamSheetsService: TeamCategorizationSheetsServiceProtocol
     private let storageManager: StorageManagerProtocol
 
+    private let currentPeriodId = RemoteConfigManager.shared.currentPeriodId
+
     @Published var userTeams: [Team] = []
-    @Published var teamSheets: [TeamCategorizationSheet] = []
+    @Published var currentPeriodTeamSheets: [TeamCategorizationSheet] = []
+    @Published var oldTeamSheets: [TeamCategorizationSheet] = []
     @Published var categoryUrls: [String: URL] = [:]
     @Published var error: Error?
     @Published var isLoading = false
 
     @Published var selectedTeam: DropdownOption?
+
+    var currentPeriod: CategorizationPeriod? {
+        CategorizationPeriodsService.categoryPeriodFor(id: currentPeriodId)
+    }
 
     init(
         teamsService: TeamServiceProtocol,
@@ -55,7 +62,16 @@ class CategorizationHomeViewModel: ObservableObject {
         if let error = result.1 {
             self.error = error
         } else if let sheets = result.0 {
-            self.teamSheets = sheets
+            currentPeriodTeamSheets.removeAll()
+            oldTeamSheets.removeAll()
+            for sheet in sheets {
+                let categorizationSheet = CategorizationSheetsService.categorizationSheetFor(id: sheet.categorizationSheetId)
+                if currentPeriodId == categorizationSheet?.periodId {
+                    currentPeriodTeamSheets.append(sheet)
+                } else {
+                    oldTeamSheets.append(sheet)
+                }
+            }
         }
     }
 
