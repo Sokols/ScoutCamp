@@ -17,7 +17,6 @@ struct Team: FirebaseModel, Identifiable, Equatable, Hashable {
     let regimentId: String?  // if not null then it's regiment
 
     let name: String
-    let createdAt: Date?
 }
 
 extension Team {
@@ -27,8 +26,7 @@ extension Team {
             "userId": userId,
             "troopId": troopId,
             "regimentId": regimentId,
-            "name": name,
-            "createdAt": createdAt
+            "name": name
         ]
 
         return map.compactMapValues { $0 }

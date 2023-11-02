@@ -1,5 +1,5 @@
 //
-//  LoadingIndicator.swift
+//  ActivityIndicatorModifier.swift
 //  ScoutCamp
 //
 //  Created by Igor SOKÓŁ on 14/06/2023.
@@ -17,7 +17,11 @@ struct ActivityIndicator: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
-        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+        if isAnimating {
+            uiView.startAnimating()
+        } else {
+            uiView.stopAnimating()
+        }
     }
 }
 

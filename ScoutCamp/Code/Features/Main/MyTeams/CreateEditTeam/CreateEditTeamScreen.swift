@@ -61,7 +61,7 @@ struct CreateEditTeamScreen: View {
         .padding()
         .errorAlert(error: $viewModel.error)
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
-        .onAppear {
+        .task {
             fetchRegiments()
         }
         .onChange(of: viewModel.selectedRegiment) { _ in
@@ -118,8 +118,7 @@ struct CreateEditTeamScreen_Previews: PreviewProvider {
             userId: "",
             troopId: "",
             regimentId: "",
-            name: "Team name",
-            createdAt: .now
+            name: "Team name"
         )
         CreateEditTeamScreen(teamToEdit: team)
     }

@@ -10,9 +10,9 @@ import SwiftUI
 struct MyTeamsScreen: View {
     @StateObject private var viewModel: MyTeamsViewModel
 
-    init() {
+    init(teamsService: TeamServiceProtocol) {
         _viewModel = StateObject(
-            wrappedValue: MyTeamsViewModel(teamsService: TeamsService())
+            wrappedValue: MyTeamsViewModel(teamsService: teamsService)
         )
     }
 
@@ -35,7 +35,7 @@ struct MyTeamsScreen: View {
                                 Text(item.name)
                             }
                         }
-                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets())
                     }
                     .listStyle(PlainListStyle())
                     .padding(.vertical)
@@ -44,22 +44,15 @@ struct MyTeamsScreen: View {
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding()
 
             NavigationLink(destination: CreateEditTeamScreen(teamToEdit: nil)) {
-                Image(systemName: "plus")
-                    .font(.title.weight(.semibold))
-                    .padding()
-                    .background(Color.secondaryColor)
-                    .foregroundColor(.white)
-                    .clipShape(Circle())
-                    .shadow(radius: 4, x: 0, y: 4)
+                FloatingActionButton()
             }
         }
         .padding()
         .errorAlert(error: $viewModel.error)
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
-        .onAppear {
+        .onLoad {
             Task {
                 await viewModel.fetchMyTeams()
             }
@@ -69,6 +62,6 @@ struct MyTeamsScreen: View {
 
 struct MyTeamsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        MyTeamsScreen()
+        MyTeamsScreen(teamsService: TeamsService())
     }
 }

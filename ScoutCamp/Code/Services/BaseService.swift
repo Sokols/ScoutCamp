@@ -11,21 +11,31 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 enum FirebaseCollection: String {
+    case categories
+    case categorizationPeriods
+    case categorizationSheetTasks
+    case categorizationSheets
+    case categorizationTasks
     case regiments
-    case troops
+    case sheetTypes
+    case taskCategories
+    case teamCategorizationSheetTasks
+    case teamCategorizationSheets
     case teams
+    case troops
+    case users
 }
 
 typealias FirebaseModel = Codable
 typealias ResultArray<T: FirebaseModel> = ([T]?, Error?)
 typealias ResultObject<T: FirebaseModel> = (T?, Error?)
 
-class BaseService: NSObject {
+class BaseService: ObservableObject {
     func fetch<T: FirebaseModel>(query: Query) async -> ResultArray<T> {
         do {
             let snapshot = try await query.getDocuments()
-            let data = snapshot.documents.compactMap { (doc) -> T? in
-                return try? doc.data(as: T.self)
+            let data = try snapshot.documents.compactMap { (doc) -> T? in
+                return try doc.data(as: T.self)
             }
             return (data, nil)
         } catch {
@@ -36,8 +46,8 @@ class BaseService: NSObject {
     func getAll<T: FirebaseModel>(collection: FirebaseCollection) async -> ResultArray<T> {
         do {
             let snapshot = try await Firestore.firestore().collection(collection.rawValue).getDocuments()
-            let data = snapshot.documents.compactMap { (doc) -> T? in
-                return try? doc.data(as: T.self)
+            let data = try snapshot.documents.compactMap { (doc) -> T? in
+                return try doc.data(as: T.self)
             }
             return (data, nil)
         } catch {
@@ -86,8 +96,8 @@ class BaseService: NSObject {
         }
         do {
             let snapshot = try await query.getDocuments()
-            let data = snapshot.documents.compactMap { (doc) -> T? in
-                return try? doc.data(as: T.self)
+            let data = try snapshot.documents.compactMap { (doc) -> T? in
+                return try doc.data(as: T.self)
             }
             return (data, nil)
         } catch {
