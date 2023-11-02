@@ -16,8 +16,15 @@ protocol CategorizationSheetsServiceProtocol {
 class CategorizationSheetsService: BaseService, CategorizationSheetsServiceProtocol {
     private(set) static var categorizationSheets: [CategorizationSheet] = []
 
+    // MARK: - Public methods
+
     static func categorizationSheetFor(id: String?) -> CategorizationSheet? {
         return CategorizationSheetsService.categorizationSheets.first { $0.id == id }
+    }
+
+    static func getCurrentPeriodCategorizationSheets() -> [CategorizationSheet] {
+        let currentPeriodId = RemoteConfigManager.shared.currentPeriodId
+        return CategorizationSheetsService.categorizationSheets.filter { $0.periodId == currentPeriodId }
     }
 
     func getCategorizationSheets() async -> ResultArray<CategorizationSheet> {

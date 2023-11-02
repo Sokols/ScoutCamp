@@ -8,56 +8,63 @@
 import SwiftUI
 
 struct CategorizationSheetsCarouselView: View {
-    @Binding var sheets: [TeamCategorizationSheet]
+    @Binding var joints: [CategorizationSheetJoint]
 
     var body: some View {
         VStack {
             TabView {
-                ForEach(sheets, id: \.self) { item in
-                    CategorizationSheetItemView(item: item, categoryUrl: nil)
-                        .padding(.horizontal)
+                ForEach(joints, id: \.self) { item in
+                    NavigationLink(destination: CategorizationSheetScreen(sheetJoint: item)) {
+                        CategorizationSheetItemView(item: item, categoryUrl: nil)
+                            .padding(.horizontal)
+                    }
                 }
             }
             .frame(maxHeight: 225)
-            .tabViewStyle(.page).indexViewStyle(.page(backgroundDisplayMode: .always))
+            .tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .always))
         }
     }
 }
 
 struct CategorizationSheetsCarouselView_Previews: PreviewProvider {
-    private static let sheets = [
-        TeamCategorizationSheet(
-            id: "test_id",
-            categorizationSheetId: "test_id",
-            teamId: "test_id",
-            categoryId: "test_id",
-            points: 0,
-            isDraft: true,
-            createdAt: .now,
-            updatedAt: .now
+    private static let joints = [
+        CategorizationSheetJoint(
+            categorizationSheet: CategorizationSheet(
+                id: "",
+                periodId: "",
+                sheetTypeId: ""
+            ),
+            teamCategorizationSheet: TeamCategorizationSheet(
+                id: "test_id",
+                categorizationSheetId: "test_id",
+                teamId: "test_id",
+                categoryId: "test_id",
+                points: 0,
+                isDraft: true,
+                createdAt: .now,
+                updatedAt: .now
+            )
         ),
-        TeamCategorizationSheet(
-            id: "test_id",
-            categorizationSheetId: "test_id",
-            teamId: "test_id",
-            categoryId: "test_id",
-            points: 0,
-            isDraft: true,
-            createdAt: .now,
-            updatedAt: .now
-        ),
-        TeamCategorizationSheet(
-            id: "test_id",
-            categorizationSheetId: "test_id",
-            teamId: "test_id",
-            categoryId: "test_id",
-            points: 0,
-            isDraft: true,
-            createdAt: .now,
-            updatedAt: .now
+        CategorizationSheetJoint(
+            categorizationSheet: CategorizationSheet(
+                id: "",
+                periodId: "",
+                sheetTypeId: ""
+            ),
+            teamCategorizationSheet: TeamCategorizationSheet(
+                id: "test_id",
+                categorizationSheetId: "test_id",
+                teamId: "test_id",
+                categoryId: "test_id",
+                points: 0,
+                isDraft: true,
+                createdAt: .now,
+                updatedAt: .now
+            )
         )
     ]
     static var previews: some View {
-        CategorizationSheetsCarouselView(sheets: .constant(sheets))
+        CategorizationSheetsCarouselView(joints: .constant(joints))
     }
 }

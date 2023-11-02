@@ -8,21 +8,17 @@
 import SwiftUI
 
 struct CategorizationSheetItemView: View {
-    let item: TeamCategorizationSheet
+    let item: CategorizationSheetJoint
     let categoryUrl: URL?
 
     private let radius: CGFloat = 12
 
-    private var sheet: CategorizationSheet? {
-        CategorizationSheetsService.categorizationSheetFor(id: item.categorizationSheetId)
-    }
-
     private var sheetType: String {
-        SheetTypesService.sheetTypeFor(id: sheet?.sheetTypeId)
+        SheetTypesService.sheetTypeFor(id: item.categorizationSheet.sheetTypeId)?.name ?? "-"
     }
 
     private var category: Category? {
-        CategoriesService.categoryFor(id: item.categoryId)
+        CategoriesService.categoryFor(id: item.teamCategorizationSheet?.categoryId)
     }
 
     var body: some View {
@@ -33,18 +29,34 @@ struct CategorizationSheetItemView: View {
                     .aspectRatio(contentMode: .fit)
 
             } placeholder: {
-                ProgressView()
+                Image(systemName: "doc.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
             }
             .frame(maxWidth: 80, alignment: .center)
+            .padding(.trailing, 10)
             VStack(alignment: .leading) {
                 Text("\(sheetType)")
                     .font(.system(size: 18, weight: .bold))
-                Text("Category: \(category?.name ?? "-")")
-                Text("Points: \(item.points)")
-                Text("Date: \(item.createdAt.formatted())")
+
+                if let teamItem = item.teamCategorizationSheet {
+                    Text("Category: \(category?.name ?? "-")")
+                    Text("Points: \(teamItem.points)")
+                    Text("Date: \(teamItem.createdAt.formatted())")
+                } else {
+                    Text("Fill sheet")
+                        .foregroundColor(Color.white)
+                        .padding(.vertical, 8)
+                        .padding(.horizontal)
+                        .background(
+                            RoundedRectangle(cornerRadius: radius)
+                                .fill(Color.primaryColor)
+                        )
+                }
             }
             Spacer()
         }
+        .frame(minHeight: 100)
         .padding()
         .cornerRadius(radius)
         .overlay(
@@ -55,15 +67,22 @@ struct CategorizationSheetItemView: View {
 }
 
 struct CategorizationSheetItemView_Previews: PreviewProvider {
-    private static let item = TeamCategorizationSheet(
-        id: "1",
-        categorizationSheetId: "1",
-        teamId: "1",
-        categoryId: "1",
-        points: 1,
-        isDraft: true,
-        createdAt: Date(),
-        updatedAt: Date()
+    private static let item = CategorizationSheetJoint(
+        categorizationSheet: CategorizationSheet(
+            id: "",
+            periodId: "",
+            sheetTypeId: ""
+        ),
+        teamCategorizationSheet: TeamCategorizationSheet(
+            id: "1",
+            categorizationSheetId: "1",
+            teamId: "1",
+            categoryId: "1",
+            points: 1,
+            isDraft: true,
+            createdAt: Date(),
+            updatedAt: Date()
+        )
     )
 
     static var previews: some View {

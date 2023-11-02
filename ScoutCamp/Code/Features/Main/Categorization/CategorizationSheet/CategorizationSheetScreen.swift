@@ -10,9 +10,9 @@ import SwiftUI
 struct CategorizationSheetScreen: View {
     @StateObject private var viewModel: CategorizationSheetViewModel
 
-    init(team: Team) {
+    init(sheetJoint: CategorizationSheetJoint) {
         _viewModel = StateObject(
-            wrappedValue: CategorizationSheetViewModel(team: team)
+            wrappedValue: CategorizationSheetViewModel(sheetJoint: sheetJoint)
         )
     }
 
@@ -22,15 +22,26 @@ struct CategorizationSheetScreen: View {
 }
 
 struct CategorizationSheetScreen_Previews: PreviewProvider {
-    private static var team = Team(
-        id: "",
-        userId: "",
-        troopId: "",
-        regimentId: "",
-        name: "Test team"
+    private static let joint = CategorizationSheetJoint(
+        categorizationSheet: CategorizationSheet(
+            id: "",
+            periodId: "",
+            sheetTypeId: ""
+        ),
+        teamCategorizationSheet: TeamCategorizationSheet(
+            id: "1",
+            categorizationSheetId: "1",
+            teamId: "1",
+            categoryId: "1",
+            points: 1,
+            isDraft: true,
+            createdAt: Date(),
+            updatedAt: Date()
+        )
     )
-
     static var previews: some View {
-        CategorizationSheetScreen(team: team)
+        CategorizationSheetScreen(
+            sheetJoint: joint
+        )
     }
 }

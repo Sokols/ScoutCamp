@@ -41,11 +41,11 @@ struct CategorizationHomeScreen: View {
                     .padding(.vertical)
 
                 Group {
-                    if viewModel.currentPeriodTeamSheets.isEmpty {
+                    if viewModel.currentPeriodSheetJoints.isEmpty {
                         Text("No sheets.")
                             .multilineTextAlignment(.center)
                     } else {
-                        CategorizationSheetsCarouselView(sheets: $viewModel.currentPeriodTeamSheets)
+                        CategorizationSheetsCarouselView(joints: $viewModel.currentPeriodSheetJoints)
                             .padding(.horizontal, -16)
                     }
                 }
@@ -55,16 +55,20 @@ struct CategorizationHomeScreen: View {
                     .padding(.vertical)
 
                 Group {
-                    if viewModel.oldTeamSheets.isEmpty {
+                    if viewModel.oldTeamSheetJoints.isEmpty {
                         Text("No sheets.")
                             .multilineTextAlignment(.center)
                     } else {
                         List {
-                            ForEach(viewModel.oldTeamSheets, id: \.self) { item in
-                                CategorizationSheetItemView(
-                                    item: item,
-                                    categoryUrl: viewModel.getUrlForCategoryId(item.categoryId)
-                                )
+                            ForEach(viewModel.oldTeamSheetJoints, id: \.self) { item in
+                                NavigationLink(destination: CategorizationSheetScreen(sheetJoint: item)) {
+                                    CategorizationSheetItemView(
+                                        item: item,
+                                        categoryUrl: viewModel.getUrlForCategoryId(
+                                            item.teamCategorizationSheet?.categoryId ?? ""
+                                        )
+                                    )
+                                }
                             }
                             .listRowSeparator(.hidden)
                             .listRowInsets(EdgeInsets())
@@ -77,12 +81,6 @@ struct CategorizationHomeScreen: View {
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-
-            if let team = viewModel.getTeam() {
-                NavigationLink(destination: CategorizationSheetScreen(team: team)) {
-                    FloatingActionButton()
-                }
-            }
         }
         .padding(.horizontal, 16)
         .errorAlert(error: $viewModel.error)

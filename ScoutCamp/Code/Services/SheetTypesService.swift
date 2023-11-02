@@ -14,8 +14,8 @@ protocol SheetTypesServiceProtocol {
 class SheetTypesService: BaseService, SheetTypesServiceProtocol {
     private(set) static var sheetTypes: [SheetType] = []
 
-    static func sheetTypeFor(id: String?) -> String {
-        return SheetTypesService.sheetTypes.first { $0.id == id }?.name ?? "-"
+    static func sheetTypeFor(id: String?) -> SheetType? {
+        return SheetTypesService.sheetTypes.first { $0.id == id }
     }
 
     func getSheetTypes() async -> ResultArray<SheetType> {

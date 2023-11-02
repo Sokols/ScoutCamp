@@ -8,6 +8,11 @@
 import Combine
 import Foundation
 
+struct CategorizationSheetJoint: Hashable {
+    var categorizationSheet: CategorizationSheet
+    var teamCategorizationSheet: TeamCategorizationSheet?
+}
+
 @MainActor
 class CategorizationHomeViewModel: ObservableObject {
 
@@ -16,10 +21,11 @@ class CategorizationHomeViewModel: ObservableObject {
     private let storageManager: StorageManagerProtocol
 
     private let currentPeriodId = RemoteConfigManager.shared.currentPeriodId
+    private var currentPeriodSheets: [CategorizationSheet] = []
 
     @Published var userTeams: [Team] = []
-    @Published var currentPeriodTeamSheets: [TeamCategorizationSheet] = []
-    @Published var oldTeamSheets: [TeamCategorizationSheet] = []
+    @Published var currentPeriodSheetJoints: [CategorizationSheetJoint] = []
+    @Published var oldTeamSheetJoints: [CategorizationSheetJoint] = []
     @Published var categoryUrls: [String: URL] = [:]
     @Published var error: Error?
     @Published var isLoading = false
@@ -56,20 +62,37 @@ class CategorizationHomeViewModel: ObservableObject {
 
     func fetchMySheets() async {
         guard let teamId = getTeam()?.id else { return }
+        updateCurrentPeriodSheetJoints()
         isLoading = true
         let result = await teamSheetsService.getTeamCategorizationSheets(for: teamId)
         isLoading = false
         if let error = result.1 {
             self.error = error
-        } else if let sheets = result.0 {
-            currentPeriodTeamSheets.removeAll()
-            oldTeamSheets.removeAll()
-            for sheet in sheets {
-                let categorizationSheet = CategorizationSheetsService.categorizationSheetFor(id: sheet.categorizationSheetId)
-                if currentPeriodId == categorizationSheet?.periodId {
-                    currentPeriodTeamSheets.append(sheet)
+        } else if let teamSheets = result.0 {
+            oldTeamSheetJoints.removeAll()
+            for teamSheet in teamSheets {
+                let sheet = CategorizationSheetsService.categorizationSheetFor(id: teamSheet.categorizationSheetId)
+                if currentPeriodId == sheet?.periodId {
+                    let newJoint = CategorizationSheetJoint(
+                        categorizationSheet: sheet!,
+                        teamCategorizationSheet: teamSheet
+                    )
+                    if let index = currentPeriodSheetJoints.firstIndex(where: {
+                        $0.categorizationSheet.id == sheet?.id
+                    }) {
+                        currentPeriodSheetJoints[index] = newJoint
+                    }
                 } else {
-                    oldTeamSheets.append(sheet)
+                    let allSheets = CategorizationSheetsService.categorizationSheets
+                    if let oldCategorizationSheet = allSheets.first(where: {
+                        $0.id == teamSheet.categorizationSheetId
+                    }) {
+                        let newJoint = CategorizationSheetJoint(
+                            categorizationSheet: oldCategorizationSheet,
+                            teamCategorizationSheet: teamSheet
+                        )
+                        oldTeamSheetJoints.append(newJoint)
+                    }
                 }
             }
         }
@@ -104,5 +127,17 @@ class CategorizationHomeViewModel: ObservableObject {
             isLoading = false
             self.error = error
         }
+    }
+
+    // MARK: - Helpers
+
+    private func updateCurrentPeriodSheetJoints() {
+        currentPeriodSheetJoints = CategorizationSheetsService.getCurrentPeriodCategorizationSheets().map {
+            CategorizationSheetJoint(categorizationSheet: $0, teamCategorizationSheet: nil)
+        }.sorted(by: { item1, item2 in
+            let sheetType1 = SheetTypesService.sheetTypeFor(id: item1.categorizationSheet.sheetTypeId)
+            let sheetType2 = SheetTypesService.sheetTypeFor(id: item2.categorizationSheet.sheetTypeId)
+            return sheetType1?.order ?? 0 < sheetType2?.order ?? 0
+        })
     }
 }

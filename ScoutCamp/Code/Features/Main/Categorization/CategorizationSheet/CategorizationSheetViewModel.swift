@@ -13,10 +13,10 @@ class CategorizationSheetViewModel: ObservableObject {
     @Published var error: Error?
     @Published var isLoading = false
 
-    private let team: Team
+    private let sheetJoint: CategorizationSheetJoint
 
-    init(team: Team) {
-        self.team = team
+    init(sheetJoint: CategorizationSheetJoint) {
+        self.sheetJoint = sheetJoint
     }
 
 }
