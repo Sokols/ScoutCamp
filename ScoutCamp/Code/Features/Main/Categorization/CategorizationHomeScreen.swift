@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CategorizationHomeScreen: View {
+    @EnvironmentObject private var categorizationAssignmentsService: CategorizationAssignmentsService
     @StateObject private var viewModel: CategorizationHomeViewModel
 
     init(
@@ -45,8 +46,11 @@ struct CategorizationHomeScreen: View {
                         Text("No sheets.")
                             .multilineTextAlignment(.center)
                     } else {
-                        CategorizationSheetsCarouselView(joints: $viewModel.currentPeriodSheetJoints)
-                            .padding(.horizontal, -16)
+                        CategorizationSheetsCarouselView(
+                            categorizationAssignmentsService: categorizationAssignmentsService,
+                            joints: $viewModel.currentPeriodSheetJoints
+                        )
+                        .padding(.horizontal, -16)
                     }
                 }
 
@@ -61,7 +65,10 @@ struct CategorizationHomeScreen: View {
                     } else {
                         List {
                             ForEach(viewModel.oldTeamSheetJoints, id: \.self) { item in
-                                NavigationLink(destination: CategorizationSheetScreen(sheetJoint: item)) {
+                                NavigationLink(destination: CategorizationSheetScreen(
+                                    sheetJoint: item,
+                                    categorizationAssignmentsService: categorizationAssignmentsService
+                                )) {
                                     CategorizationSheetItemView(
                                         item: item,
                                         categoryUrl: viewModel.getUrlForCategoryId(

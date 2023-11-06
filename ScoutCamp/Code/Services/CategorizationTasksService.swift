@@ -1,5 +1,5 @@
 //
-//  TasksService.swift
+//  AssignmentsService.swift
 //  ScoutCamp
 //
 //  Created by Igor SOKÓŁ on 16/10/2023.
@@ -9,14 +9,14 @@ import Foundation
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
-protocol CategorizationTasksServiceProtocol {
-    func getCategorizationTasks() async -> ResultArray<CategorizationTask>
+protocol CategorizationAssignmentsServiceProtocol {
+    func getCategorizationAssignments() async -> ResultArray<Assignment>
 }
 
-class CategorizationTasksService: BaseService, CategorizationTasksServiceProtocol {
-    func getCategorizationTasks() async -> ResultArray<CategorizationTask> {
+class CategorizationAssignmentsService: BaseService, CategorizationAssignmentsServiceProtocol {
+    func getCategorizationAssignments() async -> ResultArray<Assignment> {
         let query = Firestore.firestore()
-            .collection(FirebaseCollection.categorizationTasks.rawValue)
+            .collection(FirebaseCollection.categorizationAssignments.rawValue)
             .order(by: "order")
 
         return await fetch(query: query)

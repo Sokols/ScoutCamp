@@ -13,13 +13,13 @@ import FirebaseFirestoreSwift
 enum FirebaseCollection: String {
     case categories
     case categorizationPeriods
-    case categorizationSheetTasks
+    case categorizationSheetAssignments
     case categorizationSheets
-    case categorizationTasks
+    case categorizationAssignments
     case regiments
     case sheetTypes
-    case taskCategories
-    case teamCategorizationSheetTasks
+    case assignmentCategories
+    case teamCategorizationSheetAssignments
     case teamCategorizationSheets
     case teams
     case troops

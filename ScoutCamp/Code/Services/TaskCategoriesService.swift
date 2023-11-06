@@ -1,5 +1,5 @@
 //
-//  TaskCategoriesService.swift
+//  AssignmentCategoriesService.swift
 //  ScoutCamp
 //
 //  Created by Igor SOKÓŁ on 16/10/2023.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol TaskCategoriesServiceProtocol {
-    func getTaskCategories() async -> ResultArray<TaskCategory>
+protocol AssignmentCategoriesServiceProtocol {
+    func getAssignmentCategories() async -> ResultArray<AssignmentGroup>
 }
 
-class TaskCategoriesService: BaseService, TaskCategoriesServiceProtocol {
-    func getTaskCategories() async -> ResultArray<TaskCategory> {
-        await getAll(collection: .taskCategories)
+class AssignmentCategoriesService: BaseService, AssignmentCategoriesServiceProtocol {
+    func getAssignmentCategories() async -> ResultArray<AssignmentGroup> {
+        await getAll(collection: .assignmentCategories)
     }
 }

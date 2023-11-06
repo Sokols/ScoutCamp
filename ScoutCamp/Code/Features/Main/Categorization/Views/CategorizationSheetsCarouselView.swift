@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct CategorizationSheetsCarouselView: View {
+    let categorizationAssignmentsService: CategorizationAssignmentsServiceProtocol
     @Binding var joints: [CategorizationSheetJoint]
 
     var body: some View {
         VStack {
             TabView {
                 ForEach(joints, id: \.self) { item in
-                    NavigationLink(destination: CategorizationSheetScreen(sheetJoint: item)) {
+                    NavigationLink(destination: CategorizationSheetScreen(
+                        sheetJoint: item,
+                        categorizationAssignmentsService: categorizationAssignmentsService
+                    )) {
                         CategorizationSheetItemView(item: item, categoryUrl: nil)
                             .padding(.horizontal)
                     }
+                    .foregroundColor(Color.primaryColor)
                 }
             }
             .frame(maxHeight: 225)
@@ -65,6 +70,9 @@ struct CategorizationSheetsCarouselView_Previews: PreviewProvider {
         )
     ]
     static var previews: some View {
-        CategorizationSheetsCarouselView(joints: .constant(joints))
+        CategorizationSheetsCarouselView(
+            categorizationAssignmentsService: CategorizationAssignmentsService(),
+            joints: .constant(joints)
+        )
     }
 }

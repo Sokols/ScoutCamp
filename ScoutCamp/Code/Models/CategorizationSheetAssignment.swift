@@ -1,5 +1,5 @@
 //
-//  CategorizationSheetTask.swift
+//  CategorizationSheetAssignment.swift
 //  ScoutCamp
 //
 //  Created by Igor SOKÓŁ on 20/10/2023.
@@ -8,19 +8,19 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-struct CategorizationSheetTask: FirebaseModel, Identifiable, Equatable, Hashable {
+struct CategorizationSheetAssignment: FirebaseModel, Identifiable, Equatable, Hashable {
     let id: String
 
     let categorizationSheedId: String
-    let taskId: String
+    let assignmentId: String
 }
 
-extension CategorizationSheetTask {
+extension CategorizationSheetAssignment {
     func toCreateMap() -> [String: Any] {
         let map: [String: Any?] = [
             "id": id,
             "categorizationSheedId": categorizationSheedId,
-            "taskId": taskId
+            "assignmentId": assignmentId
         ]
 
         return map.compactMapValues { $0 }
