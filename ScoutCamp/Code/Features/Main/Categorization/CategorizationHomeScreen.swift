@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct CategorizationHomeScreen: View {
-    @EnvironmentObject private var categorizationAssignmentsService: CategorizationAssignmentsService
+    @EnvironmentObject private var assignmentsService: AssignmentsService
+    @EnvironmentObject private var teamCategorizationSheetAssignmentsService: TeamCategorizationSheetAssignmentsService
+    @EnvironmentObject private var categorizationSheetAssignmentsService: CategorizationSheetAssignmentsService
     @StateObject private var viewModel: CategorizationHomeViewModel
 
     init(
@@ -47,7 +49,9 @@ struct CategorizationHomeScreen: View {
                             .multilineTextAlignment(.center)
                     } else {
                         CategorizationSheetsCarouselView(
-                            categorizationAssignmentsService: categorizationAssignmentsService,
+                            assignmentsService: assignmentsService,
+                            categorizationSheetAssignmentsService: categorizationSheetAssignmentsService,
+                            teamCategorizationSheetAssignmentsService: teamCategorizationSheetAssignmentsService,
                             joints: $viewModel.currentPeriodSheetJoints
                         )
                         .padding(.horizontal, -16)
@@ -67,7 +71,9 @@ struct CategorizationHomeScreen: View {
                             ForEach(viewModel.oldTeamSheetJoints, id: \.self) { item in
                                 NavigationLink(destination: CategorizationSheetScreen(
                                     sheetJoint: item,
-                                    categorizationAssignmentsService: categorizationAssignmentsService
+                                    assignmentsService: assignmentsService,
+                                    categorizationSheetAssignmentsService: categorizationSheetAssignmentsService,
+                                    teamCategorizationSheetAssignmentsService: teamCategorizationSheetAssignmentsService
                                 )) {
                                     CategorizationSheetItemView(
                                         item: item,

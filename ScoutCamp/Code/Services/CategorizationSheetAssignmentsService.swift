@@ -10,11 +10,11 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 
 protocol CategorizationSheetAssignmentsServiceProtocol {
-    func getCategorizationSheetAssignments(for categorizationSheetId: String) async -> ResultArray<CategorizationSheetAssignment>
+    func getCategorizationSheetAssignmentsFor(_ categorizationSheetId: String) async -> ResultArray<CategorizationSheetAssignment>
 }
 
 class CategorizationSheetAssignmentsService: BaseService, CategorizationSheetAssignmentsServiceProtocol {
-    func getCategorizationSheetAssignments(for categorizationSheetId: String) async -> ResultArray<CategorizationSheetAssignment> {
+    func getCategorizationSheetAssignmentsFor(_ categorizationSheetId: String) async -> ResultArray<CategorizationSheetAssignment> {
         let query = Firestore.firestore()
             .collection(FirebaseCollection.categorizationSheetAssignments.rawValue)
             .whereField("categorizationSheetId", isEqualTo: categorizationSheetId)

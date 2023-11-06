@@ -1,5 +1,5 @@
 //
-//  AssignmentCategory.swift
+//  AssignmentGroup.swift
 //  ScoutCamp
 //
 //  Created by Igor SOKÓŁ on 16/10/2023.

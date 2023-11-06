@@ -12,18 +12,35 @@ struct CategorizationSheetScreen: View {
 
     init(
         sheetJoint: CategorizationSheetJoint,
-        categorizationAssignmentsService: CategorizationAssignmentsServiceProtocol
+        assignmentsService: AssignmentsServiceProtocol,
+        categorizationSheetAssignmentsService: CategorizationSheetAssignmentsServiceProtocol,
+        teamCategorizationSheetAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
     ) {
         _viewModel = StateObject(
             wrappedValue: CategorizationSheetViewModel(
                 sheetJoint: sheetJoint,
-                categorizationAssignmentsService: categorizationAssignmentsService
+                assignmentsService: assignmentsService,
+                categorizationSheetAssignmentsService: categorizationSheetAssignmentsService,
+                teamCategorizationSheetAssignmentsService: teamCategorizationSheetAssignmentsService
             )
         )
     }
 
     var body: some View {
-        Text("Categorization Sheet")
+        VStack {
+            List {
+                ForEach(viewModel.assignmentJoints, id: \.self) { item in
+                    Text(item.assignment.description)
+                }
+            }
+            HStack {
+                Spacer()
+                Text("CategorizationSheetScreen")
+                Spacer()
+            }
+        }.task {
+            await viewModel.fetchAssignments()
+        }
     }
 }
 
@@ -45,11 +62,13 @@ struct CategorizationSheetScreen_Previews: PreviewProvider {
             updatedAt: Date()
         )
     )
-    
+
     static var previews: some View {
         CategorizationSheetScreen(
             sheetJoint: joint,
-            categorizationAssignmentsService: CategorizationAssignmentsService()
+            assignmentsService: AssignmentsService(),
+            categorizationSheetAssignmentsService: CategorizationSheetAssignmentsService(),
+            teamCategorizationSheetAssignmentsService: TeamCategorizationSheetAssignmentsService()
         )
     }
 }

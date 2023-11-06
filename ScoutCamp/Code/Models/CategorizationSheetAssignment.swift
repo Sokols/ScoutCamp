@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 struct CategorizationSheetAssignment: FirebaseModel, Identifiable, Equatable, Hashable {
     let id: String
 
-    let categorizationSheedId: String
+    let categorizationSheetId: String
     let assignmentId: String
 }
 
@@ -19,7 +19,7 @@ extension CategorizationSheetAssignment {
     func toCreateMap() -> [String: Any] {
         let map: [String: Any?] = [
             "id": id,
-            "categorizationSheedId": categorizationSheedId,
+            "categorizationSheetId": categorizationSheetId,
             "assignmentId": assignmentId
         ]
 

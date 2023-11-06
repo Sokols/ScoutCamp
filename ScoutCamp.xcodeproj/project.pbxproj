@@ -48,7 +48,7 @@
 		3F38142F2AE2A4A300B4C0E3 /* SheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38142E2AE2A4A300B4C0E3 /* SheetType.swift */; };
 		3F3814312AE2A4CA00B4C0E3 /* SheetTypesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814302AE2A4CA00B4C0E3 /* SheetTypesService.swift */; };
 		3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift */; };
-		3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift */; };
+		3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift */; };
 		3F3814372AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */; };
 		3F3814392AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */; };
 		3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */; };
@@ -56,6 +56,7 @@
 		3F3E50E12AF1332000552CC2 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50E02AF1332000552CC2 /* FirebaseRemoteConfigSwift */; };
 		3F3E50E42AF134C700552CC2 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */; };
 		3F3E50E62AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */; };
+		3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E72AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift */; };
 		3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */; };
 		3F4F65802ADE78DA003B2F0A /* CategorizationSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */; };
 		3F5438442AE7E05500C9AEB8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5438432AE7E05500C9AEB8 /* HomeViewModel.swift */; };
@@ -72,8 +73,8 @@
 		3FE3A42C2ADD50F3000E455F /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42B2ADD50F3000E455F /* Assignment.swift */; };
 		3FE3A42E2ADD5252000E455F /* AssignmentGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42D2ADD5252000E455F /* AssignmentGroup.swift */; };
 		3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */; };
-		3FE3A4342ADD5BF7000E455F /* CategorizationTasksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4332ADD5BF7000E455F /* CategorizationTasksService.swift */; };
-		3FE3A4362ADD5C4E000E455F /* TaskCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4352ADD5C4E000E455F /* TaskCategoriesService.swift */; };
+		3FE3A4342ADD5BF7000E455F /* AssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4332ADD5BF7000E455F /* AssignmentsService.swift */; };
+		3FE3A4362ADD5C4E000E455F /* AssignmentGroupsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4352ADD5C4E000E455F /* AssignmentGroupsService.swift */; };
 		3FE3A43B2ADD5FC6000E455F /* CategorizationHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */; };
 		3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */; };
 		3FE3A43F2ADD60BA000E455F /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */; };
@@ -141,12 +142,13 @@
 		3F38142E2AE2A4A300B4C0E3 /* SheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetType.swift; sourceTree = "<group>"; };
 		3F3814302AE2A4CA00B4C0E3 /* SheetTypesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTypesService.swift; sourceTree = "<group>"; };
 		3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetAssignment.swift; sourceTree = "<group>"; };
-		3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetTasksService.swift; sourceTree = "<group>"; };
+		3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetAssignmentsService.swift; sourceTree = "<group>"; };
 		3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheet.swift; sourceTree = "<group>"; };
 		3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetsService.swift; sourceTree = "<group>"; };
 		3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsCarouselView.swift; sourceTree = "<group>"; };
 		3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunction.swift; sourceTree = "<group>"; };
+		3F3E50E72AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunctionsService.swift; sourceTree = "<group>"; };
 		3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetScreen.swift; sourceTree = "<group>"; };
 		3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetViewModel.swift; sourceTree = "<group>"; };
 		3F5438432AE7E05500C9AEB8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -162,8 +164,8 @@
 		3FE3A42B2ADD50F3000E455F /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		3FE3A42D2ADD5252000E455F /* AssignmentGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroup.swift; sourceTree = "<group>"; };
 		3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
-		3FE3A4332ADD5BF7000E455F /* CategorizationTasksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationTasksService.swift; sourceTree = "<group>"; };
-		3FE3A4352ADD5C4E000E455F /* TaskCategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCategoriesService.swift; sourceTree = "<group>"; };
+		3FE3A4332ADD5BF7000E455F /* AssignmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsService.swift; sourceTree = "<group>"; };
+		3FE3A4352ADD5C4E000E455F /* AssignmentGroupsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupsService.swift; sourceTree = "<group>"; };
 		3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationHomeScreen.swift; sourceTree = "<group>"; };
 		3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationHomeViewModel.swift; sourceTree = "<group>"; };
 		3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
@@ -223,15 +225,16 @@
 			children = (
 				3F3E50E22AF134AB00552CC2 /* FirebaseServices */,
 				3F1421D22AC9AB8A00EA364A /* BaseService.swift */,
+				3FE3A4332ADD5BF7000E455F /* AssignmentsService.swift */,
+				3F3E50E72AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift */,
+				3FE3A4352ADD5C4E000E455F /* AssignmentGroupsService.swift */,
 				3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */,
 				3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */,
 				3F38142C2AE2A15900B4C0E3 /* CategorizationSheetsService.swift */,
 				3F3814282AE29F7000B4C0E3 /* CategorizationSheetAssignmentsService.swift */,
-				3FE3A4332ADD5BF7000E455F /* CategorizationTasksService.swift */,
 				3F3814302AE2A4CA00B4C0E3 /* SheetTypesService.swift */,
-				3FE3A4352ADD5C4E000E455F /* TaskCategoriesService.swift */,
 				3F1421D02AC9AB4500EA364A /* TeamsService.swift */,
-				3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift */,
+				3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift */,
 				3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */,
 			);
 			path = Services;
@@ -759,15 +762,16 @@
 				3FE3A43B2ADD5FC6000E455F /* CategorizationHomeScreen.swift in Sources */,
 				3F1421CF2AC9AA1900EA364A /* MyTeamsViewModel.swift in Sources */,
 				3F2E55EA2A39DE3500E3BC30 /* ActivityIndicatorModifier.swift in Sources */,
-				3FE3A4362ADD5C4E000E455F /* TaskCategoriesService.swift in Sources */,
+				3FE3A4362ADD5C4E000E455F /* AssignmentGroupsService.swift in Sources */,
 				3F3814272AE29F3200B4C0E3 /* CategorizationSheetAssignment.swift in Sources */,
 				3F3E50E42AF134C700552CC2 /* RemoteConfigManager.swift in Sources */,
 				3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */,
-				3FE3A4342ADD5BF7000E455F /* CategorizationTasksService.swift in Sources */,
+				3FE3A4342ADD5BF7000E455F /* AssignmentsService.swift in Sources */,
 				3F3814232AE29EBD00B4C0E3 /* Category.swift in Sources */,
 				3F3814292AE29F7000B4C0E3 /* CategorizationSheetAssignmentsService.swift in Sources */,
 				3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */,
 				3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */,
+				3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */,
 				3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */,
 				3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */,
 				3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */,
@@ -786,7 +790,7 @@
 				3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */,
 				3F4F65802ADE78DA003B2F0A /* CategorizationSheetViewModel.swift in Sources */,
 				3F38142F2AE2A4A300B4C0E3 /* SheetType.swift in Sources */,
-				3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift in Sources */,
+				3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift in Sources */,
 				3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */,
 				3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */,
 				3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */,

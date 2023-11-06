@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 struct TeamCategorizationSheetAssignment: FirebaseModel, Identifiable, Equatable, Hashable {
     let id: String
 
-    let categorizationSheetAssignmentId: String
+    let assignmentId: String
     let teamCategorizationSheetId: String
 
     let isCompleted: Bool?
@@ -22,7 +22,7 @@ extension TeamCategorizationSheetAssignment {
     func toCreateMap() -> [String: Any] {
         let map: [String: Any?] = [
             "id": id,
-            "categorizationSheetAssignmentId": categorizationSheetAssignmentId,
+            "assignmentId": assignmentId,
             "teamCategorizationSheetId": teamCategorizationSheetId,
             "isCompleted": isCompleted,
             "value": value
