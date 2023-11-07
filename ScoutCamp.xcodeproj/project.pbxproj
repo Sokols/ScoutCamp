@@ -41,8 +41,6 @@
 		3F3814212AE29DD100B4C0E3 /* CategorizationPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814202AE29DD100B4C0E3 /* CategorizationPeriod.swift */; };
 		3F3814232AE29EBD00B4C0E3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814222AE29EBD00B4C0E3 /* Category.swift */; };
 		3F3814252AE29EE300B4C0E3 /* CategorizationPeriodsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */; };
-		3F3814272AE29F3200B4C0E3 /* CategorizationSheetAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814262AE29F3200B4C0E3 /* CategorizationSheetAssignment.swift */; };
-		3F3814292AE29F7000B4C0E3 /* CategorizationSheetAssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814282AE29F7000B4C0E3 /* CategorizationSheetAssignmentsService.swift */; };
 		3F38142B2AE2A10200B4C0E3 /* CategorizationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38142A2AE2A10200B4C0E3 /* CategorizationSheet.swift */; };
 		3F38142D2AE2A15900B4C0E3 /* CategorizationSheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38142C2AE2A15900B4C0E3 /* CategorizationSheetsService.swift */; };
 		3F38142F2AE2A4A300B4C0E3 /* SheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38142E2AE2A4A300B4C0E3 /* SheetType.swift */; };
@@ -135,8 +133,6 @@
 		3F3814202AE29DD100B4C0E3 /* CategorizationPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriod.swift; sourceTree = "<group>"; };
 		3F3814222AE29EBD00B4C0E3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriodsService.swift; sourceTree = "<group>"; };
-		3F3814262AE29F3200B4C0E3 /* CategorizationSheetAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetAssignment.swift; sourceTree = "<group>"; };
-		3F3814282AE29F7000B4C0E3 /* CategorizationSheetAssignmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetAssignmentsService.swift; sourceTree = "<group>"; };
 		3F38142A2AE2A10200B4C0E3 /* CategorizationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheet.swift; sourceTree = "<group>"; };
 		3F38142C2AE2A15900B4C0E3 /* CategorizationSheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsService.swift; sourceTree = "<group>"; };
 		3F38142E2AE2A4A300B4C0E3 /* SheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetType.swift; sourceTree = "<group>"; };
@@ -231,7 +227,6 @@
 				3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */,
 				3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */,
 				3F38142C2AE2A15900B4C0E3 /* CategorizationSheetsService.swift */,
-				3F3814282AE29F7000B4C0E3 /* CategorizationSheetAssignmentsService.swift */,
 				3F3814302AE2A4CA00B4C0E3 /* SheetTypesService.swift */,
 				3F1421D02AC9AB4500EA364A /* TeamsService.swift */,
 				3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift */,
@@ -260,7 +255,6 @@
 				3F3814222AE29EBD00B4C0E3 /* Category.swift */,
 				3F3814202AE29DD100B4C0E3 /* CategorizationPeriod.swift */,
 				3F38142A2AE2A10200B4C0E3 /* CategorizationSheet.swift */,
-				3F3814262AE29F3200B4C0E3 /* CategorizationSheetAssignment.swift */,
 				3F38142E2AE2A4A300B4C0E3 /* SheetType.swift */,
 				3F1421D72AC9B78300EA364A /* Team.swift */,
 				3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */,
@@ -763,12 +757,10 @@
 				3F1421CF2AC9AA1900EA364A /* MyTeamsViewModel.swift in Sources */,
 				3F2E55EA2A39DE3500E3BC30 /* ActivityIndicatorModifier.swift in Sources */,
 				3FE3A4362ADD5C4E000E455F /* AssignmentGroupsService.swift in Sources */,
-				3F3814272AE29F3200B4C0E3 /* CategorizationSheetAssignment.swift in Sources */,
 				3F3E50E42AF134C700552CC2 /* RemoteConfigManager.swift in Sources */,
 				3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */,
 				3FE3A4342ADD5BF7000E455F /* AssignmentsService.swift in Sources */,
 				3F3814232AE29EBD00B4C0E3 /* Category.swift in Sources */,
-				3F3814292AE29F7000B4C0E3 /* CategorizationSheetAssignmentsService.swift in Sources */,
 				3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */,
 				3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */,
 				3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */,

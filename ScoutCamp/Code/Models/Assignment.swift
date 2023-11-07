@@ -13,6 +13,7 @@ struct Assignment: FirebaseModel, Identifiable, Equatable, Hashable {
 
     let categoryId: String?
     let mainAssignmentGroupId: String
+    let categorizationSheetId: String
     let assignmentType: String
 
     let description: String
@@ -28,6 +29,7 @@ extension Assignment {
             "id": id,
             "categoryId": categoryId,
             "mainAssignmentGroupId": mainAssignmentGroupId,
+            "categorizationSheetId": categorizationSheetId,
             "assignmentType": assignmentType,
             "description": description,
             "maxPoints": maxPoints,

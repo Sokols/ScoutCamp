@@ -13,15 +13,13 @@ struct CategorizationSheetScreen: View {
     init(
         sheetJoint: CategorizationSheetJoint,
         assignmentsService: AssignmentsServiceProtocol,
-        categorizationSheetAssignmentsService: CategorizationSheetAssignmentsServiceProtocol,
-        teamCategorizationSheetAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
+        teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
     ) {
         _viewModel = StateObject(
             wrappedValue: CategorizationSheetViewModel(
                 sheetJoint: sheetJoint,
                 assignmentsService: assignmentsService,
-                categorizationSheetAssignmentsService: categorizationSheetAssignmentsService,
-                teamCategorizationSheetAssignmentsService: teamCategorizationSheetAssignmentsService
+                teamAssignmentsService: teamAssignmentsService
             )
         )
     }
@@ -30,7 +28,10 @@ struct CategorizationSheetScreen: View {
         VStack {
             List {
                 ForEach(viewModel.assignmentJoints, id: \.self) { item in
-                    Text(item.assignment.description)
+                    VStack {
+                        Text(item.assignment.description)
+                        Text("Done: \(item.teamAssignment?.id ?? "-")")
+                    }
                 }
             }
             HStack {
@@ -67,8 +68,7 @@ struct CategorizationSheetScreen_Previews: PreviewProvider {
         CategorizationSheetScreen(
             sheetJoint: joint,
             assignmentsService: AssignmentsService(),
-            categorizationSheetAssignmentsService: CategorizationSheetAssignmentsService(),
-            teamCategorizationSheetAssignmentsService: TeamCategorizationSheetAssignmentsService()
+            teamAssignmentsService: TeamCategorizationSheetAssignmentsService()
         )
     }
 }

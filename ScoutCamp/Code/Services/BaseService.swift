@@ -16,7 +16,6 @@ enum FirebaseCollection: String {
     case assignments
     case categories
     case categorizationPeriods
-    case categorizationSheetAssignments
     case categorizationSheets
     case regiments
     case sheetTypes

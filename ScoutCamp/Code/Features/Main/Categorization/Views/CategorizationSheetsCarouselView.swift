@@ -9,8 +9,7 @@ import SwiftUI
 
 struct CategorizationSheetsCarouselView: View {
     let assignmentsService: AssignmentsServiceProtocol
-    let categorizationSheetAssignmentsService: CategorizationSheetAssignmentsServiceProtocol
-    let teamCategorizationSheetAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
+    let teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
 
     @Binding var joints: [CategorizationSheetJoint]
 
@@ -21,8 +20,7 @@ struct CategorizationSheetsCarouselView: View {
                     NavigationLink(destination: CategorizationSheetScreen(
                         sheetJoint: item,
                         assignmentsService: assignmentsService,
-                        categorizationSheetAssignmentsService: categorizationSheetAssignmentsService,
-                        teamCategorizationSheetAssignmentsService: teamCategorizationSheetAssignmentsService
+                        teamAssignmentsService: teamAssignmentsService
                     )) {
                         CategorizationSheetItemView(item: item, categoryUrl: nil)
                             .padding(.horizontal)
@@ -77,8 +75,7 @@ struct CategorizationSheetsCarouselView_Previews: PreviewProvider {
     static var previews: some View {
         CategorizationSheetsCarouselView(
             assignmentsService: AssignmentsService(),
-            categorizationSheetAssignmentsService: CategorizationSheetAssignmentsService(),
-            teamCategorizationSheetAssignmentsService: TeamCategorizationSheetAssignmentsService(),
+            teamAssignmentsService: TeamCategorizationSheetAssignmentsService(),
             joints: .constant(joints)
         )
     }
