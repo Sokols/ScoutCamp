@@ -14,6 +14,10 @@ protocol CategoriesServiceProtocol {
 class CategoriesService: BaseService, CategoriesServiceProtocol {
     private(set) static var categories: [Category] = []
 
+    static func getFirstCategory() -> Category? {
+        return categories.sorted(by: {$0.order < $1.order}).first
+    }
+
     static func categoryFor(id: String?) -> Category? {
         return CategoriesService.categories.first { $0.id == id }
     }

@@ -8,9 +8,10 @@
 import Foundation
 
 struct Category: FirebaseModel, Identifiable, Equatable, Hashable {
-    var id: String
-    var name: String
-    var imagePath: String
+    let id: String
+    let name: String
+    let imagePath: String
+    let order: Int
 }
 
 extension Category {
@@ -18,7 +19,8 @@ extension Category {
         let map: [String: Any?] = [
             "id": id,
             "name": name,
-            "imagePath": imagePath
+            "imagePath": imagePath,
+            "order": order
         ]
 
         return map.compactMapValues { $0 }

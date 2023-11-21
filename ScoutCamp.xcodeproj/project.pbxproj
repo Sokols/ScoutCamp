@@ -37,7 +37,6 @@
 		3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */; };
 		3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560A2A3C797F00E3BC30 /* Validation.swift */; };
 		3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */; };
-		3F38141F2AE29BBB00B4C0E3 /* FirebaseDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38141E2AE29BBB00B4C0E3 /* FirebaseDictionary.swift */; };
 		3F3814212AE29DD100B4C0E3 /* CategorizationPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814202AE29DD100B4C0E3 /* CategorizationPeriod.swift */; };
 		3F3814232AE29EBD00B4C0E3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814222AE29EBD00B4C0E3 /* Category.swift */; };
 		3F3814252AE29EE300B4C0E3 /* CategorizationPeriodsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */; };
@@ -55,6 +54,8 @@
 		3F3E50E42AF134C700552CC2 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */; };
 		3F3E50E62AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */; };
 		3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E72AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift */; };
+		3F3E50EA2AFA99E800552CC2 /* BaseToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E92AFA99E800552CC2 /* BaseToolbarView.swift */; };
+		3F3E50EC2AFA9DC000552CC2 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50EB2AFA9DC000552CC2 /* CircleButton.swift */; };
 		3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */; };
 		3F4F65802ADE78DA003B2F0A /* CategorizationSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */; };
 		3F5438442AE7E05500C9AEB8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5438432AE7E05500C9AEB8 /* HomeViewModel.swift */; };
@@ -65,6 +66,10 @@
 		3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0142AC890F100945FDE /* ProfileViewModel.swift */; };
 		3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0152AC890F100945FDE /* ProfileScreen.swift */; };
 		3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */; };
+		3FBA1CB52B03B8240019A84A /* TeamAssignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CB42B03B8240019A84A /* TeamAssignmentView.swift */; };
+		3FBA1CB82B03BCBC0019A84A /* AssignmentCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CB72B03BCBC0019A84A /* AssignmentCheckbox.swift */; };
+		3FBA1CBA2B03E2EA0019A84A /* AssignmentNumericInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CB92B03E2EA0019A84A /* AssignmentNumericInput.swift */; };
+		3FBA1CBC2B03E3440019A84A /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CBB2B03E3440019A84A /* CheckboxToggleStyle.swift */; };
 		3FDF9A3F2AE6E2A300F5F111 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */; };
 		3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4132AD41AEF000E455F /* DropdownField.swift */; };
 		3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */; };
@@ -129,7 +134,6 @@
 		3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		3F2E560A2A3C797F00E3BC30 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryField.swift; sourceTree = "<group>"; };
-		3F38141E2AE29BBB00B4C0E3 /* FirebaseDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDictionary.swift; sourceTree = "<group>"; };
 		3F3814202AE29DD100B4C0E3 /* CategorizationPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriod.swift; sourceTree = "<group>"; };
 		3F3814222AE29EBD00B4C0E3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriodsService.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 		3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunction.swift; sourceTree = "<group>"; };
 		3F3E50E72AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunctionsService.swift; sourceTree = "<group>"; };
+		3F3E50E92AFA99E800552CC2 /* BaseToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseToolbarView.swift; sourceTree = "<group>"; };
+		3F3E50EB2AFA9DC000552CC2 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetScreen.swift; sourceTree = "<group>"; };
 		3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetViewModel.swift; sourceTree = "<group>"; };
 		3F5438432AE7E05500C9AEB8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -154,6 +160,10 @@
 		3F78A0142AC890F100945FDE /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3F78A0152AC890F100945FDE /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
+		3FBA1CB42B03B8240019A84A /* TeamAssignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAssignmentView.swift; sourceTree = "<group>"; };
+		3FBA1CB72B03BCBC0019A84A /* AssignmentCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentCheckbox.swift; sourceTree = "<group>"; };
+		3FBA1CB92B03E2EA0019A84A /* AssignmentNumericInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentNumericInput.swift; sourceTree = "<group>"; };
+		3FBA1CBB2B03E3440019A84A /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		3FE3A4132AD41AEF000E455F /* DropdownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownField.swift; sourceTree = "<group>"; };
 		3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
@@ -248,7 +258,6 @@
 		3F1421D62AC9B77800EA364A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3F38141E2AE29BBB00B4C0E3 /* FirebaseDictionary.swift */,
 				3FE3A42B2ADD50F3000E455F /* Assignment.swift */,
 				3FE3A42D2ADD5252000E455F /* AssignmentGroup.swift */,
 				3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */,
@@ -373,9 +382,12 @@
 		3F2E55ED2A39DFAE00E3BC30 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				3FBA1CB62B03BC9F0019A84A /* AssignmentComponents */,
 				3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */,
 				3FE3A4132AD41AEF000E455F /* DropdownField.swift */,
 				3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */,
+				3F3E50E92AFA99E800552CC2 /* BaseToolbarView.swift */,
+				3F3E50EB2AFA9DC000552CC2 /* CircleButton.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -403,6 +415,7 @@
 			children = (
 				3F2E56062A3C5FE200E3BC30 /* ButtonStyles.swift */,
 				3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */,
+				3FBA1CBB2B03E3440019A84A /* CheckboxToggleStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -420,6 +433,7 @@
 		3F4F657C2ADE782C003B2F0A /* CategorizationSheet */ = {
 			isa = PBXGroup;
 			children = (
+				3FBA1CB32B03B7F70019A84A /* Views */,
 				3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */,
 				3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */,
 			);
@@ -442,6 +456,23 @@
 				3F78A0142AC890F100945FDE /* ProfileViewModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		3FBA1CB32B03B7F70019A84A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA1CB42B03B8240019A84A /* TeamAssignmentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3FBA1CB62B03BC9F0019A84A /* AssignmentComponents */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA1CB72B03BCBC0019A84A /* AssignmentCheckbox.swift */,
+				3FBA1CB92B03E2EA0019A84A /* AssignmentNumericInput.swift */,
+			);
+			path = AssignmentComponents;
 			sourceTree = "<group>";
 		};
 		3FDF9A3D2AE6E29500F5F111 /* Modifiers */ = {
@@ -749,6 +780,7 @@
 				3FE3A42E2ADD5252000E455F /* AssignmentGroup.swift in Sources */,
 				3FDF9A3F2AE6E2A300F5F111 /* ViewDidLoadModifier.swift in Sources */,
 				3F3814312AE2A4CA00B4C0E3 /* SheetTypesService.swift in Sources */,
+				3FBA1CBA2B03E2EA0019A84A /* AssignmentNumericInput.swift in Sources */,
 				3FE3A42C2ADD50F3000E455F /* Assignment.swift in Sources */,
 				3F3E50E62AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift in Sources */,
 				3FED549E2A365E0D00498112 /* ContentView.swift in Sources */,
@@ -761,6 +793,7 @@
 				3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */,
 				3FE3A4342ADD5BF7000E455F /* AssignmentsService.swift in Sources */,
 				3F3814232AE29EBD00B4C0E3 /* Category.swift in Sources */,
+				3F3E50EC2AFA9DC000552CC2 /* CircleButton.swift in Sources */,
 				3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */,
 				3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */,
 				3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */,
@@ -768,6 +801,7 @@
 				3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */,
 				3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */,
 				3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */,
+				3FBA1CB82B03BCBC0019A84A /* AssignmentCheckbox.swift in Sources */,
 				3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */,
 				3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */,
 				3F38142B2AE2A10200B4C0E3 /* CategorizationSheet.swift in Sources */,
@@ -775,7 +809,9 @@
 				3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */,
 				3F0D58F22A483A410072EF1F /* Error.swift in Sources */,
 				3F1421D82AC9B78300EA364A /* Team.swift in Sources */,
+				3FBA1CB52B03B8240019A84A /* TeamAssignmentView.swift in Sources */,
 				3F1421E12ACA086200EA364A /* CreateEditTeamViewModel.swift in Sources */,
+				3FBA1CBC2B03E3440019A84A /* CheckboxToggleStyle.swift in Sources */,
 				3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */,
 				3F38142D2AE2A15900B4C0E3 /* CategorizationSheetsService.swift in Sources */,
 				3F5438522AEAC2F000C9AEB8 /* StorageManager.swift in Sources */,
@@ -786,13 +822,13 @@
 				3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */,
 				3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */,
 				3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */,
+				3F3E50EA2AFA99E800552CC2 /* BaseToolbarView.swift in Sources */,
 				3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */,
 				3F5438442AE7E05500C9AEB8 /* HomeViewModel.swift in Sources */,
 				3F3814392AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift in Sources */,
 				3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */,
 				3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */,
 				3F3814372AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift in Sources */,
-				3F38141F2AE29BBB00B4C0E3 /* FirebaseDictionary.swift in Sources */,
 				3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */,
 				3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */,
 				3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */,

@@ -11,13 +11,13 @@ struct CategorizationSheetScreen: View {
     @StateObject private var viewModel: CategorizationSheetViewModel
 
     init(
-        sheetJoint: CategorizationSheetJoint,
+        sheetJunction: CategorizationSheetJunction,
         assignmentsService: AssignmentsServiceProtocol,
         teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
     ) {
         _viewModel = StateObject(
             wrappedValue: CategorizationSheetViewModel(
-                sheetJoint: sheetJoint,
+                sheetJunction: sheetJunction,
                 assignmentsService: assignmentsService,
                 teamAssignmentsService: teamAssignmentsService
             )
@@ -26,32 +26,64 @@ struct CategorizationSheetScreen: View {
 
     var body: some View {
         VStack {
+            BaseToolbarView(title: "\(viewModel.sheetType)")
+                .padding(.bottom)
             List {
-                ForEach(viewModel.assignmentJoints, id: \.self) { item in
-                    VStack {
-                        Text(item.assignment.description)
-                        Text("Done: \(item.teamAssignment?.id ?? "-")")
-                    }
+                ForEach(viewModel.assignmentJunctions, id: \.self) { item in
+                    TeamAssignmentView(junction: item)
                 }
             }
-            HStack {
-                Spacer()
-                Text("CategorizationSheetScreen")
-                Spacer()
-            }
-        }.task {
+            .listStyle(PlainListStyle())
+            Divider()
+            bottomBar()
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+        }
+        .task {
             await viewModel.fetchAssignments()
+        }
+        .navigationBarBackButtonHidden()
+    }
+
+    private func bottomBar() -> some View {
+        HStack {
+            Text("Points: \(viewModel.points)")
+            Spacer()
+            Text("Category: \(viewModel.category?.name ?? "-")")
+                .padding(.horizontal)
+            Spacer()
+            CircleButton(
+                systemImageName: "square.and.arrow.down",
+                backgroundColor: .white,
+                foregroundColor: .secondaryColor,
+                strokeColor: .secondaryColor,
+                action: saveAsDraft
+            )
+            CircleButton(systemImageName: "checkmark", action: complete)
+        }
+    }
+
+    private func saveAsDraft() {
+        Task {
+            await viewModel.saveAsDraft()
+        }
+    }
+
+    private func complete() {
+        Task {
+            await viewModel.complete()
         }
     }
 }
 
 struct CategorizationSheetScreen_Previews: PreviewProvider {
-    private static let joint = CategorizationSheetJoint(
+    private static let junction = CategorizationSheetJunction(
         categorizationSheet: CategorizationSheet(
             id: "",
             periodId: "",
             sheetTypeId: ""
         ),
+        team: Team(id: "", userId: "", troopId: "", regimentId: "", name: ""),
         teamCategorizationSheet: TeamCategorizationSheet(
             id: "1",
             categorizationSheetId: "1",
@@ -66,7 +98,7 @@ struct CategorizationSheetScreen_Previews: PreviewProvider {
 
     static var previews: some View {
         CategorizationSheetScreen(
-            sheetJoint: joint,
+            sheetJunction: junction,
             assignmentsService: AssignmentsService(),
             teamAssignmentsService: TeamCategorizationSheetAssignmentsService()
         )

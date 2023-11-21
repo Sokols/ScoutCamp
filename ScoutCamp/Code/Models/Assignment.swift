@@ -8,6 +8,11 @@
 import Foundation
 import FirebaseFirestoreSwift
 
+enum AssignmentType: String {
+    case numeric
+    case boolean
+}
+
 struct Assignment: FirebaseModel, Identifiable, Equatable, Hashable {
     let id: String
 

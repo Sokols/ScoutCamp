@@ -8,13 +8,40 @@
 import SwiftUI
 
 struct BaseToolbarView: View {
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    var title: String?
+    var backAction: (() -> Void)?
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            if let title = title {
+                Text(title)
+                    .font(.system(size: 20, weight: .bold))
+            }
+            HStack {
+                Button(action: {
+                    if let backAction = backAction {
+                        backAction()
+                    } else {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                }, label: {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                            .padding(.leading)
+                        Text("Back")
+                    }
+                })
+                Spacer()
+            }
+        }
+        .padding(.top)
+        .foregroundColor(Color.primaryColor)
     }
 }
 
 struct BaseToolbarView_Previews: PreviewProvider {
     static var previews: some View {
-        BaseToolbarView()
+        BaseToolbarView(title: "Toolbar")
     }
 }

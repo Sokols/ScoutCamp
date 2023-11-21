@@ -8,8 +8,9 @@
 import Combine
 import Foundation
 
-struct CategorizationSheetJoint: Hashable {
+struct CategorizationSheetJunction: Hashable {
     var categorizationSheet: CategorizationSheet
+    var team: Team
     var teamCategorizationSheet: TeamCategorizationSheet?
 }
 
@@ -24,8 +25,8 @@ class CategorizationHomeViewModel: ObservableObject {
     private var currentPeriodSheets: [CategorizationSheet] = []
 
     @Published var userTeams: [Team] = []
-    @Published var currentPeriodSheetJoints: [CategorizationSheetJoint] = []
-    @Published var oldTeamSheetJoints: [CategorizationSheetJoint] = []
+    @Published var currentPeriodSheetJunctions: [CategorizationSheetJunction] = []
+    @Published var oldTeamSheetJunctions: [CategorizationSheetJunction] = []
     @Published var categoryUrls: [String: URL] = [:]
     @Published var error: Error?
     @Published var isLoading = false
@@ -60,45 +61,55 @@ class CategorizationHomeViewModel: ObservableObject {
         return userTeams.first(where: {$0.id == selectedTeam?.key})
     }
 
+    func fetchInitData() async {
+        await fetchMyTeams()
+        await fetchMySheets()
+        await fetchCategoryUrls()
+    }
+
     func fetchMySheets() async {
         guard let teamId = getTeam()?.id else { return }
-        updateCurrentPeriodSheetJoints()
+        updateCurrentPeriodSheetJunctions()
         isLoading = true
         let result = await teamSheetsService.getTeamCategorizationSheets(for: teamId)
         isLoading = false
         if let error = result.1 {
             self.error = error
         } else if let teamSheets = result.0 {
-            oldTeamSheetJoints.removeAll()
+            oldTeamSheetJunctions.removeAll()
             for teamSheet in teamSheets {
                 let sheet = CategorizationSheetsService.categorizationSheetFor(id: teamSheet.categorizationSheetId)
                 if currentPeriodId == sheet?.periodId {
-                    let newJoint = CategorizationSheetJoint(
+                    let newJunction = CategorizationSheetJunction(
                         categorizationSheet: sheet!,
+                        team: getTeam()!,
                         teamCategorizationSheet: teamSheet
                     )
-                    if let index = currentPeriodSheetJoints.firstIndex(where: {
+                    if let index = currentPeriodSheetJunctions.firstIndex(where: {
                         $0.categorizationSheet.id == sheet?.id
                     }) {
-                        currentPeriodSheetJoints[index] = newJoint
+                        currentPeriodSheetJunctions[index] = newJunction
                     }
                 } else {
                     let allSheets = CategorizationSheetsService.categorizationSheets
                     if let oldCategorizationSheet = allSheets.first(where: {
                         $0.id == teamSheet.categorizationSheetId
                     }) {
-                        let newJoint = CategorizationSheetJoint(
+                        let newJunction = CategorizationSheetJunction(
                             categorizationSheet: oldCategorizationSheet,
+                            team: getTeam()!,
                             teamCategorizationSheet: teamSheet
                         )
-                        oldTeamSheetJoints.append(newJoint)
+                        oldTeamSheetJunctions.append(newJunction)
                     }
                 }
             }
         }
     }
 
-    func fetchMyTeams() async {
+    // MARK: - Helpers
+
+    private func fetchMyTeams() async {
         isLoading = true
         let result = await teamsService.getUserTeams()
         isLoading = false
@@ -112,7 +123,7 @@ class CategorizationHomeViewModel: ObservableObject {
         }
     }
 
-    func fetchCategoryUrls() async {
+    private func fetchCategoryUrls() async {
         let categories = CategoriesService.categories
         isLoading = true
         do {
@@ -129,11 +140,9 @@ class CategorizationHomeViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Helpers
-
-    private func updateCurrentPeriodSheetJoints() {
-        currentPeriodSheetJoints = CategorizationSheetsService.getCurrentPeriodCategorizationSheets().map {
-            CategorizationSheetJoint(categorizationSheet: $0, teamCategorizationSheet: nil)
+    private func updateCurrentPeriodSheetJunctions() {
+        currentPeriodSheetJunctions = CategorizationSheetsService.getCurrentPeriodCategorizationSheets().map {
+            CategorizationSheetJunction(categorizationSheet: $0, team: getTeam()!, teamCategorizationSheet: nil)
         }.sorted(by: { item1, item2 in
             let sheetType1 = SheetTypesService.sheetTypeFor(id: item1.categorizationSheet.sheetTypeId)
             let sheetType2 = SheetTypesService.sheetTypeFor(id: item2.categorizationSheet.sheetTypeId)

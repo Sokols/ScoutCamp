@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategorizationSheetItemView: View {
-    let item: CategorizationSheetJoint
+    let item: CategorizationSheetJunction
     let categoryUrl: URL?
 
     private let radius: CGFloat = 12
@@ -67,12 +67,13 @@ struct CategorizationSheetItemView: View {
 }
 
 struct CategorizationSheetItemView_Previews: PreviewProvider {
-    private static let item = CategorizationSheetJoint(
+    private static let item = CategorizationSheetJunction(
         categorizationSheet: CategorizationSheet(
             id: "",
             periodId: "",
             sheetTypeId: ""
         ),
+        team: Team(id: "", userId: "", troopId: "", regimentId: "", name: ""),
         teamCategorizationSheet: TeamCategorizationSheet(
             id: "1",
             categorizationSheetId: "1",

@@ -8,9 +8,9 @@
 import Foundation
 
 struct SheetType: FirebaseModel, Identifiable, Equatable, Hashable {
-    var id: String
-    var name: String
-    var order: Int
+    let id: String
+    let name: String
+    let order: Int
 }
 
 extension SheetType {

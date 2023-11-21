@@ -8,11 +8,53 @@
 import SwiftUI
 
 struct TeamAssignmentView: View {
+    let junction: TeamAssignmentJunction
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Spacer()
+            VStack(alignment: .leading) {
+                Text(junction.assignment.description)
+                getInputForAssignmentType(junction.assignment.assignmentType)
+            }
+            Spacer()
+        }
+        .padding()
+        .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.gray, lineWidth: 2)
+        )
+    }
+
+    private func getInputForAssignmentType(_ type: String) -> some View {
+        switch AssignmentType(rawValue: type) {
+        case .boolean:
+            return Text("Boolean")
+        case .numeric:
+            return Text("Numeric")
+        default:
+            return Text("Unknown")
+        }
     }
 }
 
-#Preview {
-    TeamAssignmentView()
+struct TeamAssignmentView_Previews: PreviewProvider {
+    private static let junction = TeamAssignmentJunction(
+        assignment: Assignment(
+            id: "",
+            categoryId: "",
+            mainAssignmentGroupId: "",
+            categorizationSheetId: "",
+            assignmentType: "numeric",
+            description: "TEST DESCRIPTION",
+            maxPoints: 5,
+            maxScoringValue: nil,
+            minimums: nil
+        )
+    )
+
+    static var previews: some View {
+        TeamAssignmentView(junction: junction)
+    }
 }

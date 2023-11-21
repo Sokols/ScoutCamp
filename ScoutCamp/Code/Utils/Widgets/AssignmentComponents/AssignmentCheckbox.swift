@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct AssignmentCheckbox: View {
+
+    @Binding var isChecked: Bool
+    let title = "Done:"
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Toggle(isOn: $isChecked) {
+            Text(title)
+        }
+        .toggleStyle(CheckboxToggleStyle())
+        .padding()
     }
 }
 
 #Preview {
-    AssignmentCheckbox()
+    @State var isChecked = false
+
+    return AssignmentCheckbox(isChecked: $isChecked)
 }

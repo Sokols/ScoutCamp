@@ -43,14 +43,14 @@ struct CategorizationHomeScreen: View {
                     .padding(.vertical)
 
                 Group {
-                    if viewModel.currentPeriodSheetJoints.isEmpty {
+                    if viewModel.currentPeriodSheetJunctions.isEmpty {
                         Text("No sheets.")
                             .multilineTextAlignment(.center)
                     } else {
                         CategorizationSheetsCarouselView(
                             assignmentsService: assignmentsService,
                             teamAssignmentsService: teamAssignmentsService,
-                            joints: $viewModel.currentPeriodSheetJoints
+                            junctions: $viewModel.currentPeriodSheetJunctions
                         )
                         .padding(.horizontal, -16)
                     }
@@ -61,14 +61,14 @@ struct CategorizationHomeScreen: View {
                     .padding(.vertical)
 
                 Group {
-                    if viewModel.oldTeamSheetJoints.isEmpty {
+                    if viewModel.oldTeamSheetJunctions.isEmpty {
                         Text("No sheets.")
                             .multilineTextAlignment(.center)
                     } else {
                         List {
-                            ForEach(viewModel.oldTeamSheetJoints, id: \.self) { item in
+                            ForEach(viewModel.oldTeamSheetJunctions, id: \.self) { item in
                                 NavigationLink(destination: CategorizationSheetScreen(
-                                    sheetJoint: item,
+                                    sheetJunction: item,
                                     assignmentsService: assignmentsService,
                                     teamAssignmentsService: teamAssignmentsService
                                 )) {
@@ -95,14 +95,10 @@ struct CategorizationHomeScreen: View {
         .padding(.horizontal, 16)
         .errorAlert(error: $viewModel.error)
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
-        .task {
-            await viewModel.fetchMyTeams()
-        }
-        .task {
-            await viewModel.fetchMySheets()
-        }
-        .task {
-            await viewModel.fetchCategoryUrls()
+        .onLoad {
+            Task {
+                await viewModel.fetchInitData()
+            }
         }
         .onChange(of: viewModel.selectedTeam) { _ in
             Task {

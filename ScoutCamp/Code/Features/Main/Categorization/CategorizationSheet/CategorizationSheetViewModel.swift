@@ -7,7 +7,7 @@
 
 import Combine
 
-struct TeamAssignmentJoint: Hashable {
+struct TeamAssignmentJunction: Hashable {
     var assignment: Assignment
     var teamAssignment: TeamCategorizationSheetAssignment?
 }
@@ -15,30 +15,56 @@ struct TeamAssignmentJoint: Hashable {
 @MainActor
 class CategorizationSheetViewModel: ObservableObject {
 
-    @Published var assignmentJoints: [TeamAssignmentJoint] = []
+    @Published var assignmentJunctions: [TeamAssignmentJunction] = []
+    @Published var sheetJunction: CategorizationSheetJunction
 
     @Published var error: Error?
     @Published var isLoading = false
 
-    private let sheetJoint: CategorizationSheetJoint
     private let assignmentsService: AssignmentsServiceProtocol
     private let teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
     private let isInitialFill: Bool
 
+    var sheetType: String {
+        SheetTypesService.sheetTypeFor(id: sheetJunction.categorizationSheet.sheetTypeId)?.name ?? ""
+    }
+
+    var category: Category? {
+        CategoriesService.categoryFor(id: sheetJunction.teamCategorizationSheet?.categoryId)
+    }
+
+    var points: Int {
+        sheetJunction.teamCategorizationSheet?.points ?? 0
+    }
+
     init(
-        sheetJoint: CategorizationSheetJoint,
+        sheetJunction: CategorizationSheetJunction,
         assignmentsService: AssignmentsServiceProtocol,
         teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
     ) {
-        self.sheetJoint = sheetJoint
+        self.sheetJunction = sheetJunction
         self.assignmentsService = assignmentsService
         self.teamAssignmentsService = teamAssignmentsService
 
-        isInitialFill = sheetJoint.teamCategorizationSheet == nil
+        isInitialFill = sheetJunction.teamCategorizationSheet == nil
+        if sheetJunction.teamCategorizationSheet == nil {
+            self.sheetJunction.teamCategorizationSheet = TeamCategorizationSheet(
+                id: "",
+                categorizationSheetId: sheetJunction.categorizationSheet.id,
+                teamId: sheetJunction.team.id,
+                categoryId: CategoriesService.getFirstCategory()?.id ?? "",
+                points: 0,
+                isDraft: true,
+                createdAt: .now,
+                updatedAt: .now
+            )
+        }
     }
 
+    // MARK: - Public
+
     func fetchAssignments() async {
-        let categorizationSheetId = sheetJoint.categorizationSheet.id
+        let categorizationSheetId = sheetJunction.categorizationSheet.id
         isLoading = true
         let result = await assignmentsService.getAssignmentsFor(categorizationSheetId)
         let teamAssignments = await fetchTeamAssignments()
@@ -46,8 +72,8 @@ class CategorizationSheetViewModel: ObservableObject {
         if let error = result.1 {
             self.error = error
         } else if let assignments = result.0 {
-            self.assignmentJoints = assignments.map { item in
-                TeamAssignmentJoint(
+            self.assignmentJunctions = assignments.map { item in
+                TeamAssignmentJunction(
                     assignment: item,
                     teamAssignment: teamAssignments.first(where: { $0.assignmentId == item.id })
                 )
@@ -55,10 +81,18 @@ class CategorizationSheetViewModel: ObservableObject {
         }
     }
 
+    func complete() async {
+        // TODO: Implement
+    }
+
+    func saveAsDraft() async {
+        // TODO: Implement
+    }
+
     // MARK: - Helpers
 
     private func fetchTeamAssignments() async -> [TeamCategorizationSheetAssignment] {
-        guard let teamCategorizationSheetId = sheetJoint.teamCategorizationSheet?.id else {
+        guard let teamCategorizationSheetId = sheetJunction.teamCategorizationSheet?.id else {
             return []
         }
         let result = await teamAssignmentsService.getTeamCategorizationSheetAssignmentsFor(teamCategorizationSheetId)

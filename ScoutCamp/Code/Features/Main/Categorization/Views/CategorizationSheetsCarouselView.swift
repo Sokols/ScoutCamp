@@ -11,14 +11,14 @@ struct CategorizationSheetsCarouselView: View {
     let assignmentsService: AssignmentsServiceProtocol
     let teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
 
-    @Binding var joints: [CategorizationSheetJoint]
+    @Binding var junctions: [CategorizationSheetJunction]
 
     var body: some View {
         VStack {
             TabView {
-                ForEach(joints, id: \.self) { item in
+                ForEach(junctions, id: \.self) { item in
                     NavigationLink(destination: CategorizationSheetScreen(
-                        sheetJoint: item,
+                        sheetJunction: item,
                         assignmentsService: assignmentsService,
                         teamAssignmentsService: teamAssignmentsService
                     )) {
@@ -36,13 +36,14 @@ struct CategorizationSheetsCarouselView: View {
 }
 
 struct CategorizationSheetsCarouselView_Previews: PreviewProvider {
-    private static let joints = [
-        CategorizationSheetJoint(
+    private static let junctions = [
+        CategorizationSheetJunction(
             categorizationSheet: CategorizationSheet(
                 id: "",
                 periodId: "",
                 sheetTypeId: ""
             ),
+            team: Team(id: "", userId: "", troopId: "", regimentId: "", name: ""),
             teamCategorizationSheet: TeamCategorizationSheet(
                 id: "test_id",
                 categorizationSheetId: "test_id",
@@ -54,12 +55,13 @@ struct CategorizationSheetsCarouselView_Previews: PreviewProvider {
                 updatedAt: .now
             )
         ),
-        CategorizationSheetJoint(
+        CategorizationSheetJunction(
             categorizationSheet: CategorizationSheet(
                 id: "",
                 periodId: "",
                 sheetTypeId: ""
             ),
+            team: Team(id: "", userId: "", troopId: "", regimentId: "", name: ""),
             teamCategorizationSheet: TeamCategorizationSheet(
                 id: "test_id",
                 categorizationSheetId: "test_id",
@@ -72,11 +74,12 @@ struct CategorizationSheetsCarouselView_Previews: PreviewProvider {
             )
         )
     ]
+
     static var previews: some View {
         CategorizationSheetsCarouselView(
             assignmentsService: AssignmentsService(),
             teamAssignmentsService: TeamCategorizationSheetAssignmentsService(),
-            joints: .constant(joints)
+            junctions: .constant(junctions)
         )
     }
 }
