@@ -14,8 +14,8 @@ struct TeamCategorizationSheetAssignment: FirebaseModel, Identifiable, Equatable
     let assignmentId: String
     let teamCategorizationSheetId: String
 
-    let isCompleted: Bool?
-    let value: Int?
+    var isCompleted: Bool
+    var value: Int
 }
 
 extension TeamCategorizationSheetAssignment {

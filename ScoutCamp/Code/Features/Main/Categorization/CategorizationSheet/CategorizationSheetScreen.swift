@@ -29,9 +29,13 @@ struct CategorizationSheetScreen: View {
             BaseToolbarView(title: "\(viewModel.sheetType)")
                 .padding(.bottom)
             List {
-                ForEach(viewModel.assignmentJunctions, id: \.self) { item in
-                    TeamAssignmentView(junction: item)
+                ForEach($viewModel.assignmentJunctions, id: \.self) { item in
+                    TeamAssignmentView(
+                        assignment: item.assignment,
+                        teamAssignment: item.teamAssignment
+                    )
                 }
+                .listRowSeparator(.hidden)
             }
             .listStyle(PlainListStyle())
             Divider()
@@ -77,28 +81,9 @@ struct CategorizationSheetScreen: View {
 }
 
 struct CategorizationSheetScreen_Previews: PreviewProvider {
-    private static let junction = CategorizationSheetJunction(
-        categorizationSheet: CategorizationSheet(
-            id: "",
-            periodId: "",
-            sheetTypeId: ""
-        ),
-        team: Team(id: "", userId: "", troopId: "", regimentId: "", name: ""),
-        teamCategorizationSheet: TeamCategorizationSheet(
-            id: "1",
-            categorizationSheetId: "1",
-            teamId: "1",
-            categoryId: "1",
-            points: 1,
-            isDraft: true,
-            createdAt: Date(),
-            updatedAt: Date()
-        )
-    )
-
     static var previews: some View {
         CategorizationSheetScreen(
-            sheetJunction: junction,
+            sheetJunction: TestData.categorizationSheetJunction,
             assignmentsService: AssignmentsService(),
             teamAssignmentsService: TeamCategorizationSheetAssignmentsService()
         )

@@ -67,26 +67,10 @@ struct CategorizationSheetItemView: View {
 }
 
 struct CategorizationSheetItemView_Previews: PreviewProvider {
-    private static let item = CategorizationSheetJunction(
-        categorizationSheet: CategorizationSheet(
-            id: "",
-            periodId: "",
-            sheetTypeId: ""
-        ),
-        team: Team(id: "", userId: "", troopId: "", regimentId: "", name: ""),
-        teamCategorizationSheet: TeamCategorizationSheet(
-            id: "1",
-            categorizationSheetId: "1",
-            teamId: "1",
-            categoryId: "1",
-            points: 1,
-            isDraft: true,
-            createdAt: Date(),
-            updatedAt: Date()
-        )
-    )
-
     static var previews: some View {
-        CategorizationSheetItemView(item: item, categoryUrl: nil)
+        CategorizationSheetItemView(
+            item: TestData.categorizationSheetJunction,
+            categoryUrl: nil
+        )
     }
 }

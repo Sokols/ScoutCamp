@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct TeamAssignmentView: View {
-    let junction: TeamAssignmentJunction
+    @Binding var assignment: Assignment
+    @Binding var teamAssignment: TeamCategorizationSheetAssignment?
 
     var body: some View {
         HStack {
             Spacer()
             VStack(alignment: .leading) {
-                Text(junction.assignment.description)
-                getInputForAssignmentType(junction.assignment.assignmentType)
+                Text(assignment.description)
+                getInputForAssignmentType(assignment.assignmentType)
             }
             Spacer()
         }
@@ -27,34 +28,24 @@ struct TeamAssignmentView: View {
         )
     }
 
+    @ViewBuilder
     private func getInputForAssignmentType(_ type: String) -> some View {
         switch AssignmentType(rawValue: type) {
         case .boolean:
-            return Text("Boolean")
+            AssignmentCheckbox(isChecked: .constant(teamAssignment?.isCompleted ?? false))
         case .numeric:
-            return Text("Numeric")
+            AssignmentNumericInput(value: .constant(teamAssignment?.value))
         default:
-            return Text("Unknown")
+            Text("Unknown")
         }
     }
 }
 
 struct TeamAssignmentView_Previews: PreviewProvider {
-    private static let junction = TeamAssignmentJunction(
-        assignment: Assignment(
-            id: "",
-            categoryId: "",
-            mainAssignmentGroupId: "",
-            categorizationSheetId: "",
-            assignmentType: "numeric",
-            description: "TEST DESCRIPTION",
-            maxPoints: 5,
-            maxScoringValue: nil,
-            minimums: nil
-        )
-    )
-
     static var previews: some View {
-        TeamAssignmentView(junction: junction)
+        TeamAssignmentView(
+            assignment: .constant(TestData.assignment),
+            teamAssignment: .constant(nil)
+        )
     }
 }

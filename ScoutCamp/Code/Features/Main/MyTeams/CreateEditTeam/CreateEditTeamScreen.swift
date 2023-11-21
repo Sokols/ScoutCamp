@@ -113,13 +113,6 @@ struct CreateEditTeamScreen: View {
 
 struct CreateEditTeamScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let team = Team(
-            id: "",
-            userId: "",
-            troopId: "",
-            regimentId: "",
-            name: "Team name"
-        )
-        CreateEditTeamScreen(teamToEdit: team)
+        CreateEditTeamScreen(teamToEdit: TestData.team)
     }
 }

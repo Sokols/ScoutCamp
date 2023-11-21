@@ -93,7 +93,7 @@ struct DropdownField: View {
                         .foregroundColor(Color.black)
                 }
             })
-            .withLoginTextFieldStyle(height: buttonHeight)
+            .withTextFieldStyle(height: buttonHeight)
             .overlay(
                 VStack {
                     if self.shouldShowDropdown {

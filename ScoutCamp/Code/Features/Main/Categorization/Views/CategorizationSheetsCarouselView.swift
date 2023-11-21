@@ -36,50 +36,11 @@ struct CategorizationSheetsCarouselView: View {
 }
 
 struct CategorizationSheetsCarouselView_Previews: PreviewProvider {
-    private static let junctions = [
-        CategorizationSheetJunction(
-            categorizationSheet: CategorizationSheet(
-                id: "",
-                periodId: "",
-                sheetTypeId: ""
-            ),
-            team: Team(id: "", userId: "", troopId: "", regimentId: "", name: ""),
-            teamCategorizationSheet: TeamCategorizationSheet(
-                id: "test_id",
-                categorizationSheetId: "test_id",
-                teamId: "test_id",
-                categoryId: "test_id",
-                points: 0,
-                isDraft: true,
-                createdAt: .now,
-                updatedAt: .now
-            )
-        ),
-        CategorizationSheetJunction(
-            categorizationSheet: CategorizationSheet(
-                id: "",
-                periodId: "",
-                sheetTypeId: ""
-            ),
-            team: Team(id: "", userId: "", troopId: "", regimentId: "", name: ""),
-            teamCategorizationSheet: TeamCategorizationSheet(
-                id: "test_id",
-                categorizationSheetId: "test_id",
-                teamId: "test_id",
-                categoryId: "test_id",
-                points: 0,
-                isDraft: true,
-                createdAt: .now,
-                updatedAt: .now
-            )
-        )
-    ]
-
     static var previews: some View {
         CategorizationSheetsCarouselView(
             assignmentsService: AssignmentsService(),
             teamAssignmentsService: TeamCategorizationSheetAssignmentsService(),
-            junctions: .constant(junctions)
+            junctions: .constant(TestData.categorizationSheetJunctions)
         )
     }
 }

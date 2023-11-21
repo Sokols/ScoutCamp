@@ -8,21 +8,36 @@
 import SwiftUI
 
 struct AssignmentNumericInput: View {
-
-    @Binding var value: Int
-    let title = "Value:"
+    @Binding var value: Int?
+    var title = "Value:"
+    var placeholder: String? = "0"
+    var prompt: String?
 
     var body: some View {
-        HStack {
-            Text(title)
-            TextField("", value: $value, formatter: NumberFormatter())
-                .keyboardType(.numberPad)
+        VStack(alignment: .leading) {
+            HStack {
+                Text(title)
+                TextField("", value: $value, formatter: NumberFormatter())
+                    .placeholder(when: value == nil) {
+                        if let placeholder {
+                            Text(placeholder).foregroundColor(.gray)
+                        }
+                    }
+                    .keyboardType(.numberPad)
+                    .withTextFieldStyle(height: 45)
+            }
+            if let prompt {
+                Text(prompt.localized)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .font(.system(size: 14))
+                    .foregroundColor(.errorColor)
+            }
         }
     }
 }
 
 #Preview {
-    @State var value = 0
+    @State var value: Int?
 
     return AssignmentNumericInput(value: $value)
 }
