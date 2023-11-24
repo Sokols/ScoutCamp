@@ -12,7 +12,7 @@ enum RemoteConfigKey: String {
     case currentPeriodId
 }
 
-class RemoteConfigManager: ObservableObject {
+final class RemoteConfigManager: ObservableObject {
     static let shared = RemoteConfigManager()
     private(set) var remoteConfig: RemoteConfig!
 

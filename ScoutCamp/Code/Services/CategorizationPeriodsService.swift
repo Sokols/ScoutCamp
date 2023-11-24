@@ -11,7 +11,7 @@ protocol CategorizationPeriodsServiceProtocol {
     func getCategorizationPeriods() async -> ResultArray<CategorizationPeriod>
 }
 
-class CategorizationPeriodsService: BaseService, CategorizationPeriodsServiceProtocol {
+final class CategorizationPeriodsService: BaseService, CategorizationPeriodsServiceProtocol {
     private(set) static var periods: [CategorizationPeriod] = []
 
     static func categoryPeriodFor(id: String?) -> CategorizationPeriod? {

@@ -12,7 +12,7 @@ protocol AssignmentGroupAssignmentJunctionsServiceProtocol {
     func getJunctionsForAssignmentIds(assignmentIds: [String]) async -> ResultArray<AssignmentGroupAssignmentJunction>
 }
 
-class AssignmentGroupAssignmentJunctionsService: BaseService, AssignmentGroupAssignmentJunctionsServiceProtocol {
+final class AssignmentGroupAssignmentJunctionsService: BaseService, AssignmentGroupAssignmentJunctionsServiceProtocol {
     func getJunctionsForAssignmentIds(assignmentIds: [String]) async -> ResultArray<AssignmentGroupAssignmentJunction> {
         if assignmentIds.isEmpty {
             return ([], nil)

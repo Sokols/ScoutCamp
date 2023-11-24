@@ -7,32 +7,22 @@
 
 import Combine
 
-struct TeamAssignmentJunction: Hashable {
-    var assignment: Assignment
-    var teamAssignment: TeamCategorizationSheetAssignment?
-}
-
 @MainActor
 class CategorizationSheetViewModel: ObservableObject {
 
+    @Service private var assignmentsService: AssignmentsServiceProtocol
+    @Service private var teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
+    @Service private var groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsServiceProtocol
+
     @Published var appAssignments: [AppAssignment] = []
-    @Published var sheetJunction: CategorizationSheetJunction
+    @Published var sheet: AppTeamSheet
 
     @Published var error: Error?
     @Published var isLoading = false
 
-    private let assignmentsService: AssignmentsServiceProtocol
-    private let teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
-    private let groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsServiceProtocol
     private let isInitialFill: Bool
 
-    var sheetType: String {
-        SheetTypesService.sheetTypeFor(id: sheetJunction.categorizationSheet.sheetTypeId)?.name ?? ""
-    }
-
-    var category: Category? {
-        CategoriesService.categoryFor(id: sheetJunction.teamCategorizationSheet?.categoryId)
-    }
+    var sheetType: String { sheet.sheet.sheetType.name }
 
     var points: Double {
         var points: Double = 0
@@ -49,19 +39,10 @@ class CategorizationSheetViewModel: ObservableObject {
         return points
     }
 
-    init(
-        sheetJunction: CategorizationSheetJunction,
-        assignmentsService: AssignmentsServiceProtocol,
-        teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol,
-        groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsServiceProtocol
-    ) {
-        self.sheetJunction = sheetJunction
-        self.assignmentsService = assignmentsService
-        self.teamAssignmentsService = teamAssignmentsService
-        self.groupAssignmentJunctionsService = groupAssignmentJunctionsService
+    init(sheet: AppTeamSheet) {
+        self.sheet = sheet
 
-        isInitialFill = sheetJunction.teamCategorizationSheet == nil
-        initTeamCategorizationSheetIfNeeded()
+        isInitialFill = sheet.teamSheetId == nil
     }
 
     // MARK: - Public
@@ -91,22 +72,6 @@ class CategorizationSheetViewModel: ObservableObject {
 
     // MARK: - Helpers
 
-    private func initTeamCategorizationSheetIfNeeded() {
-        if sheetJunction.teamCategorizationSheet != nil {
-            return
-        }
-        sheetJunction.teamCategorizationSheet = TeamCategorizationSheet(
-            id: "",
-            categorizationSheetId: sheetJunction.categorizationSheet.id,
-            teamId: sheetJunction.team.id,
-            categoryId: CategoriesService.getFirstCategory()?.id ?? "",
-            points: 0,
-            isDraft: true,
-            createdAt: .now,
-            updatedAt: .now
-        )
-    }
-
     private func fetchAssignmentGroupJunctions(assignments: [Assignment]) async -> [AssignmentGroupAssignmentJunction] {
         let ids = assignments.map { $0.id }
         let result = await groupAssignmentJunctionsService.getJunctionsForAssignmentIds(assignmentIds: ids)
@@ -118,7 +83,7 @@ class CategorizationSheetViewModel: ObservableObject {
     }
 
     private func fetchAssignments() async -> [Assignment] {
-        let categorizationSheetId = sheetJunction.categorizationSheet.id
+        let categorizationSheetId = sheet.sheet.sheetId
         let result = await assignmentsService.getAssignmentsFor(categorizationSheetId)
         if let error = result.1 {
             self.error = error
@@ -128,7 +93,7 @@ class CategorizationSheetViewModel: ObservableObject {
     }
 
     private func fetchTeamAssignments() async -> [TeamCategorizationSheetAssignment] {
-        guard let teamCategorizationSheetId = sheetJunction.teamCategorizationSheet?.id else {
+        guard let teamCategorizationSheetId = sheet.teamSheetId else {
             return []
         }
         let result = await teamAssignmentsService.getTeamCategorizationSheetAssignmentsFor(teamCategorizationSheetId)

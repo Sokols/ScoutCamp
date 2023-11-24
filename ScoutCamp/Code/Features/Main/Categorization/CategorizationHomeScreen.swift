@@ -8,22 +8,11 @@
 import SwiftUI
 
 struct CategorizationHomeScreen: View {
-    @EnvironmentObject private var assignmentsService: AssignmentsService
-    @EnvironmentObject private var teamAssignmentsService: TeamCategorizationSheetAssignmentsService
-    @EnvironmentObject private var groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsService
     @StateObject private var viewModel: CategorizationHomeViewModel
 
-    init(
-        teamsService: TeamServiceProtocol,
-        teamSheetsService: TeamCategorizationSheetsServiceProtocol,
-        storageManager: StorageManagerProtocol
-    ) {
+    init() {
         _viewModel = StateObject(
-            wrappedValue: CategorizationHomeViewModel(
-                teamsService: teamsService,
-                teamSheetsService: teamSheetsService,
-                storageManager: storageManager
-            )
+            wrappedValue: CategorizationHomeViewModel( )
         )
     }
 
@@ -44,16 +33,11 @@ struct CategorizationHomeScreen: View {
                     .padding(.vertical)
 
                 Group {
-                    if viewModel.currentPeriodSheetJunctions.isEmpty {
+                    if viewModel.currentSheets.isEmpty {
                         Text("No sheets.")
                             .multilineTextAlignment(.center)
                     } else {
-                        CategorizationSheetsCarouselView(
-                            assignmentsService: assignmentsService,
-                            teamAssignmentsService: teamAssignmentsService,
-                            groupAssignmentJunctionsService: groupAssignmentJunctionsService,
-                            junctions: $viewModel.currentPeriodSheetJunctions
-                        )
+                        CategorizationSheetsCarouselView(sheets: $viewModel.currentSheets)
                         .padding(.horizontal, -16)
                     }
                 }
@@ -63,24 +47,14 @@ struct CategorizationHomeScreen: View {
                     .padding(.vertical)
 
                 Group {
-                    if viewModel.oldTeamSheetJunctions.isEmpty {
+                    if viewModel.oldSheets.isEmpty {
                         Text("No sheets.")
                             .multilineTextAlignment(.center)
                     } else {
                         List {
-                            ForEach(viewModel.oldTeamSheetJunctions, id: \.self) { item in
-                                NavigationLink(destination: CategorizationSheetScreen(
-                                    sheetJunction: item,
-                                    assignmentsService: assignmentsService,
-                                    teamAssignmentsService: teamAssignmentsService,
-                                    groupAssignmentJunctionsService: groupAssignmentJunctionsService
-                                )) {
-                                    CategorizationSheetItemView(
-                                        item: item,
-                                        categoryUrl: viewModel.getUrlForCategoryId(
-                                            item.teamCategorizationSheet?.categoryId ?? ""
-                                        )
-                                    )
+                            ForEach(viewModel.oldSheets, id: \.self) { item in
+                                NavigationLink(destination: CategorizationSheetScreen(sheet: item)) {
+                                    CategorizationSheetItemView(item: item)
                                 }
                             }
                             .listRowSeparator(.hidden)
@@ -113,10 +87,6 @@ struct CategorizationHomeScreen: View {
 
 struct CategorizationHomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        CategorizationHomeScreen(
-            teamsService: TeamsService(),
-            teamSheetsService: TeamCategorizationSheetsService(),
-            storageManager: StorageManager()
-        )
+        CategorizationHomeScreen()
     }
 }

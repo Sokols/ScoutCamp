@@ -10,15 +10,11 @@ import Combine
 @MainActor
 class MyTeamsViewModel: ObservableObject {
 
-    private let teamsService: TeamServiceProtocol
+    @Service private var teamsService: TeamsServiceProtocol
 
     @Published var userTeams: [Team] = []
     @Published var error: Error?
     @Published var isLoading = false
-
-    init(teamsService: TeamServiceProtocol) {
-        self.teamsService = teamsService
-    }
 
     func fetchMyTeams() async {
         isLoading = true

@@ -8,26 +8,18 @@
 import Combine
 import Foundation
 
-struct CategorizationSheetJunction: Hashable {
-    var categorizationSheet: CategorizationSheet
-    var team: Team
-    var teamCategorizationSheet: TeamCategorizationSheet?
-}
-
 @MainActor
-class CategorizationHomeViewModel: ObservableObject {
+final class CategorizationHomeViewModel: ObservableObject {
 
-    private let teamsService: TeamServiceProtocol
-    private let teamSheetsService: TeamCategorizationSheetsServiceProtocol
-    private let storageManager: StorageManagerProtocol
+    @Service private var teamsService: TeamsServiceProtocol
+    @Service private var teamSheetsService: TeamCategorizationSheetsServiceProtocol
 
     private let currentPeriodId = RemoteConfigManager.shared.currentPeriodId
     private var currentPeriodSheets: [CategorizationSheet] = []
 
     @Published var userTeams: [Team] = []
-    @Published var currentPeriodSheetJunctions: [CategorizationSheetJunction] = []
-    @Published var oldTeamSheetJunctions: [CategorizationSheetJunction] = []
-    @Published var categoryUrls: [String: URL] = [:]
+    @Published var currentSheets: [AppTeamSheet] = []
+    @Published var oldSheets: [AppTeamSheet] = []
     @Published var error: Error?
     @Published var isLoading = false
 
@@ -37,21 +29,7 @@ class CategorizationHomeViewModel: ObservableObject {
         CategorizationPeriodsService.categoryPeriodFor(id: currentPeriodId)
     }
 
-    init(
-        teamsService: TeamServiceProtocol,
-        teamSheetsService: TeamCategorizationSheetsServiceProtocol,
-        storageManager: StorageManagerProtocol
-    ) {
-        self.teamsService = teamsService
-        self.teamSheetsService = teamSheetsService
-        self.storageManager = storageManager
-    }
-
     // MARK: - Public methods
-
-    func getUrlForCategoryId(_ id: String) -> URL? {
-        return categoryUrls[id]
-    }
 
     func selectTeam(option: DropdownOption) {
         selectedTeam = option
@@ -70,45 +48,42 @@ class CategorizationHomeViewModel: ObservableObject {
             group.addTask {
                 await self.fetchMySheets()
             }
-            group.addTask {
-                await self.fetchCategoryUrls()
-            }
         }
         isLoading = false
     }
 
     func fetchMySheets() async {
-        guard let teamId = getTeam()?.id else { return }
-        updateCurrentPeriodSheetJunctions()
-        let result = await teamSheetsService.getTeamCategorizationSheets(for: teamId)
+        guard let team = getTeam() else { return }
+        updateCurrentSheets()
+        let result = await teamSheetsService.getTeamCategorizationSheets(for: team.id)
         if let error = result.1 {
             self.error = error
         } else if let teamSheets = result.0 {
-            oldTeamSheetJunctions.removeAll()
+            oldSheets.removeAll()
             for teamSheet in teamSheets {
-                let sheet = CategorizationSheetsService.categorizationSheetFor(id: teamSheet.categorizationSheetId)
-                if currentPeriodId == sheet?.periodId {
-                    let newJunction = CategorizationSheetJunction(
-                        categorizationSheet: sheet!,
-                        team: getTeam()!,
-                        teamCategorizationSheet: teamSheet
+                guard let sheet = CategorizationSheetsService.categorizationSheetFor(id: teamSheet.categorizationSheetId) else { continue }
+                if currentPeriodId == sheet.periodId {
+                    let newSheet = AppTeamSheet.from(
+                        teamSheet: teamSheet,
+                        sheet: AppSheet.from(sheet: sheet),
+                        team: team
                     )
-                    if let index = currentPeriodSheetJunctions.firstIndex(where: {
-                        $0.categorizationSheet.id == sheet?.id
+                    if let index = currentSheets.firstIndex(where: {
+                        $0.sheet.sheetId == sheet.id
                     }) {
-                        currentPeriodSheetJunctions[index] = newJunction
+                        currentSheets[index] = newSheet
                     }
                 } else {
                     let allSheets = CategorizationSheetsService.categorizationSheets
-                    if let oldCategorizationSheet = allSheets.first(where: {
+                    if let oldSheet = allSheets.first(where: {
                         $0.id == teamSheet.categorizationSheetId
                     }) {
-                        let newJunction = CategorizationSheetJunction(
-                            categorizationSheet: oldCategorizationSheet,
-                            team: getTeam()!,
-                            teamCategorizationSheet: teamSheet
+                        let newSheet = AppTeamSheet.from(
+                            teamSheet: teamSheet,
+                            sheet: AppSheet.from(sheet: oldSheet),
+                            team: team
                         )
-                        oldTeamSheetJunctions.append(newJunction)
+                        oldSheets.append(newSheet)
                     }
                 }
             }
@@ -129,13 +104,15 @@ class CategorizationHomeViewModel: ObservableObject {
         }
     }
 
-    private func updateCurrentPeriodSheetJunctions() {
-        currentPeriodSheetJunctions = CategorizationSheetsService.getCurrentPeriodCategorizationSheets().map {
-            CategorizationSheetJunction(categorizationSheet: $0, team: getTeam()!, teamCategorizationSheet: nil)
+    private func updateCurrentSheets() {
+        guard let team = getTeam() else { return }
+        currentSheets = CategorizationSheetsService.getCurrentPeriodCategorizationSheets().map {
+            let appSheet = AppSheet.from(sheet: $0)
+            return AppTeamSheet.from(sheet: appSheet, team: team)
         }.sorted(by: { item1, item2 in
-            let sheetType1 = SheetTypesService.sheetTypeFor(id: item1.categorizationSheet.sheetTypeId)
-            let sheetType2 = SheetTypesService.sheetTypeFor(id: item2.categorizationSheet.sheetTypeId)
-            return sheetType1?.order ?? 0 < sheetType2?.order ?? 0
+            let order1 = item1.sheet.sheetType.order
+            let order2 = item2.sheet.sheetType.order
+            return order1 < order2
         })
     }
 }

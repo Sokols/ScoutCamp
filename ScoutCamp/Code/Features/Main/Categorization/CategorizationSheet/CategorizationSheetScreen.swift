@@ -10,25 +10,15 @@ import SwiftUI
 struct CategorizationSheetScreen: View {
     @StateObject private var viewModel: CategorizationSheetViewModel
 
-    init(
-        sheetJunction: CategorizationSheetJunction,
-        assignmentsService: AssignmentsServiceProtocol,
-        teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol,
-        groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsServiceProtocol
-    ) {
+    init(sheet: AppTeamSheet) {
         _viewModel = StateObject(
-            wrappedValue: CategorizationSheetViewModel(
-                sheetJunction: sheetJunction,
-                assignmentsService: assignmentsService,
-                teamAssignmentsService: teamAssignmentsService,
-                groupAssignmentJunctionsService: groupAssignmentJunctionsService
-            )
+            wrappedValue: CategorizationSheetViewModel(sheet: sheet)
         )
     }
 
     var body: some View {
         VStack {
-            BaseToolbarView(title: "\(viewModel.sheetType)")
+            BaseToolbarView(title: "\(viewModel.sheet.sheet.sheetType.name)")
                 .padding(.bottom)
             List {
                 ForEach($viewModel.appAssignments, id: \.assignmentId) { item in
@@ -52,7 +42,7 @@ struct CategorizationSheetScreen: View {
         HStack {
             Text("Points: \(viewModel.points.pointsFormatted)")
             Spacer()
-            Text("Category: \(viewModel.category?.name ?? "-")")
+            Text("Category: \(viewModel.sheet.category.name)")
                 .padding(.horizontal)
             Spacer()
             CircleButton(
@@ -81,11 +71,6 @@ struct CategorizationSheetScreen: View {
 
 struct CategorizationSheetScreen_Previews: PreviewProvider {
     static var previews: some View {
-        CategorizationSheetScreen(
-            sheetJunction: TestData.categorizationSheetJunction,
-            assignmentsService: AssignmentsService(),
-            teamAssignmentsService: TeamCategorizationSheetAssignmentsService(),
-            groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsService()
-        )
+        CategorizationSheetScreen(sheet: TestData.appTeamSheet)
     }
 }

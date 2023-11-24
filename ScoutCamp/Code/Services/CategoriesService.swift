@@ -12,7 +12,7 @@ protocol CategoriesServiceProtocol {
     func setupCategoryUrls(_ urls: [String: URL])
 }
 
-class CategoriesService: BaseService, CategoriesServiceProtocol {
+final class CategoriesService: BaseService, CategoriesServiceProtocol {
     private(set) static var categories: [Category] = []
     private static var categoryUrls: [String: URL] = [:]
 

@@ -14,7 +14,7 @@ struct CreateEditTeamScreen: View {
 
     init(teamToEdit: Team?) {
         _viewModel = StateObject(
-            wrappedValue: CreateEditTeamViewModel(teamToEdit: teamToEdit, teamsService: TeamsService())
+            wrappedValue: CreateEditTeamViewModel(teamToEdit: teamToEdit)
         )
     }
 

@@ -11,6 +11,24 @@ struct TestData {
 
     // MARK: - Models
 
+    static let period = CategorizationPeriod(
+        id: "testId",
+        name: "2023-2024"
+    )
+
+    static let sheetType = SheetType(
+        id: "testId",
+        name: "obozowe",
+        order: 2
+    )
+
+    static let category = Category(
+        id: "testId",
+        name: "Polowa",
+        imagePath: "path",
+        order: 1
+    )
+
     static let team = Team(
         id: "",
         userId: "",
@@ -80,22 +98,21 @@ struct TestData {
         minimums: nil
     )
 
-    // MARK: - Junctions
-
-    static let teamAsssignmentJunction = TeamAssignmentJunction(
-        assignment: assignment
+    static let appSheet = AppSheet(
+        sheetId: "testId",
+        period: TestData.period,
+        sheetType: TestData.sheetType
     )
 
-    static let categorizationSheetJunction = CategorizationSheetJunction(
-        categorizationSheet: categorizationSheet,
-        team: team,
-        teamCategorizationSheet: teamCategorizationSheet
+    static let appTeamSheet = AppTeamSheet(
+        teamSheetId: "testId",
+        sheet: TestData.appSheet,
+        team: TestData.team,
+        category: TestData.category,
+        categoryUrl: nil,
+        points: 10,
+        isDraft: true,
+        createdAt: .now,
+        updatedAt: .now
     )
-
-    // MARK: - Lists
-
-    static let categorizationSheetJunctions = [
-        categorizationSheetJunction,
-        categorizationSheetJunction
-    ]
 }

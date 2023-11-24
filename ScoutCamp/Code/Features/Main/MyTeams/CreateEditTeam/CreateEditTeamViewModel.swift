@@ -9,7 +9,8 @@ import Combine
 
 class CreateEditTeamViewModel: ObservableObject {
 
-    private let teamsService: TeamServiceProtocol
+    @Service private var teamsService: TeamsServiceProtocol
+
     private let teamToEdit: Team?
 
     @Published var userTeams: [Team] = []
@@ -35,9 +36,8 @@ class CreateEditTeamViewModel: ObservableObject {
     private var isTroopValid: Bool { selectedTroop != nil }
     private var isNameValid: Bool { !name.isEmpty }
 
-    init(teamToEdit: Team?, teamsService: TeamServiceProtocol) {
+    init(teamToEdit: Team?) {
         self.teamToEdit = teamToEdit
-        self.teamsService = teamsService
 
         name = teamToEdit?.name ?? ""
         isInitialEditFlowCall = teamToEdit != nil

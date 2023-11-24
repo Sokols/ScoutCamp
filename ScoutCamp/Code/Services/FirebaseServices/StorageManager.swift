@@ -12,7 +12,7 @@ protocol StorageManagerProtocol {
     func getImageRef(path: String) async throws -> URL
 }
 
-class StorageManager: ObservableObject, StorageManagerProtocol {
+final class StorageManager: ObservableObject, StorageManagerProtocol {
     private let reference = Storage.storage().reference()
 
     func getImageRef(path: String) async throws -> URL {

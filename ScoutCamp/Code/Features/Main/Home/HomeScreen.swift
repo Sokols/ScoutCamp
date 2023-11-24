@@ -10,21 +10,9 @@ import SwiftUI
 struct HomeScreen: View {
     @StateObject private var viewModel: HomeViewModel
 
-    init(
-        sheetTypesService: SheetTypesServiceProtocol,
-        categoriesService: CategoriesServiceProtocol,
-        categorizationPeriodsService: CategorizationPeriodsServiceProtocol,
-        categorizationSheetsService: CategorizationSheetsServiceProtocol,
-        assignmentGroupsService: AssignmentGroupsServiceProtocol
-    ) {
+    init() {
         _viewModel = StateObject(
-            wrappedValue: HomeViewModel(
-                sheetTypesService: sheetTypesService,
-                categoriesService: categoriesService,
-                categorizationPeriodsService: categorizationPeriodsService,
-                categorizationSheetsService: categorizationSheetsService,
-                assignmentGroupsService: assignmentGroupsService
-            )
+            wrappedValue: HomeViewModel()
         )
     }
 
@@ -44,12 +32,6 @@ struct HomeScreen: View {
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreen(
-            sheetTypesService: SheetTypesService(),
-            categoriesService: CategoriesService(),
-            categorizationPeriodsService: CategorizationPeriodsService(),
-            categorizationSheetsService: CategorizationSheetsService(),
-            assignmentGroupsService: AssignmentGroupsService()
-        )
+        HomeScreen()
     }
 }

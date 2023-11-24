@@ -76,6 +76,11 @@
 		3FBA1D332B0F678F0019A84A /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D322B0F678F0019A84A /* Double+Extensions.swift */; };
 		3FBA1D352B0F97100019A84A /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D342B0F97100019A84A /* Date+Extensions.swift */; };
 		3FBA1D372B0F97EA0019A84A /* AppTeamSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */; };
+		3FBA1D3C2B10A8550019A84A /* DependencyPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D3B2B10A8550019A84A /* DependencyPropertyWrapper.swift */; };
+		3FBA1D3E2B10A86A0019A84A /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D3D2B10A86A0019A84A /* ServiceContainer.swift */; };
+		3FBA1D402B10A8870019A84A /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D3F2B10A8870019A84A /* ServiceType.swift */; };
+		3FBA1D422B10B4560019A84A /* AppSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D412B10B4560019A84A /* AppSheet.swift */; };
+		3FBA1D442B10C4200019A84A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D432B10C4200019A84A /* AppDelegate.swift */; };
 		3FDF9A3F2AE6E2A300F5F111 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */; };
 		3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4132AD41AEF000E455F /* DropdownField.swift */; };
 		3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */; };
@@ -176,6 +181,11 @@
 		3FBA1D322B0F678F0019A84A /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		3FBA1D342B0F97100019A84A /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTeamSheet.swift; sourceTree = "<group>"; };
+		3FBA1D3B2B10A8550019A84A /* DependencyPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyPropertyWrapper.swift; sourceTree = "<group>"; };
+		3FBA1D3D2B10A86A0019A84A /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
+		3FBA1D3F2B10A8870019A84A /* ServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceType.swift; sourceTree = "<group>"; };
+		3FBA1D412B10B4560019A84A /* AppSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSheet.swift; sourceTree = "<group>"; };
+		3FBA1D432B10C4200019A84A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		3FE3A4132AD41AEF000E455F /* DropdownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownField.swift; sourceTree = "<group>"; };
 		3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
@@ -326,6 +336,7 @@
 		3F1E13342A38F69D00CB64FD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3FBA1D3A2B10A81D0019A84A /* DI */,
 				3FDF9A3D2AE6E29500F5F111 /* Modifiers */,
 				3F2E56052A3C5FD800E3BC30 /* Styles */,
 				3F2E55ED2A39DFAE00E3BC30 /* Widgets */,
@@ -340,6 +351,7 @@
 			children = (
 				3FED549B2A365E0D00498112 /* ScoutCampApp.swift */,
 				3FED549D2A365E0D00498112 /* ContentView.swift */,
+				3FBA1D432B10C4200019A84A /* AppDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -494,8 +506,19 @@
 			children = (
 				3FBA1D302B0E384F0019A84A /* AppAssignment.swift */,
 				3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */,
+				3FBA1D412B10B4560019A84A /* AppSheet.swift */,
 			);
 			path = AppModels;
+			sourceTree = "<group>";
+		};
+		3FBA1D3A2B10A81D0019A84A /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA1D3B2B10A8550019A84A /* DependencyPropertyWrapper.swift */,
+				3FBA1D3D2B10A86A0019A84A /* ServiceContainer.swift */,
+				3FBA1D3F2B10A8870019A84A /* ServiceType.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 		3FDF9A3D2AE6E29500F5F111 /* Modifiers */ = {
@@ -823,7 +846,9 @@
 				3FBA1D332B0F678F0019A84A /* Double+Extensions.swift in Sources */,
 				3F3E50EC2AFA9DC000552CC2 /* CircleButton.swift in Sources */,
 				3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */,
+				3FBA1D3E2B10A86A0019A84A /* ServiceContainer.swift in Sources */,
 				3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */,
+				3FBA1D3C2B10A8550019A84A /* DependencyPropertyWrapper.swift in Sources */,
 				3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */,
 				3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */,
 				3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */,
@@ -846,10 +871,12 @@
 				3FBA1D372B0F97EA0019A84A /* AppTeamSheet.swift in Sources */,
 				3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */,
 				3F38142D2AE2A15900B4C0E3 /* CategorizationSheetsService.swift in Sources */,
+				3FBA1D422B10B4560019A84A /* AppSheet.swift in Sources */,
 				3F5438522AEAC2F000C9AEB8 /* StorageManager.swift in Sources */,
 				3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */,
 				3F4F65802ADE78DA003B2F0A /* CategorizationSheetViewModel.swift in Sources */,
 				3F38142F2AE2A4A300B4C0E3 /* SheetType.swift in Sources */,
+				3FBA1D442B10C4200019A84A /* AppDelegate.swift in Sources */,
 				3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift in Sources */,
 				3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */,
 				3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */,
@@ -872,6 +899,7 @@
 				3FE3A43F2ADD60BA000E455F /* FloatingActionButton.swift in Sources */,
 				3F1421D12AC9AB4500EA364A /* TeamsService.swift in Sources */,
 				3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */,
+				3FBA1D402B10A8870019A84A /* ServiceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

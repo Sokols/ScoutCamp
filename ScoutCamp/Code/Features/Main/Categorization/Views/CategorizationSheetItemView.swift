@@ -8,22 +8,13 @@
 import SwiftUI
 
 struct CategorizationSheetItemView: View {
-    let item: CategorizationSheetJunction
-    let categoryUrl: URL?
+    let item: AppTeamSheet
 
     private let radius: CGFloat = 12
 
-    private var sheetType: String {
-        SheetTypesService.sheetTypeFor(id: item.categorizationSheet.sheetTypeId)?.name ?? "-"
-    }
-
-    private var category: Category? {
-        CategoriesService.categoryFor(id: item.teamCategorizationSheet?.categoryId)
-    }
-
     var body: some View {
         HStack {
-            AsyncImage(url: categoryUrl) { image in
+            AsyncImage(url: item.categoryUrl) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -36,13 +27,13 @@ struct CategorizationSheetItemView: View {
             .frame(maxWidth: 80, alignment: .center)
             .padding(.trailing, 10)
             VStack(alignment: .leading) {
-                Text("\(sheetType)")
+                Text("\(item.sheet.sheetType.name)")
                     .font(.system(size: 18, weight: .bold))
 
-                if let teamItem = item.teamCategorizationSheet {
-                    Text("Category: \(category?.name ?? "-")")
-                    Text("Points: \(teamItem.points)")
-                    Text("Date: \(teamItem.createdAt.sheetDate)")
+                if item.teamSheetId != nil {
+                    Text("Category: \(item.category.name)")
+                    Text("Points: \(item.points)")
+                    Text("Date: \(item.createdAt.sheetDate)")
                 } else {
                     Text("Fill sheet")
                         .foregroundColor(Color.white)
@@ -68,9 +59,6 @@ struct CategorizationSheetItemView: View {
 
 struct CategorizationSheetItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CategorizationSheetItemView(
-            item: TestData.categorizationSheetJunction,
-            categoryUrl: nil
-        )
+        CategorizationSheetItemView(item: TestData.appTeamSheet)
     }
 }

@@ -11,31 +11,15 @@ import Foundation
 @MainActor
 class HomeViewModel: ObservableObject {
 
-    private let sheetTypesService: SheetTypesServiceProtocol
-    private let categoriesService: CategoriesServiceProtocol
-    private let categorizationPeriodsService: CategorizationPeriodsServiceProtocol
-    private let categorizationSheetsService: CategorizationSheetsServiceProtocol
-    private let assignmentGroupsService: AssignmentGroupsServiceProtocol
-    private let storageManager: StorageManagerProtocol
+    @Service private var sheetTypesService: SheetTypesServiceProtocol
+    @Service private var categoriesService: CategoriesServiceProtocol
+    @Service private var categorizationPeriodsService: CategorizationPeriodsServiceProtocol
+    @Service private var categorizationSheetsService: CategorizationSheetsServiceProtocol
+    @Service private var assignmentGroupsService: AssignmentGroupsServiceProtocol
+    @Service private var storageManager: StorageManagerProtocol
 
     @Published var error: Error?
     @Published var isLoading = false
-
-    init(
-        sheetTypesService: SheetTypesServiceProtocol,
-        categoriesService: CategoriesServiceProtocol,
-        categorizationPeriodsService: CategorizationPeriodsServiceProtocol,
-        categorizationSheetsService: CategorizationSheetsServiceProtocol,
-        assignmentGroupsService: AssignmentGroupsServiceProtocol,
-        storageManager: StorageManagerProtocol
-    ) {
-        self.sheetTypesService = sheetTypesService
-        self.categoriesService = categoriesService
-        self.categorizationPeriodsService = categorizationPeriodsService
-        self.categorizationSheetsService = categorizationSheetsService
-        self.assignmentGroupsService = assignmentGroupsService
-        self.storageManager = storageManager
-    }
 
     // MARK: Public
 

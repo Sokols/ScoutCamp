@@ -11,7 +11,7 @@ protocol AssignmentGroupsServiceProtocol {
     func getAssignmentGroups() async -> ResultArray<AssignmentGroup>
 }
 
-class AssignmentGroupsService: BaseService, AssignmentGroupsServiceProtocol {
+final class AssignmentGroupsService: BaseService, AssignmentGroupsServiceProtocol {
     private(set) static var assignmentGroups: [AssignmentGroup] = []
 
     static func getAssignmentGroupFor(id: String?) -> AssignmentGroup? {

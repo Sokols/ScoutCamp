@@ -13,7 +13,7 @@ protocol AssignmentsServiceProtocol {
     func getAssignmentsFor(_ categorizationSheetId: String) async -> ResultArray<Assignment>
 }
 
-class AssignmentsService: BaseService, AssignmentsServiceProtocol {
+final class AssignmentsService: BaseService, AssignmentsServiceProtocol {
     func getAssignmentsFor(_ categorizationSheetId: String) async -> ResultArray<Assignment> {
         let query = Firestore.firestore()
             .collection(FirebaseCollection.assignments.rawValue)

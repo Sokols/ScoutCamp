@@ -8,8 +8,14 @@
 import FirebaseAuth
 import Foundation
 
-@MainActor
-class AuthService: ObservableObject {
+protocol AuthServiceProtocol {
+    func signIn(email: String, password: String) async -> Error?
+    func signUp(email: String, password: String) async -> Error?
+    func signOut()
+    func deleteAccount() async -> Error?
+}
+
+final class AuthService: ObservableObject, AuthServiceProtocol {
     @Published var loggedInUser: User?
 
     private let auth = Auth.auth()
