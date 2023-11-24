@@ -13,13 +13,15 @@ struct CategorizationSheetScreen: View {
     init(
         sheetJunction: CategorizationSheetJunction,
         assignmentsService: AssignmentsServiceProtocol,
-        teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
+        teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol,
+        groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsServiceProtocol
     ) {
         _viewModel = StateObject(
             wrappedValue: CategorizationSheetViewModel(
                 sheetJunction: sheetJunction,
                 assignmentsService: assignmentsService,
-                teamAssignmentsService: teamAssignmentsService
+                teamAssignmentsService: teamAssignmentsService,
+                groupAssignmentJunctionsService: groupAssignmentJunctionsService
             )
         )
     }
@@ -29,11 +31,8 @@ struct CategorizationSheetScreen: View {
             BaseToolbarView(title: "\(viewModel.sheetType)")
                 .padding(.bottom)
             List {
-                ForEach($viewModel.assignmentJunctions, id: \.self) { item in
-                    TeamAssignmentView(
-                        assignment: item.assignment,
-                        teamAssignment: item.teamAssignment
-                    )
+                ForEach($viewModel.appAssignments, id: \.assignmentId) { item in
+                    TeamAssignmentView(assignment: item)
                 }
                 .listRowSeparator(.hidden)
             }
@@ -44,14 +43,14 @@ struct CategorizationSheetScreen: View {
                 .padding(.vertical, 8)
         }
         .task {
-            await viewModel.fetchAssignments()
+            await viewModel.fetchData()
         }
         .navigationBarBackButtonHidden()
     }
 
     private func bottomBar() -> some View {
         HStack {
-            Text("Points: \(viewModel.points)")
+            Text("Points: \(viewModel.points.pointsFormatted)")
             Spacer()
             Text("Category: \(viewModel.category?.name ?? "-")")
                 .padding(.horizontal)
@@ -85,7 +84,8 @@ struct CategorizationSheetScreen_Previews: PreviewProvider {
         CategorizationSheetScreen(
             sheetJunction: TestData.categorizationSheetJunction,
             assignmentsService: AssignmentsService(),
-            teamAssignmentsService: TeamCategorizationSheetAssignmentsService()
+            teamAssignmentsService: TeamCategorizationSheetAssignmentsService(),
+            groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsService()
         )
     }
 }

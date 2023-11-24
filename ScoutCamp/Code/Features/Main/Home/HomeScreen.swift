@@ -14,14 +14,16 @@ struct HomeScreen: View {
         sheetTypesService: SheetTypesServiceProtocol,
         categoriesService: CategoriesServiceProtocol,
         categorizationPeriodsService: CategorizationPeriodsServiceProtocol,
-        categorizationSheetsService: CategorizationSheetsServiceProtocol
+        categorizationSheetsService: CategorizationSheetsServiceProtocol,
+        assignmentGroupsService: AssignmentGroupsServiceProtocol
     ) {
         _viewModel = StateObject(
             wrappedValue: HomeViewModel(
                 sheetTypesService: sheetTypesService,
                 categoriesService: categoriesService,
                 categorizationPeriodsService: categorizationPeriodsService,
-                categorizationSheetsService: categorizationSheetsService
+                categorizationSheetsService: categorizationSheetsService,
+                assignmentGroupsService: assignmentGroupsService
             )
         )
     }
@@ -46,7 +48,8 @@ struct HomeScreen_Previews: PreviewProvider {
             sheetTypesService: SheetTypesService(),
             categoriesService: CategoriesService(),
             categorizationPeriodsService: CategorizationPeriodsService(),
-            categorizationSheetsService: CategorizationSheetsService()
+            categorizationSheetsService: CategorizationSheetsService(),
+            assignmentGroupsService: AssignmentGroupsService()
         )
     }
 }

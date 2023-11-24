@@ -71,6 +71,11 @@
 		3FBA1CBA2B03E2EA0019A84A /* AssignmentNumericInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CB92B03E2EA0019A84A /* AssignmentNumericInput.swift */; };
 		3FBA1CBC2B03E3440019A84A /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CBB2B03E3440019A84A /* CheckboxToggleStyle.swift */; };
 		3FBA1CBE2B0BA5130019A84A /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CBD2B0BA5130019A84A /* TestData.swift */; };
+		3FBA1D2E2B0CDEBD0019A84A /* CenterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D2D2B0CDEBD0019A84A /* CenterModifier.swift */; };
+		3FBA1D312B0E384F0019A84A /* AppAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D302B0E384F0019A84A /* AppAssignment.swift */; };
+		3FBA1D332B0F678F0019A84A /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D322B0F678F0019A84A /* Double+Extensions.swift */; };
+		3FBA1D352B0F97100019A84A /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D342B0F97100019A84A /* Date+Extensions.swift */; };
+		3FBA1D372B0F97EA0019A84A /* AppTeamSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */; };
 		3FDF9A3F2AE6E2A300F5F111 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */; };
 		3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4132AD41AEF000E455F /* DropdownField.swift */; };
 		3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */; };
@@ -166,6 +171,11 @@
 		3FBA1CB92B03E2EA0019A84A /* AssignmentNumericInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentNumericInput.swift; sourceTree = "<group>"; };
 		3FBA1CBB2B03E3440019A84A /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		3FBA1CBD2B0BA5130019A84A /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		3FBA1D2D2B0CDEBD0019A84A /* CenterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterModifier.swift; sourceTree = "<group>"; };
+		3FBA1D302B0E384F0019A84A /* AppAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssignment.swift; sourceTree = "<group>"; };
+		3FBA1D322B0F678F0019A84A /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		3FBA1D342B0F97100019A84A /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTeamSheet.swift; sourceTree = "<group>"; };
 		3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		3FE3A4132AD41AEF000E455F /* DropdownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownField.swift; sourceTree = "<group>"; };
 		3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
@@ -260,6 +270,7 @@
 		3F1421D62AC9B77800EA364A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3FBA1D2F2B0E38430019A84A /* AppModels */,
 				3FE3A42B2ADD50F3000E455F /* Assignment.swift */,
 				3FE3A42D2ADD5252000E455F /* AssignmentGroup.swift */,
 				3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */,
@@ -478,11 +489,21 @@
 			path = AssignmentComponents;
 			sourceTree = "<group>";
 		};
+		3FBA1D2F2B0E38430019A84A /* AppModels */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA1D302B0E384F0019A84A /* AppAssignment.swift */,
+				3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */,
+			);
+			path = AppModels;
+			sourceTree = "<group>";
+		};
 		3FDF9A3D2AE6E29500F5F111 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
 				3F2E55E92A39DE3500E3BC30 /* ActivityIndicatorModifier.swift */,
 				3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */,
+				3FBA1D2D2B0CDEBD0019A84A /* CenterModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -566,6 +587,8 @@
 				3FFFCA7B2A38EB5200481DAE /* String+Extensions.swift */,
 				3F2E55FF2A3C4E1500E3BC30 /* Color+Extensions.swift */,
 				3F2E56032A3C5BE400E3BC30 /* View+Extensions.swift */,
+				3FBA1D322B0F678F0019A84A /* Double+Extensions.swift */,
+				3FBA1D342B0F97100019A84A /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -797,6 +820,7 @@
 				3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */,
 				3FE3A4342ADD5BF7000E455F /* AssignmentsService.swift in Sources */,
 				3F3814232AE29EBD00B4C0E3 /* Category.swift in Sources */,
+				3FBA1D332B0F678F0019A84A /* Double+Extensions.swift in Sources */,
 				3F3E50EC2AFA9DC000552CC2 /* CircleButton.swift in Sources */,
 				3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */,
 				3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */,
@@ -804,8 +828,11 @@
 				3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */,
 				3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */,
 				3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */,
+				3FBA1D352B0F97100019A84A /* Date+Extensions.swift in Sources */,
 				3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */,
 				3FBA1CB82B03BCBC0019A84A /* AssignmentCheckbox.swift in Sources */,
+				3FBA1D312B0E384F0019A84A /* AppAssignment.swift in Sources */,
+				3FBA1D2E2B0CDEBD0019A84A /* CenterModifier.swift in Sources */,
 				3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */,
 				3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */,
 				3F38142B2AE2A10200B4C0E3 /* CategorizationSheet.swift in Sources */,
@@ -816,6 +843,7 @@
 				3FBA1CB52B03B8240019A84A /* TeamAssignmentView.swift in Sources */,
 				3F1421E12ACA086200EA364A /* CreateEditTeamViewModel.swift in Sources */,
 				3FBA1CBC2B03E3440019A84A /* CheckboxToggleStyle.swift in Sources */,
+				3FBA1D372B0F97EA0019A84A /* AppTeamSheet.swift in Sources */,
 				3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */,
 				3F38142D2AE2A15900B4C0E3 /* CategorizationSheetsService.swift in Sources */,
 				3F5438522AEAC2F000C9AEB8 /* StorageManager.swift in Sources */,

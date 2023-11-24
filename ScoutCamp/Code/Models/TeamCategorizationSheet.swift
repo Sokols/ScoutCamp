@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 
 struct TeamCategorizationSheet: FirebaseModel, Identifiable, Equatable, Hashable {
     let id: String

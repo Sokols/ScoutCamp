@@ -43,16 +43,20 @@ struct LoginScreen: View {
                     Spacer()
 
                     VStack(spacing: 24) {
-                        EntryField(symbolName: "person.fill",
-                                   placeholder: "Login.EmailField.Title",
-                                   prompt: viewModel.emailPrompt,
-                                   field: $viewModel.email)
+                        EntryField(
+                            symbolName: "person.fill",
+                            placeholder: "Login.EmailField.Title",
+                            prompt: viewModel.emailPrompt,
+                            field: $viewModel.email
+                        )
                         .keyboardType(.emailAddress)
-                        EntryField(symbolName: "lock.fill",
-                                   placeholder: "Login.PasswordField.Title",
-                                   prompt: viewModel.passwordPrompt,
-                                   field: $viewModel.password,
-                                   isSecure: true)
+                        EntryField(
+                            symbolName: "lock.fill",
+                            placeholder: "Login.PasswordField.Title",
+                            prompt: viewModel.passwordPrompt,
+                            field: $viewModel.password,
+                            isSecure: true
+                        )
                     }
 
                     Spacer()

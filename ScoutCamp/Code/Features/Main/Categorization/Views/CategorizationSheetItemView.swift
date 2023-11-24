@@ -42,7 +42,7 @@ struct CategorizationSheetItemView: View {
                 if let teamItem = item.teamCategorizationSheet {
                     Text("Category: \(category?.name ?? "-")")
                     Text("Points: \(teamItem.points)")
-                    Text("Date: \(teamItem.createdAt.formatted())")
+                    Text("Date: \(teamItem.createdAt.sheetDate)")
                 } else {
                     Text("Fill sheet")
                         .foregroundColor(Color.white)

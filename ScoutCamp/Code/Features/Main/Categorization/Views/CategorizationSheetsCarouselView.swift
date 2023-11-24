@@ -10,6 +10,7 @@ import SwiftUI
 struct CategorizationSheetsCarouselView: View {
     let assignmentsService: AssignmentsServiceProtocol
     let teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
+    let groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsServiceProtocol
 
     @Binding var junctions: [CategorizationSheetJunction]
 
@@ -20,7 +21,8 @@ struct CategorizationSheetsCarouselView: View {
                     NavigationLink(destination: CategorizationSheetScreen(
                         sheetJunction: item,
                         assignmentsService: assignmentsService,
-                        teamAssignmentsService: teamAssignmentsService
+                        teamAssignmentsService: teamAssignmentsService,
+                        groupAssignmentJunctionsService: groupAssignmentJunctionsService
                     )) {
                         CategorizationSheetItemView(item: item, categoryUrl: nil)
                             .padding(.horizontal)
@@ -40,6 +42,7 @@ struct CategorizationSheetsCarouselView_Previews: PreviewProvider {
         CategorizationSheetsCarouselView(
             assignmentsService: AssignmentsService(),
             teamAssignmentsService: TeamCategorizationSheetAssignmentsService(),
+            groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsService(),
             junctions: .constant(TestData.categorizationSheetJunctions)
         )
     }

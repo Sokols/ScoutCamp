@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AssignmentCheckbox: View {
-
     @Binding var isChecked: Bool
     let title = "Done:"
 
@@ -17,7 +16,6 @@ struct AssignmentCheckbox: View {
             Text(title)
         }
         .toggleStyle(CheckboxToggleStyle())
-        .padding()
     }
 }
 

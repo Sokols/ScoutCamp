@@ -12,7 +12,17 @@ protocol AssignmentGroupsServiceProtocol {
 }
 
 class AssignmentGroupsService: BaseService, AssignmentGroupsServiceProtocol {
+    private(set) static var assignmentGroups: [AssignmentGroup] = []
+
+    static func getAssignmentGroupFor(id: String?) -> AssignmentGroup? {
+        return AssignmentGroupsService.assignmentGroups.first { $0.id == id }
+    }
+
     func getAssignmentGroups() async -> ResultArray<AssignmentGroup> {
-        await getAll(collection: .assignmentGroups)
+        let result: ResultArray<AssignmentGroup> = await getAll(collection: .assignmentGroups)
+        result.0?.forEach { category in
+            AssignmentGroupsService.assignmentGroups.append(category)
+        }
+        return result
     }
 }

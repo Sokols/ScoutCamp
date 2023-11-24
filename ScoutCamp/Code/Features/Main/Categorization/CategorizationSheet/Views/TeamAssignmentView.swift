@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct TeamAssignmentView: View {
-    @Binding var assignment: Assignment
-    @Binding var teamAssignment: TeamCategorizationSheetAssignment?
+    @Binding var assignment: AppAssignment
 
     var body: some View {
         HStack {
-            Spacer()
             VStack(alignment: .leading) {
                 Text(assignment.description)
                 getInputForAssignmentType(assignment.assignmentType)
@@ -29,23 +27,21 @@ struct TeamAssignmentView: View {
     }
 
     @ViewBuilder
-    private func getInputForAssignmentType(_ type: String) -> some View {
-        switch AssignmentType(rawValue: type) {
+    private func getInputForAssignmentType(_ type: AssignmentType) -> some View {
+        switch type {
         case .boolean:
-            AssignmentCheckbox(isChecked: .constant(teamAssignment?.isCompleted ?? false))
+            AssignmentCheckbox(isChecked: $assignment.isCompleted)
         case .numeric:
-            AssignmentNumericInput(value: .constant(teamAssignment?.value))
-        default:
-            Text("Unknown")
+            AssignmentNumericInput(value: $assignment.value)
         }
     }
 }
 
 struct TeamAssignmentView_Previews: PreviewProvider {
     static var previews: some View {
-        TeamAssignmentView(
-            assignment: .constant(TestData.assignment),
-            teamAssignment: .constant(nil)
-        )
+        VStack {
+            TeamAssignmentView(assignment: .constant(TestData.booleanAppAssignment))
+            TeamAssignmentView(assignment: .constant(TestData.numericAppAssignment))
+        }
     }
 }

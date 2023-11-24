@@ -34,7 +34,6 @@ class TeamsService: BaseService, TeamServiceProtocol {
             .collection(FirebaseCollection.teams.rawValue)
             .document()
         let teamId = document.documentID
-        let date = Date.init()
         let team = Team.init(
             id: teamId,
             userId: uid,

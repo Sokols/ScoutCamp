@@ -10,6 +10,7 @@ import SwiftUI
 struct CategorizationHomeScreen: View {
     @EnvironmentObject private var assignmentsService: AssignmentsService
     @EnvironmentObject private var teamAssignmentsService: TeamCategorizationSheetAssignmentsService
+    @EnvironmentObject private var groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsService
     @StateObject private var viewModel: CategorizationHomeViewModel
 
     init(
@@ -50,6 +51,7 @@ struct CategorizationHomeScreen: View {
                         CategorizationSheetsCarouselView(
                             assignmentsService: assignmentsService,
                             teamAssignmentsService: teamAssignmentsService,
+                            groupAssignmentJunctionsService: groupAssignmentJunctionsService,
                             junctions: $viewModel.currentPeriodSheetJunctions
                         )
                         .padding(.horizontal, -16)
@@ -70,7 +72,8 @@ struct CategorizationHomeScreen: View {
                                 NavigationLink(destination: CategorizationSheetScreen(
                                     sheetJunction: item,
                                     assignmentsService: assignmentsService,
-                                    teamAssignmentsService: teamAssignmentsService
+                                    teamAssignmentsService: teamAssignmentsService,
+                                    groupAssignmentJunctionsService: groupAssignmentJunctionsService
                                 )) {
                                     CategorizationSheetItemView(
                                         item: item,

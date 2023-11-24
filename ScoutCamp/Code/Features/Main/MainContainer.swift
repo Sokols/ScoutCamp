@@ -15,6 +15,7 @@ struct MainContainer: View {
     @EnvironmentObject private var categoriesService: CategoriesService
     @EnvironmentObject private var categorizationPeriodsService: CategorizationPeriodsService
     @EnvironmentObject private var categorizationSheetsService: CategorizationSheetsService
+    @EnvironmentObject private var assignmentGroupsService: AssignmentGroupsService
     @EnvironmentObject private var storageManager: StorageManager
 
     var body: some View {
@@ -23,7 +24,8 @@ struct MainContainer: View {
                 sheetTypesService: sheetTypesService,
                 categoriesService: categoriesService,
                 categorizationPeriodsService: categorizationPeriodsService,
-                categorizationSheetsService: categorizationSheetsService
+                categorizationSheetsService: categorizationSheetsService,
+                assignmentGroupsService: assignmentGroupsService
             )
             .tabItem {
                 Label("Home.Name".localized, systemImage: "house")
@@ -60,6 +62,7 @@ struct MainContainer_Previews: PreviewProvider {
             .environmentObject(CategoriesService())
             .environmentObject(CategorizationPeriodsService())
             .environmentObject(CategorizationSheetsService())
+            .environmentObject(AssignmentGroupsService())
             .environmentObject(StorageManager())
     }
 }

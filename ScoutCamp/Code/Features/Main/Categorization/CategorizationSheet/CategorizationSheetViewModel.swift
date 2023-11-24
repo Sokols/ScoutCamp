@@ -15,7 +15,7 @@ struct TeamAssignmentJunction: Hashable {
 @MainActor
 class CategorizationSheetViewModel: ObservableObject {
 
-    @Published var assignmentJunctions: [TeamAssignmentJunction] = []
+    @Published var appAssignments: [AppAssignment] = []
     @Published var sheetJunction: CategorizationSheetJunction
 
     @Published var error: Error?
@@ -23,6 +23,7 @@ class CategorizationSheetViewModel: ObservableObject {
 
     private let assignmentsService: AssignmentsServiceProtocol
     private let teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
+    private let groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsServiceProtocol
     private let isInitialFill: Bool
 
     var sheetType: String {
@@ -33,51 +34,50 @@ class CategorizationSheetViewModel: ObservableObject {
         CategoriesService.categoryFor(id: sheetJunction.teamCategorizationSheet?.categoryId)
     }
 
-    var points: Int {
-        sheetJunction.teamCategorizationSheet?.points ?? 0
+    var points: Double {
+        var points: Double = 0
+        appAssignments.forEach { assignment in
+            switch assignment.assignmentType {
+            case .numeric:
+                points += Double((assignment.intValue / (assignment.maxScoringValue ?? 1))).rounded() * Double(assignment.maxPoints)
+            case .boolean:
+                if assignment.isCompleted {
+                    points += Double(assignment.maxPoints)
+                }
+            }
+        }
+        return points
     }
 
     init(
         sheetJunction: CategorizationSheetJunction,
         assignmentsService: AssignmentsServiceProtocol,
-        teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
+        teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol,
+        groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsServiceProtocol
     ) {
         self.sheetJunction = sheetJunction
         self.assignmentsService = assignmentsService
         self.teamAssignmentsService = teamAssignmentsService
+        self.groupAssignmentJunctionsService = groupAssignmentJunctionsService
 
         isInitialFill = sheetJunction.teamCategorizationSheet == nil
-        if sheetJunction.teamCategorizationSheet == nil {
-            self.sheetJunction.teamCategorizationSheet = TeamCategorizationSheet(
-                id: "",
-                categorizationSheetId: sheetJunction.categorizationSheet.id,
-                teamId: sheetJunction.team.id,
-                categoryId: CategoriesService.getFirstCategory()?.id ?? "",
-                points: 0,
-                isDraft: true,
-                createdAt: .now,
-                updatedAt: .now
-            )
-        }
+        initTeamCategorizationSheetIfNeeded()
     }
 
     // MARK: - Public
 
-    func fetchAssignments() async {
-        let categorizationSheetId = sheetJunction.categorizationSheet.id
+    func fetchData() async {
         isLoading = true
-        let result = await assignmentsService.getAssignmentsFor(categorizationSheetId)
         let teamAssignments = await fetchTeamAssignments()
+        let assignments = await fetchAssignments()
+        let junctions = await fetchAssignmentGroupJunctions(assignments: assignments)
         isLoading = false
-        if let error = result.1 {
-            self.error = error
-        } else if let assignments = result.0 {
-            self.assignmentJunctions = assignments.map { item in
-                TeamAssignmentJunction(
-                    assignment: item,
-                    teamAssignment: teamAssignments.first(where: { $0.assignmentId == item.id })
-                )
-            }
+        appAssignments = assignments.map { item in
+            AppAssignment.from(
+                assignment: item,
+                teamAssignment: teamAssignments.first(where: { $0.assignmentId == item.id }),
+                groupAssignmentJunctions: junctions.filter { $0.assignmentId == item.id }
+            )
         }
     }
 
@@ -91,6 +91,42 @@ class CategorizationSheetViewModel: ObservableObject {
 
     // MARK: - Helpers
 
+    private func initTeamCategorizationSheetIfNeeded() {
+        if sheetJunction.teamCategorizationSheet != nil {
+            return
+        }
+        sheetJunction.teamCategorizationSheet = TeamCategorizationSheet(
+            id: "",
+            categorizationSheetId: sheetJunction.categorizationSheet.id,
+            teamId: sheetJunction.team.id,
+            categoryId: CategoriesService.getFirstCategory()?.id ?? "",
+            points: 0,
+            isDraft: true,
+            createdAt: .now,
+            updatedAt: .now
+        )
+    }
+
+    private func fetchAssignmentGroupJunctions(assignments: [Assignment]) async -> [AssignmentGroupAssignmentJunction] {
+        let ids = assignments.map { $0.id }
+        let result = await groupAssignmentJunctionsService.getJunctionsForAssignmentIds(assignmentIds: ids)
+        if let error = result.1 {
+            self.error = error
+            return []
+        }
+        return result.0 ?? []
+    }
+
+    private func fetchAssignments() async -> [Assignment] {
+        let categorizationSheetId = sheetJunction.categorizationSheet.id
+        let result = await assignmentsService.getAssignmentsFor(categorizationSheetId)
+        if let error = result.1 {
+            self.error = error
+            return []
+        }
+        return result.0 ?? []
+    }
+
     private func fetchTeamAssignments() async -> [TeamCategorizationSheetAssignment] {
         guard let teamCategorizationSheetId = sheetJunction.teamCategorizationSheet?.id else {
             return []
@@ -99,8 +135,7 @@ class CategorizationSheetViewModel: ObservableObject {
         if let error = result.1 {
             self.error = error
             return []
-        } else {
-            return result.0 ?? []
         }
+        return result.0 ?? []
     }
 }

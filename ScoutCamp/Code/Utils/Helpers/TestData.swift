@@ -31,6 +31,12 @@ struct TestData {
         minimums: nil
     )
 
+    static let assignmentGroup = AssignmentGroup(
+        id: "testId", 
+        name: "AssignmentGroup",
+        order: 0
+    )
+
     static let categorizationSheet = CategorizationSheet(
         id: "",
         periodId: "",
@@ -46,6 +52,32 @@ struct TestData {
         isDraft: true,
         createdAt: Date(),
         updatedAt: Date()
+    )
+
+    // MARK: - App models
+
+    static let numericAppAssignment = AppAssignment(
+        assignmentId: "",
+        category: nil,
+        mainAssignmentGroup: TestData.assignmentGroup,
+        assignmentType: .numeric,
+        assignmentGroups: [TestData.assignmentGroup: 1.0],
+        description: "Test description",
+        maxPoints: 5,
+        maxScoringValue: nil,
+        minimums: nil
+    )
+
+    static let booleanAppAssignment = AppAssignment(
+        assignmentId: "",
+        category: nil,
+        mainAssignmentGroup: TestData.assignmentGroup,
+        assignmentType: .boolean,
+        assignmentGroups: [TestData.assignmentGroup: 1.0],
+        description: "Test description",
+        maxPoints: 5,
+        maxScoringValue: nil,
+        minimums: nil
     )
 
     // MARK: - Junctions

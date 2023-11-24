@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AssignmentNumericInput: View {
-    @Binding var value: Int?
+    @Binding var value: String
     var title = "Value:"
     var placeholder: String? = "0"
     var prompt: String?
@@ -17,12 +17,7 @@ struct AssignmentNumericInput: View {
         VStack(alignment: .leading) {
             HStack {
                 Text(title)
-                TextField("", value: $value, formatter: NumberFormatter())
-                    .placeholder(when: value == nil) {
-                        if let placeholder {
-                            Text(placeholder).foregroundColor(.gray)
-                        }
-                    }
+                TextField(placeholder ?? "", text: $value)
                     .keyboardType(.numberPad)
                     .withTextFieldStyle(height: 45)
             }
@@ -37,7 +32,7 @@ struct AssignmentNumericInput: View {
 }
 
 #Preview {
-    @State var value: Int?
+    @State var value = ""
 
     return AssignmentNumericInput(value: $value)
 }

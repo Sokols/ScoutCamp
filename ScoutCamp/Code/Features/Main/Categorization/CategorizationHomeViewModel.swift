@@ -62,17 +62,25 @@ class CategorizationHomeViewModel: ObservableObject {
     }
 
     func fetchInitData() async {
-        await fetchMyTeams()
-        await fetchMySheets()
-        await fetchCategoryUrls()
+        isLoading = true
+        await withTaskGroup(of: Void.self) { group in
+            group.addTask {
+                await self.fetchMyTeams()
+            }
+            group.addTask {
+                await self.fetchMySheets()
+            }
+            group.addTask {
+                await self.fetchCategoryUrls()
+            }
+        }
+        isLoading = false
     }
 
     func fetchMySheets() async {
         guard let teamId = getTeam()?.id else { return }
         updateCurrentPeriodSheetJunctions()
-        isLoading = true
         let result = await teamSheetsService.getTeamCategorizationSheets(for: teamId)
-        isLoading = false
         if let error = result.1 {
             self.error = error
         } else if let teamSheets = result.0 {
@@ -110,9 +118,7 @@ class CategorizationHomeViewModel: ObservableObject {
     // MARK: - Helpers
 
     private func fetchMyTeams() async {
-        isLoading = true
         let result = await teamsService.getUserTeams()
-        isLoading = false
         if let error = result.1 {
             self.error = error
         } else if let userTeams = result.0 {
@@ -120,23 +126,6 @@ class CategorizationHomeViewModel: ObservableObject {
             if let team = userTeams.first {
                 self.selectedTeam = team.toDropdownOption()
             }
-        }
-    }
-
-    private func fetchCategoryUrls() async {
-        let categories = CategoriesService.categories
-        isLoading = true
-        do {
-            var urls: [String: URL] = [:]
-            for category in categories {
-                let url = try await storageManager.getImageRef(path: category.imagePath)
-                urls[category.id] = url
-            }
-            self.categoryUrls = urls
-            isLoading = false
-        } catch {
-            isLoading = false
-            self.error = error
         }
     }
 

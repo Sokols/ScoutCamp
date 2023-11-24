@@ -9,14 +9,17 @@ import Foundation
 import FirebaseFirestore
 
 protocol AssignmentGroupAssignmentJunctionsServiceProtocol {
-    func getAssignmentJunctions(assignmentId: String) async -> ResultArray<AssignmentGroupAssignmentJunction>
+    func getJunctionsForAssignmentIds(assignmentIds: [String]) async -> ResultArray<AssignmentGroupAssignmentJunction>
 }
 
 class AssignmentGroupAssignmentJunctionsService: BaseService, AssignmentGroupAssignmentJunctionsServiceProtocol {
-    func getAssignmentJunctions(assignmentId: String) async -> ResultArray<AssignmentGroupAssignmentJunction> {
+    func getJunctionsForAssignmentIds(assignmentIds: [String]) async -> ResultArray<AssignmentGroupAssignmentJunction> {
+        if assignmentIds.isEmpty {
+            return ([], nil)
+        }
         let query = Firestore.firestore()
             .collection(FirebaseCollection.assignmentGroupAssignmentJunctions.rawValue)
-            .whereField("assignmentId", isEqualTo: assignmentId)
+            .whereField("assignmentId", in: assignmentIds)
 
         return await fetch(query: query)
     }
