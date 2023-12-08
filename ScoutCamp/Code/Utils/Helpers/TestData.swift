@@ -50,7 +50,7 @@ struct TestData {
     )
 
     static let assignmentGroup = AssignmentGroup(
-        id: "testId", 
+        id: "testId",
         name: "AssignmentGroup",
         order: 0
     )
@@ -116,5 +116,10 @@ struct TestData {
         isDraft: true,
         createdAt: .now,
         updatedAt: .now
+    )
+
+    static let assignmentGroupSection = AssignmentGroupSection(
+        group: TestData.assignmentGroup,
+        assignments: [TestData.booleanAppAssignment, TestData.numericAppAssignment]
     )
 }

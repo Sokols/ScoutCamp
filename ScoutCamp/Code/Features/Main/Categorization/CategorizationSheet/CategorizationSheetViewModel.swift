@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 @MainActor
 class CategorizationSheetViewModel: ObservableObject {
@@ -18,7 +19,7 @@ class CategorizationSheetViewModel: ObservableObject {
     @Service private var teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
     @Service private var groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsServiceProtocol
 
-    @Published var appAssignments: [AppAssignment] = []
+    @Published var sections: [AssignmentGroupSection] = []
     @Published var sheet: AppTeamSheet
 
     @Published var error: Error?
@@ -30,6 +31,14 @@ class CategorizationSheetViewModel: ObservableObject {
     var sheetType: String { sheet.sheet.sheetType.name }
 
     // MARK: - Computed properties
+
+    var appAssignments: [AppAssignment] {
+        var assignments: [AppAssignment] = []
+        sections.forEach {
+            assignments.append(contentsOf: $0.assignments)
+        }
+        return assignments
+    }
 
     var points: Decimal {
         var points: Decimal = 0
@@ -63,7 +72,6 @@ class CategorizationSheetViewModel: ObservableObject {
 
     init(sheet: AppTeamSheet) {
         self.sheet = sheet
-
         isInitialFill = sheet.teamSheetId == nil
     }
 
@@ -75,13 +83,14 @@ class CategorizationSheetViewModel: ObservableObject {
         let assignments = await fetchAssignments()
         let junctions = await fetchAssignmentGroupJunctions(assignments: assignments)
         isLoading = false
-        appAssignments = assignments.map { item in
+        let appAssignments = assignments.map { item in
             AppAssignment.from(
                 assignment: item,
                 teamAssignment: teamAssignments.first(where: { $0.assignmentId == item.id }),
                 groupAssignmentJunctions: junctions.filter { $0.assignmentId == item.id }
             )
         }
+        updateSections(appAssignments)
     }
 
     func complete() async {
@@ -92,7 +101,7 @@ class CategorizationSheetViewModel: ObservableObject {
         await createUpdateTeamSheet(isDraft: true)
     }
 
-    // MARK: - Helpers
+    // MARK: - Data handling
 
     private func createUpdateTeamSheet(isDraft: Bool) async {
         let newAppSheet = generateAppTeamSheet(isDraft: isDraft)
@@ -146,11 +155,25 @@ class CategorizationSheetViewModel: ObservableObject {
         return result.0 ?? []
     }
 
+    // MARK: - Helpers
+
+    private func updateSections(_ appAssignments: [AppAssignment]) {
+        sections.removeAll()
+        let groups = Set(appAssignments.map { $0.mainAssignmentGroup }).sorted(by: { $0.order < $1.order })
+        for group in groups {
+            let section = AssignmentGroupSection(
+                group: group,
+                assignments: appAssignments.filter { $0.mainAssignmentGroup == group}
+            )
+            sections.append(section)
+        }
+    }
+
     private func generateAppTeamSheet(isDraft: Bool) -> AppTeamSheet {
         return AppTeamSheet(
             teamSheetId: sheet.teamSheetId,
             sheet: sheet.sheet,
-            team: sheet.team, 
+            team: sheet.team,
             category: category,
             categoryUrl: CategoriesService.urlFor(id: category.id),
             points: NSDecimalNumber(decimal: points).intValue,

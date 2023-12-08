@@ -49,6 +49,8 @@
 		3F3814372AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */; };
 		3F3814392AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */; };
 		3F393F052B1F4B3700419385 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */; };
+		3F393F092B2336C600419385 /* TeamAssignmentsGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F082B2336C600419385 /* TeamAssignmentsGroupView.swift */; };
+		3F393F0B2B2345F300419385 /* AssignmentGroupSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F0A2B2345F300419385 /* AssignmentGroupSection.swift */; };
 		3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */; };
 		3F3E50DF2AF1332000552CC2 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50DE2AF1332000552CC2 /* FirebaseRemoteConfig */; };
 		3F3E50E12AF1332000552CC2 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50E02AF1332000552CC2 /* FirebaseRemoteConfigSwift */; };
@@ -158,6 +160,8 @@
 		3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheet.swift; sourceTree = "<group>"; };
 		3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetsService.swift; sourceTree = "<group>"; };
 		3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		3F393F082B2336C600419385 /* TeamAssignmentsGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAssignmentsGroupView.swift; sourceTree = "<group>"; };
+		3F393F0A2B2345F300419385 /* AssignmentGroupSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupSection.swift; sourceTree = "<group>"; };
 		3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsCarouselView.swift; sourceTree = "<group>"; };
 		3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunction.swift; sourceTree = "<group>"; };
@@ -490,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				3FBA1CB42B03B8240019A84A /* TeamAssignmentView.swift */,
+				3F393F082B2336C600419385 /* TeamAssignmentsGroupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				3FBA1D302B0E384F0019A84A /* AppAssignment.swift */,
 				3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */,
 				3FBA1D412B10B4560019A84A /* AppSheet.swift */,
+				3F393F0A2B2345F300419385 /* AssignmentGroupSection.swift */,
 			);
 			path = AppModels;
 			sourceTree = "<group>";
@@ -873,6 +879,7 @@
 				3F1421E12ACA086200EA364A /* CreateEditTeamViewModel.swift in Sources */,
 				3FBA1CBC2B03E3440019A84A /* CheckboxToggleStyle.swift in Sources */,
 				3FBA1D372B0F97EA0019A84A /* AppTeamSheet.swift in Sources */,
+				3F393F0B2B2345F300419385 /* AssignmentGroupSection.swift in Sources */,
 				3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */,
 				3F38142D2AE2A15900B4C0E3 /* CategorizationSheetsService.swift in Sources */,
 				3FBA1D422B10B4560019A84A /* AppSheet.swift in Sources */,
@@ -897,6 +904,7 @@
 				3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */,
 				3F2E56002A3C4E1500E3BC30 /* Color+Extensions.swift in Sources */,
 				3F3814252AE29EE300B4C0E3 /* CategorizationPeriodsService.swift in Sources */,
+				3F393F092B2336C600419385 /* TeamAssignmentsGroupView.swift in Sources */,
 				3F2E56072A3C5FE200E3BC30 /* ButtonStyles.swift in Sources */,
 				3F2E56042A3C5BE400E3BC30 /* View+Extensions.swift in Sources */,
 				3F3814212AE29DD100B4C0E3 /* CategorizationPeriod.swift in Sources */,

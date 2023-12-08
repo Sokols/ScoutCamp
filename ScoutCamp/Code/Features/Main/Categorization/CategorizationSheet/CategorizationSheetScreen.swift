@@ -24,8 +24,8 @@ struct CategorizationSheetScreen: View {
             BaseToolbarView(title: "\(viewModel.sheet.sheet.sheetType.name)")
                 .padding(.bottom)
             List {
-                ForEach($viewModel.appAssignments, id: \.assignmentId) { item in
-                    TeamAssignmentView(assignment: item)
+                ForEach($viewModel.sections, id: \.group) { item in
+                    TeamAssignmentsGroupView(section: item)
                 }
                 .listRowSeparator(.hidden)
             }
