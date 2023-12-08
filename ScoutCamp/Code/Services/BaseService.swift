@@ -55,6 +55,30 @@ class BaseService: ObservableObject {
         }
     }
 
+    func createData(data: [String: Any], collection: FirebaseCollection) async -> Error? {
+        do {
+            let collection = Firestore.firestore().collection(collection.rawValue)
+            let doc = collection.document()
+            var newData = data
+            newData["id"] = doc.documentID
+            try await doc.setData(newData)
+            return nil
+        } catch {
+            return error
+        }
+    }
+
+    func updateData(id: String, data: [String: Any], collection: FirebaseCollection) async -> Error? {
+        do {
+            let collection = Firestore.firestore().collection(collection.rawValue)
+            let doc = collection.document(id)
+            try await doc.setData(data)
+            return nil
+        } catch {
+            return error
+        }
+    }
+
     // MARK: - Pagination
 
     func getUserItems<T: FirebaseModel>(

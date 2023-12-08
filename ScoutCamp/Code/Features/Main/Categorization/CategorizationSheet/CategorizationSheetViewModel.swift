@@ -6,11 +6,15 @@
 //
 
 import Combine
+import Foundation
 
 @MainActor
 class CategorizationSheetViewModel: ObservableObject {
 
+    // MARK: - Stored properties
+
     @Service private var assignmentsService: AssignmentsServiceProtocol
+    @Service private var teamCategorizationSheetsService: TeamCategorizationSheetsServiceProtocol
     @Service private var teamAssignmentsService: TeamCategorizationSheetAssignmentsServiceProtocol
     @Service private var groupAssignmentJunctionsService: AssignmentGroupAssignmentJunctionsServiceProtocol
 
@@ -19,25 +23,43 @@ class CategorizationSheetViewModel: ObservableObject {
 
     @Published var error: Error?
     @Published var isLoading = false
+    @Published var successfulUpdate = false
 
     private let isInitialFill: Bool
 
     var sheetType: String { sheet.sheet.sheetType.name }
 
-    var points: Double {
-        var points: Double = 0
+    // MARK: - Computed properties
+
+    var points: Decimal {
+        var points: Decimal = 0
         appAssignments.forEach { assignment in
+            if !assignment.isValid {
+                return
+            }
             switch assignment.assignmentType {
             case .numeric:
-                points += Double((assignment.intValue / (assignment.maxScoringValue ?? 1))).rounded() * Double(assignment.maxPoints)
+                points += (assignment.value / (assignment.maxScoringValue ?? 1)) * Decimal(assignment.maxPoints)
             case .boolean:
                 if assignment.isCompleted {
-                    points += Double(assignment.maxPoints)
+                    points += Decimal(assignment.maxPoints)
                 }
             }
         }
         return points
     }
+
+    var category: Category {
+        // TODO: Implement proper calculations
+        return sheet.category
+    }
+
+    var isSheetValid: Bool {
+        let invalidAssignments = appAssignments.filter { !$0.isValid }
+        return invalidAssignments.isEmpty
+    }
+
+    // MARK: - Initialization
 
     init(sheet: AppTeamSheet) {
         self.sheet = sheet
@@ -63,14 +85,34 @@ class CategorizationSheetViewModel: ObservableObject {
     }
 
     func complete() async {
-        // TODO: Implement
+        await createUpdateTeamSheet(isDraft: false)
     }
 
     func saveAsDraft() async {
-        // TODO: Implement
+        await createUpdateTeamSheet(isDraft: true)
     }
 
     // MARK: - Helpers
+
+    private func createUpdateTeamSheet(isDraft: Bool) async {
+        let newAppSheet = generateAppTeamSheet(isDraft: isDraft)
+        let result = await teamCategorizationSheetsService.createUpdateTeamSheet(newAppSheet)
+        if let error = result.1 {
+            self.error = error
+            return
+        }
+        if let teamCategorizationSheetId = result.0 {
+            let error = await teamAssignmentsService.createUpdateTeamAssignments(
+                appAssignments,
+                teamCategorizationSheetId: teamCategorizationSheetId
+            )
+            if let error {
+                self.error = error
+            } else {
+                successfulUpdate = true
+            }
+        }
+    }
 
     private func fetchAssignmentGroupJunctions(assignments: [Assignment]) async -> [AssignmentGroupAssignmentJunction] {
         let ids = assignments.map { $0.id }
@@ -102,5 +144,19 @@ class CategorizationSheetViewModel: ObservableObject {
             return []
         }
         return result.0 ?? []
+    }
+
+    private func generateAppTeamSheet(isDraft: Bool) -> AppTeamSheet {
+        return AppTeamSheet(
+            teamSheetId: sheet.teamSheetId,
+            sheet: sheet.sheet,
+            team: sheet.team, 
+            category: category,
+            categoryUrl: CategoriesService.urlFor(id: category.id),
+            points: NSDecimalNumber(decimal: points).intValue,
+            isDraft: isDraft,
+            createdAt: sheet.createdAt,
+            updatedAt: .now
+        )
     }
 }

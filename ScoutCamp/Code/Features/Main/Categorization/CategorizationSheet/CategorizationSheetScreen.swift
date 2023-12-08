@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CategorizationSheetScreen: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject private var viewModel: CategorizationSheetViewModel
 
     init(sheet: AppTeamSheet) {
@@ -15,6 +16,8 @@ struct CategorizationSheetScreen: View {
             wrappedValue: CategorizationSheetViewModel(sheet: sheet)
         )
     }
+
+    // MARK: - UI
 
     var body: some View {
         VStack {
@@ -35,7 +38,14 @@ struct CategorizationSheetScreen: View {
         .task {
             await viewModel.fetchData()
         }
+        .onTapGesture {
+            UIApplication.shared.endEditing()
+        }
+        .onChange(of: viewModel.successfulUpdate) { _ in
+            navigateBack()
+        }
         .navigationBarBackButtonHidden()
+        .errorAlert(error: $viewModel.error)
     }
 
     private func bottomBar() -> some View {
@@ -52,9 +62,16 @@ struct CategorizationSheetScreen: View {
                 strokeColor: .secondaryColor,
                 action: saveAsDraft
             )
-            CircleButton(systemImageName: "checkmark", action: complete)
+            CircleButton(
+                systemImageName: "checkmark",
+                backgroundColor: viewModel.isSheetValid ? .secondaryColor : .gray,
+                action: complete
+            )
+            .disabled(!viewModel.isSheetValid)
         }
     }
+
+    // MARK: - Helpers
 
     private func saveAsDraft() {
         Task {
@@ -66,6 +83,12 @@ struct CategorizationSheetScreen: View {
         Task {
             await viewModel.complete()
         }
+    }
+
+    // MARK: - Navigation
+
+    private func navigateBack() {
+        presentationMode.wrappedValue.dismiss()
     }
 }
 

@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct AssignmentCheckbox: View {
+
+    // MARK: - Stored properties
+
     @Binding var isChecked: Bool
     let title = "Done:"
+
+    // MARK: - UI
 
     var body: some View {
         Toggle(isOn: $isChecked) {

@@ -77,6 +77,11 @@ struct CategorizationHomeScreen: View {
                 await viewModel.fetchInitData()
             }
         }
+        .onAppear {
+            Task {
+                await viewModel.fetchMySheets()
+            }
+        }
         .onChange(of: viewModel.selectedTeam) { _ in
             Task {
                 await viewModel.fetchMySheets()

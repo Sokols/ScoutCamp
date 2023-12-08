@@ -24,6 +24,10 @@ struct AppTeamSheet: Hashable {
 }
 
 extension AppTeamSheet {
+    var doesAlreadyExist: Bool { teamSheetId != nil }
+}
+
+extension AppTeamSheet {
     static func from(
         sheet: AppSheet,
         team: Team
@@ -63,5 +67,25 @@ extension AppTeamSheet {
             createdAt: teamSheet.createdAt,
             updatedAt: teamSheet.updatedAt
         )
+    }
+}
+
+extension AppTeamSheet {
+    func toTeamSheetData() -> [String: Any] {
+        var map: [String: Any] = [
+            "categorizationSheetId": sheet.sheetId,
+            "teamId": team.id,
+            "categoryId": category.id,
+            "points": points,
+            "isDraft": isDraft,
+            "createdAt": createdAt,
+            "updatedAt": updatedAt
+        ]
+
+        if let teamSheetId {
+            map["id"] = teamSheetId
+        }
+
+        return map
     }
 }

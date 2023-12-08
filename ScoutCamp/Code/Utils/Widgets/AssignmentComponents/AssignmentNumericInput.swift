@@ -8,16 +8,30 @@
 import SwiftUI
 
 struct AssignmentNumericInput: View {
-    @Binding var value: String
+
+    // MARK: - Stored properties
+    
+    @Binding var value: Decimal
     var title = "Value:"
     var placeholder: String? = "0"
     var prompt: String?
+
+    private var textValue: Binding<String> {
+        Binding(get: {
+            value.description
+        }, set: { newValue in
+            guard let decimalValue = Decimal(string: newValue) else { return }
+            value = decimalValue
+        })
+    }
+
+    // MARK: - UI
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text(title)
-                TextField(placeholder ?? "", text: $value)
+                TextField(placeholder ?? "", text: textValue)
                     .keyboardType(.numberPad)
                     .withTextFieldStyle(height: 45)
             }
@@ -32,7 +46,7 @@ struct AssignmentNumericInput: View {
 }
 
 #Preview {
-    @State var value = ""
+    @State var value: Decimal = 0
 
     return AssignmentNumericInput(value: $value)
 }

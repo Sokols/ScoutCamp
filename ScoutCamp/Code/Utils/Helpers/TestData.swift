@@ -76,26 +76,28 @@ struct TestData {
 
     static let numericAppAssignment = AppAssignment(
         assignmentId: "",
+        teamAssignmentId: nil,
         category: nil,
         mainAssignmentGroup: TestData.assignmentGroup,
         assignmentType: .numeric,
         assignmentGroups: [TestData.assignmentGroup: 1.0],
         description: "Test description",
         maxPoints: 5,
-        maxScoringValue: nil,
-        minimums: nil
+        minimums: nil,
+        maxScoringValue: nil
     )
 
     static let booleanAppAssignment = AppAssignment(
         assignmentId: "",
+        teamAssignmentId: nil,
         category: nil,
         mainAssignmentGroup: TestData.assignmentGroup,
         assignmentType: .boolean,
         assignmentGroups: [TestData.assignmentGroup: 1.0],
         description: "Test description",
         maxPoints: 5,
-        maxScoringValue: nil,
-        minimums: nil
+        minimums: nil,
+        maxScoringValue: nil
     )
 
     static let appSheet = AppSheet(

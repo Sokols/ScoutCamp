@@ -32,7 +32,10 @@ struct TeamAssignmentView: View {
         case .boolean:
             AssignmentCheckbox(isChecked: $assignment.isCompleted)
         case .numeric:
-            AssignmentNumericInput(value: $assignment.value)
+            AssignmentNumericInput(
+                value: $assignment.value,
+                prompt: assignment.errorPrompt
+            )
         }
     }
 }

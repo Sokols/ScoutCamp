@@ -48,6 +48,7 @@
 		3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift */; };
 		3F3814372AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */; };
 		3F3814392AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */; };
+		3F393F052B1F4B3700419385 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */; };
 		3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */; };
 		3F3E50DF2AF1332000552CC2 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50DE2AF1332000552CC2 /* FirebaseRemoteConfig */; };
 		3F3E50E12AF1332000552CC2 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50E02AF1332000552CC2 /* FirebaseRemoteConfigSwift */; };
@@ -73,7 +74,7 @@
 		3FBA1CBE2B0BA5130019A84A /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CBD2B0BA5130019A84A /* TestData.swift */; };
 		3FBA1D2E2B0CDEBD0019A84A /* CenterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D2D2B0CDEBD0019A84A /* CenterModifier.swift */; };
 		3FBA1D312B0E384F0019A84A /* AppAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D302B0E384F0019A84A /* AppAssignment.swift */; };
-		3FBA1D332B0F678F0019A84A /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D322B0F678F0019A84A /* Double+Extensions.swift */; };
+		3FBA1D332B0F678F0019A84A /* Decimal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D322B0F678F0019A84A /* Decimal+Extensions.swift */; };
 		3FBA1D352B0F97100019A84A /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D342B0F97100019A84A /* Date+Extensions.swift */; };
 		3FBA1D372B0F97EA0019A84A /* AppTeamSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */; };
 		3FBA1D3C2B10A8550019A84A /* DependencyPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D3B2B10A8550019A84A /* DependencyPropertyWrapper.swift */; };
@@ -156,6 +157,7 @@
 		3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetAssignmentsService.swift; sourceTree = "<group>"; };
 		3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheet.swift; sourceTree = "<group>"; };
 		3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetsService.swift; sourceTree = "<group>"; };
+		3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsCarouselView.swift; sourceTree = "<group>"; };
 		3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunction.swift; sourceTree = "<group>"; };
@@ -178,7 +180,7 @@
 		3FBA1CBD2B0BA5130019A84A /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		3FBA1D2D2B0CDEBD0019A84A /* CenterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterModifier.swift; sourceTree = "<group>"; };
 		3FBA1D302B0E384F0019A84A /* AppAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssignment.swift; sourceTree = "<group>"; };
-		3FBA1D322B0F678F0019A84A /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		3FBA1D322B0F678F0019A84A /* Decimal+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Extensions.swift"; sourceTree = "<group>"; };
 		3FBA1D342B0F97100019A84A /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTeamSheet.swift; sourceTree = "<group>"; };
 		3FBA1D3B2B10A8550019A84A /* DependencyPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyPropertyWrapper.swift; sourceTree = "<group>"; };
@@ -610,8 +612,9 @@
 				3FFFCA7B2A38EB5200481DAE /* String+Extensions.swift */,
 				3F2E55FF2A3C4E1500E3BC30 /* Color+Extensions.swift */,
 				3F2E56032A3C5BE400E3BC30 /* View+Extensions.swift */,
-				3FBA1D322B0F678F0019A84A /* Double+Extensions.swift */,
+				3FBA1D322B0F678F0019A84A /* Decimal+Extensions.swift */,
 				3FBA1D342B0F97100019A84A /* Date+Extensions.swift */,
+				3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -843,7 +846,7 @@
 				3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */,
 				3FE3A4342ADD5BF7000E455F /* AssignmentsService.swift in Sources */,
 				3F3814232AE29EBD00B4C0E3 /* Category.swift in Sources */,
-				3FBA1D332B0F678F0019A84A /* Double+Extensions.swift in Sources */,
+				3FBA1D332B0F678F0019A84A /* Decimal+Extensions.swift in Sources */,
 				3F3E50EC2AFA9DC000552CC2 /* CircleButton.swift in Sources */,
 				3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */,
 				3FBA1D3E2B10A86A0019A84A /* ServiceContainer.swift in Sources */,
@@ -861,6 +864,7 @@
 				3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */,
 				3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */,
 				3F38142B2AE2A10200B4C0E3 /* CategorizationSheet.swift in Sources */,
+				3F393F052B1F4B3700419385 /* UIApplication+Extensions.swift in Sources */,
 				3FFFCA7C2A38EB5200481DAE /* String+Extensions.swift in Sources */,
 				3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */,
 				3F0D58F22A483A410072EF1F /* Error.swift in Sources */,

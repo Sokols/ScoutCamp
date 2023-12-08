@@ -33,7 +33,7 @@ struct CategorizationSheetItemView: View {
                 if item.teamSheetId != nil {
                     Text("Category: \(item.category.name)")
                     Text("Points: \(item.points)")
-                    Text("Date: \(item.createdAt.sheetDate)")
+                    Text("Updated: \(item.updatedAt.sheetDate)")
                 } else {
                     Text("Fill sheet")
                         .foregroundColor(Color.white)

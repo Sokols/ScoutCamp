@@ -33,12 +33,10 @@ struct CircleButton: View {
             Circle()
                 .stroke(strokeColor ?? backgroundColor, lineWidth: 1)
                 .background(Circle().foregroundColor(backgroundColor))
-            Button(action: {
-                print("Circular Button tapped")
-            }, label: {
+            Button(action: action) {
                 Image(systemName: systemImageName)
                     .foregroundColor(foregroundColor)
-            })
+            }
             .padding()
         }
         .fixedSize()

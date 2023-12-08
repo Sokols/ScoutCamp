@@ -14,19 +14,5 @@ struct TeamCategorizationSheetAssignment: FirebaseModel, Identifiable, Equatable
     let teamCategorizationSheetId: String
 
     var isCompleted: Bool?
-    var value: Int?
-}
-
-extension TeamCategorizationSheetAssignment {
-    func toCreateMap() -> [String: Any] {
-        let map: [String: Any?] = [
-            "id": id,
-            "assignmentId": assignmentId,
-            "teamCategorizationSheetId": teamCategorizationSheetId,
-            "isCompleted": isCompleted,
-            "value": value
-        ]
-
-        return map.compactMapValues { $0 }
-    }
+    var value: Decimal?
 }
