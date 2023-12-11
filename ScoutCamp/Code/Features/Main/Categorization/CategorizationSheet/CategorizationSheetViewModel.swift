@@ -9,7 +9,6 @@ import Combine
 import Foundation
 import SwiftUI
 
-@MainActor
 class CategorizationSheetViewModel: ObservableObject {
 
     // MARK: - Stored properties
@@ -21,6 +20,7 @@ class CategorizationSheetViewModel: ObservableObject {
 
     @Published var sections: [AssignmentGroupSection] = []
     @Published var sheet: AppTeamSheet
+    @Published var assignmentToShowSharesInfo: AppAssignment?
 
     @Published var error: Error?
     @Published var isLoading = false
@@ -40,36 +40,12 @@ class CategorizationSheetViewModel: ObservableObject {
         return assignments
     }
 
-    var points: Decimal {
-        var points: Decimal = 0
-        appAssignments.forEach { assignment in
-            if !assignment.isValid {
-                return
-            }
-            switch assignment.assignmentType {
-            case .numeric:
-                points += (assignment.value / (assignment.maxScoringValue ?? 1)) * Decimal(assignment.maxPoints)
-            case .boolean:
-                if assignment.isCompleted {
-                    points += Decimal(assignment.maxPoints)
-                }
-            }
-        }
-        return points
-    }
-
-    var categoryUrl: URL? {
-        return CategoriesService.urlFor(id: category.id)
+    var points: Double {
+        return appAssignments.map { $0.points }.reduce(0, +)
     }
 
     var isSheetValid: Bool {
-        let invalidAssignments = appAssignments.filter { !$0.isValid }
-        return invalidAssignments.isEmpty
-    }
-
-    private var category: Category {
-        // TODO: Implement proper category calculations
-        sheet.category
+        return appAssignments.filter { !$0.isValid }.isEmpty
     }
 
     // MARK: - Initialization
@@ -94,7 +70,9 @@ class CategorizationSheetViewModel: ObservableObject {
                 groupAssignmentJunctions: junctions.filter { $0.assignmentId == item.id }
             )
         }
-        updateSections(appAssignments)
+        await MainActor.run {
+            updateSections(appAssignments)
+        }
     }
 
     func complete() async {
@@ -103,6 +81,10 @@ class CategorizationSheetViewModel: ObservableObject {
 
     func saveAsDraft() async {
         await createUpdateTeamSheet(isDraft: true)
+    }
+
+    func showAssignmentSharesInfo(_ assignment: AppAssignment?) {
+        assignmentToShowSharesInfo = assignment
     }
 
     // MARK: - Data handling
@@ -178,9 +160,8 @@ class CategorizationSheetViewModel: ObservableObject {
             teamSheetId: sheet.teamSheetId,
             sheet: sheet.sheet,
             team: sheet.team,
-            category: category,
-            categoryUrl: CategoriesService.urlFor(id: category.id),
-            points: NSDecimalNumber(decimal: points).intValue,
+            category: sheet.category,
+            points: points,
             isDraft: isDraft,
             createdAt: sheet.createdAt,
             updatedAt: .now

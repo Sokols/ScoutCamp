@@ -55,6 +55,12 @@ struct TestData {
         order: 0
     )
 
+    static let secondAssignmentGroup = AssignmentGroup(
+        id: "testId2",
+        name: "Second AssignmentGroup",
+        order: 1
+    )
+
     static let categorizationSheet = CategorizationSheet(
         id: "",
         periodId: "",
@@ -80,11 +86,12 @@ struct TestData {
         category: nil,
         mainAssignmentGroup: TestData.assignmentGroup,
         assignmentType: .numeric,
-        assignmentGroups: [TestData.assignmentGroup: 1.0],
+        assignmentGroupShares: TestData.assignmentGroupShares,
         description: "Test description",
         maxPoints: 5,
         minimums: [AppAssignment.CategoryMinimum(category: TestData.category, minimum: 10)],
-        maxScoringValue: nil
+        value: 15,
+        maxScoringValue: 20
     )
 
     static let booleanAppAssignment = AppAssignment(
@@ -93,7 +100,7 @@ struct TestData {
         category: TestData.category,
         mainAssignmentGroup: TestData.assignmentGroup,
         assignmentType: .boolean,
-        assignmentGroups: [TestData.assignmentGroup: 1.0],
+        assignmentGroupShares: [],
         description: "Test description",
         maxPoints: 5,
         minimums: nil,
@@ -111,7 +118,6 @@ struct TestData {
         sheet: TestData.appSheet,
         team: TestData.team,
         category: TestData.category,
-        categoryUrl: nil,
         points: 10,
         isDraft: true,
         createdAt: .now,
@@ -122,4 +128,15 @@ struct TestData {
         group: TestData.assignmentGroup,
         assignments: [TestData.booleanAppAssignment, TestData.numericAppAssignment]
     )
+
+    static let assignmentGroupShares = [
+        AppAssignment.AssignmentGroupShare(
+            assignmentGroup: TestData.assignmentGroup,
+            percentageShare: 0.2
+        ),
+        AppAssignment.AssignmentGroupShare(
+            assignmentGroup: TestData.secondAssignmentGroup,
+            percentageShare: 0.8
+        )
+    ]
 }

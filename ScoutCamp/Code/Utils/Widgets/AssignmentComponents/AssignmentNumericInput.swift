@@ -10,18 +10,19 @@ import SwiftUI
 struct AssignmentNumericInput: View {
 
     // MARK: - Stored properties
-    
-    @Binding var value: Decimal
+
+    @Binding var value: Double
     var title = "Value:"
     var placeholder: String? = "0"
     var prompt: String?
 
     private var textValue: Binding<String> {
         Binding(get: {
-            value.description
+            value.pointsFormatted
         }, set: { newValue in
-            guard let decimalValue = Decimal(string: newValue) else { return }
-            value = decimalValue
+            let validValue = newValue.isEmpty ? "0" : newValue
+            guard let doubleValue = Double(validValue) else { return }
+            value = doubleValue
         })
     }
 
@@ -46,7 +47,7 @@ struct AssignmentNumericInput: View {
 }
 
 #Preview {
-    @State var value: Decimal = 0
+    @State var value: Double = 0
 
     return AssignmentNumericInput(value: $value)
 }

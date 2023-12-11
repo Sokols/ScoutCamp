@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct TeamAssignmentsGroupView: View {
-
     @Binding var section: AssignmentGroupSection
+    let openSharesView: (AppAssignment) -> Void
 
     var body: some View {
         DisclosureGroup(section.group.name) {
             ForEach($section.assignments, id: \.assignmentId) { item in
-                TeamAssignmentView(assignment: item)
+                TeamAssignmentView(assignment: item, openSharesView: openSharesView)
             }
             .listRowSeparator(.hidden)
         }
@@ -25,5 +25,5 @@ struct TeamAssignmentsGroupView: View {
 #Preview {
     TeamAssignmentsGroupView(
         section: .constant(TestData.assignmentGroupSection)
-    )
+    ) {_ in}
 }

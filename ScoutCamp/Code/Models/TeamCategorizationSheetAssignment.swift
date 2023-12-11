@@ -14,5 +14,5 @@ struct TeamCategorizationSheetAssignment: FirebaseModel, Identifiable, Equatable
     let teamCategorizationSheetId: String
 
     var isCompleted: Bool?
-    var value: Decimal?
+    var value: Double?
 }

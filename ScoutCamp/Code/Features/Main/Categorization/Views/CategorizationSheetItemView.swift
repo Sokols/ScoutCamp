@@ -14,7 +14,7 @@ struct CategorizationSheetItemView: View {
 
     var body: some View {
         HStack {
-            CategoryAsyncImage(url: item.categoryUrl, size: 80)
+            CategoryAsyncImage(url: item.category.url, size: 80)
                 .padding(.trailing, 10)
             VStack(alignment: .leading) {
                 Text("\(item.sheet.sheetType.name)")
@@ -22,7 +22,7 @@ struct CategorizationSheetItemView: View {
 
                 if item.teamSheetId != nil {
                     Text("Category: \(item.category.name)")
-                    Text("Points: \(item.points)")
+                    Text("Points: \(item.points.pointsFormatted)")
                     Text("Updated: \(item.updatedAt.sheetDate)")
                 } else {
                     Text("Fill sheet")

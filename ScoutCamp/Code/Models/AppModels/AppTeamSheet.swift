@@ -14,9 +14,8 @@ struct AppTeamSheet: Hashable {
 
     let team: Team
     let category: Category
-    let categoryUrl: URL?
 
-    let points: Int
+    let points: Double
     let isDraft: Bool
 
     let createdAt: Date
@@ -33,14 +32,12 @@ extension AppTeamSheet {
         team: Team
     ) -> AppTeamSheet {
         let category = CategoriesService.getFirstCategory()
-        let url = CategoriesService.urlFor(id: category?.id)
 
         return AppTeamSheet(
             teamSheetId: nil,
             sheet: sheet,
             team: team,
             category: category!,
-            categoryUrl: url,
             points: 0,
             isDraft: true,
             createdAt: .now,
@@ -54,14 +51,12 @@ extension AppTeamSheet {
         team: Team
     ) -> AppTeamSheet {
         let category = CategoriesService.categoryFor(id: teamSheet.categoryId)
-        let url = CategoriesService.urlFor(id: category?.id)
 
         return AppTeamSheet(
             teamSheetId: teamSheet.id,
             sheet: sheet,
             team: team,
             category: category!,
-            categoryUrl: url,
             points: teamSheet.points,
             isDraft: teamSheet.isDraft,
             createdAt: teamSheet.createdAt,

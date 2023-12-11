@@ -9,17 +9,39 @@ import SwiftUI
 
 struct TeamAssignmentView: View {
     @Binding var assignment: AppAssignment
+    let openSharesView: (AppAssignment) -> Void
 
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(assignment.description)
+                HStack {
+                    Text(assignment.description)
+                        .padding()
+                    if assignment.doesContainShares {
+                        Spacer()
+                        Image(systemName: "info.circle")
+                            .tint(.primary)
+                            .frame(width: 16, height: 16)
+                            .padding()
+                            .onTapGesture {
+                                onInfoClicked()
+                            }
+                    }
+                }
                 getInputForAssignmentType()
-                getMinimumsView()
+                    .padding(.horizontal)
+                HStack {
+                    getMinimumsView()
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                    Spacer()
+                    getPointsView()
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                }
             }
             Spacer()
         }
-        .padding()
         .cornerRadius(10)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
@@ -31,13 +53,11 @@ struct TeamAssignmentView: View {
     private func getMinimumsView() -> some View {
         switch assignment.assignmentType {
         case .numeric:
-            if let minimums = assignment.minimums {
-                ForEach(minimums) { item in
-                    HStack {
-                        Text("Minimum \(item.minimum.description) for")
-                            .font(.system(size: 14, weight: .light))
-                        CategoryAsyncImage(url: item.category.url, size: 24)
-                    }
+            if let nextCategoryMinimum = assignment.nextCategoryMinimumBasedOnPoints {
+                HStack {
+                    Text("\(nextCategoryMinimum.minimum.pointsFormatted) required for")
+                        .font(.system(size: 14, weight: .light))
+                    CategoryAsyncImage(url: nextCategoryMinimum.category.url, size: 24)
                 }
             }
         case .boolean:
@@ -64,13 +84,29 @@ struct TeamAssignmentView: View {
             )
         }
     }
+
+    @ViewBuilder
+    private func getPointsView() -> some View {
+        HStack(spacing: 0) {
+            Text("Points: ")
+                .font(.system(size: 14, weight: .light))
+            Text("\(assignment.points.pointsFormatted)")
+                .font(.system(size: 14, weight: .bold))
+            Text("/\(assignment.maxPoints.pointsFormatted)")
+                .font(.system(size: 14, weight: .light))
+        }
+    }
+
+    private func onInfoClicked() {
+        openSharesView(assignment)
+    }
 }
 
 struct TeamAssignmentView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            TeamAssignmentView(assignment: .constant(TestData.booleanAppAssignment))
-            TeamAssignmentView(assignment: .constant(TestData.numericAppAssignment))
+            TeamAssignmentView(assignment: .constant(TestData.booleanAppAssignment)) {_ in}
+            TeamAssignmentView(assignment: .constant(TestData.numericAppAssignment)) {_ in}
         }
     }
 }

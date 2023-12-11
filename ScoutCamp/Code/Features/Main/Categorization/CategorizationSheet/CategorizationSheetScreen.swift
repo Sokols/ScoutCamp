@@ -27,7 +27,10 @@ struct CategorizationSheetScreen: View {
                     .font(.system(size: 18, weight: .bold))
                     .padding(.vertical)
                 ForEach($viewModel.sections, id: \.group) { item in
-                    TeamAssignmentsGroupView(section: item)
+                    TeamAssignmentsGroupView(
+                        section: item,
+                        openSharesView: viewModel.showAssignmentSharesInfo
+                    )
                 }
                 .listRowSeparator(.hidden)
             }
@@ -48,6 +51,13 @@ struct CategorizationSheetScreen: View {
         }
         .navigationBarBackButtonHidden()
         .errorAlert(error: $viewModel.error)
+        .sheet(
+            isPresented: .constant(viewModel.assignmentToShowSharesInfo != nil),
+            onDismiss: hideInfoView,
+            content: {
+                AssignmentGroupsChartView(assignment: viewModel.assignmentToShowSharesInfo!)
+            }
+        )
     }
 
     private func bottomBar() -> some View {
@@ -58,7 +68,7 @@ struct CategorizationSheetScreen: View {
                     .font(.system(size: 24, weight: .bold))
             }
             Spacer()
-            CategoryAsyncImage(url: viewModel.categoryUrl)
+            CategoryAsyncImage(url: viewModel.sheet.category.url)
             Spacer()
             CircleButton(
                 systemImageName: "square.and.arrow.down",
@@ -91,6 +101,10 @@ struct CategorizationSheetScreen: View {
     }
 
     // MARK: - Navigation
+
+    private func hideInfoView() {
+        viewModel.showAssignmentSharesInfo(nil)
+    }
 
     private func navigateBack() {
         presentationMode.wrappedValue.dismiss()

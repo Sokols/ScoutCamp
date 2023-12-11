@@ -21,10 +21,10 @@ struct Assignment: FirebaseModel, Identifiable, Equatable, Hashable {
     let assignmentType: String
 
     let description: String
-    let maxPoints: Int
-    let maxScoringValue: Decimal?
+    let maxPoints: Double
+    let maxScoringValue: Double?
 
-    let minimums: [String: Decimal]? // [categoryId: minPoints]
+    let minimums: [String: Double]? // [categoryId: minPoints]
 }
 
 extension Assignment {
