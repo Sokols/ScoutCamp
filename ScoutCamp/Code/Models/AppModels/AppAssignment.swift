@@ -18,11 +18,19 @@ struct AppAssignment: Hashable {
 
     let description: String
     let maxPoints: Int
-    let minimums: [Category: Decimal]? // [category: minPoints]
+    let minimums: [CategoryMinimum]?
 
     var isCompleted: Bool = false
     var value: Decimal = 0
     var maxScoringValue: Decimal?
+}
+
+extension AppAssignment {
+    struct CategoryMinimum: Hashable, Identifiable {
+        let id = UUID()
+        let category: Category
+        let minimum: Decimal
+    }
 }
 
 extension AppAssignment {
@@ -51,11 +59,17 @@ extension AppAssignment {
         teamAssignment: TeamCategorizationSheetAssignment?,
         groupAssignmentJunctions: [AssignmentGroupAssignmentJunction]
     ) -> AppAssignment {
-        let category = assignment.categoryId.flatMap { CategoriesService.categoryFor(id: $0) }
+        let category = CategoriesService.categoryFor(id: assignment.categoryId)
         let mainAssignmentGroup = AssignmentGroupsService.getAssignmentGroupFor(id: assignment.mainAssignmentGroupId)
-        let minimums = [Category: Decimal](uniqueKeysWithValues: (assignment.minimums ?? [:]).compactMap {
-            (key, value) in (CategoriesService.categoryFor(id: key)!, value)
-        })
+        var minimums: [CategoryMinimum]?
+        if let dataMinimums = assignment.minimums {
+            minimums = dataMinimums.compactMap {
+                if let category = CategoriesService.categoryFor(id: $0.key) {
+                    return CategoryMinimum(category: category, minimum: $0.value)
+                }
+                return nil
+            }.sorted(by: {$0.category.order < $1.category.order })
+        }
         let assignmentGroups = [AssignmentGroup: Double](uniqueKeysWithValues: (groupAssignmentJunctions).compactMap {
             value in (AssignmentGroupsService.getAssignmentGroupFor(id: value.assignmentGroupId)!, value.percentageShare ?? 1)
         })
@@ -68,7 +82,7 @@ extension AppAssignment {
             assignmentType: AssignmentType(rawValue: assignment.assignmentType)!,
             assignmentGroups: assignmentGroups,
             description: assignment.description,
-            maxPoints: assignment.maxPoints,            
+            maxPoints: assignment.maxPoints,
             minimums: minimums,
             isCompleted: teamAssignment?.isCompleted ?? false,
             value: teamAssignment?.value ?? 0,

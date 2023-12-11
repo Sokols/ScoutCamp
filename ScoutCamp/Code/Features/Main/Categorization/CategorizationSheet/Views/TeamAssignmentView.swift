@@ -14,7 +14,8 @@ struct TeamAssignmentView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(assignment.description)
-                getInputForAssignmentType(assignment.assignmentType)
+                getInputForAssignmentType()
+                getMinimumsView()
             }
             Spacer()
         }
@@ -27,8 +28,33 @@ struct TeamAssignmentView: View {
     }
 
     @ViewBuilder
-    private func getInputForAssignmentType(_ type: AssignmentType) -> some View {
-        switch type {
+    private func getMinimumsView() -> some View {
+        switch assignment.assignmentType {
+        case .numeric:
+            if let minimums = assignment.minimums {
+                ForEach(minimums) { item in
+                    HStack {
+                        Text("Minimum \(item.minimum.description) for")
+                            .font(.system(size: 14, weight: .light))
+                        CategoryAsyncImage(url: item.category.url, size: 24)
+                    }
+                }
+            }
+        case .boolean:
+            if let category = assignment.category {
+                HStack {
+                    Text("Required for")
+                        .font(.system(size: 14, weight: .light))
+                    CategoryAsyncImage(url: category.url, size: 24)
+                }
+            }
+        }
+        EmptyView()
+    }
+
+    @ViewBuilder
+    private func getInputForAssignmentType() -> some View {
+        switch assignment.assignmentType {
         case .boolean:
             AssignmentCheckbox(isChecked: $assignment.isCompleted)
         case .numeric:

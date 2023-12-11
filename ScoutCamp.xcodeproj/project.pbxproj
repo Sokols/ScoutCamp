@@ -51,6 +51,7 @@
 		3F393F052B1F4B3700419385 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */; };
 		3F393F092B2336C600419385 /* TeamAssignmentsGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F082B2336C600419385 /* TeamAssignmentsGroupView.swift */; };
 		3F393F0B2B2345F300419385 /* AssignmentGroupSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F0A2B2345F300419385 /* AssignmentGroupSection.swift */; };
+		3F393F0D2B235E0000419385 /* CategoryAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F0C2B235E0000419385 /* CategoryAsyncImage.swift */; };
 		3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */; };
 		3F3E50DF2AF1332000552CC2 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50DE2AF1332000552CC2 /* FirebaseRemoteConfig */; };
 		3F3E50E12AF1332000552CC2 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50E02AF1332000552CC2 /* FirebaseRemoteConfigSwift */; };
@@ -162,6 +163,7 @@
 		3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		3F393F082B2336C600419385 /* TeamAssignmentsGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAssignmentsGroupView.swift; sourceTree = "<group>"; };
 		3F393F0A2B2345F300419385 /* AssignmentGroupSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupSection.swift; sourceTree = "<group>"; };
+		3F393F0C2B235E0000419385 /* CategoryAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAsyncImage.swift; sourceTree = "<group>"; };
 		3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsCarouselView.swift; sourceTree = "<group>"; };
 		3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunction.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */,
 				3F3E50E92AFA99E800552CC2 /* BaseToolbarView.swift */,
 				3F3E50EB2AFA9DC000552CC2 /* CircleButton.swift */,
+				3F393F0C2B235E0000419385 /* CategoryAsyncImage.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 				3FBA1D352B0F97100019A84A /* Date+Extensions.swift in Sources */,
 				3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */,
 				3FBA1CB82B03BCBC0019A84A /* AssignmentCheckbox.swift in Sources */,
+				3F393F0D2B235E0000419385 /* CategoryAsyncImage.swift in Sources */,
 				3FBA1D312B0E384F0019A84A /* AppAssignment.swift in Sources */,
 				3FBA1D2E2B0CDEBD0019A84A /* CenterModifier.swift in Sources */,
 				3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */,

@@ -10,7 +10,7 @@ import Foundation
 extension Decimal {
     private static var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
-        formatter.minimumFractionDigits = 2
+        formatter.minimumFractionDigits = 0
         return formatter
     }()
 

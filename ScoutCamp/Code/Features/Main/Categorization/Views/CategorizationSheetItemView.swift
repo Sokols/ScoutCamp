@@ -14,18 +14,8 @@ struct CategorizationSheetItemView: View {
 
     var body: some View {
         HStack {
-            AsyncImage(url: item.categoryUrl) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-
-            } placeholder: {
-                Image(systemName: "doc.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
-            .frame(maxWidth: 80, alignment: .center)
-            .padding(.trailing, 10)
+            CategoryAsyncImage(url: item.categoryUrl, size: 80)
+                .padding(.trailing, 10)
             VStack(alignment: .leading) {
                 Text("\(item.sheet.sheetType.name)")
                     .font(.system(size: 18, weight: .bold))

@@ -83,14 +83,14 @@ struct TestData {
         assignmentGroups: [TestData.assignmentGroup: 1.0],
         description: "Test description",
         maxPoints: 5,
-        minimums: nil,
+        minimums: [AppAssignment.CategoryMinimum(category: TestData.category, minimum: 10)],
         maxScoringValue: nil
     )
 
     static let booleanAppAssignment = AppAssignment(
         assignmentId: "",
         teamAssignmentId: nil,
-        category: nil,
+        category: TestData.category,
         mainAssignmentGroup: TestData.assignmentGroup,
         assignmentType: .boolean,
         assignmentGroups: [TestData.assignmentGroup: 1.0],

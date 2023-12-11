@@ -58,14 +58,18 @@ class CategorizationSheetViewModel: ObservableObject {
         return points
     }
 
-    var category: Category {
-        // TODO: Implement proper calculations
-        return sheet.category
+    var categoryUrl: URL? {
+        return CategoriesService.urlFor(id: category.id)
     }
 
     var isSheetValid: Bool {
         let invalidAssignments = appAssignments.filter { !$0.isValid }
         return invalidAssignments.isEmpty
+    }
+
+    private var category: Category {
+        // TODO: Implement proper category calculations
+        sheet.category
     }
 
     // MARK: - Initialization

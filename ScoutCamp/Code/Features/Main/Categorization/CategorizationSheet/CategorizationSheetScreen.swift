@@ -21,9 +21,11 @@ struct CategorizationSheetScreen: View {
 
     var body: some View {
         VStack {
-            BaseToolbarView(title: "\(viewModel.sheet.sheet.sheetType.name)")
-                .padding(.bottom)
+            BaseToolbarView()
             List {
+                Text("\(viewModel.sheet.sheet.sheetType.name)")
+                    .font(.system(size: 18, weight: .bold))
+                    .padding(.vertical)
                 ForEach($viewModel.sections, id: \.group) { item in
                     TeamAssignmentsGroupView(section: item)
                 }
@@ -50,10 +52,13 @@ struct CategorizationSheetScreen: View {
 
     private func bottomBar() -> some View {
         HStack {
-            Text("Points: \(viewModel.points.pointsFormatted)")
+            VStack {
+                Text("Points:")
+                Text("\(viewModel.points.pointsFormatted)")
+                    .font(.system(size: 24, weight: .bold))
+            }
             Spacer()
-            Text("Category: \(viewModel.sheet.category.name)")
-                .padding(.horizontal)
+            CategoryAsyncImage(url: viewModel.categoryUrl)
             Spacer()
             CircleButton(
                 systemImageName: "square.and.arrow.down",
