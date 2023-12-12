@@ -12,9 +12,9 @@ struct RegisterScreen: View {
     @StateObject private var viewModel: RegisterViewModel
     @State private var showAlert = false
 
-    init(authService: AuthService) {
+    init() {
         _viewModel = StateObject(
-            wrappedValue: RegisterViewModel(authService: authService)
+            wrappedValue: RegisterViewModel()
         )
     }
 
@@ -83,6 +83,6 @@ struct RegisterScreen: View {
 
 struct RegisterScreen_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterScreen(authService: AuthService())
+        RegisterScreen()
     }
 }

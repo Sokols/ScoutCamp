@@ -8,16 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject private var authService: AuthService
-
     var body: some View {
         NavigationView {
             Group {
-                if authService.loggedInUser != nil {
-                    MainContainer()
-                } else {
-                    LoginScreen(authService: authService)
-                }
+                MainContainer()
             }
             .transition(.move(edge: .bottom))
         }
@@ -27,6 +21,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(AuthService())
     }
 }

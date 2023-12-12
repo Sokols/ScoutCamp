@@ -10,7 +10,7 @@ import Combine
 @MainActor
 class LoginViewModel: ObservableObject {
 
-    private let authService: AuthService
+    @Service private var authService: AuthServiceProtocol
 
     @Published var email: String = ""
     @Published var password: String = ""
@@ -32,8 +32,7 @@ class LoginViewModel: ObservableObject {
         isPasswordValid || !isSubmitClicked ? "" : "Validation.Field.CannotBeEmpty".localized
     }
 
-    init(authService: AuthService) {
-        self.authService = authService
+    init() {
         $email
             .map { Validation.isEmailValid($0) }
             .assign(to: \.isEmailValid, on: self)

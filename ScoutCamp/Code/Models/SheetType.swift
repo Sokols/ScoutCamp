@@ -8,10 +8,9 @@
 import Foundation
 
 struct SheetType: FirebaseModel, Identifiable, Equatable, Hashable {
-    var id: String
-    var name: String
-    var order: Int
-    var isScoredSheet: Bool
+    let id: String
+    let name: String
+    let order: Int
 }
 
 extension SheetType {
@@ -19,8 +18,7 @@ extension SheetType {
         let map: [String: Any?] = [
             "id": id,
             "name": name,
-            "order": order,
-            "isScoredSheet": isScoredSheet
+            "order": order
         ]
 
         return map.compactMapValues { $0 }

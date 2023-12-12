@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 
 struct TeamCategorizationSheet: FirebaseModel, Identifiable, Equatable, Hashable {
     let id: String
@@ -15,7 +14,7 @@ struct TeamCategorizationSheet: FirebaseModel, Identifiable, Equatable, Hashable
     let teamId: String
     let categoryId: String
 
-    let points: Int
+    let points: Double
     let isDraft: Bool
 
     let createdAt: Date

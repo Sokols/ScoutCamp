@@ -6,14 +6,13 @@
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 import FirebaseFirestore
 
 protocol CategorizationSheetsServiceProtocol {
     func getCategorizationSheets() async -> ResultArray<CategorizationSheet>
 }
 
-class CategorizationSheetsService: BaseService, CategorizationSheetsServiceProtocol {
+final class CategorizationSheetsService: BaseService, CategorizationSheetsServiceProtocol {
     private(set) static var categorizationSheets: [CategorizationSheet] = []
 
     // MARK: - Public methods

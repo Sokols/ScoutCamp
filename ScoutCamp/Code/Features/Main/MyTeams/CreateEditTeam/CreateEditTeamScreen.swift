@@ -14,51 +14,58 @@ struct CreateEditTeamScreen: View {
 
     init(teamToEdit: Team?) {
         _viewModel = StateObject(
-            wrappedValue: CreateEditTeamViewModel(teamToEdit: teamToEdit, teamsService: TeamsService())
+            wrappedValue: CreateEditTeamViewModel(teamToEdit: teamToEdit)
         )
     }
 
     var body: some View {
-        VStack(spacing: 16) {
+        VStack {
+            BaseToolbarView()
+                .padding(.bottom, 24)
+            List {
+                Group {
+                    DropdownField(
+                        title: "Regiment",
+                        placeholder: "Select regiment",
+                        options: viewModel.regiments.map { $0.toDropdownOption() },
+                        selectedOption: $viewModel.selectedRegiment,
+                        onOptionSelected: viewModel.selectRegiment
+                    )
+                    .zIndex(2)
 
-            DropdownField(
-                title: "Regiment",
-                placeholder: "Select regiment",
-                options: viewModel.regiments.map { $0.toDropdownOption() },
-                selectedOption: $viewModel.selectedRegiment,
-                onOptionSelected: viewModel.selectRegiment
-            )
-            .zIndex(2)
+                    DropdownField(
+                        title: "Troop",
+                        placeholder: "Select troop",
+                        options: viewModel.troops.map { $0.toDropdownOption() },
+                        selectedOption: $viewModel.selectedTroop,
+                        onOptionSelected: viewModel.selectTroop
+                    )
+                    .zIndex(1)
 
-            DropdownField(
-                title: "Troop",
-                placeholder: "Select troop",
-                options: viewModel.troops.map { $0.toDropdownOption() },
-                selectedOption: $viewModel.selectedTroop,
-                onOptionSelected: viewModel.selectTroop
-            )
-            .zIndex(1)
+                    EntryField(
+                        title: "Team name",
+                        placeholder: "Name...",
+                        prompt: "",
+                        field: $viewModel.name
+                    )
 
-            EntryField(
-                title: "Team name",
-                placeholder: "Name...",
-                prompt: "",
-                field: $viewModel.name
-            )
+                    Button(viewModel.isEditFlow ? "Save" : "Create", action: saveTeam)
+                        .disabled(!viewModel.isActionAvailable)
+                        .buttonStyle(MainActionButton(isDisabled: !viewModel.isActionAvailable))
 
-            Button(viewModel.isEditFlow ? "Save" : "Create", action: saveTeam)
-                .disabled(!viewModel.isActionAvailable)
-                .buttonStyle(MainActionButton(isDisabled: !viewModel.isActionAvailable))
-
-            if viewModel.isEditFlow {
-                Button(action: onDeleteTeamClicked) {
-                    Text("Delete Team")
-                        .underline()
-                        .padding(.top)
+                    if viewModel.isEditFlow {
+                        Button(action: onDeleteTeamClicked) {
+                            Text("Delete Team")
+                                .underline()
+                                .padding(.top)
+                        }
+                        .modifier(CenterModifier())
+                    }
                 }
+                .listRowSeparator(.hidden)
             }
+            .listStyle(PlainListStyle())
         }
-        .padding()
         .errorAlert(error: $viewModel.error)
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
         .task {
@@ -113,13 +120,6 @@ struct CreateEditTeamScreen: View {
 
 struct CreateEditTeamScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let team = Team(
-            id: "",
-            userId: "",
-            troopId: "",
-            regimentId: "",
-            name: "Team name"
-        )
-        CreateEditTeamScreen(teamToEdit: team)
+        CreateEditTeamScreen(teamToEdit: TestData.team)
     }
 }
