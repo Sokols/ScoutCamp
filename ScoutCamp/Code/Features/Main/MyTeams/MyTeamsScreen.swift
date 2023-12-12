@@ -44,7 +44,6 @@ struct MyTeamsScreen: View {
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-
             NavigationLink(destination: CreateEditTeamScreen(teamToEdit: nil)) {
                 FloatingActionButton()
             }
