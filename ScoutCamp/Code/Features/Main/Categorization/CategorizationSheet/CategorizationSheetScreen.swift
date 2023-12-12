@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategorizationSheetScreen: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel: CategorizationSheetViewModel
 
     init(sheet: AppTeamSheet) {
@@ -21,7 +21,7 @@ struct CategorizationSheetScreen: View {
 
     var body: some View {
         VStack {
-            BaseToolbarView()
+            BaseToolbarView(backAction: navigateBack)
             List {
                 Text("\(viewModel.sheet.sheet.sheetType.name)")
                     .font(.system(size: 18, weight: .bold))
@@ -51,11 +51,10 @@ struct CategorizationSheetScreen: View {
         }
         .navigationBarBackButtonHidden()
         .errorAlert(error: $viewModel.error)
-        .sheet(
-            isPresented: .constant(viewModel.assignmentToShowSharesInfo != nil),
-            onDismiss: hideInfoView,
-            content: {
-                AssignmentGroupsChartView(assignment: viewModel.assignmentToShowSharesInfo!)
+        .fullScreenCover(
+            item: $viewModel.assignmentToShowSharesInfo,
+            content: { item in
+                AssignmentGroupsChartView(assignment: item, backAction: hideInfoView)
             }
         )
     }
@@ -68,7 +67,7 @@ struct CategorizationSheetScreen: View {
                     .font(.system(size: 24, weight: .bold))
             }
             Spacer()
-            CategoryAsyncImage(url: viewModel.sheet.category.url)
+            CategoryAsyncImage(url: viewModel.expectedCategory.url)
             Spacer()
             CircleButton(
                 systemImageName: "square.and.arrow.down",
@@ -107,7 +106,7 @@ struct CategorizationSheetScreen: View {
     }
 
     private func navigateBack() {
-        presentationMode.wrappedValue.dismiss()
+        dismiss()
     }
 }
 

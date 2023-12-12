@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategorizationSheetsCarouselView: View {
-    @Binding var sheets: [AppTeamSheet]
+    let sheets: [AppTeamSheet]
 
     var body: some View {
         VStack {
@@ -31,7 +31,7 @@ struct CategorizationSheetsCarouselView: View {
 struct CategorizationSheetsCarouselView_Previews: PreviewProvider {
     static var previews: some View {
         CategorizationSheetsCarouselView(
-            sheets: .constant([TestData.appTeamSheet])
+            sheets: [TestData.appTeamSheet]
         )
     }
 }

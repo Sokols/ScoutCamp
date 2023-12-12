@@ -37,8 +37,8 @@ struct CategorizationHomeScreen: View {
                         Text("No sheets.")
                             .multilineTextAlignment(.center)
                     } else {
-                        CategorizationSheetsCarouselView(sheets: $viewModel.currentSheets)
-                        .padding(.horizontal, -16)
+                        CategorizationSheetsCarouselView(sheets: viewModel.currentSheets)
+                            .padding(.horizontal, -16)
                     }
                 }
 

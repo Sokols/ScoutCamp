@@ -17,14 +17,15 @@ struct SharesPieChartView: UIViewRepresentable {
 
     func updateUIView(_ uiView: PieChartView, context: Context) {
         let dataSet = PieChartDataSet(entries: entries)
+        let isPercent = (entries.first?.data as? Bool) ?? false
         uiView.data = PieChartData(dataSet: dataSet)
         uiView.legend.enabled = false
-        formatDataSet(dataSet: dataSet)
+        formatDataSet(dataSet, isPercent: isPercent)
     }
 
-    private func formatDataSet(dataSet: PieChartDataSet) {
+    private func formatDataSet(_ dataSet: PieChartDataSet, isPercent: Bool) {
         let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
+        formatter.numberStyle = isPercent ? .percent : .decimal
         dataSet.valueFormatter = DefaultValueFormatter(formatter: formatter)
         dataSet.sliceSpace = 5
         dataSet.valueColors = [.black]

@@ -41,7 +41,41 @@ extension AppAssignment {
     }
 }
 
+extension AppAssignment: Identifiable {
+    var id: String {
+        assignmentId + (teamAssignmentId ?? "")
+    }
+}
+
 extension AppAssignment {
+
+    // Category counted based on points (numeric type) or yes/no (boolean type) fulfillment level
+    // if assignment is not required - return null
+    var highestPossibleCategory: Category? {
+        var current: Category? = CategoriesService.getFirstCategory()
+        if !isValid {
+            return current
+        }
+        switch assignmentType {
+        case .boolean:
+            if let category {
+                if isCompleted {
+                    return nil
+                } else {
+                    return CategoriesService.categories.first(where: {$0.order == category.order - 1 })
+                }
+            }
+        case .numeric:
+            if let minimums {
+                for minimum in minimums where value >= minimum.minimum {
+                    current = minimum.category
+                }
+                return current
+            }
+        }
+        return nil
+    }
+
     var nextCategoryMinimumBasedOnPoints: CategoryMinimum? {
         switch assignmentType {
         case .boolean:
@@ -156,10 +190,15 @@ extension AppAssignment {
 
     func dataEntries() -> [PieChartDataEntry] {
         let entries = (assignmentGroupShares ?? []).map {
-            let value = $0.percentageShare * self.points
+            let isPercent = points == 0
+            var value = $0.percentageShare
+            if !isPercent {
+                value *= self.points
+            }
             return PieChartDataEntry(
                 value: value,
-                label: $0.assignmentGroup.name
+                label: $0.assignmentGroup.name,
+                data: isPercent
             )
         }
         return entries

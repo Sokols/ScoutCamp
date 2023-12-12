@@ -14,7 +14,7 @@ struct CategorizationSheetItemView: View {
 
     var body: some View {
         HStack {
-            CategoryAsyncImage(url: item.category.url, size: 80)
+            CategoryAsyncImage(url: item.category.url, size: 80, isDraft: item.isDraft)
                 .padding(.trailing, 10)
             VStack(alignment: .leading) {
                 Text("\(item.sheet.sheetType.name)")

@@ -9,7 +9,7 @@ import Combine
 import Foundation
 import SwiftUI
 
-class CategorizationSheetViewModel: ObservableObject {
+final class CategorizationSheetViewModel: ObservableObject {
 
     // MARK: - Stored properties
 
@@ -28,8 +28,6 @@ class CategorizationSheetViewModel: ObservableObject {
 
     private let isInitialFill: Bool
 
-    var sheetType: String { sheet.sheet.sheetType.name }
-
     // MARK: - Computed properties
 
     var appAssignments: [AppAssignment] {
@@ -46,6 +44,17 @@ class CategorizationSheetViewModel: ObservableObject {
 
     var isSheetValid: Bool {
         return appAssignments.filter { !$0.isValid }.isEmpty
+    }
+
+    var expectedCategory: Category {
+        var category = CategoriesService.categories.last
+        let expectedCategories = appAssignments
+            .compactMap { $0.highestPossibleCategory }
+            .sorted(by: {$0.order < $1.order })
+        if let first = expectedCategories.first {
+            category = first
+        }
+        return category ?? CategoriesService.getFirstCategory()!
     }
 
     // MARK: - Initialization
@@ -160,7 +169,7 @@ class CategorizationSheetViewModel: ObservableObject {
             teamSheetId: sheet.teamSheetId,
             sheet: sheet.sheet,
             team: sheet.team,
-            category: sheet.category,
+            category: expectedCategory,
             points: points,
             isDraft: isDraft,
             createdAt: sheet.createdAt,
