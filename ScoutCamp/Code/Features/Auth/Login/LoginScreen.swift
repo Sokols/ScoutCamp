@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct LoginScreen: View {
-    @EnvironmentObject private var authService: AuthService
-
     @StateObject private var viewModel: LoginViewModel
 
-    init(authService: AuthService) {
+    init() {
         _viewModel = StateObject(
-            wrappedValue: LoginViewModel(authService: authService)
+            wrappedValue: LoginViewModel()
         )
     }
 
@@ -43,16 +41,20 @@ struct LoginScreen: View {
                     Spacer()
 
                     VStack(spacing: 24) {
-                        EntryField(symbolName: "person.fill",
-                                   placeholder: "Login.EmailField.Title",
-                                   prompt: viewModel.emailPrompt,
-                                   field: $viewModel.email)
+                        EntryField(
+                            symbolName: "person.fill",
+                            placeholder: "Login.EmailField.Title",
+                            prompt: viewModel.emailPrompt,
+                            field: $viewModel.email
+                        )
                         .keyboardType(.emailAddress)
-                        EntryField(symbolName: "lock.fill",
-                                   placeholder: "Login.PasswordField.Title",
-                                   prompt: viewModel.passwordPrompt,
-                                   field: $viewModel.password,
-                                   isSecure: true)
+                        EntryField(
+                            symbolName: "lock.fill",
+                            placeholder: "Login.PasswordField.Title",
+                            prompt: viewModel.passwordPrompt,
+                            field: $viewModel.password,
+                            isSecure: true
+                        )
                     }
 
                     Spacer()
@@ -66,7 +68,7 @@ struct LoginScreen: View {
 
                     Spacer()
 
-                    NavigationLink(destination: RegisterScreen(authService: authService)) {
+                    NavigationLink(destination: RegisterScreen()) {
                         Text("Login.RegisterNav.Title")
                             .foregroundColor(.white)
                     }
@@ -81,6 +83,6 @@ struct LoginScreen: View {
 
 struct LoginScreen_Previews: PreviewProvider {
     static var previews: some View {
-        LoginScreen(authService: AuthService())
+        LoginScreen()
     }
 }

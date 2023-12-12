@@ -7,7 +7,18 @@
 
 import Foundation
 
-struct CategorizationPeriod: FirebaseDictionary {
-    var id: String
-    var name: String
+struct CategorizationPeriod: FirebaseModel, Identifiable, Equatable, Hashable {
+    let id: String
+    let name: String
+}
+
+extension CategorizationPeriod {
+    func toCreateMap() -> [String: Any] {
+        let map: [String: Any?] = [
+            "id": id,
+            "name": name
+        ]
+
+        return map.compactMapValues { $0 }
+    }
 }

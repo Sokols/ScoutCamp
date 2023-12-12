@@ -6,36 +6,45 @@
 //
 
 import Combine
+import Foundation
 
 @MainActor
 class HomeViewModel: ObservableObject {
 
-    private let sheetTypesService: SheetTypesServiceProtocol
-    private let categoriesService: CategoriesServiceProtocol
-    private let categorizationPeriodsService: CategorizationPeriodsServiceProtocol
-    private let categorizationSheetsService: CategorizationSheetsServiceProtocol
+    @Service private var sheetTypesService: SheetTypesServiceProtocol
+    @Service private var categoriesService: CategoriesServiceProtocol
+    @Service private var categorizationPeriodsService: CategorizationPeriodsServiceProtocol
+    @Service private var categorizationSheetsService: CategorizationSheetsServiceProtocol
+    @Service private var assignmentGroupsService: AssignmentGroupsServiceProtocol
+    @Service private var storageManager: StorageManagerProtocol
 
     @Published var error: Error?
     @Published var isLoading = false
 
-    init(
-        sheetTypesService: SheetTypesServiceProtocol,
-        categoriesService: CategoriesServiceProtocol,
-        categorizationPeriodsService: CategorizationPeriodsServiceProtocol,
-        categorizationSheetsService: CategorizationSheetsServiceProtocol
-    ) {
-        self.sheetTypesService = sheetTypesService
-        self.categoriesService = categoriesService
-        self.categorizationPeriodsService = categorizationPeriodsService
-        self.categorizationSheetsService = categorizationSheetsService
-    }
+    // MARK: Public
 
     func fetchStaticData() async {
         isLoading = true
-        await fetchSheetTypes()
-        await fetchCategories()
-        await fetchCategorizationPeriods()
-        await fetchCategorizationSheets()
+        await withTaskGroup(of: Void.self) { group in
+            group.addTask {
+                await self.fetchCategories()
+            }
+            group.addTask {
+                await self.fetchSheetTypes()
+            }
+            group.addTask {
+                await self.fetchAssignmentGroups()
+            }
+            group.addTask {
+                await self.fetchCategorizationSheets()
+            }
+            group.addTask {
+                await self.fetchCategorizationPeriods()
+            }
+            group.addTask {
+                await self.fetchCategorizationPeriods()
+            }
+        }
         isLoading = false
     }
 
@@ -52,6 +61,15 @@ class HomeViewModel: ObservableObject {
         let result = await categoriesService.getCategories()
         if let error = result.1 {
             self.error = error
+        } else {
+            await fetchCategoryUrls()
+        }
+    }
+
+    private func fetchAssignmentGroups() async {
+        let result = await assignmentGroupsService.getAssignmentGroups()
+        if let error = result.1 {
+            self.error = error
         }
     }
 
@@ -65,6 +83,20 @@ class HomeViewModel: ObservableObject {
     private func fetchCategorizationSheets() async {
         let result = await categorizationSheetsService.getCategorizationSheets()
         if let error = result.1 {
+            self.error = error
+        }
+    }
+
+    private func fetchCategoryUrls() async {
+        let categories = CategoriesService.categories
+        do {
+            var urls: [String: URL] = [:]
+            for category in categories {
+                let url = try await storageManager.getImageRef(path: category.imagePath)
+                urls[category.id] = url
+            }
+            categoriesService.setupCategoryUrls(urls)
+        } catch {
             self.error = error
         }
     }

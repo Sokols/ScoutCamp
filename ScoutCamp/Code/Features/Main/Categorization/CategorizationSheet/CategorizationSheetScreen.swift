@@ -8,40 +8,110 @@
 import SwiftUI
 
 struct CategorizationSheetScreen: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel: CategorizationSheetViewModel
 
-    init(sheetJoint: CategorizationSheetJoint) {
+    init(sheet: AppTeamSheet) {
         _viewModel = StateObject(
-            wrappedValue: CategorizationSheetViewModel(sheetJoint: sheetJoint)
+            wrappedValue: CategorizationSheetViewModel(sheet: sheet)
         )
     }
 
+    // MARK: - UI
+
     var body: some View {
-        Text("Categorization Sheet")
+        VStack {
+            BaseToolbarView(backAction: navigateBack)
+            List {
+                Text("\(viewModel.sheet.sheet.sheetType.name)")
+                    .font(.system(size: 18, weight: .bold))
+                    .padding(.vertical)
+                ForEach($viewModel.sections, id: \.group) { item in
+                    TeamAssignmentsGroupView(
+                        section: item,
+                        openSharesView: viewModel.showAssignmentSharesInfo
+                    )
+                }
+                .listRowSeparator(.hidden)
+            }
+            .listStyle(PlainListStyle())
+            Divider()
+            bottomBar()
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+        }
+        .task {
+            await viewModel.fetchData()
+        }
+        .onTapGesture {
+            UIApplication.shared.endEditing()
+        }
+        .onChange(of: viewModel.successfulUpdate) { _ in
+            navigateBack()
+        }
+        .navigationBarBackButtonHidden()
+        .errorAlert(error: $viewModel.error)
+        .fullScreenCover(
+            item: $viewModel.assignmentToShowSharesInfo,
+            content: { item in
+                AssignmentGroupsChartView(assignment: item, backAction: hideInfoView)
+            }
+        )
+    }
+
+    private func bottomBar() -> some View {
+        HStack {
+            VStack {
+                Text("Points:")
+                Text("\(viewModel.points.pointsFormatted)")
+                    .font(.system(size: 24, weight: .bold))
+            }
+            Spacer()
+            CategoryAsyncImage(url: viewModel.expectedCategory.url)
+            Spacer()
+            CircleButton(
+                systemImageName: "square.and.arrow.down",
+                backgroundColor: .white,
+                foregroundColor: .secondaryColor,
+                strokeColor: .secondaryColor,
+                action: saveAsDraft
+            )
+            CircleButton(
+                systemImageName: "checkmark",
+                backgroundColor: viewModel.isSheetValid ? .secondaryColor : .gray,
+                action: complete
+            )
+            .disabled(!viewModel.isSheetValid)
+        }
+    }
+
+    // MARK: - Helpers
+
+    private func saveAsDraft() {
+        Task {
+            await viewModel.saveAsDraft()
+        }
+    }
+
+    private func complete() {
+        Task {
+            await viewModel.complete()
+        }
+    }
+
+    // MARK: - Navigation
+
+    private func hideInfoView() {
+        viewModel.showAssignmentSharesInfo(nil)
+    }
+
+    private func navigateBack() {
+        dismiss()
     }
 }
 
 struct CategorizationSheetScreen_Previews: PreviewProvider {
-    private static let joint = CategorizationSheetJoint(
-        categorizationSheet: CategorizationSheet(
-            id: "",
-            periodId: "",
-            sheetTypeId: ""
-        ),
-        teamCategorizationSheet: TeamCategorizationSheet(
-            id: "1",
-            categorizationSheetId: "1",
-            teamId: "1",
-            categoryId: "1",
-            points: 1,
-            isDraft: true,
-            createdAt: Date(),
-            updatedAt: Date()
-        )
-    )
     static var previews: some View {
-        CategorizationSheetScreen(
-            sheetJoint: joint
-        )
+        CategorizationSheetScreen(sheet: TestData.appTeamSheet)
     }
 }

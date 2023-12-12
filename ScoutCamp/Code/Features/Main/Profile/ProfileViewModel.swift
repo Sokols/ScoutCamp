@@ -10,11 +10,7 @@ import Combine
 @MainActor
 class ProfileViewModel: ObservableObject {
 
-    private let authService: AuthService
-
-    init(authService: AuthService) {
-        self.authService = authService
-    }
+    @Service private var authService: AuthServiceProtocol
 
     func logOut() {
         authService.signOut()

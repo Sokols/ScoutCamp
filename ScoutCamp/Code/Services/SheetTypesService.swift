@@ -11,7 +11,7 @@ protocol SheetTypesServiceProtocol {
     func getSheetTypes() async -> ResultArray<SheetType>
 }
 
-class SheetTypesService: BaseService, SheetTypesServiceProtocol {
+final class SheetTypesService: BaseService, SheetTypesServiceProtocol {
     private(set) static var sheetTypes: [SheetType] = []
 
     static func sheetTypeFor(id: String?) -> SheetType? {

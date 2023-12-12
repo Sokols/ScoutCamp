@@ -8,41 +8,22 @@
 import SwiftUI
 
 struct CategorizationSheetItemView: View {
-    let item: CategorizationSheetJoint
-    let categoryUrl: URL?
+    let item: AppTeamSheet
 
     private let radius: CGFloat = 12
 
-    private var sheetType: String {
-        SheetTypesService.sheetTypeFor(id: item.categorizationSheet.sheetTypeId)?.name ?? "-"
-    }
-
-    private var category: Category? {
-        CategoriesService.categoryFor(id: item.teamCategorizationSheet?.categoryId)
-    }
-
     var body: some View {
         HStack {
-            AsyncImage(url: categoryUrl) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-
-            } placeholder: {
-                Image(systemName: "doc.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
-            .frame(maxWidth: 80, alignment: .center)
-            .padding(.trailing, 10)
+            CategoryAsyncImage(url: item.category.url, size: 80, isDraft: item.isDraft)
+                .padding(.trailing, 10)
             VStack(alignment: .leading) {
-                Text("\(sheetType)")
+                Text("\(item.sheet.sheetType.name)")
                     .font(.system(size: 18, weight: .bold))
 
-                if let teamItem = item.teamCategorizationSheet {
-                    Text("Category: \(category?.name ?? "-")")
-                    Text("Points: \(teamItem.points)")
-                    Text("Date: \(teamItem.createdAt.formatted())")
+                if item.teamSheetId != nil {
+                    Text("Category: \(item.category.name)")
+                    Text("Points: \(item.points.pointsFormatted)")
+                    Text("Updated: \(item.updatedAt.sheetDate)")
                 } else {
                     Text("Fill sheet")
                         .foregroundColor(Color.white)
@@ -67,25 +48,7 @@ struct CategorizationSheetItemView: View {
 }
 
 struct CategorizationSheetItemView_Previews: PreviewProvider {
-    private static let item = CategorizationSheetJoint(
-        categorizationSheet: CategorizationSheet(
-            id: "",
-            periodId: "",
-            sheetTypeId: ""
-        ),
-        teamCategorizationSheet: TeamCategorizationSheet(
-            id: "1",
-            categorizationSheetId: "1",
-            teamId: "1",
-            categoryId: "1",
-            points: 1,
-            isDraft: true,
-            createdAt: Date(),
-            updatedAt: Date()
-        )
-    )
-
     static var previews: some View {
-        CategorizationSheetItemView(item: item, categoryUrl: nil)
+        CategorizationSheetItemView(item: TestData.appTeamSheet)
     }
 }
