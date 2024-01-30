@@ -20,20 +20,3 @@ struct TeamCategorizationSheet: FirebaseModel, Identifiable, Equatable, Hashable
     let createdAt: Date
     let updatedAt: Date
 }
-
-extension TeamCategorizationSheet {
-    func toCreateMap() -> [String: Any] {
-        let map: [String: Any?] = [
-            "id": id,
-            "categorizationSheetId": categorizationSheetId,
-            "teamId": teamId,
-            "categoryId": categoryId,
-            "points": points,
-            "isDraft": isDraft,
-            "createdAt": createdAt,
-            "updatedAt": updatedAt
-        ]
-
-        return map.compactMapValues { $0 }
-    }
-}

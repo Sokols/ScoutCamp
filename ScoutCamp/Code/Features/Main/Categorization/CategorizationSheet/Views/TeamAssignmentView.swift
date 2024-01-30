@@ -31,9 +31,6 @@ struct TeamAssignmentView: View {
                 getInputForAssignmentType()
                     .padding(.horizontal)
                 HStack {
-                    getMinimumsView()
-                        .padding(.horizontal)
-                        .padding(.bottom)
                     Spacer()
                     getPointsView()
                         .padding(.horizontal)
@@ -47,29 +44,6 @@ struct TeamAssignmentView: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.gray, lineWidth: 2)
         )
-    }
-
-    @ViewBuilder
-    private func getMinimumsView() -> some View {
-        switch assignment.assignmentType {
-        case .numeric:
-            if let nextCategoryMinimum = assignment.nextCategoryMinimumBasedOnPoints {
-                HStack {
-                    Text("\(nextCategoryMinimum.minimum.pointsFormatted) required for")
-                        .font(.system(size: 14, weight: .light))
-                    CategoryAsyncImage(url: nextCategoryMinimum.category.url, size: 24)
-                }
-            }
-        case .boolean:
-            if let category = assignment.category {
-                HStack {
-                    Text("Required for")
-                        .font(.system(size: 14, weight: .light))
-                    CategoryAsyncImage(url: category.url, size: 24)
-                }
-            }
-        }
-        EmptyView()
     }
 
     @ViewBuilder

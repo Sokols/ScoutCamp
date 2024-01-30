@@ -15,7 +15,6 @@ class HomeViewModel: ObservableObject {
     @Service private var categoriesService: CategoriesServiceProtocol
     @Service private var categorizationPeriodsService: CategorizationPeriodsServiceProtocol
     @Service private var categorizationSheetsService: CategorizationSheetsServiceProtocol
-    @Service private var assignmentGroupsService: AssignmentGroupsServiceProtocol
     @Service private var storageManager: StorageManagerProtocol
 
     @Published var error: Error?
@@ -31,9 +30,6 @@ class HomeViewModel: ObservableObject {
             }
             group.addTask {
                 await self.fetchSheetTypes()
-            }
-            group.addTask {
-                await self.fetchAssignmentGroups()
             }
             group.addTask {
                 await self.fetchCategorizationSheets()
@@ -63,13 +59,6 @@ class HomeViewModel: ObservableObject {
             self.error = error
         } else {
             await fetchCategoryUrls()
-        }
-    }
-
-    private func fetchAssignmentGroups() async {
-        let result = await assignmentGroupsService.getAssignmentGroups()
-        if let error = result.1 {
-            self.error = error
         }
     }
 

@@ -12,13 +12,34 @@ struct TeamAssignmentsGroupView: View {
     let openSharesView: (AppAssignment) -> Void
 
     var body: some View {
-        DisclosureGroup(section.group.name) {
-            ForEach($section.assignments, id: \.assignmentId) { item in
-                TeamAssignmentView(assignment: item, openSharesView: openSharesView)
+        VStack(alignment: .leading) {
+            Text(section.group.name)
+                .font(.title)
+            HStack {
+                ForEach(section.groupMinimums, id: \.groupMinimumId) { item in
+                    getCategoryMinimumView(item)
+                }
             }
-            .listRowSeparator(.hidden)
+            ScrollView {
+                ForEach($section.assignments, id: \.assignmentId) { item in
+                    TeamAssignmentView(assignment: item, openSharesView: openSharesView)
+                }
+                .listRowSeparator(.hidden)
+            }
+            .listStyle(PlainListStyle())
         }
-        .foregroundColor(.primaryColor)
+    }
+
+    @ViewBuilder
+    private func getCategoryMinimumView(_ item: AppGroupMinimum) -> some View {
+        VStack {
+            CategoryAsyncImage(url: item.category.url)
+            if Int(section.totalPoints) >= item.minimumPoints {
+                Text("Complete")
+            } else {
+                Text("\(Int(section.totalPoints))/\(item.minimumPoints)")
+            }
+        }
     }
 }
 

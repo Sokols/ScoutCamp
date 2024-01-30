@@ -12,26 +12,16 @@ struct AppAssignment: Hashable {
     let assignmentId: String
     let teamAssignmentId: String?
 
-    let category: Category?
     let mainAssignmentGroup: AssignmentGroup
     let assignmentType: AssignmentType
     let assignmentGroupShares: [AssignmentGroupShare]?
 
     let description: String
     let maxPoints: Double
-    let minimums: [CategoryMinimum]?
 
     var isCompleted: Bool = false
     var value: Double = 0
     var maxScoringValue: Double?
-}
-
-extension AppAssignment {
-    struct CategoryMinimum: Hashable, Identifiable {
-        let id = UUID()
-        let category: Category
-        let minimum: Double
-    }
 }
 
 extension AppAssignment {
@@ -48,50 +38,6 @@ extension AppAssignment: Identifiable {
 }
 
 extension AppAssignment {
-
-    // Category counted based on points (numeric type) or yes/no (boolean type) fulfillment level
-    // if assignment is not required - return null
-    var highestPossibleCategory: Category? {
-        var current: Category? = CategoriesService.getFirstCategory()
-        if !isValid {
-            return current
-        }
-        switch assignmentType {
-        case .boolean:
-            if let category {
-                if isCompleted {
-                    return nil
-                } else {
-                    return CategoriesService.categories.first(where: {$0.order == category.order - 1 })
-                }
-            }
-        case .numeric:
-            if let minimums {
-                for minimum in minimums where value >= minimum.minimum {
-                    current = minimum.category
-                }
-                return current
-            }
-        }
-        return nil
-    }
-
-    var nextCategoryMinimumBasedOnPoints: CategoryMinimum? {
-        switch assignmentType {
-        case .boolean:
-            return nil
-        case .numeric:
-            if let minimums {
-                var current: CategoryMinimum?
-                for minimum in minimums.reversed() where value < minimum.minimum {
-                    current = minimum
-                }
-                return current
-            }
-            return nil
-        }
-    }
-
     var points: Double {
         if !isValid {
             return 0
@@ -131,37 +77,33 @@ extension AppAssignment {
     static func from(
         assignment: Assignment,
         teamAssignment: TeamCategorizationSheetAssignment?,
-        groupAssignmentJunctions: [AssignmentGroupAssignmentJunction]
+        groupAssignmentJunctions: [AssignmentGroupAssignmentJunction],
+        groups: [AssignmentGroup]
     ) -> AppAssignment {
-        let category = CategoriesService.categoryFor(id: assignment.categoryId)
-        let mainAssignmentGroup = AssignmentGroupsService.getAssignmentGroupFor(id: assignment.mainAssignmentGroupId)
-        var minimums: [CategoryMinimum]?
-        if let dataMinimums = assignment.minimums {
-            minimums = dataMinimums.compactMap {
-                if let category = CategoriesService.categoryFor(id: $0.key) {
-                    return CategoryMinimum(category: category, minimum: $0.value)
-                }
-                return nil
-            }.sorted(by: {$0.category.order < $1.category.order })
-        }
+        let mainAssignmentGroup = groups.first { $0.id == assignment.mainAssignmentGroupId }
+
         var shares: [AssignmentGroupShare]?
         if !groupAssignmentJunctions.isEmpty {
-            shares = groupAssignmentJunctions.map {
-                let group = AssignmentGroupsService.getAssignmentGroupFor(id: $0.assignmentGroupId)!
-                return AssignmentGroupShare(assignmentGroup: group, percentageShare: $0.percentageShare ?? 1.0)
+            shares = groupAssignmentJunctions.compactMap { junction in
+                if let group = groups.first(where: { $0.id == junction.assignmentGroupId }) {
+                    return AssignmentGroupShare(
+                        assignmentGroup: group,
+                        percentageShare: junction.percentageShare ?? 1.0
+                    )
+                } else {
+                    return nil
+                }
             }.sorted(by: { $0.percentageShare > $1.percentageShare })
         }
 
         return AppAssignment(
             assignmentId: assignment.id,
             teamAssignmentId: teamAssignment?.id,
-            category: category,
             mainAssignmentGroup: mainAssignmentGroup!,
             assignmentType: AssignmentType(rawValue: assignment.assignmentType)!,
             assignmentGroupShares: shares,
             description: assignment.description,
             maxPoints: assignment.maxPoints,
-            minimums: minimums,
             isCompleted: teamAssignment?.isCompleted ?? false,
             value: teamAssignment?.value ?? 0,
             maxScoringValue: assignment.maxScoringValue

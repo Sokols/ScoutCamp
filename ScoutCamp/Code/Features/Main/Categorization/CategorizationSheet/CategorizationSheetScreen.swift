@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategorizationSheetScreen: View {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel: CategorizationSheetViewModel
 
     init(sheet: AppTeamSheet) {
@@ -22,23 +22,17 @@ struct CategorizationSheetScreen: View {
     var body: some View {
         VStack {
             BaseToolbarView(backAction: navigateBack)
-            List {
-                Text("\(viewModel.sheet.sheet.sheetType.name)")
-                    .font(.system(size: 18, weight: .bold))
-                    .padding(.vertical)
+            Text("\(viewModel.sheet.sheet.sheetType.name)")
+                .font(.system(size: 18, weight: .bold))
+                .padding(.vertical)
+            TabView {
                 ForEach($viewModel.sections, id: \.group) { item in
-                    TeamAssignmentsGroupView(
-                        section: item,
-                        openSharesView: viewModel.showAssignmentSharesInfo
-                    )
+                    sectionView(item)
                 }
-                .listRowSeparator(.hidden)
             }
-            .listStyle(PlainListStyle())
+            .tabViewStyle(.page)
             Divider()
             bottomBar()
-                .padding(.horizontal)
-                .padding(.vertical, 8)
         }
         .task {
             await viewModel.fetchData()
@@ -57,6 +51,16 @@ struct CategorizationSheetScreen: View {
                 AssignmentGroupsChartView(assignment: item, backAction: hideInfoView)
             }
         )
+    }
+
+    private func sectionView(_ item: Binding<AssignmentGroupSection>) -> some View {
+        ScrollView {
+            TeamAssignmentsGroupView(
+                section: item,
+                openSharesView: viewModel.showAssignmentSharesInfo
+            )
+        }
+        .padding()
     }
 
     private func bottomBar() -> some View {
@@ -83,6 +87,8 @@ struct CategorizationSheetScreen: View {
             )
             .disabled(!viewModel.isSheetValid)
         }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
     }
 
     // MARK: - Helpers

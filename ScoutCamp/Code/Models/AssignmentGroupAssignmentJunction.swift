@@ -15,16 +15,3 @@ struct AssignmentGroupAssignmentJunction: FirebaseModel, Identifiable, Equatable
 
     let percentageShare: Double?
 }
-
-extension AssignmentGroupAssignmentJunction {
-    func toCreateMap() -> [String: Any] {
-        let map: [String: Any?] = [
-            "id": id,
-            "assignmentGroupId": assignmentGroupId,
-            "assignmentId": assignmentId,
-            "percentageShare": percentageShare
-        ]
-
-        return map.compactMapValues { $0 }
-    }
-}

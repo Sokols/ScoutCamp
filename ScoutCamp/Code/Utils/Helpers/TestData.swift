@@ -22,11 +22,18 @@ struct TestData {
         order: 2
     )
 
-    static let category = Category(
+    static let firstCategory = Category(
         id: "testId",
         name: "Polowa",
         imagePath: "path",
         order: 1
+    )
+
+    static let secondCategory = Category(
+        id: "testId",
+        name: "Leśna",
+        imagePath: "path",
+        order: 2
     )
 
     static let team = Team(
@@ -39,14 +46,12 @@ struct TestData {
 
     static let assignment = Assignment(
         id: "",
-        categoryId: "",
         mainAssignmentGroupId: "",
-        categorizationSheetId: "",
+        dependentOnAssignmentId: nil,
         assignmentType: "numeric",
         description: "TEST DESCRIPTION",
         maxPoints: 5,
-        maxScoringValue: nil,
-        minimums: nil
+        maxScoringValue: nil
     )
 
     static let assignmentGroup = AssignmentGroup(
@@ -83,13 +88,11 @@ struct TestData {
     static let numericAppAssignment = AppAssignment(
         assignmentId: "",
         teamAssignmentId: nil,
-        category: nil,
         mainAssignmentGroup: TestData.assignmentGroup,
         assignmentType: .numeric,
         assignmentGroupShares: TestData.assignmentGroupShares,
         description: "Test description",
         maxPoints: 5,
-        minimums: [AppAssignment.CategoryMinimum(category: TestData.category, minimum: 10)],
         value: 15,
         maxScoringValue: 20
     )
@@ -97,13 +100,11 @@ struct TestData {
     static let booleanAppAssignment = AppAssignment(
         assignmentId: "",
         teamAssignmentId: nil,
-        category: TestData.category,
         mainAssignmentGroup: TestData.assignmentGroup,
         assignmentType: .boolean,
         assignmentGroupShares: [],
         description: "Test description",
         maxPoints: 5,
-        minimums: nil,
         maxScoringValue: nil
     )
 
@@ -117,15 +118,30 @@ struct TestData {
         teamSheetId: "testId",
         sheet: TestData.appSheet,
         team: TestData.team,
-        category: TestData.category,
+        category: TestData.firstCategory,
         points: 10,
         isDraft: true,
         createdAt: .now,
         updatedAt: .now
     )
 
+    static let firstAssignmentGroupMinimum = AppGroupMinimum(
+        groupMinimumId: "testId",
+        assignmentGroupId: TestData.assignmentGroup.id,
+        category: TestData.firstCategory,
+        minimumPoints: 5
+    )
+
+    static let secondAssignmentGroupMinimum = AppGroupMinimum(
+        groupMinimumId: "testId",
+        assignmentGroupId: TestData.assignmentGroup.id,
+        category: TestData.secondCategory,
+        minimumPoints: 10
+    )
+
     static let assignmentGroupSection = AssignmentGroupSection(
         group: TestData.assignmentGroup,
+        groupMinimums: [TestData.firstAssignmentGroupMinimum, TestData.secondAssignmentGroupMinimum],
         assignments: [TestData.booleanAppAssignment, TestData.numericAppAssignment]
     )
 
