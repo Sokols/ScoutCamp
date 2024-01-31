@@ -31,6 +31,7 @@ struct CategorizationSheetScreen: View {
                 }
             }
             .tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .always))
             Divider()
             bottomBar()
         }

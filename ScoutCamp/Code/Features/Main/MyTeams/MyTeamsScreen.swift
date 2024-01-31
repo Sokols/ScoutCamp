@@ -51,7 +51,7 @@ struct MyTeamsScreen: View {
         .padding()
         .errorAlert(error: $viewModel.error)
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
-        .onLoad {
+        .onAppear {
             Task {
                 await viewModel.fetchMyTeams()
             }

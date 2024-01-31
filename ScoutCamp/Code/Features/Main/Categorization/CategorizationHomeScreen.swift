@@ -18,7 +18,7 @@ struct CategorizationHomeScreen: View {
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 DropdownField(
                     title: "Current team",
                     placeholder: "Select team",
@@ -30,7 +30,7 @@ struct CategorizationHomeScreen: View {
 
                 Text("Current sheets for period: \(viewModel.currentPeriod?.name ?? "")")
                     .font(.title)
-                    .padding(.vertical)
+                    .padding(.top)
 
                 Group {
                     if viewModel.currentSheets.isEmpty {

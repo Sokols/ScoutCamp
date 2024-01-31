@@ -89,7 +89,7 @@ extension AppAssignment {
             calculatedValue = isCompleted ? maxPoints : 0
         }
 
-        return calculatedValue
+        return calculatedValue.isNaN ? 0 : calculatedValue
     }
 
     var doesContainShares: Bool {

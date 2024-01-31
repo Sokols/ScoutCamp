@@ -16,8 +16,9 @@ struct AssignmentGroupSection {
 
 extension AssignmentGroupSection {
     var totalPoints: Double {
-        return assignments.map { $0.getPoints() }.reduce(0, +)
+        let sum = assignments.map { $0.getPoints() }.reduce(0, +)
         + partialAssignments.map { $0.getPoints(groupId: group.id) }.reduce(0, +)
+        return sum.isNaN ? 0 : sum
     }
 
     var highestPossibleCategory: Category? {

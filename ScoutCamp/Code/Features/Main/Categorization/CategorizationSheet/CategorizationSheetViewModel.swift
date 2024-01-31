@@ -43,7 +43,8 @@ final class CategorizationSheetViewModel: ObservableObject {
     }
 
     var points: Double {
-        return sections.map { $0.totalPoints }.reduce(0, +)
+        let sum = sections.map { $0.totalPoints }.reduce(0, +)
+        return sum.isNaN ? 0 : sum
     }
 
     var expectedCategory: Category? {

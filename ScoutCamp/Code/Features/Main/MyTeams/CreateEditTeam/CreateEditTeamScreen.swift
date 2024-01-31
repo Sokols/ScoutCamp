@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CreateEditTeamScreen: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel: CreateEditTeamViewModel
     @State private var showDeleteTeamAlert = false
 
@@ -22,7 +22,7 @@ struct CreateEditTeamScreen: View {
         VStack {
             BaseToolbarView()
                 .padding(.bottom, 24)
-            List {
+            ScrollView(showsIndicators: false) {
                 Group {
                     DropdownField(
                         title: "Regiment",
@@ -62,11 +62,11 @@ struct CreateEditTeamScreen: View {
                         .modifier(CenterModifier())
                     }
                 }
-                .listRowSeparator(.hidden)
             }
-            .listStyle(PlainListStyle())
+            .padding(.horizontal)
         }
         .errorAlert(error: $viewModel.error)
+        .navigationBarBackButtonHidden()
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
         .task {
             fetchRegiments()
@@ -75,7 +75,7 @@ struct CreateEditTeamScreen: View {
             fetchTroops()
         }
         .onChange(of: viewModel.newUpdatedTeam) { _ in
-            self.presentationMode.wrappedValue.dismiss()
+            dismiss()
         }
         .alert("Are you sure?", isPresented: $showDeleteTeamAlert) {
             Button("Yes", action: deleteTeam)
