@@ -10,9 +10,9 @@ import SwiftUI
 struct MyTeamsScreen: View {
     @StateObject private var viewModel: MyTeamsViewModel
 
-    init(teamsService: TeamServiceProtocol) {
+    init() {
         _viewModel = StateObject(
-            wrappedValue: MyTeamsViewModel(teamsService: teamsService)
+            wrappedValue: MyTeamsViewModel()
         )
     }
 
@@ -51,7 +51,7 @@ struct MyTeamsScreen: View {
         .padding()
         .errorAlert(error: $viewModel.error)
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
-        .onLoad {
+        .onAppear {
             Task {
                 await viewModel.fetchMyTeams()
             }
@@ -61,6 +61,6 @@ struct MyTeamsScreen: View {
 
 struct MyTeamsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        MyTeamsScreen(teamsService: TeamsService())
+        MyTeamsScreen()
     }
 }

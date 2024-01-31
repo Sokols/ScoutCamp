@@ -11,15 +11,17 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 enum FirebaseCollection: String {
+    case assignmentGroupAssignmentJunctions
+    case assignmentGroupCategoryMinimums
+    case assignmentGroups
+    case assignments
     case categories
     case categorizationPeriods
-    case categorizationSheetTasks
     case categorizationSheets
-    case categorizationTasks
+    case categorizationSheetAssignments
     case regiments
     case sheetTypes
-    case taskCategories
-    case teamCategorizationSheetTasks
+    case teamCategorizationSheetAssignments
     case teamCategorizationSheets
     case teams
     case troops
@@ -52,6 +54,30 @@ class BaseService: ObservableObject {
             return (data, nil)
         } catch {
             return (nil, error)
+        }
+    }
+
+    func createData(data: [String: Any], collection: FirebaseCollection) async -> Error? {
+        do {
+            let collection = Firestore.firestore().collection(collection.rawValue)
+            let doc = collection.document()
+            var newData = data
+            newData["id"] = doc.documentID
+            try await doc.setData(newData)
+            return nil
+        } catch {
+            return error
+        }
+    }
+
+    func updateData(id: String, data: [String: Any], collection: FirebaseCollection) async -> Error? {
+        do {
+            let collection = Firestore.firestore().collection(collection.rawValue)
+            let doc = collection.document(id)
+            try await doc.setData(data)
+            return nil
+        } catch {
+            return error
         }
     }
 

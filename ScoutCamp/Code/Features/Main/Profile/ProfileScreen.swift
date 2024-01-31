@@ -10,9 +10,9 @@ import SwiftUI
 struct ProfileScreen: View {
     @StateObject private var viewModel: ProfileViewModel
 
-    init(authService: AuthService) {
+    init() {
         _viewModel = StateObject(
-            wrappedValue: ProfileViewModel(authService: authService)
+            wrappedValue: ProfileViewModel()
         )
         UIScrollView.appearance().bounces = false
     }
@@ -90,6 +90,6 @@ struct ProfileScreen: View {
 
 struct ProfileScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileScreen(authService: AuthService())
+        ProfileScreen()
     }
 }

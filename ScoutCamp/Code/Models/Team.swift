@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 
 struct Team: FirebaseModel, Identifiable, Equatable, Hashable {
     let id: String

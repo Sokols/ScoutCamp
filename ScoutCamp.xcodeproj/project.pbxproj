@@ -26,6 +26,10 @@
 		3F1E132F2A38F43900CB64FD /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132C2A38F43900CB64FD /* Podfile.lock */; };
 		3F1E13302A38F43900CB64FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132D2A38F43900CB64FD /* README.md */; };
 		3F1E13312A38F43900CB64FD /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132E2A38F43900CB64FD /* Podfile */; };
+		3F25CB0F2B627EF2003EE8D3 /* AppGroupMinimum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB0E2B627EF2003EE8D3 /* AppGroupMinimum.swift */; };
+		3F25CB112B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB102B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift */; };
+		3F25CB132B67BE32003EE8D3 /* CategorizationSheetAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB122B67BE32003EE8D3 /* CategorizationSheetAssignment.swift */; };
+		3F25CB152B67BE9A003EE8D3 /* CategorizationSheetAssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB142B67BE9A003EE8D3 /* CategorizationSheetAssignmentsService.swift */; };
 		3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */; };
 		3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E42A39DD6B00E3BC30 /* LoginViewModel.swift */; };
 		3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */; };
@@ -37,24 +41,32 @@
 		3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */; };
 		3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560A2A3C797F00E3BC30 /* Validation.swift */; };
 		3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */; };
-    3F38141F2AE29BBB00B4C0E3 /* FirebaseDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38141E2AE29BBB00B4C0E3 /* FirebaseDictionary.swift */; };
 		3F3814212AE29DD100B4C0E3 /* CategorizationPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814202AE29DD100B4C0E3 /* CategorizationPeriod.swift */; };
 		3F3814232AE29EBD00B4C0E3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814222AE29EBD00B4C0E3 /* Category.swift */; };
 		3F3814252AE29EE300B4C0E3 /* CategorizationPeriodsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */; };
-		3F3814272AE29F3200B4C0E3 /* CategorizationSheetTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814262AE29F3200B4C0E3 /* CategorizationSheetTask.swift */; };
-		3F3814292AE29F7000B4C0E3 /* CategorizationSheetTasksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814282AE29F7000B4C0E3 /* CategorizationSheetTasksService.swift */; };
 		3F38142B2AE2A10200B4C0E3 /* CategorizationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38142A2AE2A10200B4C0E3 /* CategorizationSheet.swift */; };
 		3F38142D2AE2A15900B4C0E3 /* CategorizationSheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38142C2AE2A15900B4C0E3 /* CategorizationSheetsService.swift */; };
 		3F38142F2AE2A4A300B4C0E3 /* SheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38142E2AE2A4A300B4C0E3 /* SheetType.swift */; };
 		3F3814312AE2A4CA00B4C0E3 /* SheetTypesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814302AE2A4CA00B4C0E3 /* SheetTypesService.swift */; };
-		3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetTask.swift */; };
-		3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift */; };
+		3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift */; };
+		3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift */; };
 		3F3814372AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */; };
 		3F3814392AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */; };
+		3F393F052B1F4B3700419385 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */; };
+		3F393F092B2336C600419385 /* TeamAssignmentsGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F082B2336C600419385 /* TeamAssignmentsGroupView.swift */; };
+		3F393F0B2B2345F300419385 /* AssignmentGroupSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F0A2B2345F300419385 /* AssignmentGroupSection.swift */; };
+		3F393F0D2B235E0000419385 /* CategoryAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F0C2B235E0000419385 /* CategoryAsyncImage.swift */; };
+		3F393F102B2723D400419385 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 3F393F0F2B2723D400419385 /* DGCharts */; };
+		3F393F122B27245600419385 /* AssignmentGroupsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F112B27245600419385 /* AssignmentGroupsChartView.swift */; };
+		3F393F142B27256300419385 /* SharesPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F132B27256300419385 /* SharesPieChartView.swift */; };
 		3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */; };
 		3F3E50DF2AF1332000552CC2 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50DE2AF1332000552CC2 /* FirebaseRemoteConfig */; };
 		3F3E50E12AF1332000552CC2 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50E02AF1332000552CC2 /* FirebaseRemoteConfigSwift */; };
 		3F3E50E42AF134C700552CC2 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */; };
+		3F3E50E62AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */; };
+		3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E72AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift */; };
+		3F3E50EA2AFA99E800552CC2 /* BaseToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E92AFA99E800552CC2 /* BaseToolbarView.swift */; };
+		3F3E50EC2AFA9DC000552CC2 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50EB2AFA9DC000552CC2 /* CircleButton.swift */; };
 		3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */; };
 		3F4F65802ADE78DA003B2F0A /* CategorizationSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */; };
 		3F5438442AE7E05500C9AEB8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5438432AE7E05500C9AEB8 /* HomeViewModel.swift */; };
@@ -65,14 +77,31 @@
 		3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0142AC890F100945FDE /* ProfileViewModel.swift */; };
 		3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0152AC890F100945FDE /* ProfileScreen.swift */; };
 		3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */; };
+		3F87C5AE2B62600D007BD798 /* AssignmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87C5AD2B62600D007BD798 /* AssignmentType.swift */; };
+		3F87C5B02B62621D007BD798 /* AssignmentGroupCategoryMinimum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimum.swift */; };
+		3FBA1CB52B03B8240019A84A /* TeamAssignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CB42B03B8240019A84A /* TeamAssignmentView.swift */; };
+		3FBA1CB82B03BCBC0019A84A /* AssignmentCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CB72B03BCBC0019A84A /* AssignmentCheckbox.swift */; };
+		3FBA1CBA2B03E2EA0019A84A /* AssignmentNumericInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CB92B03E2EA0019A84A /* AssignmentNumericInput.swift */; };
+		3FBA1CBC2B03E3440019A84A /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CBB2B03E3440019A84A /* CheckboxToggleStyle.swift */; };
+		3FBA1CBE2B0BA5130019A84A /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CBD2B0BA5130019A84A /* TestData.swift */; };
+		3FBA1D2E2B0CDEBD0019A84A /* CenterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D2D2B0CDEBD0019A84A /* CenterModifier.swift */; };
+		3FBA1D312B0E384F0019A84A /* AppAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D302B0E384F0019A84A /* AppAssignment.swift */; };
+		3FBA1D332B0F678F0019A84A /* Decimal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D322B0F678F0019A84A /* Decimal+Extensions.swift */; };
+		3FBA1D352B0F97100019A84A /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D342B0F97100019A84A /* Date+Extensions.swift */; };
+		3FBA1D372B0F97EA0019A84A /* AppTeamSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */; };
+		3FBA1D3C2B10A8550019A84A /* DependencyPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D3B2B10A8550019A84A /* DependencyPropertyWrapper.swift */; };
+		3FBA1D3E2B10A86A0019A84A /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D3D2B10A86A0019A84A /* ServiceContainer.swift */; };
+		3FBA1D402B10A8870019A84A /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D3F2B10A8870019A84A /* ServiceType.swift */; };
+		3FBA1D422B10B4560019A84A /* AppSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D412B10B4560019A84A /* AppSheet.swift */; };
+		3FBA1D442B10C4200019A84A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D432B10C4200019A84A /* AppDelegate.swift */; };
 		3FDF9A3F2AE6E2A300F5F111 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */; };
 		3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4132AD41AEF000E455F /* DropdownField.swift */; };
 		3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */; };
-		3FE3A42C2ADD50F3000E455F /* CategorizationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42B2ADD50F3000E455F /* CategorizationTask.swift */; };
-		3FE3A42E2ADD5252000E455F /* TaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42D2ADD5252000E455F /* TaskCategory.swift */; };
+		3FE3A42C2ADD50F3000E455F /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42B2ADD50F3000E455F /* Assignment.swift */; };
+		3FE3A42E2ADD5252000E455F /* AssignmentGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42D2ADD5252000E455F /* AssignmentGroup.swift */; };
 		3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */; };
-		3FE3A4342ADD5BF7000E455F /* CategorizationTasksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4332ADD5BF7000E455F /* CategorizationTasksService.swift */; };
-		3FE3A4362ADD5C4E000E455F /* TaskCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4352ADD5C4E000E455F /* TaskCategoriesService.swift */; };
+		3FE3A4342ADD5BF7000E455F /* AssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4332ADD5BF7000E455F /* AssignmentsService.swift */; };
+		3FE3A4362ADD5C4E000E455F /* AssignmentGroupsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4352ADD5C4E000E455F /* AssignmentGroupsService.swift */; };
 		3FE3A43B2ADD5FC6000E455F /* CategorizationHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */; };
 		3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */; };
 		3FE3A43F2ADD60BA000E455F /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */; };
@@ -118,6 +147,10 @@
 		3F1E132C2A38F43900CB64FD /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		3F1E132D2A38F43900CB64FD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3F1E132E2A38F43900CB64FD /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3F25CB0E2B627EF2003EE8D3 /* AppGroupMinimum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupMinimum.swift; sourceTree = "<group>"; };
+		3F25CB102B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumsService.swift; sourceTree = "<group>"; };
+		3F25CB122B67BE32003EE8D3 /* CategorizationSheetAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetAssignment.swift; sourceTree = "<group>"; };
+		3F25CB142B67BE9A003EE8D3 /* CategorizationSheetAssignmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetAssignmentsService.swift; sourceTree = "<group>"; };
 		3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		3F2E55E42A39DD6B00E3BC30 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
@@ -129,22 +162,29 @@
 		3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		3F2E560A2A3C797F00E3BC30 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryField.swift; sourceTree = "<group>"; };
-		3F38141E2AE29BBB00B4C0E3 /* FirebaseDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDictionary.swift; sourceTree = "<group>"; };
 		3F3814202AE29DD100B4C0E3 /* CategorizationPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriod.swift; sourceTree = "<group>"; };
 		3F3814222AE29EBD00B4C0E3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriodsService.swift; sourceTree = "<group>"; };
-		3F3814262AE29F3200B4C0E3 /* CategorizationSheetTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetTask.swift; sourceTree = "<group>"; };
-		3F3814282AE29F7000B4C0E3 /* CategorizationSheetTasksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetTasksService.swift; sourceTree = "<group>"; };
 		3F38142A2AE2A10200B4C0E3 /* CategorizationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheet.swift; sourceTree = "<group>"; };
 		3F38142C2AE2A15900B4C0E3 /* CategorizationSheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsService.swift; sourceTree = "<group>"; };
 		3F38142E2AE2A4A300B4C0E3 /* SheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetType.swift; sourceTree = "<group>"; };
 		3F3814302AE2A4CA00B4C0E3 /* SheetTypesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTypesService.swift; sourceTree = "<group>"; };
-		3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetTask.swift; sourceTree = "<group>"; };
-		3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetTasksService.swift; sourceTree = "<group>"; };
+		3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetAssignment.swift; sourceTree = "<group>"; };
+		3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetAssignmentsService.swift; sourceTree = "<group>"; };
 		3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheet.swift; sourceTree = "<group>"; };
 		3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetsService.swift; sourceTree = "<group>"; };
+		3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		3F393F082B2336C600419385 /* TeamAssignmentsGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAssignmentsGroupView.swift; sourceTree = "<group>"; };
+		3F393F0A2B2345F300419385 /* AssignmentGroupSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupSection.swift; sourceTree = "<group>"; };
+		3F393F0C2B235E0000419385 /* CategoryAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAsyncImage.swift; sourceTree = "<group>"; };
+		3F393F112B27245600419385 /* AssignmentGroupsChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupsChartView.swift; sourceTree = "<group>"; };
+		3F393F132B27256300419385 /* SharesPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharesPieChartView.swift; sourceTree = "<group>"; };
 		3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsCarouselView.swift; sourceTree = "<group>"; };
 		3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
+		3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunction.swift; sourceTree = "<group>"; };
+		3F3E50E72AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunctionsService.swift; sourceTree = "<group>"; };
+		3F3E50E92AFA99E800552CC2 /* BaseToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseToolbarView.swift; sourceTree = "<group>"; };
+		3F3E50EB2AFA9DC000552CC2 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetScreen.swift; sourceTree = "<group>"; };
 		3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetViewModel.swift; sourceTree = "<group>"; };
 		3F5438432AE7E05500C9AEB8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -154,14 +194,31 @@
 		3F78A0142AC890F100945FDE /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3F78A0152AC890F100945FDE /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
+		3F87C5AD2B62600D007BD798 /* AssignmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentType.swift; sourceTree = "<group>"; };
+		3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimum.swift; sourceTree = "<group>"; };
+		3FBA1CB42B03B8240019A84A /* TeamAssignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAssignmentView.swift; sourceTree = "<group>"; };
+		3FBA1CB72B03BCBC0019A84A /* AssignmentCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentCheckbox.swift; sourceTree = "<group>"; };
+		3FBA1CB92B03E2EA0019A84A /* AssignmentNumericInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentNumericInput.swift; sourceTree = "<group>"; };
+		3FBA1CBB2B03E3440019A84A /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
+		3FBA1CBD2B0BA5130019A84A /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		3FBA1D2D2B0CDEBD0019A84A /* CenterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterModifier.swift; sourceTree = "<group>"; };
+		3FBA1D302B0E384F0019A84A /* AppAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssignment.swift; sourceTree = "<group>"; };
+		3FBA1D322B0F678F0019A84A /* Decimal+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Extensions.swift"; sourceTree = "<group>"; };
+		3FBA1D342B0F97100019A84A /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTeamSheet.swift; sourceTree = "<group>"; };
+		3FBA1D3B2B10A8550019A84A /* DependencyPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyPropertyWrapper.swift; sourceTree = "<group>"; };
+		3FBA1D3D2B10A86A0019A84A /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
+		3FBA1D3F2B10A8870019A84A /* ServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceType.swift; sourceTree = "<group>"; };
+		3FBA1D412B10B4560019A84A /* AppSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSheet.swift; sourceTree = "<group>"; };
+		3FBA1D432B10C4200019A84A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		3FE3A4132AD41AEF000E455F /* DropdownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownField.swift; sourceTree = "<group>"; };
 		3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
-		3FE3A42B2ADD50F3000E455F /* CategorizationTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationTask.swift; sourceTree = "<group>"; };
-		3FE3A42D2ADD5252000E455F /* TaskCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCategory.swift; sourceTree = "<group>"; };
+		3FE3A42B2ADD50F3000E455F /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		3FE3A42D2ADD5252000E455F /* AssignmentGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroup.swift; sourceTree = "<group>"; };
 		3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
-		3FE3A4332ADD5BF7000E455F /* CategorizationTasksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationTasksService.swift; sourceTree = "<group>"; };
-		3FE3A4352ADD5C4E000E455F /* TaskCategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCategoriesService.swift; sourceTree = "<group>"; };
+		3FE3A4332ADD5BF7000E455F /* AssignmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsService.swift; sourceTree = "<group>"; };
+		3FE3A4352ADD5C4E000E455F /* AssignmentGroupsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupsService.swift; sourceTree = "<group>"; };
 		3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationHomeScreen.swift; sourceTree = "<group>"; };
 		3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationHomeViewModel.swift; sourceTree = "<group>"; };
 		3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
@@ -189,6 +246,7 @@
 			files = (
 				3F0D58F72A484BE40072EF1F /* FirebaseAnalytics in Frameworks */,
 				3F0D58FB2A484BE40072EF1F /* FirebaseCrashlytics in Frameworks */,
+				3F393F102B2723D400419385 /* DGCharts in Frameworks */,
 				3F0D58F92A484BE40072EF1F /* FirebaseAuth in Frameworks */,
 				3F3E50E12AF1332000552CC2 /* FirebaseRemoteConfigSwift in Frameworks */,
 				3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */,
@@ -221,15 +279,17 @@
 			children = (
 				3F3E50E22AF134AB00552CC2 /* FirebaseServices */,
 				3F1421D22AC9AB8A00EA364A /* BaseService.swift */,
+				3FE3A4332ADD5BF7000E455F /* AssignmentsService.swift */,
+				3F3E50E72AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift */,
+				3F25CB102B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift */,
+				3FE3A4352ADD5C4E000E455F /* AssignmentGroupsService.swift */,
 				3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */,
 				3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */,
 				3F38142C2AE2A15900B4C0E3 /* CategorizationSheetsService.swift */,
-				3F3814282AE29F7000B4C0E3 /* CategorizationSheetTasksService.swift */,
-				3FE3A4332ADD5BF7000E455F /* CategorizationTasksService.swift */,
+				3F25CB142B67BE9A003EE8D3 /* CategorizationSheetAssignmentsService.swift */,
 				3F3814302AE2A4CA00B4C0E3 /* SheetTypesService.swift */,
-				3FE3A4352ADD5C4E000E455F /* TaskCategoriesService.swift */,
 				3F1421D02AC9AB4500EA364A /* TeamsService.swift */,
-				3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift */,
+				3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift */,
 				3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */,
 			);
 			path = Services;
@@ -248,17 +308,20 @@
 		3F1421D62AC9B77800EA364A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3F38141E2AE29BBB00B4C0E3 /* FirebaseDictionary.swift */,
+				3FBA1D2F2B0E38430019A84A /* AppModels */,
+				3FE3A42B2ADD50F3000E455F /* Assignment.swift */,
+				3FE3A42D2ADD5252000E455F /* AssignmentGroup.swift */,
+				3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimum.swift */,
+				3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */,
+				3F87C5AD2B62600D007BD798 /* AssignmentType.swift */,
 				3F3814222AE29EBD00B4C0E3 /* Category.swift */,
 				3F3814202AE29DD100B4C0E3 /* CategorizationPeriod.swift */,
 				3F38142A2AE2A10200B4C0E3 /* CategorizationSheet.swift */,
-				3F3814262AE29F3200B4C0E3 /* CategorizationSheetTask.swift */,
-				3FE3A42B2ADD50F3000E455F /* CategorizationTask.swift */,
+				3F25CB122B67BE32003EE8D3 /* CategorizationSheetAssignment.swift */,
 				3F38142E2AE2A4A300B4C0E3 /* SheetType.swift */,
-				3FE3A42D2ADD5252000E455F /* TaskCategory.swift */,
 				3F1421D72AC9B78300EA364A /* Team.swift */,
 				3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */,
-				3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetTask.swift */,
+				3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,6 +367,7 @@
 		3F1E13342A38F69D00CB64FD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3FBA1D3A2B10A81D0019A84A /* DI */,
 				3FDF9A3D2AE6E29500F5F111 /* Modifiers */,
 				3F2E56052A3C5FD800E3BC30 /* Styles */,
 				3F2E55ED2A39DFAE00E3BC30 /* Widgets */,
@@ -318,6 +382,7 @@
 			children = (
 				3FED549B2A365E0D00498112 /* ScoutCampApp.swift */,
 				3FED549D2A365E0D00498112 /* ContentView.swift */,
+				3FBA1D432B10C4200019A84A /* AppDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -366,6 +431,7 @@
 			children = (
 				3F2E560A2A3C797F00E3BC30 /* Validation.swift */,
 				3F0D58F12A483A410072EF1F /* Error.swift */,
+				3FBA1CBD2B0BA5130019A84A /* TestData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -373,9 +439,14 @@
 		3F2E55ED2A39DFAE00E3BC30 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				3FBA1CB62B03BC9F0019A84A /* AssignmentComponents */,
 				3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */,
 				3FE3A4132AD41AEF000E455F /* DropdownField.swift */,
 				3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */,
+				3F3E50E92AFA99E800552CC2 /* BaseToolbarView.swift */,
+				3F3E50EB2AFA9DC000552CC2 /* CircleButton.swift */,
+				3F393F0C2B235E0000419385 /* CategoryAsyncImage.swift */,
+				3F393F132B27256300419385 /* SharesPieChartView.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -403,6 +474,7 @@
 			children = (
 				3F2E56062A3C5FE200E3BC30 /* ButtonStyles.swift */,
 				3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */,
+				3FBA1CBB2B03E3440019A84A /* CheckboxToggleStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -420,6 +492,7 @@
 		3F4F657C2ADE782C003B2F0A /* CategorizationSheet */ = {
 			isa = PBXGroup;
 			children = (
+				3FBA1CB32B03B7F70019A84A /* Views */,
 				3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */,
 				3F4F657F2ADE78DA003B2F0A /* CategorizationSheetViewModel.swift */,
 			);
@@ -444,11 +517,53 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		3FBA1CB32B03B7F70019A84A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA1CB42B03B8240019A84A /* TeamAssignmentView.swift */,
+				3F393F082B2336C600419385 /* TeamAssignmentsGroupView.swift */,
+				3F393F112B27245600419385 /* AssignmentGroupsChartView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3FBA1CB62B03BC9F0019A84A /* AssignmentComponents */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA1CB72B03BCBC0019A84A /* AssignmentCheckbox.swift */,
+				3FBA1CB92B03E2EA0019A84A /* AssignmentNumericInput.swift */,
+			);
+			path = AssignmentComponents;
+			sourceTree = "<group>";
+		};
+		3FBA1D2F2B0E38430019A84A /* AppModels */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA1D302B0E384F0019A84A /* AppAssignment.swift */,
+				3F25CB0E2B627EF2003EE8D3 /* AppGroupMinimum.swift */,
+				3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */,
+				3FBA1D412B10B4560019A84A /* AppSheet.swift */,
+				3F393F0A2B2345F300419385 /* AssignmentGroupSection.swift */,
+			);
+			path = AppModels;
+			sourceTree = "<group>";
+		};
+		3FBA1D3A2B10A81D0019A84A /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA1D3B2B10A8550019A84A /* DependencyPropertyWrapper.swift */,
+				3FBA1D3D2B10A86A0019A84A /* ServiceContainer.swift */,
+				3FBA1D3F2B10A8870019A84A /* ServiceType.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		3FDF9A3D2AE6E29500F5F111 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
 				3F2E55E92A39DE3500E3BC30 /* ActivityIndicatorModifier.swift */,
 				3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */,
+				3FBA1D2D2B0CDEBD0019A84A /* CenterModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -532,6 +647,9 @@
 				3FFFCA7B2A38EB5200481DAE /* String+Extensions.swift */,
 				3F2E55FF2A3C4E1500E3BC30 /* Color+Extensions.swift */,
 				3F2E56032A3C5BE400E3BC30 /* View+Extensions.swift */,
+				3FBA1D322B0F678F0019A84A /* Decimal+Extensions.swift */,
+				3FBA1D342B0F97100019A84A /* Date+Extensions.swift */,
+				3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -580,6 +698,7 @@
 				3F54384D2AEABB0A00C9AEB8 /* FirebaseStorage */,
 				3F3E50DE2AF1332000552CC2 /* FirebaseRemoteConfig */,
 				3F3E50E02AF1332000552CC2 /* FirebaseRemoteConfigSwift */,
+				3F393F0F2B2723D400419385 /* DGCharts */,
 			);
 			productName = ScoutCamp;
 			productReference = 3FED54982A365E0D00498112 /* ScoutCamp.app */;
@@ -656,6 +775,7 @@
 			mainGroup = 3FED548F2A365E0D00498112;
 			packageReferences = (
 				3F0D58F52A484BE40072EF1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3F393F0E2B2723D400419385 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 3FED54992A365E0D00498112 /* Products */;
 			projectDirPath = "";
@@ -746,64 +866,92 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FE3A42E2ADD5252000E455F /* TaskCategory.swift in Sources */,
+				3FE3A42E2ADD5252000E455F /* AssignmentGroup.swift in Sources */,
 				3FDF9A3F2AE6E2A300F5F111 /* ViewDidLoadModifier.swift in Sources */,
 				3F3814312AE2A4CA00B4C0E3 /* SheetTypesService.swift in Sources */,
-				3FE3A42C2ADD50F3000E455F /* CategorizationTask.swift in Sources */,
+				3FBA1CBE2B0BA5130019A84A /* TestData.swift in Sources */,
+				3FBA1CBA2B03E2EA0019A84A /* AssignmentNumericInput.swift in Sources */,
+				3FE3A42C2ADD50F3000E455F /* Assignment.swift in Sources */,
+				3F3E50E62AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift in Sources */,
 				3FED549E2A365E0D00498112 /* ContentView.swift in Sources */,
 				3F54384C2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift in Sources */,
 				3FE3A43B2ADD5FC6000E455F /* CategorizationHomeScreen.swift in Sources */,
 				3F1421CF2AC9AA1900EA364A /* MyTeamsViewModel.swift in Sources */,
 				3F2E55EA2A39DE3500E3BC30 /* ActivityIndicatorModifier.swift in Sources */,
-				3FE3A4362ADD5C4E000E455F /* TaskCategoriesService.swift in Sources */,
-				3F3814272AE29F3200B4C0E3 /* CategorizationSheetTask.swift in Sources */,
+				3FE3A4362ADD5C4E000E455F /* AssignmentGroupsService.swift in Sources */,
 				3F3E50E42AF134C700552CC2 /* RemoteConfigManager.swift in Sources */,
 				3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */,
-				3FE3A4342ADD5BF7000E455F /* CategorizationTasksService.swift in Sources */,
+				3FE3A4342ADD5BF7000E455F /* AssignmentsService.swift in Sources */,
 				3F3814232AE29EBD00B4C0E3 /* Category.swift in Sources */,
-				3F3814292AE29F7000B4C0E3 /* CategorizationSheetTasksService.swift in Sources */,
-				3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetTask.swift in Sources */,
+				3FBA1D332B0F678F0019A84A /* Decimal+Extensions.swift in Sources */,
+				3F87C5AE2B62600D007BD798 /* AssignmentType.swift in Sources */,
+				3F25CB132B67BE32003EE8D3 /* CategorizationSheetAssignment.swift in Sources */,
+				3F3E50EC2AFA9DC000552CC2 /* CircleButton.swift in Sources */,
+				3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */,
+				3FBA1D3E2B10A86A0019A84A /* ServiceContainer.swift in Sources */,
 				3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */,
+				3F393F142B27256300419385 /* SharesPieChartView.swift in Sources */,
+				3FBA1D3C2B10A8550019A84A /* DependencyPropertyWrapper.swift in Sources */,
+				3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */,
 				3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */,
 				3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */,
 				3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */,
+				3FBA1D352B0F97100019A84A /* Date+Extensions.swift in Sources */,
 				3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */,
+				3FBA1CB82B03BCBC0019A84A /* AssignmentCheckbox.swift in Sources */,
+				3F393F0D2B235E0000419385 /* CategoryAsyncImage.swift in Sources */,
+				3F87C5B02B62621D007BD798 /* AssignmentGroupCategoryMinimum.swift in Sources */,
+				3FBA1D312B0E384F0019A84A /* AppAssignment.swift in Sources */,
+				3FBA1D2E2B0CDEBD0019A84A /* CenterModifier.swift in Sources */,
 				3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */,
+				3F393F122B27245600419385 /* AssignmentGroupsChartView.swift in Sources */,
 				3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */,
 				3F38142B2AE2A10200B4C0E3 /* CategorizationSheet.swift in Sources */,
+				3F393F052B1F4B3700419385 /* UIApplication+Extensions.swift in Sources */,
 				3FFFCA7C2A38EB5200481DAE /* String+Extensions.swift in Sources */,
 				3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */,
 				3F0D58F22A483A410072EF1F /* Error.swift in Sources */,
 				3F1421D82AC9B78300EA364A /* Team.swift in Sources */,
+				3FBA1CB52B03B8240019A84A /* TeamAssignmentView.swift in Sources */,
 				3F1421E12ACA086200EA364A /* CreateEditTeamViewModel.swift in Sources */,
+				3F25CB112B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift in Sources */,
+				3FBA1CBC2B03E3440019A84A /* CheckboxToggleStyle.swift in Sources */,
+				3FBA1D372B0F97EA0019A84A /* AppTeamSheet.swift in Sources */,
+				3F393F0B2B2345F300419385 /* AssignmentGroupSection.swift in Sources */,
+				3F25CB0F2B627EF2003EE8D3 /* AppGroupMinimum.swift in Sources */,
 				3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */,
 				3F38142D2AE2A15900B4C0E3 /* CategorizationSheetsService.swift in Sources */,
+				3FBA1D422B10B4560019A84A /* AppSheet.swift in Sources */,
 				3F5438522AEAC2F000C9AEB8 /* StorageManager.swift in Sources */,
 				3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */,
 				3F4F65802ADE78DA003B2F0A /* CategorizationSheetViewModel.swift in Sources */,
 				3F38142F2AE2A4A300B4C0E3 /* SheetType.swift in Sources */,
-				3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetTasksService.swift in Sources */,
+				3FBA1D442B10C4200019A84A /* AppDelegate.swift in Sources */,
+				3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift in Sources */,
 				3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */,
 				3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */,
 				3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */,
+				3F3E50EA2AFA99E800552CC2 /* BaseToolbarView.swift in Sources */,
 				3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */,
+				3F25CB152B67BE9A003EE8D3 /* CategorizationSheetAssignmentsService.swift in Sources */,
 				3F5438442AE7E05500C9AEB8 /* HomeViewModel.swift in Sources */,
 				3F3814392AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift in Sources */,
 				3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */,
 				3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */,
 				3F3814372AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift in Sources */,
-				3F38141F2AE29BBB00B4C0E3 /* FirebaseDictionary.swift in Sources */,
 				3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */,
 				3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */,
 				3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */,
 				3F2E56002A3C4E1500E3BC30 /* Color+Extensions.swift in Sources */,
 				3F3814252AE29EE300B4C0E3 /* CategorizationPeriodsService.swift in Sources */,
+				3F393F092B2336C600419385 /* TeamAssignmentsGroupView.swift in Sources */,
 				3F2E56072A3C5FE200E3BC30 /* ButtonStyles.swift in Sources */,
 				3F2E56042A3C5BE400E3BC30 /* View+Extensions.swift in Sources */,
 				3F3814212AE29DD100B4C0E3 /* CategorizationPeriod.swift in Sources */,
 				3FE3A43F2ADD60BA000E455F /* FloatingActionButton.swift in Sources */,
 				3F1421D12AC9AB4500EA364A /* TeamsService.swift in Sources */,
 				3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */,
+				3FBA1D402B10A8870019A84A /* ServiceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1164,6 +1312,14 @@
 				kind = branch;
 			};
 		};
+		3F393F0E2B2723D400419385 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1186,6 +1342,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F0D58F52A484BE40072EF1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		3F393F0F2B2723D400419385 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F393F0E2B2723D400419385 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 		3F3E50DE2AF1332000552CC2 /* FirebaseRemoteConfig */ = {
 			isa = XCSwiftPackageProductDependency;

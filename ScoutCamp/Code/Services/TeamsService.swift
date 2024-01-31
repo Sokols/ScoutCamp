@@ -10,7 +10,7 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 import FirebaseAuth
 
-protocol TeamServiceProtocol {
+protocol TeamsServiceProtocol {
     func createTeam(regimentId: String, troopId: String, name: String) async -> ResultObject<Team>
     func getRegiments() async -> ResultArray<Team>
     func getTroopsForRegiment(regimentId: String) async -> ResultArray<Team>
@@ -20,7 +20,7 @@ protocol TeamServiceProtocol {
     func deleteTeam(teamId: String) async -> Error?
 }
 
-class TeamsService: BaseService, TeamServiceProtocol {
+final class TeamsService: BaseService, TeamsServiceProtocol {
 
     // MARK: - CREATE
 
@@ -34,7 +34,6 @@ class TeamsService: BaseService, TeamServiceProtocol {
             .collection(FirebaseCollection.teams.rawValue)
             .document()
         let teamId = document.documentID
-        let date = Date.init()
         let team = Team.init(
             id: teamId,
             userId: uid,

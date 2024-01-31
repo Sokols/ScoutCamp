@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension View {
-    func withLoginTextFieldStyle(height: CGFloat? = nil) -> some View {
+    func withTextFieldStyle(height: CGFloat? = nil) -> some View {
         let radius: CGFloat = 5
         return self
             .padding(.horizontal, 8)

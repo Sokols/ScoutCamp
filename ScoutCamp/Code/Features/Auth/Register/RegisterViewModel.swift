@@ -11,7 +11,7 @@ import Combine
 @MainActor
 class RegisterViewModel: ObservableObject {
 
-    private let authService: AuthService
+    @Service private var authService: AuthServiceProtocol
 
     @Published var email: String = ""
     @Published var password: String = ""
@@ -39,8 +39,7 @@ class RegisterViewModel: ObservableObject {
         isConfirmPasswordValid || !isSubmitClicked ? "" : "Validation.Password.MustMatch"
     }
 
-    init(authService: AuthService) {
-        self.authService = authService
+    init() {
         $email
             .map { Validation.isEmailValid($0) }
             .assign(to: \.isEmailValid, on: self)

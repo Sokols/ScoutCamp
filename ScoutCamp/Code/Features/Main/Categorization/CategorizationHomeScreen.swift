@@ -10,23 +10,15 @@ import SwiftUI
 struct CategorizationHomeScreen: View {
     @StateObject private var viewModel: CategorizationHomeViewModel
 
-    init(
-        teamsService: TeamServiceProtocol,
-        teamSheetsService: TeamCategorizationSheetsServiceProtocol,
-        storageManager: StorageManagerProtocol
-    ) {
+    init() {
         _viewModel = StateObject(
-            wrappedValue: CategorizationHomeViewModel(
-                teamsService: teamsService,
-                teamSheetsService: teamSheetsService,
-                storageManager: storageManager
-            )
+            wrappedValue: CategorizationHomeViewModel( )
         )
     }
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 DropdownField(
                     title: "Current team",
                     placeholder: "Select team",
@@ -38,14 +30,14 @@ struct CategorizationHomeScreen: View {
 
                 Text("Current sheets for period: \(viewModel.currentPeriod?.name ?? "")")
                     .font(.title)
-                    .padding(.vertical)
+                    .padding(.top)
 
                 Group {
-                    if viewModel.currentPeriodSheetJoints.isEmpty {
+                    if viewModel.currentSheets.isEmpty {
                         Text("No sheets.")
                             .multilineTextAlignment(.center)
                     } else {
-                        CategorizationSheetsCarouselView(joints: $viewModel.currentPeriodSheetJoints)
+                        CategorizationSheetsCarouselView(sheets: viewModel.currentSheets)
                             .padding(.horizontal, -16)
                     }
                 }
@@ -55,19 +47,14 @@ struct CategorizationHomeScreen: View {
                     .padding(.vertical)
 
                 Group {
-                    if viewModel.oldTeamSheetJoints.isEmpty {
+                    if viewModel.oldSheets.isEmpty {
                         Text("No sheets.")
                             .multilineTextAlignment(.center)
                     } else {
                         List {
-                            ForEach(viewModel.oldTeamSheetJoints, id: \.self) { item in
-                                NavigationLink(destination: CategorizationSheetScreen(sheetJoint: item)) {
-                                    CategorizationSheetItemView(
-                                        item: item,
-                                        categoryUrl: viewModel.getUrlForCategoryId(
-                                            item.teamCategorizationSheet?.categoryId ?? ""
-                                        )
-                                    )
+                            ForEach(viewModel.oldSheets, id: \.self) { item in
+                                NavigationLink(destination: CategorizationSheetScreen(sheet: item)) {
+                                    CategorizationSheetItemView(item: item)
                                 }
                             }
                             .listRowSeparator(.hidden)
@@ -85,14 +72,15 @@ struct CategorizationHomeScreen: View {
         .padding(.horizontal, 16)
         .errorAlert(error: $viewModel.error)
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
-        .task {
-            await viewModel.fetchMyTeams()
+        .onLoad {
+            Task {
+                await viewModel.fetchInitData()
+            }
         }
-        .task {
-            await viewModel.fetchMySheets()
-        }
-        .task {
-            await viewModel.fetchCategoryUrls()
+        .onAppear {
+            Task {
+                await viewModel.fetchMySheets()
+            }
         }
         .onChange(of: viewModel.selectedTeam) { _ in
             Task {
@@ -104,10 +92,6 @@ struct CategorizationHomeScreen: View {
 
 struct CategorizationHomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        CategorizationHomeScreen(
-            teamsService: TeamsService(),
-            teamSheetsService: TeamCategorizationSheetsService(),
-            storageManager: StorageManager()
-        )
+        CategorizationHomeScreen()
     }
 }

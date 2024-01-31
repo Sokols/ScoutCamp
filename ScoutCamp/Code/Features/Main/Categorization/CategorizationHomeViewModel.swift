@@ -8,25 +8,18 @@
 import Combine
 import Foundation
 
-struct CategorizationSheetJoint: Hashable {
-    var categorizationSheet: CategorizationSheet
-    var teamCategorizationSheet: TeamCategorizationSheet?
-}
-
 @MainActor
-class CategorizationHomeViewModel: ObservableObject {
+final class CategorizationHomeViewModel: ObservableObject {
 
-    private let teamsService: TeamServiceProtocol
-    private let teamSheetsService: TeamCategorizationSheetsServiceProtocol
-    private let storageManager: StorageManagerProtocol
+    @Service private var teamsService: TeamsServiceProtocol
+    @Service private var teamSheetsService: TeamCategorizationSheetsServiceProtocol
 
     private let currentPeriodId = RemoteConfigManager.shared.currentPeriodId
     private var currentPeriodSheets: [CategorizationSheet] = []
 
     @Published var userTeams: [Team] = []
-    @Published var currentPeriodSheetJoints: [CategorizationSheetJoint] = []
-    @Published var oldTeamSheetJoints: [CategorizationSheetJoint] = []
-    @Published var categoryUrls: [String: URL] = [:]
+    @Published var currentSheets: [AppTeamSheet] = []
+    @Published var oldSheets: [AppTeamSheet] = []
     @Published var error: Error?
     @Published var isLoading = false
 
@@ -36,21 +29,7 @@ class CategorizationHomeViewModel: ObservableObject {
         CategorizationPeriodsService.categoryPeriodFor(id: currentPeriodId)
     }
 
-    init(
-        teamsService: TeamServiceProtocol,
-        teamSheetsService: TeamCategorizationSheetsServiceProtocol,
-        storageManager: StorageManagerProtocol
-    ) {
-        self.teamsService = teamsService
-        self.teamSheetsService = teamSheetsService
-        self.storageManager = storageManager
-    }
-
     // MARK: - Public methods
-
-    func getUrlForCategoryId(_ id: String) -> URL? {
-        return categoryUrls[id]
-    }
 
     func selectTeam(option: DropdownOption) {
         selectedTeam = option
@@ -60,48 +39,63 @@ class CategorizationHomeViewModel: ObservableObject {
         return userTeams.first(where: {$0.id == selectedTeam?.key})
     }
 
-    func fetchMySheets() async {
-        guard let teamId = getTeam()?.id else { return }
-        updateCurrentPeriodSheetJoints()
+    func fetchInitData() async {
         isLoading = true
-        let result = await teamSheetsService.getTeamCategorizationSheets(for: teamId)
+        await withTaskGroup(of: Void.self) { group in
+            group.addTask {
+                await self.fetchMyTeams()
+            }
+            group.addTask {
+                await self.fetchMySheets()
+            }
+        }
         isLoading = false
+    }
+
+    func fetchMySheets() async {
+        guard let team = getTeam() else { return }
+        updateCurrentSheets()
+        let result = await teamSheetsService.getTeamCategorizationSheets(for: team.id)
         if let error = result.1 {
             self.error = error
         } else if let teamSheets = result.0 {
-            oldTeamSheetJoints.removeAll()
+            oldSheets.removeAll()
             for teamSheet in teamSheets {
-                let sheet = CategorizationSheetsService.categorizationSheetFor(id: teamSheet.categorizationSheetId)
-                if currentPeriodId == sheet?.periodId {
-                    let newJoint = CategorizationSheetJoint(
-                        categorizationSheet: sheet!,
-                        teamCategorizationSheet: teamSheet
-                    )
-                    if let index = currentPeriodSheetJoints.firstIndex(where: {
-                        $0.categorizationSheet.id == sheet?.id
+                guard let sheet = CategorizationSheetsService.categorizationSheetFor(id: teamSheet.categorizationSheetId) else { continue }
+                if currentPeriodId == sheet.periodId {
+                    guard let appSheet = AppSheet.from(sheet: sheet),
+                          let newSheet = AppTeamSheet.from(
+                            teamSheet: teamSheet,
+                            sheet: appSheet,
+                            team: team
+                          ) else { return }
+                    if let index = currentSheets.firstIndex(where: {
+                        $0.sheet.sheetId == sheet.id
                     }) {
-                        currentPeriodSheetJoints[index] = newJoint
+                        currentSheets[index] = newSheet
                     }
                 } else {
                     let allSheets = CategorizationSheetsService.categorizationSheets
-                    if let oldCategorizationSheet = allSheets.first(where: {
+                    if let oldSheet = allSheets.first(where: {
                         $0.id == teamSheet.categorizationSheetId
                     }) {
-                        let newJoint = CategorizationSheetJoint(
-                            categorizationSheet: oldCategorizationSheet,
-                            teamCategorizationSheet: teamSheet
-                        )
-                        oldTeamSheetJoints.append(newJoint)
+                        guard let appSheet = AppSheet.from(sheet: oldSheet),
+                              let newSheet = AppTeamSheet.from(
+                                teamSheet: teamSheet,
+                                sheet: appSheet,
+                                team: team
+                              ) else { return }
+                        oldSheets.append(newSheet)
                     }
                 }
             }
         }
     }
 
-    func fetchMyTeams() async {
-        isLoading = true
+    // MARK: - Helpers
+
+    private func fetchMyTeams() async {
         let result = await teamsService.getUserTeams()
-        isLoading = false
         if let error = result.1 {
             self.error = error
         } else if let userTeams = result.0 {
@@ -112,32 +106,15 @@ class CategorizationHomeViewModel: ObservableObject {
         }
     }
 
-    func fetchCategoryUrls() async {
-        let categories = CategoriesService.categories
-        isLoading = true
-        do {
-            var urls: [String: URL] = [:]
-            for category in categories {
-                let url = try await storageManager.getImageRef(path: category.imagePath)
-                urls[category.id] = url
-            }
-            self.categoryUrls = urls
-            isLoading = false
-        } catch {
-            isLoading = false
-            self.error = error
-        }
-    }
-
-    // MARK: - Helpers
-
-    private func updateCurrentPeriodSheetJoints() {
-        currentPeriodSheetJoints = CategorizationSheetsService.getCurrentPeriodCategorizationSheets().map {
-            CategorizationSheetJoint(categorizationSheet: $0, teamCategorizationSheet: nil)
+    private func updateCurrentSheets() {
+        guard let team = getTeam() else { return }
+        currentSheets = CategorizationSheetsService.getCurrentPeriodCategorizationSheets().compactMap {
+            guard let appSheet = AppSheet.from(sheet: $0) else { return nil }
+            return AppTeamSheet.from(sheet: appSheet, team: team)
         }.sorted(by: { item1, item2 in
-            let sheetType1 = SheetTypesService.sheetTypeFor(id: item1.categorizationSheet.sheetTypeId)
-            let sheetType2 = SheetTypesService.sheetTypeFor(id: item2.categorizationSheet.sheetTypeId)
-            return sheetType1?.order ?? 0 < sheetType2?.order ?? 0
+            let order1 = item1.sheet.sheetType.order
+            let order2 = item2.sheet.sheetType.order
+            return order1 < order2
         })
     }
 }

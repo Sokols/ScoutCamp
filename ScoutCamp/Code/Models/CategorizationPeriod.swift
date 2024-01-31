@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CategorizationPeriod: FirebaseDictionary {
-    var id: String
-    var name: String
+struct CategorizationPeriod: FirebaseModel, Identifiable, Equatable, Hashable {
+    let id: String
+    let name: String
 }
