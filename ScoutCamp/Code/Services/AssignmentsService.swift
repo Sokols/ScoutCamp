@@ -10,18 +10,9 @@ import FirebaseFirestore
 
 protocol AssignmentsServiceProtocol {
     func getAssignmentsFor(_ ids: [String]) async -> ResultArray<Assignment>
-    func getAssignmentsFor(_ categorizationSheetId: String) async -> ResultArray<Assignment>
 }
 
 final class AssignmentsService: BaseService, AssignmentsServiceProtocol {
-    func getAssignmentsFor(_ categorizationSheetId: String) async -> ResultArray<Assignment> {
-        let query = Firestore.firestore()
-            .collection(FirebaseCollection.assignments.rawValue)
-            .whereField("categorizationSheetId", isEqualTo: categorizationSheetId)
-
-        return await fetch(query: query)
-    }
-
     func getAssignmentsFor(_ ids: [String]) async -> ResultArray<Assignment> {
         if ids.isEmpty {
             return ([], nil)

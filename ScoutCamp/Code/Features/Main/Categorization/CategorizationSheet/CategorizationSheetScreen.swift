@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategorizationSheetScreen: View {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel: CategorizationSheetViewModel
 
     init(sheet: AppTeamSheet) {
@@ -20,25 +20,20 @@ struct CategorizationSheetScreen: View {
     // MARK: - UI
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             BaseToolbarView(backAction: navigateBack)
-            List {
-                Text("\(viewModel.sheet.sheet.sheetType.name)")
-                    .font(.system(size: 18, weight: .bold))
-                    .padding(.vertical)
+            Text("\(viewModel.sheet.sheet.sheetType.name)")
+                .font(.system(size: 18, weight: .bold))
+                .padding(.vertical)
+            TabView {
                 ForEach($viewModel.sections, id: \.group) { item in
-                    TeamAssignmentsGroupView(
-                        section: item,
-                        openSharesView: viewModel.showAssignmentSharesInfo
-                    )
+                    sectionView(item)
                 }
-                .listRowSeparator(.hidden)
             }
-            .listStyle(PlainListStyle())
+            .tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .always))
             Divider()
             bottomBar()
-                .padding(.horizontal)
-                .padding(.vertical, 8)
         }
         .task {
             await viewModel.fetchData()
@@ -59,6 +54,16 @@ struct CategorizationSheetScreen: View {
         )
     }
 
+    private func sectionView(_ item: Binding<AssignmentGroupSection>) -> some View {
+        ScrollView(showsIndicators: false) {
+            TeamAssignmentsGroupView(
+                section: item,
+                openSharesView: viewModel.showAssignmentSharesInfo
+            )
+        }
+        .padding(.horizontal)
+    }
+
     private func bottomBar() -> some View {
         HStack {
             VStack {
@@ -67,7 +72,7 @@ struct CategorizationSheetScreen: View {
                     .font(.system(size: 24, weight: .bold))
             }
             Spacer()
-            CategoryAsyncImage(url: viewModel.expectedCategory.url)
+            CategoryAsyncImage(url: viewModel.expectedCategory?.url)
             Spacer()
             CircleButton(
                 systemImageName: "square.and.arrow.down",
@@ -78,11 +83,12 @@ struct CategorizationSheetScreen: View {
             )
             CircleButton(
                 systemImageName: "checkmark",
-                backgroundColor: viewModel.isSheetValid ? .secondaryColor : .gray,
+                backgroundColor: .secondaryColor,
                 action: complete
             )
-            .disabled(!viewModel.isSheetValid)
         }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
     }
 
     // MARK: - Helpers

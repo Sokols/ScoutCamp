@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TeamAssignmentView: View {
     @Binding var assignment: AppAssignment
+    let partialAssignmentGroupId: String?
     let openSharesView: (AppAssignment) -> Void
 
     var body: some View {
@@ -31,9 +32,6 @@ struct TeamAssignmentView: View {
                 getInputForAssignmentType()
                     .padding(.horizontal)
                 HStack {
-                    getMinimumsView()
-                        .padding(.horizontal)
-                        .padding(.bottom)
                     Spacer()
                     getPointsView()
                         .padding(.horizontal)
@@ -47,29 +45,6 @@ struct TeamAssignmentView: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.gray, lineWidth: 2)
         )
-    }
-
-    @ViewBuilder
-    private func getMinimumsView() -> some View {
-        switch assignment.assignmentType {
-        case .numeric:
-            if let nextCategoryMinimum = assignment.nextCategoryMinimumBasedOnPoints {
-                HStack {
-                    Text("\(nextCategoryMinimum.minimum.pointsFormatted) required for")
-                        .font(.system(size: 14, weight: .light))
-                    CategoryAsyncImage(url: nextCategoryMinimum.category.url, size: 24)
-                }
-            }
-        case .boolean:
-            if let category = assignment.category {
-                HStack {
-                    Text("Required for")
-                        .font(.system(size: 14, weight: .light))
-                    CategoryAsyncImage(url: category.url, size: 24)
-                }
-            }
-        }
-        EmptyView()
     }
 
     @ViewBuilder
@@ -90,9 +65,9 @@ struct TeamAssignmentView: View {
         HStack(spacing: 0) {
             Text("Points: ")
                 .font(.system(size: 14, weight: .light))
-            Text("\(assignment.points.pointsFormatted)")
+            Text("\(assignment.getPoints(groupId: partialAssignmentGroupId).pointsFormatted)")
                 .font(.system(size: 14, weight: .bold))
-            Text("/\(assignment.maxPoints.pointsFormatted)")
+            Text("/\(assignment.getMaxPoints(groupId: partialAssignmentGroupId).pointsFormatted)")
                 .font(.system(size: 14, weight: .light))
         }
     }
@@ -105,8 +80,14 @@ struct TeamAssignmentView: View {
 struct TeamAssignmentView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            TeamAssignmentView(assignment: .constant(TestData.booleanAppAssignment)) {_ in}
-            TeamAssignmentView(assignment: .constant(TestData.numericAppAssignment)) {_ in}
+            TeamAssignmentView(
+                assignment: .constant(TestData.booleanAppAssignment),
+                partialAssignmentGroupId: nil
+            ) {_ in}
+            TeamAssignmentView(
+                assignment: .constant(TestData.numericAppAssignment),
+                partialAssignmentGroupId: TestData.numericAppAssignment.assignmentGroupShares?.first?.assignmentGroup.id
+            ) {_ in}
         }
     }
 }

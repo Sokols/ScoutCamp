@@ -12,11 +12,13 @@ import FirebaseFirestoreSwift
 
 enum FirebaseCollection: String {
     case assignmentGroupAssignmentJunctions
+    case assignmentGroupCategoryMinimums
     case assignmentGroups
     case assignments
     case categories
     case categorizationPeriods
     case categorizationSheets
+    case categorizationSheetAssignments
     case regiments
     case sheetTypes
     case teamCategorizationSheetAssignments

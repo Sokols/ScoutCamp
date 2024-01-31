@@ -12,15 +12,3 @@ struct SheetType: FirebaseModel, Identifiable, Equatable, Hashable {
     let name: String
     let order: Int
 }
-
-extension SheetType {
-    func toCreateMap() -> [String: Any] {
-        let map: [String: Any?] = [
-            "id": id,
-            "name": name,
-            "order": order
-        ]
-
-        return map.compactMapValues { $0 }
-    }
-}

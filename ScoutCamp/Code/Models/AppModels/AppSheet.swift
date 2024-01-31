@@ -14,14 +14,14 @@ struct AppSheet: Hashable {
 }
 
 extension AppSheet {
-    static func from(sheet: CategorizationSheet) -> AppSheet {
-        let period = CategorizationPeriodsService.categoryPeriodFor(id: sheet.periodId)
-        let sheetType = SheetTypesService.sheetTypeFor(id: sheet.sheetTypeId)
+    static func from(sheet: CategorizationSheet) -> AppSheet? {
+        guard let period = CategorizationPeriodsService.categoryPeriodFor(id: sheet.periodId),
+              let sheetType = SheetTypesService.sheetTypeFor(id: sheet.sheetTypeId) else { return nil }
 
         return AppSheet(
             sheetId: sheet.id,
-            period: period!,
-            sheetType: sheetType!
+            period: period,
+            sheetType: sheetType
         )
     }
 }

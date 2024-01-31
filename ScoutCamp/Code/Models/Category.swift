@@ -19,16 +19,3 @@ extension Category {
         CategoriesService.urlFor(id: id)
     }
 }
-
-extension Category {
-    func toCreateMap() -> [String: Any] {
-        let map: [String: Any] = [
-            "id": id,
-            "name": name,
-            "imagePath": imagePath,
-            "order": order
-        ]
-
-        return map
-    }
-}

@@ -30,14 +30,14 @@ extension AppTeamSheet {
     static func from(
         sheet: AppSheet,
         team: Team
-    ) -> AppTeamSheet {
-        let category = CategoriesService.getFirstCategory()
+    ) -> AppTeamSheet? {
+        guard let category = CategoriesService.getFirstCategory() else { return nil }
 
         return AppTeamSheet(
             teamSheetId: nil,
             sheet: sheet,
             team: team,
-            category: category!,
+            category: category,
             points: 0,
             isDraft: true,
             createdAt: .now,
@@ -49,14 +49,14 @@ extension AppTeamSheet {
         teamSheet: TeamCategorizationSheet,
         sheet: AppSheet,
         team: Team
-    ) -> AppTeamSheet {
-        let category = CategoriesService.categoryFor(id: teamSheet.categoryId)
+    ) -> AppTeamSheet? {
+        guard let category = CategoriesService.categoryFor(id: teamSheet.categoryId) else { return nil }
 
         return AppTeamSheet(
             teamSheetId: teamSheet.id,
             sheet: sheet,
             team: team,
-            category: category!,
+            category: category,
             points: teamSheet.points,
             isDraft: teamSheet.isDraft,
             createdAt: teamSheet.createdAt,

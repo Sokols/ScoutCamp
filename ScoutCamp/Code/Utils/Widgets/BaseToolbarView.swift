@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct BaseToolbarView: View {
-    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+struct BaseToolbarView: View {    
+    @Environment(\.dismiss) private var dismiss
     var title: String?
     var backAction: (() -> Void)?
 
@@ -23,7 +23,7 @@ struct BaseToolbarView: View {
                     if let backAction = backAction {
                         backAction()
                     } else {
-                        self.presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     }
                 }, label: {
                     HStack {

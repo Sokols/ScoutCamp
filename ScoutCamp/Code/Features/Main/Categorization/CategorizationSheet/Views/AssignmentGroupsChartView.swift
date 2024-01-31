@@ -23,7 +23,7 @@ struct AssignmentGroupsChartView: View {
                     }
             }
             Spacer()
-            Text("This assignment affects several task groups. Below you can see how many points go to each group.")
+            Text("This assignment affects several assignment groups. Below you can see how many points go to each group.")
                 .multilineTextAlignment(.center)
                 .padding()
             ZStack {
@@ -33,10 +33,10 @@ struct AssignmentGroupsChartView: View {
                     .font(.system(size: 12, weight: .bold))
             }
             .frame(height: 300)
-            if assignment.points > 0 {
+            if assignment.getPoints() > 0 {
                 VStack {
-                    Text("Total points:")
-                    Text("\(assignment.points.pointsFormatted)")
+                    Text("Total points")
+                    Text("\(assignment.maxPoints.pointsFormatted)")
                         .font(.system(size: 24, weight: .bold))
                 }
             }

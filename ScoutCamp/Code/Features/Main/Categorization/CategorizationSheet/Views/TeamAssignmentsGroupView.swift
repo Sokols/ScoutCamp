@@ -12,13 +12,52 @@ struct TeamAssignmentsGroupView: View {
     let openSharesView: (AppAssignment) -> Void
 
     var body: some View {
-        DisclosureGroup(section.group.name) {
-            ForEach($section.assignments, id: \.assignmentId) { item in
-                TeamAssignmentView(assignment: item, openSharesView: openSharesView)
+        VStack(alignment: .leading) {
+            Text(section.group.name)
+                .font(.title)
+            if section.groupMinimums.isEmpty {
+                Text("This assignment group doesn't have any minimums.")
+            } else {
+                Text("Minimums:")
+                    .font(.title3)
+                HStack {
+                    ForEach(section.groupMinimums, id: \.groupMinimumId) { item in
+                        getCategoryMinimumView(item)
+                    }
+                }
             }
-            .listRowSeparator(.hidden)
+            ForEach($section.assignments, id: \.assignmentId) { item in
+                TeamAssignmentView(
+                    assignment: item,
+                    partialAssignmentGroupId: nil,
+                    openSharesView: openSharesView
+                )
+            }
+            if !section.partialAssignments.isEmpty {
+                Text("Partial points assignments")
+                    .font(.title3)
+                    .padding(.top)
+                ForEach($section.partialAssignments, id: \.assignmentId) { item in
+                    TeamAssignmentView(
+                        assignment: item,
+                        partialAssignmentGroupId: section.group.id,
+                        openSharesView: openSharesView
+                    )
+                }
+            }
         }
-        .foregroundColor(.primaryColor)
+    }
+
+    @ViewBuilder
+    private func getCategoryMinimumView(_ item: AppGroupMinimum) -> some View {
+        VStack {
+            CategoryAsyncImage(url: item.category.url)
+            if Int(section.totalPoints) >= item.minimumPoints {
+                Text("Done")
+            } else {
+                Text("\(Int(section.totalPoints))/\(item.minimumPoints)")
+            }
+        }
     }
 }
 
