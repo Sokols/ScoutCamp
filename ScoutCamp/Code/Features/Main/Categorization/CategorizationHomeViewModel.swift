@@ -63,11 +63,12 @@ final class CategorizationHomeViewModel: ObservableObject {
             for teamSheet in teamSheets {
                 guard let sheet = CategorizationSheetsService.categorizationSheetFor(id: teamSheet.categorizationSheetId) else { continue }
                 if currentPeriodId == sheet.periodId {
-                    let newSheet = AppTeamSheet.from(
-                        teamSheet: teamSheet,
-                        sheet: AppSheet.from(sheet: sheet),
-                        team: team
-                    )
+                    guard let appSheet = AppSheet.from(sheet: sheet),
+                          let newSheet = AppTeamSheet.from(
+                            teamSheet: teamSheet,
+                            sheet: appSheet,
+                            team: team
+                          ) else { return }
                     if let index = currentSheets.firstIndex(where: {
                         $0.sheet.sheetId == sheet.id
                     }) {
@@ -78,11 +79,12 @@ final class CategorizationHomeViewModel: ObservableObject {
                     if let oldSheet = allSheets.first(where: {
                         $0.id == teamSheet.categorizationSheetId
                     }) {
-                        let newSheet = AppTeamSheet.from(
-                            teamSheet: teamSheet,
-                            sheet: AppSheet.from(sheet: oldSheet),
-                            team: team
-                        )
+                        guard let appSheet = AppSheet.from(sheet: oldSheet),
+                              let newSheet = AppTeamSheet.from(
+                                teamSheet: teamSheet,
+                                sheet: appSheet,
+                                team: team
+                              ) else { return }
                         oldSheets.append(newSheet)
                     }
                 }
@@ -106,8 +108,8 @@ final class CategorizationHomeViewModel: ObservableObject {
 
     private func updateCurrentSheets() {
         guard let team = getTeam() else { return }
-        currentSheets = CategorizationSheetsService.getCurrentPeriodCategorizationSheets().map {
-            let appSheet = AppSheet.from(sheet: $0)
+        currentSheets = CategorizationSheetsService.getCurrentPeriodCategorizationSheets().compactMap {
+            guard let appSheet = AppSheet.from(sheet: $0) else { return nil }
             return AppTeamSheet.from(sheet: appSheet, team: team)
         }.sorted(by: { item1, item2 in
             let order1 = item1.sheet.sheetType.order

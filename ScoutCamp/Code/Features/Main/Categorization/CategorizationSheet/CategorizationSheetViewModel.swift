@@ -9,6 +9,7 @@ import Combine
 import Foundation
 import SwiftUI
 
+@MainActor
 final class CategorizationSheetViewModel: ObservableObject {
 
     // MARK: - Stored properties
@@ -42,14 +43,10 @@ final class CategorizationSheetViewModel: ObservableObject {
     }
 
     var points: Double {
-        return appAssignments.map { $0.points }.reduce(0, +)
+        return sections.map { $0.totalPoints }.reduce(0, +)
     }
 
-    var isSheetValid: Bool {
-        return appAssignments.filter { !$0.isValid }.isEmpty
-    }
-
-    var expectedCategory: Category {
+    var expectedCategory: Category? {
         var category = CategoriesService.categories.last
         let expectedCategories = sections
             .compactMap { $0.highestPossibleCategory }
@@ -57,7 +54,7 @@ final class CategorizationSheetViewModel: ObservableObject {
         if let first = expectedCategories.first {
             category = first
         }
-        return category ?? CategoriesService.getFirstCategory()!
+        return category
     }
 
     // MARK: - Initialization
@@ -94,28 +91,48 @@ final class CategorizationSheetViewModel: ObservableObject {
         let assignments = await fetchAssignments()
         let groupIds = assignments.map { $0.mainAssignmentGroupId }
 
-        let groupMinimums = await fetchGroupMinimums(groupIds)
-        let teamAssignments = await fetchTeamAssignments()
-        let junctions = await fetchAssignmentGroupJunctions(assignments: assignments)
-        let groups = await fetchGroups(groupIds).sorted(by: { $0.order < $1.order })
+        async let groupMinimums = fetchGroupMinimums(groupIds)
+        async let teamAssignments = fetchTeamAssignments()
+        async let junctions = fetchAssignmentGroupJunctions(assignments: assignments)
+        async let groups = fetchGroups(groupIds)
 
-        let appAssignments = assignments.map { item in
+        let data = await (groupMinimums, teamAssignments, junctions, groups)
+
+        let appAssignments = assignments.compactMap { item in
             AppAssignment.from(
                 assignment: item,
-                teamAssignment: teamAssignments.first(where: { $0.assignmentId == item.id }),
-                groupAssignmentJunctions: junctions.filter { $0.assignmentId == item.id },
-                groups: groups
+                teamAssignment: data.1.first(where: { $0.assignmentId == item.id }),
+                groupAssignmentJunctions: data.2.filter { $0.assignmentId == item.id },
+                groups: data.3
             )
         }
 
+        for assignment in appAssignments {
+            let dependentOnAssignmentId = assignments
+                .first { $0.id == assignment.assignmentId }?.dependentOnAssignmentId
+            assignment.dependentOnAssignment = appAssignments
+                .first { $0.assignmentId == dependentOnAssignmentId }
+        }
+
         var sections: [AssignmentGroupSection] = []
-        for group in groups {
+        for group in data.3 {
+            let partialAssignments = appAssignments.filter { assignment in
+                guard let shares = assignment.assignmentGroupShares else {
+                    return false
+                }
+                return shares.contains(where: {
+                    $0.assignmentGroup.id != assignment.mainAssignmentGroup.id &&
+                    $0.assignmentGroup.id == group.id
+                })
+            }
             let section = AssignmentGroupSection(
                 group: group,
-                groupMinimums: groupMinimums
+                groupMinimums: data.0
                     .filter { $0.assignmentGroupId == group.id }
-                    .sorted(by: {$0.category.order < $1.category.order }),
-                assignments: appAssignments.filter { $0.mainAssignmentGroup.id == group.id }
+                    .sorted(by: { $0.category.order < $1.category.order }),
+                assignments: appAssignments
+                    .filter { $0.mainAssignmentGroup.id == group.id },
+                partialAssignments: partialAssignments
             )
             sections.append(section)
         }
@@ -123,7 +140,7 @@ final class CategorizationSheetViewModel: ObservableObject {
     }
 
     private func createUpdateTeamSheet(isDraft: Bool) async {
-        let newAppSheet = generateAppTeamSheet(isDraft: isDraft)
+        guard let newAppSheet = generateAppTeamSheet(isDraft: isDraft) else { return }
         let result = await teamCategorizationSheetsService.createUpdateTeamSheet(newAppSheet)
         if let error = result.1 {
             self.error = error
@@ -164,7 +181,9 @@ final class CategorizationSheetViewModel: ObservableObject {
         return result.0 ?? []
     }
 
-    private func fetchCategorizationSheetAssignments(for categorizationSheetId: String) async -> [CategorizationSheetAssignment] {
+    private func fetchCategorizationSheetAssignments(
+        for categorizationSheetId: String
+    ) async -> [CategorizationSheetAssignment] {
         let result = await categorizationSheetAssignmentsService.getAssignments(for: categorizationSheetId)
         if let error = result.1 {
             self.error = error
@@ -201,7 +220,7 @@ final class CategorizationSheetViewModel: ObservableObject {
             self.error = error
             return []
         }
-        return result.0 ?? []
+        return result.0?.sorted(by: { $0.order < $1.order }) ?? []
     }
 
     // MARK: - Helpers
@@ -210,12 +229,13 @@ final class CategorizationSheetViewModel: ObservableObject {
         self.sections = sections
     }
 
-    private func generateAppTeamSheet(isDraft: Bool) -> AppTeamSheet {
+    private func generateAppTeamSheet(isDraft: Bool) -> AppTeamSheet? {
+        guard let category = expectedCategory else { return nil }
         return AppTeamSheet(
             teamSheetId: sheet.teamSheetId,
             sheet: sheet.sheet,
             team: sheet.team,
-            category: expectedCategory,
+            category: category,
             points: points,
             isDraft: isDraft,
             createdAt: sheet.createdAt,

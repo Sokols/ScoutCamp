@@ -11,11 +11,13 @@ struct AssignmentGroupSection {
     let group: AssignmentGroup
     let groupMinimums: [AppGroupMinimum]    // sorted from the lowest category to the highest
     var assignments: [AppAssignment]
+    var partialAssignments: [AppAssignment]
 }
 
 extension AssignmentGroupSection {
     var totalPoints: Double {
-        return assignments.map { $0.points }.reduce(0, +)
+        return assignments.map { $0.getPoints() }.reduce(0, +)
+        + partialAssignments.map { $0.getPoints(groupId: group.id) }.reduce(0, +)
     }
 
     var highestPossibleCategory: Category? {

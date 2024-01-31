@@ -15,18 +15,36 @@ struct TeamAssignmentsGroupView: View {
         VStack(alignment: .leading) {
             Text(section.group.name)
                 .font(.title)
-            HStack {
-                ForEach(section.groupMinimums, id: \.groupMinimumId) { item in
-                    getCategoryMinimumView(item)
+            if section.groupMinimums.isEmpty {
+                Text("This assignment group doesn't have any minimums.")
+            } else {
+                Text("Minimums:")
+                    .font(.title3)
+                HStack {
+                    ForEach(section.groupMinimums, id: \.groupMinimumId) { item in
+                        getCategoryMinimumView(item)
+                    }
                 }
             }
-            ScrollView {
-                ForEach($section.assignments, id: \.assignmentId) { item in
-                    TeamAssignmentView(assignment: item, openSharesView: openSharesView)
-                }
-                .listRowSeparator(.hidden)
+            ForEach($section.assignments, id: \.assignmentId) { item in
+                TeamAssignmentView(
+                    assignment: item,
+                    partialAssignmentGroupId: nil,
+                    openSharesView: openSharesView
+                )
             }
-            .listStyle(PlainListStyle())
+            if !section.partialAssignments.isEmpty {
+                Text("Partial points assignments")
+                    .font(.title3)
+                    .padding(.top)
+                ForEach($section.partialAssignments, id: \.assignmentId) { item in
+                    TeamAssignmentView(
+                        assignment: item,
+                        partialAssignmentGroupId: section.group.id,
+                        openSharesView: openSharesView
+                    )
+                }
+            }
         }
     }
 
@@ -35,7 +53,7 @@ struct TeamAssignmentsGroupView: View {
         VStack {
             CategoryAsyncImage(url: item.category.url)
             if Int(section.totalPoints) >= item.minimumPoints {
-                Text("Complete")
+                Text("Done")
             } else {
                 Text("\(Int(section.totalPoints))/\(item.minimumPoints)")
             }

@@ -20,7 +20,7 @@ struct CategorizationSheetScreen: View {
     // MARK: - UI
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             BaseToolbarView(backAction: navigateBack)
             Text("\(viewModel.sheet.sheet.sheetType.name)")
                 .font(.system(size: 18, weight: .bold))
@@ -54,13 +54,13 @@ struct CategorizationSheetScreen: View {
     }
 
     private func sectionView(_ item: Binding<AssignmentGroupSection>) -> some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             TeamAssignmentsGroupView(
                 section: item,
                 openSharesView: viewModel.showAssignmentSharesInfo
             )
         }
-        .padding()
+        .padding(.horizontal)
     }
 
     private func bottomBar() -> some View {
@@ -71,7 +71,7 @@ struct CategorizationSheetScreen: View {
                     .font(.system(size: 24, weight: .bold))
             }
             Spacer()
-            CategoryAsyncImage(url: viewModel.expectedCategory.url)
+            CategoryAsyncImage(url: viewModel.expectedCategory?.url)
             Spacer()
             CircleButton(
                 systemImageName: "square.and.arrow.down",
@@ -82,10 +82,9 @@ struct CategorizationSheetScreen: View {
             )
             CircleButton(
                 systemImageName: "checkmark",
-                backgroundColor: viewModel.isSheetValid ? .secondaryColor : .gray,
+                backgroundColor: .secondaryColor,
                 action: complete
             )
-            .disabled(!viewModel.isSheetValid)
         }
         .padding(.horizontal)
         .padding(.vertical, 8)

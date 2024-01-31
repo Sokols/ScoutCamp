@@ -8,7 +8,7 @@
 import Foundation
 import DGCharts
 
-struct AppAssignment: Hashable {
+class AppAssignment {
     let assignmentId: String
     let teamAssignmentId: String?
 
@@ -19,9 +19,51 @@ struct AppAssignment: Hashable {
     let description: String
     let maxPoints: Double
 
-    var isCompleted: Bool = false
-    var value: Double = 0
+    var isCompleted: Bool
+    var value: Double
     var maxScoringValue: Double?
+
+    var dependentOnAssignment: AppAssignment?
+
+    init(
+        assignmentId: String,
+        teamAssignmentId: String?,
+        mainAssignmentGroup: AssignmentGroup,
+        assignmentType: AssignmentType,
+        assignmentGroupShares: [AssignmentGroupShare]?,
+        description: String,
+        maxPoints: Double,
+        isCompleted: Bool = false,
+        value: Double = 0,
+        maxScoringValue: Double? = nil,
+        dependentOnAssignment: AppAssignment? = nil
+    ) {
+        self.assignmentId = assignmentId
+        self.teamAssignmentId = teamAssignmentId
+        self.mainAssignmentGroup = mainAssignmentGroup
+        self.assignmentType = assignmentType
+        self.assignmentGroupShares = assignmentGroupShares
+        self.description = description
+        self.maxPoints = maxPoints
+        self.isCompleted = isCompleted
+        self.value = value
+        self.maxScoringValue = maxScoringValue
+        self.dependentOnAssignment = dependentOnAssignment
+    }
+}
+
+extension AppAssignment: Identifiable, Hashable {
+    var id: String {
+        assignmentId + (teamAssignmentId ?? "")
+    }
+
+    static func == (lhs: AppAssignment, rhs: AppAssignment) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        return hasher.combine(id)
+    }
 }
 
 extension AppAssignment {
@@ -31,45 +73,66 @@ extension AppAssignment {
     }
 }
 
-extension AppAssignment: Identifiable {
-    var id: String {
-        assignmentId + (teamAssignmentId ?? "")
-    }
-}
-
 extension AppAssignment {
-    var points: Double {
-        if !isValid {
-            return 0
-        }
+
+    private var calculatedPoints: Double {
+        var calculatedValue: Double = 0
         switch assignmentType {
         case .numeric:
-            return (value / (maxScoringValue ?? 1)) * maxPoints
+            if let maxScoringValue {
+                calculatedValue = (value / maxScoringValue) * maxPoints
+            } else if let dependentOnAssignment {
+                calculatedValue = (value / dependentOnAssignment.value) * maxPoints
+            }
+            calculatedValue = calculatedValue > maxPoints ? maxPoints : calculatedValue
         case .boolean:
-            return isCompleted ? maxPoints : 0
+            calculatedValue = isCompleted ? maxPoints : 0
         }
+
+        return calculatedValue
     }
 
     var doesContainShares: Bool {
         return !dataEntries().isEmpty
     }
 
-    var isValid: Bool {
-        return isValueValid
-    }
-
     var isValueValid: Bool {
         if let maxScoringValue {
             return value <= maxScoringValue
+        }
+        if let dependentOnAssignment {
+            return value <= dependentOnAssignment.value
         }
         return true
     }
 
     var errorPrompt: String? {
-        if let maxScoringValue, !isValueValid {
-            return "Max value is \(maxScoringValue.pointsFormatted)"
+        if !isValueValid {
+            if let maxScoringValue {
+                return "Max value is \(maxScoringValue.pointsFormatted)"
+            } else if let dependentOnAssignment {
+                return "This assignment depends on other assignment.\nMax value is \(Int(dependentOnAssignment.value))"
+            }
         }
         return nil
+    }
+
+    func getPoints(groupId: String? = nil) -> Double {
+        let groupId = groupId ?? mainAssignmentGroup.id
+        if let assignmentGroupShares,
+           let groupShare = assignmentGroupShares.first(where: { $0.assignmentGroup.id == groupId }) {
+            return calculatedPoints * groupShare.percentageShare
+        }
+        return calculatedPoints
+    }
+
+    func getMaxPoints(groupId: String? = nil) -> Double {
+        let groupId = groupId ?? mainAssignmentGroup.id
+        if let assignmentGroupShares,
+           let groupShare = assignmentGroupShares.first(where: { $0.assignmentGroup.id == groupId }) {
+            return maxPoints * groupShare.percentageShare
+        }
+        return maxPoints
     }
 }
 
@@ -79,8 +142,9 @@ extension AppAssignment {
         teamAssignment: TeamCategorizationSheetAssignment?,
         groupAssignmentJunctions: [AssignmentGroupAssignmentJunction],
         groups: [AssignmentGroup]
-    ) -> AppAssignment {
-        let mainAssignmentGroup = groups.first { $0.id == assignment.mainAssignmentGroupId }
+    ) -> AppAssignment? {
+        guard let mainAssignmentGroup = groups.first(where: { $0.id == assignment.mainAssignmentGroupId }),
+              let assignmentType = AssignmentType(rawValue: assignment.assignmentType) else { return nil }
 
         var shares: [AssignmentGroupShare]?
         if !groupAssignmentJunctions.isEmpty {
@@ -99,8 +163,8 @@ extension AppAssignment {
         return AppAssignment(
             assignmentId: assignment.id,
             teamAssignmentId: teamAssignment?.id,
-            mainAssignmentGroup: mainAssignmentGroup!,
-            assignmentType: AssignmentType(rawValue: assignment.assignmentType)!,
+            mainAssignmentGroup: mainAssignmentGroup,
+            assignmentType: assignmentType,
             assignmentGroupShares: shares,
             description: assignment.description,
             maxPoints: assignment.maxPoints,
@@ -132,10 +196,10 @@ extension AppAssignment {
 
     func dataEntries() -> [PieChartDataEntry] {
         let entries = (assignmentGroupShares ?? []).map {
-            let isPercent = points == 0
+            let isPercent = getPoints() == 0
             var value = $0.percentageShare
             if !isPercent {
-                value *= self.points
+                value *= self.maxPoints
             }
             return PieChartDataEntry(
                 value: value,

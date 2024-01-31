@@ -142,7 +142,8 @@ struct TestData {
     static let assignmentGroupSection = AssignmentGroupSection(
         group: TestData.assignmentGroup,
         groupMinimums: [TestData.firstAssignmentGroupMinimum, TestData.secondAssignmentGroupMinimum],
-        assignments: [TestData.booleanAppAssignment, TestData.numericAppAssignment]
+        assignments: [TestData.booleanAppAssignment, TestData.numericAppAssignment],
+        partialAssignments: []
     )
 
     static let assignmentGroupShares = [

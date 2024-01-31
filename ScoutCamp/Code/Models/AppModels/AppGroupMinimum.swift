@@ -16,8 +16,8 @@ struct AppGroupMinimum: Hashable {
 }
 
 extension AppGroupMinimum {
-    static func from(groupMinimum: AssignmentGroupCategoryMinimum) -> AppGroupMinimum {
-        let category = CategoriesService.categoryFor(id: groupMinimum.categoryId)!
+    static func from(groupMinimum: AssignmentGroupCategoryMinimum) -> AppGroupMinimum? {
+        guard let category = CategoriesService.categoryFor(id: groupMinimum.categoryId) else { return nil }
 
         return AppGroupMinimum(
             groupMinimumId: groupMinimum.id,
