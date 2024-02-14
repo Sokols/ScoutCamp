@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-struct CategorizationHomeScreen: View {
-    @StateObject private var viewModel: CategorizationHomeViewModel
+struct CategorizationHomeScreen<T: CategorizationHomeViewModel>: View  {
+    @StateObject private var viewModel: T
 
-    init() {
-        _viewModel = StateObject(
-            wrappedValue: CategorizationHomeViewModel()
-        )
+    init(viewModel: T) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -74,24 +72,18 @@ struct CategorizationHomeScreen: View {
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
         .onLoad {
             Task {
-                await viewModel.fetchInitData()
+                await viewModel.onLoad()
             }
         }
         .onAppear {
             Task {
-                await viewModel.fetchMySheets()
+                await viewModel.onAppear()
             }
         }
         .onChange(of: viewModel.selectedTeam) { _ in
             Task {
-                await viewModel.fetchMySheets()
+                await viewModel.onTeamDidChange()
             }
         }
-    }
-}
-
-struct CategorizationHomeScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        CategorizationHomeScreen()
     }
 }

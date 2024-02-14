@@ -10,28 +10,6 @@ import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-enum FirebaseCollection: String {
-    case assignmentGroupAssignmentJunctions
-    case assignmentGroupCategoryMinimums
-    case assignmentGroups
-    case assignments
-    case categories
-    case categorizationPeriods
-    case categorizationSheets
-    case categorizationSheetAssignments
-    case regiments
-    case sheetTypes
-    case teamCategorizationSheetAssignments
-    case teamCategorizationSheets
-    case teams
-    case troops
-    case users
-}
-
-typealias FirebaseModel = Codable
-typealias ResultArray<T: FirebaseModel> = ([T]?, Error?)
-typealias ResultObject<T: FirebaseModel> = (T?, Error?)
-
 class BaseService: ObservableObject {
     func fetch<T: FirebaseModel>(query: Query) async -> ResultArray<T> {
         do {

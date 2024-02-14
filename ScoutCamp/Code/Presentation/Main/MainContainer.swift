@@ -15,10 +15,10 @@ struct MainContainer: View {
                 .tabItem {
                     Label("Home.Name".localized, systemImage: "house")
                 }
-            CategorizationHomeScreen()
-                .tabItem {
-                    Label("Categorization", systemImage: "doc.on.doc")
-                }
+//            CategorizationHomeScreen<DefaultCategorizationHomeViewModel>()
+//                .tabItem {
+//                    Label("Categorization", systemImage: "doc.on.doc")
+//                }
             MyTeamsScreen()
                 .tabItem {
                     Label("My Teams", systemImage: "person.2.fill")

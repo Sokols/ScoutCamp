@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		142AA44BF6EC1FC9175AA5BC /* Pods_ScoutCamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C71F63815B6CBEE12D0EDF47 /* Pods_ScoutCamp.framework */; };
 		3F0D58F22A483A410072EF1F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D58F12A483A410072EF1F /* Error.swift */; };
 		3F0D58F42A4845890072EF1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F0D58F32A4845890072EF1F /* GoogleService-Info.plist */; };
 		3F0D58F72A484BE40072EF1F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3F0D58F62A484BE40072EF1F /* FirebaseAnalytics */; };
@@ -23,9 +22,7 @@
 		3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421DD2ACA084500EA364A /* CreateEditTeamScreen.swift */; };
 		3F1421E12ACA086200EA364A /* CreateEditTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421E02ACA086200EA364A /* CreateEditTeamViewModel.swift */; };
 		3F1E132A2A38F17300CB64FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E13292A38F17300CB64FD /* Preview Assets.xcassets */; };
-		3F1E132F2A38F43900CB64FD /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132C2A38F43900CB64FD /* Podfile.lock */; };
 		3F1E13302A38F43900CB64FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132D2A38F43900CB64FD /* README.md */; };
-		3F1E13312A38F43900CB64FD /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132E2A38F43900CB64FD /* Podfile */; };
 		3F25CB0F2B627EF2003EE8D3 /* AssignmentGroupCategoryMinimum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB0E2B627EF2003EE8D3 /* AssignmentGroupCategoryMinimum.swift */; };
 		3F25CB112B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB102B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift */; };
 		3F25CB132B67BE32003EE8D3 /* CategorizationSheetAssignmentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB122B67BE32003EE8D3 /* CategorizationSheetAssignmentDTO.swift */; };
@@ -33,7 +30,7 @@
 		3F25CB212B724128003EE8D3 /* AssignmentDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB202B724128003EE8D3 /* AssignmentDTO+DataMapping.swift */; };
 		3F25CB242B7246A0003EE8D3 /* AssignmentGroupCategoryMinimumDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB232B7246A0003EE8D3 /* AssignmentGroupCategoryMinimumDTO+DataMapping.swift */; };
 		3F25CB282B724790003EE8D3 /* CategorizationSheetDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB272B724790003EE8D3 /* CategorizationSheetDTO+DataMapping.swift */; };
-		3F25CB2A2B724A43003EE8D3 /* TeamSheet+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB292B724A43003EE8D3 /* TeamSheet+DataMapping.swift */; };
+		3F25CB2A2B724A43003EE8D3 /* TeamSheetDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB292B724A43003EE8D3 /* TeamSheetDTO+DataMapping.swift */; };
 		3F25CB2C2B724DA3003EE8D3 /* AssignmentGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB2B2B724DA3003EE8D3 /* AssignmentGroup.swift */; };
 		3F25CB2E2B724DD4003EE8D3 /* AssignmentGroupDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB2D2B724DD4003EE8D3 /* AssignmentGroupDTO+DataMapping.swift */; };
 		3F25CB302B725199003EE8D3 /* CategoryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB2F2B725199003EE8D3 /* CategoryDTO.swift */; };
@@ -48,6 +45,19 @@
 		3F25CB432B726073003EE8D3 /* TeamDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB422B726073003EE8D3 /* TeamDTO+DataMapping.swift */; };
 		3F25CB452B726207003EE8D3 /* TeamCategorizationSheetAssignmentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB442B726207003EE8D3 /* TeamCategorizationSheetAssignmentDTO.swift */; };
 		3F25CB472B72680D003EE8D3 /* TeamCategorizationSheetAssignmentDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB462B72680D003EE8D3 /* TeamCategorizationSheetAssignmentDTO+DataMapping.swift */; };
+		3F25CB4A2B726C06003EE8D3 /* CategorizationSheetsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB492B726C06003EE8D3 /* CategorizationSheetsRepository.swift */; };
+		3F25CB4C2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB4B2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift */; };
+		3F25CB532B7271CE003EE8D3 /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB522B7271CE003EE8D3 /* FirebaseDataService.swift */; };
+		3F25CB552B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB542B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift */; };
+		3F25CB572B727730003EE8D3 /* TeamSheetsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB562B727730003EE8D3 /* TeamSheetsRepository.swift */; };
+		3F25CB592B72777E003EE8D3 /* DefaultTeamSheetsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB582B72777E003EE8D3 /* DefaultTeamSheetsRepository.swift */; };
+		3F25CB5B2B72828F003EE8D3 /* TeamsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB5A2B72828F003EE8D3 /* TeamsRepository.swift */; };
+		3F25CB5D2B72830F003EE8D3 /* DefaultTeamsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB5C2B72830F003EE8D3 /* DefaultTeamsRepository.swift */; };
+		3F25CB5F2B7520D9003EE8D3 /* FetchUserTeamsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB5E2B7520D9003EE8D3 /* FetchUserTeamsUseCase.swift */; };
+		3F25CB672B7B871D003EE8D3 /* CategorizationDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB662B7B871D003EE8D3 /* CategorizationDIContainer.swift */; };
+		3F25CB6A2B7B9398003EE8D3 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB692B7B9398003EE8D3 /* AppDIContainer.swift */; };
+		3F25CB6C2B7B9493003EE8D3 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB6B2B7B9493003EE8D3 /* AppFlowCoordinator.swift */; };
+		3F25CB6E2B7B951B003EE8D3 /* CategorizationFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB6D2B7B951B003EE8D3 /* CategorizationFlowCoordinator.swift */; };
 		3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */; };
 		3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E42A39DD6B00E3BC30 /* LoginViewModel.swift */; };
 		3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */; };
@@ -122,8 +132,6 @@
 		3FE3A43B2ADD5FC6000E455F /* CategorizationHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */; };
 		3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */; };
 		3FE3A43F2ADD60BA000E455F /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */; };
-		3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549B2A365E0D00498112 /* ScoutCampApp.swift */; };
-		3FED549E2A365E0D00498112 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549D2A365E0D00498112 /* ContentView.swift */; };
 		3FED54A02A365E0E00498112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FED549F2A365E0E00498112 /* Assets.xcassets */; };
 		3FED54AD2A365E0E00498112 /* ScoutCampTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED54AC2A365E0E00498112 /* ScoutCampTests.swift */; };
 		3FED54B72A365E0F00498112 /* ScoutCampUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED54B62A365E0F00498112 /* ScoutCampUITests.swift */; };
@@ -149,6 +157,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3FFC98672B7CD865004EA584 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3F0D58F12A483A410072EF1F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		3F0D58F32A4845890072EF1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -161,9 +182,7 @@
 		3F1421DD2ACA084500EA364A /* CreateEditTeamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditTeamScreen.swift; sourceTree = "<group>"; };
 		3F1421E02ACA086200EA364A /* CreateEditTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditTeamViewModel.swift; sourceTree = "<group>"; };
 		3F1E13292A38F17300CB64FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3F1E132C2A38F43900CB64FD /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		3F1E132D2A38F43900CB64FD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		3F1E132E2A38F43900CB64FD /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3F25CB0E2B627EF2003EE8D3 /* AssignmentGroupCategoryMinimum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimum.swift; sourceTree = "<group>"; };
 		3F25CB102B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumsService.swift; sourceTree = "<group>"; };
 		3F25CB122B67BE32003EE8D3 /* CategorizationSheetAssignmentDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetAssignmentDTO.swift; sourceTree = "<group>"; };
@@ -171,7 +190,7 @@
 		3F25CB202B724128003EE8D3 /* AssignmentDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssignmentDTO+DataMapping.swift"; sourceTree = "<group>"; };
 		3F25CB232B7246A0003EE8D3 /* AssignmentGroupCategoryMinimumDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssignmentGroupCategoryMinimumDTO+DataMapping.swift"; sourceTree = "<group>"; };
 		3F25CB272B724790003EE8D3 /* CategorizationSheetDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategorizationSheetDTO+DataMapping.swift"; sourceTree = "<group>"; };
-		3F25CB292B724A43003EE8D3 /* TeamSheet+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamSheet+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB292B724A43003EE8D3 /* TeamSheetDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamSheetDTO+DataMapping.swift"; sourceTree = "<group>"; };
 		3F25CB2B2B724DA3003EE8D3 /* AssignmentGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroup.swift; sourceTree = "<group>"; };
 		3F25CB2D2B724DD4003EE8D3 /* AssignmentGroupDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssignmentGroupDTO+DataMapping.swift"; sourceTree = "<group>"; };
 		3F25CB2F2B725199003EE8D3 /* CategoryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDTO.swift; sourceTree = "<group>"; };
@@ -186,6 +205,19 @@
 		3F25CB422B726073003EE8D3 /* TeamDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamDTO+DataMapping.swift"; sourceTree = "<group>"; };
 		3F25CB442B726207003EE8D3 /* TeamCategorizationSheetAssignmentDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetAssignmentDTO.swift; sourceTree = "<group>"; };
 		3F25CB462B72680D003EE8D3 /* TeamCategorizationSheetAssignmentDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamCategorizationSheetAssignmentDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB492B726C06003EE8D3 /* CategorizationSheetsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsRepository.swift; sourceTree = "<group>"; };
+		3F25CB4B2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCategorizationSheetsRepository.swift; sourceTree = "<group>"; };
+		3F25CB522B7271CE003EE8D3 /* FirebaseDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
+		3F25CB542B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamSheetsUseCase.swift; sourceTree = "<group>"; };
+		3F25CB562B727730003EE8D3 /* TeamSheetsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSheetsRepository.swift; sourceTree = "<group>"; };
+		3F25CB582B72777E003EE8D3 /* DefaultTeamSheetsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTeamSheetsRepository.swift; sourceTree = "<group>"; };
+		3F25CB5A2B72828F003EE8D3 /* TeamsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsRepository.swift; sourceTree = "<group>"; };
+		3F25CB5C2B72830F003EE8D3 /* DefaultTeamsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTeamsRepository.swift; sourceTree = "<group>"; };
+		3F25CB5E2B7520D9003EE8D3 /* FetchUserTeamsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserTeamsUseCase.swift; sourceTree = "<group>"; };
+		3F25CB662B7B871D003EE8D3 /* CategorizationDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationDIContainer.swift; sourceTree = "<group>"; };
+		3F25CB692B7B9398003EE8D3 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		3F25CB6B2B7B9493003EE8D3 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
+		3F25CB6D2B7B951B003EE8D3 /* CategorizationFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationFlowCoordinator.swift; sourceTree = "<group>"; };
 		3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		3F2E55E42A39DD6B00E3BC30 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
@@ -257,8 +289,6 @@
 		3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationHomeViewModel.swift; sourceTree = "<group>"; };
 		3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		3FED54982A365E0D00498112 /* ScoutCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoutCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FED549B2A365E0D00498112 /* ScoutCampApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampApp.swift; sourceTree = "<group>"; };
-		3FED549D2A365E0D00498112 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3FED549F2A365E0E00498112 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FED54A82A365E0E00498112 /* ScoutCampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoutCampTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED54AC2A365E0E00498112 /* ScoutCampTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampTests.swift; sourceTree = "<group>"; };
@@ -268,9 +298,6 @@
 		3FFFCA7B2A38EB5200481DAE /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		3FFFCA852A38ED8700481DAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FFFCA872A38EDA100481DAE /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B33C261D9EB797A99F6870AE /* Pods-ScoutCamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoutCamp.debug.xcconfig"; path = "Target Support Files/Pods-ScoutCamp/Pods-ScoutCamp.debug.xcconfig"; sourceTree = "<group>"; };
-		C71F63815B6CBEE12D0EDF47 /* Pods_ScoutCamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScoutCamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD951BCD08AA876EA34A8B83 /* Pods-ScoutCamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoutCamp.release.xcconfig"; path = "Target Support Files/Pods-ScoutCamp/Pods-ScoutCamp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,7 +313,6 @@
 				3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */,
 				3F54384E2AEABB0A00C9AEB8 /* FirebaseStorage in Frameworks */,
 				3F1421D52AC9B09400EA364A /* FirebaseFirestoreSwift in Frameworks */,
-				142AA44BF6EC1FC9175AA5BC /* Pods_ScoutCamp.framework in Frameworks */,
 				3F3E50DF2AF1332000552CC2 /* FirebaseRemoteConfig in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +394,7 @@
 		3F1E13332A38F69300CB64FD /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				3F25CB4F2B7271AB003EE8D3 /* Infrastructure */,
 				3F25CB1A2B6A8E94003EE8D3 /* Data */,
 				3F25CB162B6A8E28003EE8D3 /* Domain */,
 				3FFFCA772A38EAE200481DAE /* Presentation */,
@@ -393,9 +420,9 @@
 		3F1E13352A38F7D100CB64FD /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				3FED549B2A365E0D00498112 /* ScoutCampApp.swift */,
-				3FED549D2A365E0D00498112 /* ContentView.swift */,
+				3F25CB652B7B86FF003EE8D3 /* DIContainer */,
 				3FBA1D432B10C4200019A84A /* AppDelegate.swift */,
+				3F25CB6B2B7B9493003EE8D3 /* AppFlowCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -451,6 +478,8 @@
 		3F25CB182B6A8E4E003EE8D3 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				3F25CB542B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift */,
+				3F25CB5E2B7520D9003EE8D3 /* FetchUserTeamsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -458,6 +487,7 @@
 		3F25CB192B6A8E56003EE8D3 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				3F25CB482B726B8F003EE8D3 /* Repositories */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -474,6 +504,9 @@
 		3F25CB1B2B6A8E99003EE8D3 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				3F25CB4B2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift */,
+				3F25CB582B72777E003EE8D3 /* DefaultTeamSheetsRepository.swift */,
+				3F25CB5C2B72830F003EE8D3 /* DefaultTeamsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -500,9 +533,52 @@
 				3F25CB3E2B725F9A003EE8D3 /* SheetTypeDTO+DataMapping.swift */,
 				3F25CB422B726073003EE8D3 /* TeamDTO+DataMapping.swift */,
 				3F25CB462B72680D003EE8D3 /* TeamCategorizationSheetAssignmentDTO+DataMapping.swift */,
-				3F25CB292B724A43003EE8D3 /* TeamSheet+DataMapping.swift */,
+				3F25CB292B724A43003EE8D3 /* TeamSheetDTO+DataMapping.swift */,
 			);
 			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		3F25CB482B726B8F003EE8D3 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB492B726C06003EE8D3 /* CategorizationSheetsRepository.swift */,
+				3F25CB562B727730003EE8D3 /* TeamSheetsRepository.swift */,
+				3F25CB5A2B72828F003EE8D3 /* TeamsRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		3F25CB4F2B7271AB003EE8D3 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB512B7271BA003EE8D3 /* Firebase */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		3F25CB512B7271BA003EE8D3 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB522B7271CE003EE8D3 /* FirebaseDataService.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		3F25CB652B7B86FF003EE8D3 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB662B7B871D003EE8D3 /* CategorizationDIContainer.swift */,
+				3F25CB692B7B9398003EE8D3 /* AppDIContainer.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
+		3F25CB682B7B921F003EE8D3 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB6D2B7B951B003EE8D3 /* CategorizationFlowCoordinator.swift */,
+			);
+			path = Flows;
 			sourceTree = "<group>";
 		};
 		3F286EA82A49A9E000BA00BE /* Main */ = {
@@ -678,6 +754,7 @@
 		3FE3A4372ADD5F86000E455F /* Categorization */ = {
 			isa = PBXGroup;
 			children = (
+				3F25CB682B7B921F003EE8D3 /* Flows */,
 				3F54384A2AEA8E8500C9AEB8 /* Views */,
 				3F4F657C2ADE782C003B2F0A /* CategorizationSheet */,
 				3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */,
@@ -692,12 +769,8 @@
 				3FED549A2A365E0D00498112 /* ScoutCamp */,
 				3F1E132B2A38F25100CB64FD /* Tests */,
 				3FED54992A365E0D00498112 /* Products */,
-				E54D8EA202B6EFD451F9C118 /* Pods */,
 				3F0D58F32A4845890072EF1F /* GoogleService-Info.plist */,
 				3F1E132D2A38F43900CB64FD /* README.md */,
-				3F1E132E2A38F43900CB64FD /* Podfile */,
-				3F1E132C2A38F43900CB64FD /* Podfile.lock */,
-				A4522EE60C44E5AA9B63D848 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -761,23 +834,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A4522EE60C44E5AA9B63D848 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C71F63815B6CBEE12D0EDF47 /* Pods_ScoutCamp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E54D8EA202B6EFD451F9C118 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B33C261D9EB797A99F6870AE /* Pods-ScoutCamp.debug.xcconfig */,
-				CD951BCD08AA876EA34A8B83 /* Pods-ScoutCamp.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -785,11 +841,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FED54BC2A365E0F00498112 /* Build configuration list for PBXNativeTarget "ScoutCamp" */;
 			buildPhases = (
-				439206071A6D8B32DEAD2D0C /* [CP] Check Pods Manifest.lock */,
 				3FED54942A365E0D00498112 /* Sources */,
 				3FED54952A365E0D00498112 /* Frameworks */,
 				3FED54962A365E0D00498112 /* Resources */,
 				3F1E13322A38F4CC00CB64FD /* ShellScript */,
+				3FFC98672B7CD865004EA584 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -900,11 +956,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F1E13312A38F43900CB64FD /* Podfile in Resources */,
 				3F1E132A2A38F17300CB64FD /* Preview Assets.xcassets in Resources */,
 				3FFFCA842A38ED8700481DAE /* Localizable.strings in Resources */,
 				3F1E13302A38F43900CB64FD /* README.md in Resources */,
-				3F1E132F2A38F43900CB64FD /* Podfile.lock in Resources */,
 				3FED54A02A365E0E00498112 /* Assets.xcassets in Resources */,
 				3F0D58F42A4845890072EF1F /* GoogleService-Info.plist in Resources */,
 			);
@@ -942,29 +996,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
-		439206071A6D8B32DEAD2D0C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ScoutCamp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -981,7 +1014,6 @@
 				3FBA1CBA2B03E2EA0019A84A /* AssignmentNumericInput.swift in Sources */,
 				3FE3A42C2ADD50F3000E455F /* AssignmentDTO.swift in Sources */,
 				3F3E50E62AF7C21C00552CC2 /* AssignmentGroupAssignmentJunctionDTO.swift in Sources */,
-				3FED549E2A365E0D00498112 /* ContentView.swift in Sources */,
 				3F25CB2E2B724DD4003EE8D3 /* AssignmentGroupDTO+DataMapping.swift in Sources */,
 				3F54384C2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift in Sources */,
 				3FE3A43B2ADD5FC6000E455F /* CategorizationHomeScreen.swift in Sources */,
@@ -997,10 +1029,12 @@
 				3F25CB242B7246A0003EE8D3 /* AssignmentGroupCategoryMinimumDTO+DataMapping.swift in Sources */,
 				3F25CB132B67BE32003EE8D3 /* CategorizationSheetAssignmentDTO.swift in Sources */,
 				3F3E50EC2AFA9DC000552CC2 /* CircleButton.swift in Sources */,
+				3F25CB5B2B72828F003EE8D3 /* TeamsRepository.swift in Sources */,
 				3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */,
 				3FBA1D3E2B10A86A0019A84A /* ServiceContainer.swift in Sources */,
 				3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */,
 				3F393F142B27256300419385 /* SharesPieChartView.swift in Sources */,
+				3F25CB6E2B7B951B003EE8D3 /* CategorizationFlowCoordinator.swift in Sources */,
 				3F25CB282B724790003EE8D3 /* CategorizationSheetDTO+DataMapping.swift in Sources */,
 				3FBA1D3C2B10A8550019A84A /* DependencyPropertyWrapper.swift in Sources */,
 				3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */,
@@ -1008,12 +1042,14 @@
 				3F25CB342B725393003EE8D3 /* CategorizationPeriod.swift in Sources */,
 				3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */,
 				3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */,
+				3F25CB592B72777E003EE8D3 /* DefaultTeamSheetsRepository.swift in Sources */,
 				3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */,
 				3FBA1D352B0F97100019A84A /* Date+Extensions.swift in Sources */,
 				3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */,
 				3FBA1CB82B03BCBC0019A84A /* AssignmentCheckbox.swift in Sources */,
 				3F393F0D2B235E0000419385 /* CategoryAsyncImage.swift in Sources */,
 				3F87C5B02B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift in Sources */,
+				3F25CB532B7271CE003EE8D3 /* FirebaseDataService.swift in Sources */,
 				3FBA1D312B0E384F0019A84A /* Assignment.swift in Sources */,
 				3F25CB412B726039003EE8D3 /* TeamDTO.swift in Sources */,
 				3F25CB3F2B725F9A003EE8D3 /* SheetTypeDTO+DataMapping.swift in Sources */,
@@ -1025,6 +1061,7 @@
 				3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */,
 				3F38142B2AE2A10200B4C0E3 /* CategorizationSheetDTO.swift in Sources */,
 				3F393F052B1F4B3700419385 /* UIApplication+Extensions.swift in Sources */,
+				3F25CB4C2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift in Sources */,
 				3FFFCA7C2A38EB5200481DAE /* String+Extensions.swift in Sources */,
 				3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */,
 				3F0D58F22A483A410072EF1F /* Error.swift in Sources */,
@@ -1033,7 +1070,9 @@
 				3F1421E12ACA086200EA364A /* CreateEditTeamViewModel.swift in Sources */,
 				3F25CB112B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift in Sources */,
 				3FBA1CBC2B03E3440019A84A /* CheckboxToggleStyle.swift in Sources */,
+				3F25CB5D2B72830F003EE8D3 /* DefaultTeamsRepository.swift in Sources */,
 				3FBA1D372B0F97EA0019A84A /* TeamSheet.swift in Sources */,
+				3F25CB5F2B7520D9003EE8D3 /* FetchUserTeamsUseCase.swift in Sources */,
 				3F393F0B2B2345F300419385 /* AssignmentGroupSection.swift in Sources */,
 				3F25CB0F2B627EF2003EE8D3 /* AssignmentGroupCategoryMinimum.swift in Sources */,
 				3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */,
@@ -1046,6 +1085,7 @@
 				3F25CB3A2B7254D1003EE8D3 /* CategorizationSheetAssignmentDTO+DataMapping.swift in Sources */,
 				3F4F65802ADE78DA003B2F0A /* CategorizationSheetViewModel.swift in Sources */,
 				3F25CB452B726207003EE8D3 /* TeamCategorizationSheetAssignmentDTO.swift in Sources */,
+				3F25CB552B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift in Sources */,
 				3F38142F2AE2A4A300B4C0E3 /* SheetTypeDTO.swift in Sources */,
 				3FBA1D442B10C4200019A84A /* AppDelegate.swift in Sources */,
 				3F25CB322B725210003EE8D3 /* CategoryDTO+DataMapping.swift in Sources */,
@@ -1057,19 +1097,23 @@
 				3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */,
 				3F25CB152B67BE9A003EE8D3 /* CategorizationSheetAssignmentsService.swift in Sources */,
 				3F25CB472B72680D003EE8D3 /* TeamCategorizationSheetAssignmentDTO+DataMapping.swift in Sources */,
-				3F25CB2A2B724A43003EE8D3 /* TeamSheet+DataMapping.swift in Sources */,
+				3F25CB2A2B724A43003EE8D3 /* TeamSheetDTO+DataMapping.swift in Sources */,
+				3F25CB6A2B7B9398003EE8D3 /* AppDIContainer.swift in Sources */,
 				3F5438442AE7E05500C9AEB8 /* HomeViewModel.swift in Sources */,
+				3F25CB4A2B726C06003EE8D3 /* CategorizationSheetsRepository.swift in Sources */,
+				3F25CB6C2B7B9493003EE8D3 /* AppFlowCoordinator.swift in Sources */,
 				3F3814392AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift in Sources */,
 				3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */,
 				3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */,
 				3F3814372AE2A62F00B4C0E3 /* TeamSheetDTO.swift in Sources */,
 				3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */,
+				3F25CB672B7B871D003EE8D3 /* CategorizationDIContainer.swift in Sources */,
 				3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */,
-				3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */,
 				3F2E56002A3C4E1500E3BC30 /* Color+Extensions.swift in Sources */,
 				3F3814252AE29EE300B4C0E3 /* CategorizationPeriodsService.swift in Sources */,
 				3F393F092B2336C600419385 /* TeamAssignmentsGroupView.swift in Sources */,
 				3F2E56072A3C5FE200E3BC30 /* ButtonStyles.swift in Sources */,
+				3F25CB572B727730003EE8D3 /* TeamSheetsRepository.swift in Sources */,
 				3F2E56042A3C5BE400E3BC30 /* View+Extensions.swift in Sources */,
 				3F3814212AE29DD100B4C0E3 /* CategorizationPeriodDTO.swift in Sources */,
 				3FE3A43F2ADD60BA000E455F /* FloatingActionButton.swift in Sources */,
@@ -1127,6 +1171,7 @@
 		3FED54BA2A365E0F00498112 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1161,6 +1206,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1188,6 +1234,7 @@
 		3FED54BB2A365E0F00498112 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1222,6 +1269,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1242,7 +1290,6 @@
 		};
 		3FED54BD2A365E0F00498112 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B33C261D9EB797A99F6870AE /* Pods-ScoutCamp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1255,7 +1302,7 @@
 				INFOPLIST_FILE = ScoutCamp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Scout Camp";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
@@ -1279,7 +1326,6 @@
 		};
 		3FED54BE2A365E0F00498112 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD951BCD08AA876EA34A8B83 /* Pods-ScoutCamp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1292,7 +1338,7 @@
 				INFOPLIST_FILE = ScoutCamp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Scout Camp";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;

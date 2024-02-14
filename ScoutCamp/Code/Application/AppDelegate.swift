@@ -8,7 +8,13 @@
 import UIKit
 import FirebaseCore
 
-class AppDelegate: NSObject, UIApplicationDelegate {
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    private let appDIContainer = AppDIContainer()
+    private var appFlowCoordinator: AppFlowCoordinator?
+    var window: UIWindow?
+
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
@@ -16,6 +22,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         FirebaseApp.configure()
         setupServiceContainer()
         RemoteConfigManager.shared.setup()
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let navigationController = UINavigationController()
+
+        window?.rootViewController = navigationController
+        appFlowCoordinator = AppFlowCoordinator(
+            navigationController: navigationController,
+            appDIContainer: appDIContainer
+        )
+        appFlowCoordinator?.start()
+        window?.makeKeyAndVisible()
+
         return true
     }
 }

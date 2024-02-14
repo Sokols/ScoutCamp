@@ -8,113 +8,110 @@
 import Combine
 import Foundation
 
-@MainActor
-final class CategorizationHomeViewModel: ObservableObject {
+protocol CategorizationHomeViewModelInput {
+    func onLoad() async
+    func onAppear() async
+    func onTeamDidChange() async
+    func selectTeam(option: DropdownOption)
+}
 
-    @Service private var teamsService: TeamsServiceProtocol
-    @Service private var teamSheetsService: TeamCategorizationSheetsServiceProtocol
+protocol CategorizationHomeViewModelOutput: ObservableObject {
+    var userTeams: [Team] { get }
+    var currentSheets: [TeamSheet] { get }
+    var oldSheets: [TeamSheet] { get }
+    var error: Error? { get set }
+    var isLoading: Bool { get }
+    var selectedTeam: DropdownOption? { get set }
+    var currentPeriod: CategorizationPeriod? { get }
+}
+
+protocol CategorizationHomeViewModel: CategorizationHomeViewModelInput, CategorizationHomeViewModelOutput {}
+
+struct CategorizationHomeViewModelUseCases {
+    let fetchTeamSheetsUseCase: FetchTeamSheetsUseCase
+    let fetchUserTeamsUseCase: FetchUserTeamsUseCase
+}
+
+final class DefaultCategorizationHomeViewModel: CategorizationHomeViewModel {
+
+    private let fetchTeamSheetsUseCase: FetchTeamSheetsUseCase
+    private let fetchUserTeamsUseCase: FetchUserTeamsUseCase
 
     private let currentPeriodId = RemoteConfigManager.shared.currentPeriodId
-    private var currentPeriodSheets: [CategorizationSheetDTO] = []
+
+    // MARK: - OUTPUT
 
     @Published var userTeams: [Team] = []
     @Published var currentSheets: [TeamSheet] = []
     @Published var oldSheets: [TeamSheet] = []
     @Published var error: Error?
     @Published var isLoading = false
-
     @Published var selectedTeam: DropdownOption?
 
     var currentPeriod: CategorizationPeriod? {
         CategorizationPeriodsService.categoryPeriodFor(id: currentPeriodId)?.toDomain()
     }
 
-    // MARK: - Public methods
+    // MARK: - Init
+
+    init(_ useCases: CategorizationHomeViewModelUseCases) {
+        self.fetchTeamSheetsUseCase = useCases.fetchTeamSheetsUseCase
+        self.fetchUserTeamsUseCase = useCases.fetchUserTeamsUseCase
+    }
+
+    // MARK: - Private
+
+    private func getTeam() -> Team? {
+        return userTeams.first(where: {$0.id == selectedTeam?.key})
+    }
+
+    private func loadUserTeams() async {
+        let result = await fetchUserTeamsUseCase.execute()
+        switch result {
+        case .success(let userTeams):
+            self.userTeams = userTeams
+            if let team = self.userTeams.first {
+                self.selectedTeam = team.toDropdownOption()
+            }
+        case .failure(let error):
+            self.error = error
+        }
+    }
+
+    private func loadTeamSheets() async {
+        guard let team = getTeam(),
+              let currentPeriodId = currentPeriodId else { return }
+        let requestValue = FetchTeamSheetsUseCaseRequestValue(
+            team: team,
+            currentPeriodId: currentPeriodId
+        )
+        let result = await fetchTeamSheetsUseCase.execute(requestValue: requestValue)
+        switch result {
+        case .success(let response):
+            self.currentSheets = response.currentSheets
+            self.oldSheets = response.oldSheets
+        case .failure(let error):
+            self.error = error
+        }
+    }
+}
+
+extension DefaultCategorizationHomeViewModel {
 
     func selectTeam(option: DropdownOption) {
         selectedTeam = option
     }
 
-    func getTeam() -> Team? {
-        return userTeams.first(where: {$0.id == selectedTeam?.key})
+    func onLoad() async {
+        await loadUserTeams()
+        await loadTeamSheets()
     }
 
-    func fetchInitData() async {
-        isLoading = true
-        await withTaskGroup(of: Void.self) { group in
-            group.addTask {
-                await self.fetchMyTeams()
-            }
-            group.addTask {
-                await self.fetchMySheets()
-            }
-        }
-        isLoading = false
+    func onAppear() async {
+        await loadTeamSheets()
     }
 
-    func fetchMySheets() async {
-        guard let team = getTeam() else { return }
-        updateCurrentSheets()
-        let result = await teamSheetsService.getTeamCategorizationSheets(for: team.id)
-        if let error = result.1 {
-            self.error = error
-        } else if let teamSheets = result.0 {
-            oldSheets.removeAll()
-            for teamSheet in teamSheets {
-                guard let sheetDTO = CategorizationSheetsService.categorizationSheetFor(id: teamSheet.categorizationSheetId) else { continue }
-                if currentPeriodId == sheetDTO.periodId {
-                    guard let sheet = sheetDTO.toDomain(),
-                          let newSheet = TeamSheet.from(
-                            teamSheet: teamSheet,
-                            sheet: sheet,
-                            team: team
-                          ) else { return }
-                    if let index = currentSheets.firstIndex(where: {
-                        $0.sheet.sheetId == sheetDTO.id
-                    }) {
-                        currentSheets[index] = newSheet
-                    }
-                } else {
-                    let allSheets = CategorizationSheetsService.categorizationSheets
-                    if let oldSheet = allSheets.first(where: {
-                        $0.id == teamSheet.categorizationSheetId
-                    }) {
-                        guard let sheet = oldSheet.toDomain(),
-                              let newSheet = TeamSheet.from(
-                                teamSheet: teamSheet,
-                                sheet: sheet,
-                                team: team
-                              ) else { return }
-                        oldSheets.append(newSheet)
-                    }
-                }
-            }
-        }
-    }
-
-    // MARK: - Helpers
-
-    private func fetchMyTeams() async {
-        let result = await teamsService.getUserTeams()
-        if let error = result.1 {
-            self.error = error
-        } else if let userTeams = result.0 {
-            self.userTeams = userTeams.map { $0.toDomain() }
-            if let team = self.userTeams.first {
-                self.selectedTeam = team.toDropdownOption()
-            }
-        }
-    }
-
-    private func updateCurrentSheets() {
-        guard let team = getTeam() else { return }
-        currentSheets = CategorizationSheetsService.getCurrentPeriodCategorizationSheets().compactMap {
-            guard let sheet = $0.toDomain() else { return nil }
-            return TeamSheet.from(sheet: sheet, team: team)
-        }.sorted(by: { item1, item2 in
-            let order1 = item1.sheet.sheetType.order
-            let order2 = item2.sheet.sheetType.order
-            return order1 < order2
-        })
+    func onTeamDidChange() async {
+        await loadTeamSheets()
     }
 }
