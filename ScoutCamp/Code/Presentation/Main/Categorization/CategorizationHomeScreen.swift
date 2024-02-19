@@ -35,8 +35,11 @@ struct CategorizationHomeScreen<T: CategorizationHomeViewModel>: View  {
                         Text("No sheets.")
                             .multilineTextAlignment(.center)
                     } else {
-                        CategorizationSheetsCarouselView(sheets: viewModel.currentSheets)
-                            .padding(.horizontal, -16)
+                        CategorizationSheetsCarouselView(
+                            sheets: viewModel.currentSheets,
+                            onItemClick: viewModel.showSheetScreen
+                        )
+                        .padding(.horizontal, -16)
                     }
                 }
 
@@ -51,9 +54,10 @@ struct CategorizationHomeScreen<T: CategorizationHomeViewModel>: View  {
                     } else {
                         List {
                             ForEach(viewModel.oldSheets, id: \.self) { item in
-                                NavigationLink(destination: CategorizationSheetScreen(sheet: item)) {
-                                    CategorizationSheetItemView(item: item)
-                                }
+                                CategorizationSheetItemView(item: item)
+                                    .onTapGesture {
+                                        viewModel.showSheetScreen(item)
+                                    }
                             }
                             .listRowSeparator(.hidden)
                             .listRowInsets(EdgeInsets())

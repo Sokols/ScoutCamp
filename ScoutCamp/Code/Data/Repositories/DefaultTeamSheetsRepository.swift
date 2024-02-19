@@ -12,13 +12,16 @@ final class DefaultTeamSheetsRepository {
 
     private let dataService: FirebaseDataService
     private let categorizationSheetsRepository: CategorizationSheetsRepository
+    private let categoriesRepository: CategoriesRepository
 
     init(
         with dataService: FirebaseDataService,
-        categorizationSheetsRepository: CategorizationSheetsRepository
+        categorizationSheetsRepository: CategorizationSheetsRepository,
+        categoriesRepository: CategoriesRepository
     ) {
         self.dataService = dataService
         self.categorizationSheetsRepository = categorizationSheetsRepository
+        self.categoriesRepository = categoriesRepository
     }
 }
 
@@ -28,11 +31,19 @@ extension DefaultTeamSheetsRepository: TeamSheetsRepository {
         let sheetsResult = await categorizationSheetsRepository.fetchCategorizationSheets()
         if case .failure(let error) = sheetsResult {
             return .failure(error)
+        }        
+
+        // Fetch categories
+        let categoriesResult = await categoriesRepository.fetchCategories()
+        if case .failure(let error) = categoriesResult {
+            return .failure(error)
         }
 
         var sheets: [CategorizationSheet] = []
+        var categories: [Category] = []
         do {
             sheets = try sheetsResult.get()
+            categories = try categoriesResult.get()
         } catch {
             return .failure(error)
         }
@@ -45,13 +56,20 @@ extension DefaultTeamSheetsRepository: TeamSheetsRepository {
         let result: ResultArray<TeamSheetDTO> = await dataService.fetch(query: query)
 
         // Parse data
-        if let data = result.0 {
-            let mappedData: [TeamSheet] = data.compactMap { teamSheetDto in
-                guard let sheet: CategorizationSheet = sheets
-                    .first(where: { item in item.sheetId == teamSheetDto.categorizationSheetId }) 
-                else { return nil }
-                return teamSheetDto.toDomain(sheet: sheet, team: team)
+        if let teamSheetDtos = result.0 {
+            let mappedData: [TeamSheet] = sheets.map { sheet in
+                // team sheet already exists
+                if let teamSheet = teamSheetDtos.first(where: {$0.categorizationSheetId == sheet.sheetId}),
+                   let category = categories.first(where: {$0.id == teamSheet.categoryId}) {
+                    let newTeamSheet = teamSheet.toDomain(sheet: sheet, team: team, category: category)
+                    return newTeamSheet
+                }
+
+                // sheet not filled by the team
+                return TeamSheetDTO.from(sheet: sheet, team: team)
             }
+            .sorted(by: {$0.sheet.sheetType.order < $1.sheet.sheetType.order})
+
             return .success(mappedData)
         }
         if let error = result.1 {

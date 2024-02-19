@@ -8,13 +8,11 @@
 import Foundation
 
 extension AssignmentGroupCategoryMinimumDTO {
-    func toDomain() -> AssignmentGroupCategoryMinimum? {
-        guard let category = CategoriesService.categoryFor(id: self.categoryId) else { return nil }
-
+    func toDomain(category: Category) -> AssignmentGroupCategoryMinimum {
         return AssignmentGroupCategoryMinimum(
             groupMinimumId: self.id,
             assignmentGroupId: self.assignmentGroupId,
-            category: category.toDomain(),
+            category: category,
             minimumPoints: self.minimumPoints
         )
     }

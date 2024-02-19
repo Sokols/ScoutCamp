@@ -40,31 +40,55 @@ final class CategorizationDIContainer: CategorizationFlowCoordinatorDependencies
         DefaultTeamsRepository(with: dependencies.firebaseDataService)
     }
 
+    private func makeSheetTypesRepository() -> SheetTypesRepository {
+        DefaultSheetTypesRepository(with: dependencies.firebaseDataService)
+    }
+
+    private func makeCategorizationPeriodsRepository() -> CategorizationPeriodsRepository {
+        DefaultCategorizationPeriodsRepository(with: dependencies.firebaseDataService)
+    }
+
+    private func makeCategoriesRepository() -> CategoriesRepository {
+        DefaultCategoriesRepository(with: dependencies.firebaseDataService)
+    }
+
     private func makeTeamSheetsRepository() -> TeamSheetsRepository {
         DefaultTeamSheetsRepository(
             with: dependencies.firebaseDataService,
-            categorizationSheetsRepository: makeCategorizationSheetsRepository()
+            categorizationSheetsRepository: makeCategorizationSheetsRepository(),
+            categoriesRepository: makeCategoriesRepository()
         )
     }
 
     private func makeCategorizationSheetsRepository() -> CategorizationSheetsRepository {
-        DefaultCategorizationSheetsRepository(with: dependencies.firebaseDataService)
+        DefaultCategorizationSheetsRepository(
+            with: dependencies.firebaseDataService,
+            sheetTypesRepository: makeSheetTypesRepository(),
+            categorizationPeriodsRepository: makeCategorizationPeriodsRepository()
+        )
     }
 
     // MARK: - Categorization Home Screen
 
-    func makeCategorizationHomeScreen() -> UIViewController {
-        let viewModel: DefaultCategorizationHomeViewModel = makeCategorizationHomeViewModel()
+    func makeCategorizationHomeScreen(actions: CategorizationHomeViewModelActions) -> UIViewController {
+        let viewModel: DefaultCategorizationHomeViewModel = makeCategorizationHomeViewModel(actions: actions)
         let view = CategorizationHomeScreen(viewModel: viewModel)
         return UIHostingController(rootView: view)
     }
 
-    func makeCategorizationHomeViewModel<T: CategorizationHomeViewModel>() -> T {
+    func makeCategorizationHomeViewModel<T: CategorizationHomeViewModel>(actions: CategorizationHomeViewModelActions) -> T {
         let useCases = CategorizationHomeViewModelUseCases(
             fetchTeamSheetsUseCase: makeFetchTeamSheetsUseCase(),
             fetchUserTeamsUseCase: makeFetchUserTeamsUseCase()
         )
-        return DefaultCategorizationHomeViewModel(useCases) as! T
+        return DefaultCategorizationHomeViewModel(useCases, actions: actions) as! T
+    }
+
+    // MARK: - Categorization Sheet Screen
+
+    func makeCategorizationSheetScreen(sheet: TeamSheet) -> UIViewController {
+        let view = CategorizationSheetScreen(sheet: sheet)
+        return UIHostingController(rootView: view)
     }
 
     // MARK: - Flow Coordinators

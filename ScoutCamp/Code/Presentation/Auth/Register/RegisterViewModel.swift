@@ -8,6 +8,10 @@
 import Foundation
 import Combine
 
+struct RegisterViewModelActions {
+    let goBackToLoginScreen: () -> Void
+}
+
 @MainActor
 class RegisterViewModel: ObservableObject {
 

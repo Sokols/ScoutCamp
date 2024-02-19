@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-struct LoginScreen: View {
-    @StateObject private var viewModel: LoginViewModel
+struct LoginScreen<T: LoginViewModel>: View {
+    @StateObject private var viewModel: T
 
-    init() {
-        _viewModel = StateObject(
-            wrappedValue: LoginViewModel()
-        )
+    init(viewModel: T) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -67,11 +65,11 @@ struct LoginScreen: View {
                     .buttonStyle(MainActionButton())
 
                     Spacer()
-
-                    NavigationLink(destination: RegisterScreen()) {
-                        Text("Login.RegisterNav.Title")
-                            .foregroundColor(.white)
-                    }
+                    Text("Login.RegisterNav.Title")
+                        .foregroundColor(.white)
+                        .onTapGesture {
+                            viewModel.showRegisterScreen()
+                        }
                 }
                 .padding(32.0)
             }
@@ -82,7 +80,26 @@ struct LoginScreen: View {
 }
 
 struct LoginScreen_Previews: PreviewProvider {
+
+    class MockViewModel: LoginViewModel {
+        func signIn() async {}
+        func showRegisterScreen() {}
+        
+        var email: String = ""
+        var password: String = ""
+        var isEmailValid: Bool = false
+        var isPasswordValid: Bool = false
+        var canSubmit: Bool = false
+        var isSubmitClicked: Bool = false
+        var emailPrompt: String = ""
+        var passwordPrompt: String = ""
+        var error: Error?
+        var isLoading: Bool = false
+    }
+
+    private static var mockViewModel: MockViewModel = MockViewModel()
+
     static var previews: some View {
-        LoginScreen()
+        LoginScreen(viewModel: mockViewModel)
     }
 }

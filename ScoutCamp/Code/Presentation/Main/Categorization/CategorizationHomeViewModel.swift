@@ -8,11 +8,16 @@
 import Combine
 import Foundation
 
+struct CategorizationHomeViewModelActions {
+    let showSheetScreen: (TeamSheet) -> Void
+}
+
 protocol CategorizationHomeViewModelInput {
     func onLoad() async
     func onAppear() async
     func onTeamDidChange() async
     func selectTeam(option: DropdownOption)
+    func showSheetScreen(_ sheet: TeamSheet)
 }
 
 protocol CategorizationHomeViewModelOutput: ObservableObject {
@@ -36,6 +41,7 @@ final class DefaultCategorizationHomeViewModel: CategorizationHomeViewModel {
 
     private let fetchTeamSheetsUseCase: FetchTeamSheetsUseCase
     private let fetchUserTeamsUseCase: FetchUserTeamsUseCase
+    private let actions: CategorizationHomeViewModelActions
 
     private let currentPeriodId = RemoteConfigManager.shared.currentPeriodId
 
@@ -54,9 +60,13 @@ final class DefaultCategorizationHomeViewModel: CategorizationHomeViewModel {
 
     // MARK: - Init
 
-    init(_ useCases: CategorizationHomeViewModelUseCases) {
+    init(
+        _ useCases: CategorizationHomeViewModelUseCases,
+        actions: CategorizationHomeViewModelActions
+    ) {
         self.fetchTeamSheetsUseCase = useCases.fetchTeamSheetsUseCase
         self.fetchUserTeamsUseCase = useCases.fetchUserTeamsUseCase
+        self.actions = actions
     }
 
     // MARK: - Private
@@ -97,6 +107,10 @@ final class DefaultCategorizationHomeViewModel: CategorizationHomeViewModel {
 }
 
 extension DefaultCategorizationHomeViewModel {
+
+    func showSheetScreen(_ sheet: TeamSheet) {
+        actions.showSheetScreen(sheet)
+    }
 
     func selectTeam(option: DropdownOption) {
         selectedTeam = option

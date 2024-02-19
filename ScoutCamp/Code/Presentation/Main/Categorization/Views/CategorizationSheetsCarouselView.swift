@@ -9,16 +9,18 @@ import SwiftUI
 
 struct CategorizationSheetsCarouselView: View {
     let sheets: [TeamSheet]
+    let onItemClick: (TeamSheet) -> Void
 
     var body: some View {
         VStack {
             TabView {
                 ForEach(sheets, id: \.self) { item in
-                    NavigationLink(destination: CategorizationSheetScreen(sheet: item)) {
-                        CategorizationSheetItemView(item: item)
-                            .padding(.horizontal)
-                    }
-                    .foregroundColor(Color.primaryColor)
+                    CategorizationSheetItemView(item: item)
+                        .padding(.horizontal)
+                        .foregroundColor(Color.primaryColor)
+                        .onTapGesture {
+                            onItemClick(item)
+                        }
                 }
             }
             .frame(maxHeight: 225)
@@ -32,6 +34,6 @@ struct CategorizationSheetsCarouselView_Previews: PreviewProvider {
     static var previews: some View {
         CategorizationSheetsCarouselView(
             sheets: [TestData.appTeamSheet]
-        )
+        ) {_ in}
     }
 }

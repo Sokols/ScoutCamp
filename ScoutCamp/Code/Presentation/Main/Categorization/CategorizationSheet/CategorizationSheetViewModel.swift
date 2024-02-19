@@ -211,7 +211,7 @@ final class CategorizationSheetViewModel: ObservableObject {
             self.error = error
             return []
         }
-        let mappedResult = result.0?.compactMap { $0.toDomain() }
+        let mappedResult = result.0?.compactMap { $0.toDomain(category: Category.init(id: "polowa", name: "Polowa", imagePath: "", order: 0)) }
         return mappedResult ?? []
     }
 

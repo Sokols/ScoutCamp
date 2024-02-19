@@ -8,10 +8,7 @@
 import Foundation
 
 extension CategorizationSheetDTO {
-    func toDomain() -> CategorizationSheet? {
-        guard let period = CategorizationPeriodsService.categoryPeriodFor(id: self.periodId)?.toDomain(),
-              let sheetType = SheetTypesService.sheetTypeFor(id: self.sheetTypeId)?.toDomain() else { return nil }
-
+    func toDomain(period: CategorizationPeriod, sheetType: SheetType) -> CategorizationSheet {
         return CategorizationSheet(
             sheetId: self.id,
             period: period,

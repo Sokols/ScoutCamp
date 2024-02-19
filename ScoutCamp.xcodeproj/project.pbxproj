@@ -87,6 +87,24 @@
 		3F393F102B2723D400419385 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 3F393F0F2B2723D400419385 /* DGCharts */; };
 		3F393F122B27245600419385 /* AssignmentGroupsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F112B27245600419385 /* AssignmentGroupsChartView.swift */; };
 		3F393F142B27256300419385 /* SharesPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F132B27256300419385 /* SharesPieChartView.swift */; };
+		3F39411A2B7CE21D003DD454 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941192B7CE21D003DD454 /* MainFlowCoordinator.swift */; };
+		3F39411C2B7CEE91003DD454 /* SheetTypesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39411B2B7CEE91003DD454 /* SheetTypesRepository.swift */; };
+		3F39411E2B7CEECA003DD454 /* DefaultSheetTypesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39411D2B7CEECA003DD454 /* DefaultSheetTypesRepository.swift */; };
+		3F3941202B7CEF0F003DD454 /* CategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39411F2B7CEF0F003DD454 /* CategoriesRepository.swift */; };
+		3F3941222B7CEF26003DD454 /* DefaultCategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941212B7CEF26003DD454 /* DefaultCategoriesRepository.swift */; };
+		3F3941242B7CEFC5003DD454 /* CategorizationPeriodsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941232B7CEFC5003DD454 /* CategorizationPeriodsRepository.swift */; };
+		3F3941262B7CEFE3003DD454 /* DefaultCategorizationPeriodsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941252B7CEFE3003DD454 /* DefaultCategorizationPeriodsRepository.swift */; };
+		3F3941282B7D16B3003DD454 /* AssignmentGroupCategoryMinimumsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941272B7D16B3003DD454 /* AssignmentGroupCategoryMinimumsRepository.swift */; };
+		3F39412A2B7D171F003DD454 /* DefaultAssignmentGroupCategoryMinimumsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941292B7D171F003DD454 /* DefaultAssignmentGroupCategoryMinimumsRepository.swift */; };
+		3F39412C2B7D19C3003DD454 /* AssignmentsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39412B2B7D19C3003DD454 /* AssignmentsRepository.swift */; };
+		3F39412E2B7D19ED003DD454 /* DefaultAssignmentsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39412D2B7D19ED003DD454 /* DefaultAssignmentsRepository.swift */; };
+		3F3941312B7D1BAE003DD454 /* AssignmentGroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941302B7D1BAE003DD454 /* AssignmentGroupsRepository.swift */; };
+		3F3941332B7D1BE0003DD454 /* DefaultAssignmentGroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941322B7D1BE0003DD454 /* DefaultAssignmentGroupsRepository.swift */; };
+		3F3941372B7E5A8C003DD454 /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941362B7E5A8C003DD454 /* AuthFlowCoordinator.swift */; };
+		3F3941392B7E5AB6003DD454 /* AuthDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941382B7E5AB6003DD454 /* AuthDIContainer.swift */; };
+		3F39413B2B837AAC003DD454 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39413A2B837AAC003DD454 /* AuthRepository.swift */; };
+		3F39413D2B837B46003DD454 /* DefaultAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39413C2B837B46003DD454 /* DefaultAuthRepository.swift */; };
+		3F3941402B83801C003DD454 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39413F2B83801C003DD454 /* SignInUseCase.swift */; };
 		3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */; };
 		3F3E50DF2AF1332000552CC2 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50DE2AF1332000552CC2 /* FirebaseRemoteConfig */; };
 		3F3E50E12AF1332000552CC2 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50E02AF1332000552CC2 /* FirebaseRemoteConfigSwift */; };
@@ -246,6 +264,24 @@
 		3F393F0C2B235E0000419385 /* CategoryAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAsyncImage.swift; sourceTree = "<group>"; };
 		3F393F112B27245600419385 /* AssignmentGroupsChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupsChartView.swift; sourceTree = "<group>"; };
 		3F393F132B27256300419385 /* SharesPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharesPieChartView.swift; sourceTree = "<group>"; };
+		3F3941192B7CE21D003DD454 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
+		3F39411B2B7CEE91003DD454 /* SheetTypesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTypesRepository.swift; sourceTree = "<group>"; };
+		3F39411D2B7CEECA003DD454 /* DefaultSheetTypesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSheetTypesRepository.swift; sourceTree = "<group>"; };
+		3F39411F2B7CEF0F003DD454 /* CategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRepository.swift; sourceTree = "<group>"; };
+		3F3941212B7CEF26003DD454 /* DefaultCategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCategoriesRepository.swift; sourceTree = "<group>"; };
+		3F3941232B7CEFC5003DD454 /* CategorizationPeriodsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriodsRepository.swift; sourceTree = "<group>"; };
+		3F3941252B7CEFE3003DD454 /* DefaultCategorizationPeriodsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCategorizationPeriodsRepository.swift; sourceTree = "<group>"; };
+		3F3941272B7D16B3003DD454 /* AssignmentGroupCategoryMinimumsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumsRepository.swift; sourceTree = "<group>"; };
+		3F3941292B7D171F003DD454 /* DefaultAssignmentGroupCategoryMinimumsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAssignmentGroupCategoryMinimumsRepository.swift; sourceTree = "<group>"; };
+		3F39412B2B7D19C3003DD454 /* AssignmentsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsRepository.swift; sourceTree = "<group>"; };
+		3F39412D2B7D19ED003DD454 /* DefaultAssignmentsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAssignmentsRepository.swift; sourceTree = "<group>"; };
+		3F3941302B7D1BAE003DD454 /* AssignmentGroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupsRepository.swift; sourceTree = "<group>"; };
+		3F3941322B7D1BE0003DD454 /* DefaultAssignmentGroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAssignmentGroupsRepository.swift; sourceTree = "<group>"; };
+		3F3941362B7E5A8C003DD454 /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
+		3F3941382B7E5AB6003DD454 /* AuthDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDIContainer.swift; sourceTree = "<group>"; };
+		3F39413A2B837AAC003DD454 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		3F39413C2B837B46003DD454 /* DefaultAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthRepository.swift; sourceTree = "<group>"; };
+		3F39413F2B83801C003DD454 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
 		3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsCarouselView.swift; sourceTree = "<group>"; };
 		3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunctionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunctionDTO.swift; sourceTree = "<group>"; };
@@ -480,6 +516,7 @@
 			children = (
 				3F25CB542B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift */,
 				3F25CB5E2B7520D9003EE8D3 /* FetchUserTeamsUseCase.swift */,
+				3F39413F2B83801C003DD454 /* SignInUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -504,7 +541,14 @@
 		3F25CB1B2B6A8E99003EE8D3 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				3F39413C2B837B46003DD454 /* DefaultAuthRepository.swift */,
+				3F39412D2B7D19ED003DD454 /* DefaultAssignmentsRepository.swift */,
+				3F3941292B7D171F003DD454 /* DefaultAssignmentGroupCategoryMinimumsRepository.swift */,
+				3F3941322B7D1BE0003DD454 /* DefaultAssignmentGroupsRepository.swift */,
+				3F3941212B7CEF26003DD454 /* DefaultCategoriesRepository.swift */,
+				3F3941252B7CEFE3003DD454 /* DefaultCategorizationPeriodsRepository.swift */,
 				3F25CB4B2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift */,
+				3F39411D2B7CEECA003DD454 /* DefaultSheetTypesRepository.swift */,
 				3F25CB582B72777E003EE8D3 /* DefaultTeamSheetsRepository.swift */,
 				3F25CB5C2B72830F003EE8D3 /* DefaultTeamsRepository.swift */,
 			);
@@ -541,7 +585,14 @@
 		3F25CB482B726B8F003EE8D3 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				3F39413A2B837AAC003DD454 /* AuthRepository.swift */,
+				3F39412B2B7D19C3003DD454 /* AssignmentsRepository.swift */,
+				3F3941272B7D16B3003DD454 /* AssignmentGroupCategoryMinimumsRepository.swift */,
+				3F3941302B7D1BAE003DD454 /* AssignmentGroupsRepository.swift */,
+				3F39411F2B7CEF0F003DD454 /* CategoriesRepository.swift */,
+				3F3941232B7CEFC5003DD454 /* CategorizationPeriodsRepository.swift */,
 				3F25CB492B726C06003EE8D3 /* CategorizationSheetsRepository.swift */,
+				3F39411B2B7CEE91003DD454 /* SheetTypesRepository.swift */,
 				3F25CB562B727730003EE8D3 /* TeamSheetsRepository.swift */,
 				3F25CB5A2B72828F003EE8D3 /* TeamsRepository.swift */,
 			);
@@ -567,8 +618,9 @@
 		3F25CB652B7B86FF003EE8D3 /* DIContainer */ = {
 			isa = PBXGroup;
 			children = (
-				3F25CB662B7B871D003EE8D3 /* CategorizationDIContainer.swift */,
 				3F25CB692B7B9398003EE8D3 /* AppDIContainer.swift */,
+				3F3941382B7E5AB6003DD454 /* AuthDIContainer.swift */,
+				3F25CB662B7B871D003EE8D3 /* CategorizationDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -589,6 +641,7 @@
 				3F7C59EA2A9C8C9300AA64AA /* Profile */,
 				3F286EA92A49A9EA00BA00BE /* Home */,
 				3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */,
+				3F3941192B7CE21D003DD454 /* MainFlowCoordinator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -632,6 +685,7 @@
 			children = (
 				3F2E55F12A3C484000E3BC30 /* Register */,
 				3F1E13372A39BF3600CB64FD /* Login */,
+				3F3941362B7E5A8C003DD454 /* AuthFlowCoordinator.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1010,19 +1064,25 @@
 				3FDF9A3F2AE6E2A300F5F111 /* ViewDidLoadModifier.swift in Sources */,
 				3F3814312AE2A4CA00B4C0E3 /* SheetTypesService.swift in Sources */,
 				3FBA1CBE2B0BA5130019A84A /* TestData.swift in Sources */,
+				3F39411E2B7CEECA003DD454 /* DefaultSheetTypesRepository.swift in Sources */,
 				3F25CB2C2B724DA3003EE8D3 /* AssignmentGroup.swift in Sources */,
 				3FBA1CBA2B03E2EA0019A84A /* AssignmentNumericInput.swift in Sources */,
 				3FE3A42C2ADD50F3000E455F /* AssignmentDTO.swift in Sources */,
 				3F3E50E62AF7C21C00552CC2 /* AssignmentGroupAssignmentJunctionDTO.swift in Sources */,
+				3F3941242B7CEFC5003DD454 /* CategorizationPeriodsRepository.swift in Sources */,
+				3F39411A2B7CE21D003DD454 /* MainFlowCoordinator.swift in Sources */,
 				3F25CB2E2B724DD4003EE8D3 /* AssignmentGroupDTO+DataMapping.swift in Sources */,
 				3F54384C2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift in Sources */,
 				3FE3A43B2ADD5FC6000E455F /* CategorizationHomeScreen.swift in Sources */,
 				3F1421CF2AC9AA1900EA364A /* MyTeamsViewModel.swift in Sources */,
+				3F3941222B7CEF26003DD454 /* DefaultCategoriesRepository.swift in Sources */,
 				3F2E55EA2A39DE3500E3BC30 /* ActivityIndicatorModifier.swift in Sources */,
 				3FE3A4362ADD5C4E000E455F /* AssignmentGroupsService.swift in Sources */,
+				3F39412A2B7D171F003DD454 /* DefaultAssignmentGroupCategoryMinimumsRepository.swift in Sources */,
 				3F3E50E42AF134C700552CC2 /* RemoteConfigManager.swift in Sources */,
 				3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */,
 				3FE3A4342ADD5BF7000E455F /* AssignmentsService.swift in Sources */,
+				3F3941282B7D16B3003DD454 /* AssignmentGroupCategoryMinimumsRepository.swift in Sources */,
 				3F3814232AE29EBD00B4C0E3 /* Category.swift in Sources */,
 				3F25CB3C2B725F78003EE8D3 /* SheetType.swift in Sources */,
 				3FBA1D332B0F678F0019A84A /* Decimal+Extensions.swift in Sources */,
@@ -1034,11 +1094,13 @@
 				3FBA1D3E2B10A86A0019A84A /* ServiceContainer.swift in Sources */,
 				3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */,
 				3F393F142B27256300419385 /* SharesPieChartView.swift in Sources */,
+				3F3941372B7E5A8C003DD454 /* AuthFlowCoordinator.swift in Sources */,
 				3F25CB6E2B7B951B003EE8D3 /* CategorizationFlowCoordinator.swift in Sources */,
 				3F25CB282B724790003EE8D3 /* CategorizationSheetDTO+DataMapping.swift in Sources */,
 				3FBA1D3C2B10A8550019A84A /* DependencyPropertyWrapper.swift in Sources */,
 				3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */,
 				3F25CB212B724128003EE8D3 /* AssignmentDTO+DataMapping.swift in Sources */,
+				3F3941332B7D1BE0003DD454 /* DefaultAssignmentGroupsRepository.swift in Sources */,
 				3F25CB342B725393003EE8D3 /* CategorizationPeriod.swift in Sources */,
 				3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */,
 				3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */,
@@ -1066,8 +1128,10 @@
 				3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */,
 				3F0D58F22A483A410072EF1F /* Error.swift in Sources */,
 				3F1421D82AC9B78300EA364A /* Team.swift in Sources */,
+				3F39413D2B837B46003DD454 /* DefaultAuthRepository.swift in Sources */,
 				3FBA1CB52B03B8240019A84A /* TeamAssignmentView.swift in Sources */,
 				3F1421E12ACA086200EA364A /* CreateEditTeamViewModel.swift in Sources */,
+				3F3941402B83801C003DD454 /* SignInUseCase.swift in Sources */,
 				3F25CB112B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift in Sources */,
 				3FBA1CBC2B03E3440019A84A /* CheckboxToggleStyle.swift in Sources */,
 				3F25CB5D2B72830F003EE8D3 /* DefaultTeamsRepository.swift in Sources */,
@@ -1078,12 +1142,14 @@
 				3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */,
 				3F38142D2AE2A15900B4C0E3 /* CategorizationSheetsService.swift in Sources */,
 				3F25CB432B726073003EE8D3 /* TeamDTO+DataMapping.swift in Sources */,
+				3F39412C2B7D19C3003DD454 /* AssignmentsRepository.swift in Sources */,
 				3FBA1D422B10B4560019A84A /* CategorizationSheet.swift in Sources */,
 				3F5438522AEAC2F000C9AEB8 /* StorageManager.swift in Sources */,
 				3F25CB302B725199003EE8D3 /* CategoryDTO.swift in Sources */,
 				3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */,
 				3F25CB3A2B7254D1003EE8D3 /* CategorizationSheetAssignmentDTO+DataMapping.swift in Sources */,
 				3F4F65802ADE78DA003B2F0A /* CategorizationSheetViewModel.swift in Sources */,
+				3F39411C2B7CEE91003DD454 /* SheetTypesRepository.swift in Sources */,
 				3F25CB452B726207003EE8D3 /* TeamCategorizationSheetAssignmentDTO.swift in Sources */,
 				3F25CB552B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift in Sources */,
 				3F38142F2AE2A4A300B4C0E3 /* SheetTypeDTO.swift in Sources */,
@@ -1095,9 +1161,13 @@
 				3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */,
 				3F3E50EA2AFA99E800552CC2 /* BaseToolbarView.swift in Sources */,
 				3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */,
+				3F39412E2B7D19ED003DD454 /* DefaultAssignmentsRepository.swift in Sources */,
 				3F25CB152B67BE9A003EE8D3 /* CategorizationSheetAssignmentsService.swift in Sources */,
 				3F25CB472B72680D003EE8D3 /* TeamCategorizationSheetAssignmentDTO+DataMapping.swift in Sources */,
+				3F3941262B7CEFE3003DD454 /* DefaultCategorizationPeriodsRepository.swift in Sources */,
+				3F39413B2B837AAC003DD454 /* AuthRepository.swift in Sources */,
 				3F25CB2A2B724A43003EE8D3 /* TeamSheetDTO+DataMapping.swift in Sources */,
+				3F3941202B7CEF0F003DD454 /* CategoriesRepository.swift in Sources */,
 				3F25CB6A2B7B9398003EE8D3 /* AppDIContainer.swift in Sources */,
 				3F5438442AE7E05500C9AEB8 /* HomeViewModel.swift in Sources */,
 				3F25CB4A2B726C06003EE8D3 /* CategorizationSheetsRepository.swift in Sources */,
@@ -1107,6 +1177,7 @@
 				3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */,
 				3F3814372AE2A62F00B4C0E3 /* TeamSheetDTO.swift in Sources */,
 				3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */,
+				3F3941312B7D1BAE003DD454 /* AssignmentGroupsRepository.swift in Sources */,
 				3F25CB672B7B871D003EE8D3 /* CategorizationDIContainer.swift in Sources */,
 				3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */,
 				3F2E56002A3C4E1500E3BC30 /* Color+Extensions.swift in Sources */,
@@ -1117,6 +1188,7 @@
 				3F2E56042A3C5BE400E3BC30 /* View+Extensions.swift in Sources */,
 				3F3814212AE29DD100B4C0E3 /* CategorizationPeriodDTO.swift in Sources */,
 				3FE3A43F2ADD60BA000E455F /* FloatingActionButton.swift in Sources */,
+				3F3941392B7E5AB6003DD454 /* AuthDIContainer.swift in Sources */,
 				3F1421D12AC9AB4500EA364A /* TeamsService.swift in Sources */,
 				3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */,
 				3FBA1D402B10A8870019A84A /* ServiceType.swift in Sources */,

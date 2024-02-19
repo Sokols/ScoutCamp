@@ -13,7 +13,7 @@ struct TeamSheet: Hashable {
     let sheet: CategorizationSheet
 
     let team: Team
-    let category: Category
+    let category: Category?     // nil means team sheet is not yet saved
 
     let points: Double
     let isDraft: Bool

@@ -7,10 +7,41 @@
 
 import Combine
 
-@MainActor
-class LoginViewModel: ObservableObject {
+struct LoginViewModelActions {
+    let showRegisterScreen: () -> Void
+    let showMainFlow: () -> Void
+}
 
-    @Service private var authService: AuthServiceProtocol
+protocol LoginViewModelInput {
+    func signIn() async
+    func showRegisterScreen()
+}
+
+protocol LoginViewModelOutput: ObservableObject {
+    var email: String { get set }
+    var password: String { get set }
+    
+    var isEmailValid: Bool { get }
+    var isPasswordValid: Bool { get }
+    var canSubmit: Bool { get }
+    var isSubmitClicked: Bool { get }
+
+    var emailPrompt: String { get }
+    var passwordPrompt: String { get }
+
+    var error: Error? { get set }
+    var isLoading: Bool { get }
+}
+
+protocol LoginViewModel: LoginViewModelInput, LoginViewModelOutput {}
+
+final class DefaultLoginViewModel: LoginViewModel {
+
+    private let actions: LoginViewModelActions
+    private let signInUseCase: SignInUseCase
+    private var cancellables: Set<AnyCancellable> = []
+
+    // MARK: - OUTPUT
 
     @Published var email: String = ""
     @Published var password: String = ""
@@ -23,8 +54,6 @@ class LoginViewModel: ObservableObject {
     @Published var error: Error?
     @Published var isLoading = false
 
-    private var cancellables: Set<AnyCancellable> = []
-
     var emailPrompt: String {
         isEmailValid || !isSubmitClicked ? "" : "Validation.Email.Invalid".localized
     }
@@ -32,7 +61,17 @@ class LoginViewModel: ObservableObject {
         isPasswordValid || !isSubmitClicked ? "" : "Validation.Field.CannotBeEmpty".localized
     }
 
-    init() {
+    // MARK: - Init
+
+    init(_ actions: LoginViewModelActions, signInUseCase: SignInUseCase) {
+        self.actions = actions
+        self.signInUseCase = signInUseCase
+        initObservables()
+    }
+
+    // MARK: - Private
+
+    private func initObservables() {
         $email
             .map { Validation.isEmailValid($0) }
             .assign(to: \.isEmailValid, on: self)
@@ -53,7 +92,9 @@ class LoginViewModel: ObservableObject {
             .assign(to: \.canSubmit, on: self)
             .store(in: &cancellables)
     }
+}
 
+extension DefaultLoginViewModel {
     func signIn() async {
         if !isSubmitClicked {
             isSubmitClicked = true
@@ -62,9 +103,20 @@ class LoginViewModel: ObservableObject {
             return
         }
         isLoading = true
-        if let error = await authService.signIn(email: email, password: password) {
+        let requestValue = SignInUseCaseRequestValue(
+            email: email,
+            password: password
+        )
+        if let error = await signInUseCase.execute(requestValue: requestValue) {
             self.error = error
+            isLoading = false
+            return
         }
         isLoading = false
+        actions.showMainFlow()
+    }
+
+    func showRegisterScreen() {
+        actions.showRegisterScreen()
     }
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 protocol CategorizationFlowCoordinatorDependencies {
-    func makeCategorizationHomeScreen() -> UIViewController
+    func makeCategorizationHomeScreen(actions: CategorizationHomeViewModelActions) -> UIViewController
+    func makeCategorizationSheetScreen(sheet: TeamSheet) -> UIViewController
 }
 
 final class CategorizationFlowCoordinator {
@@ -27,8 +28,14 @@ final class CategorizationFlowCoordinator {
     }
 
     func start() {
-        let vc = dependencies.makeCategorizationHomeScreen()
+        let actions = CategorizationHomeViewModelActions(showSheetScreen: showSheetScreen)
+        let vc = dependencies.makeCategorizationHomeScreen(actions: actions)
         navigationController?.pushViewController(vc, animated: false)
         categorizationHomeScreen = vc
+    }
+
+    private func showSheetScreen(sheet: TeamSheet) {
+        let vc = dependencies.makeCategorizationSheetScreen(sheet: sheet)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

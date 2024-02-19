@@ -14,14 +14,14 @@ struct CategorizationSheetItemView: View {
 
     var body: some View {
         HStack {
-            CategoryAsyncImage(url: item.category.url, size: 80, isDraft: item.isDraft)
+            CategoryAsyncImage(url: item.category?.url, size: 80, isDraft: item.isDraft)
                 .padding(.trailing, 10)
             VStack(alignment: .leading) {
                 Text("\(item.sheet.sheetType.name)")
                     .font(.system(size: 18, weight: .bold))
 
                 if item.teamSheetId != nil {
-                    Text("Category: \(item.category.name)")
+                    Text("Category: \(item.category?.name ?? "-")")
                     Text("Points: \(item.points.pointsFormatted)")
                     Text("Updated: \(item.updatedAt.sheetDate)")
                 } else {

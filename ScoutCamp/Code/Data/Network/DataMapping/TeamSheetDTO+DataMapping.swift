@@ -11,14 +11,12 @@ extension TeamSheetDTO {
     static func from(
         sheet: CategorizationSheet,
         team: Team
-    ) -> TeamSheet? {
-        guard let category = CategoriesService.getFirstCategory() else { return nil }
-
+    ) -> TeamSheet {
         return TeamSheet(
             teamSheetId: nil,
             sheet: sheet,
             team: team,
-            category: category.toDomain(),
+            category: nil,
             points: 0,
             isDraft: true,
             createdAt: .now,
@@ -28,10 +26,9 @@ extension TeamSheetDTO {
 
     func toDomain(
         sheet: CategorizationSheet,
-        team: Team
-    ) -> TeamSheet? {
-        guard let category = CategoriesService.categoryFor(id: self.categoryId)?.toDomain() else { return nil }
-
+        team: Team,
+        category: Category
+    ) -> TeamSheet {
         return TeamSheet(
             teamSheetId: self.id,
             sheet: sheet,
@@ -50,7 +47,6 @@ extension TeamSheet {
         var map: [String: Any] = [
             "categorizationSheetId": sheet.sheetId,
             "teamId": team.id,
-            "categoryId": category.id,
             "points": points,
             "isDraft": isDraft,
             "createdAt": createdAt,
@@ -59,6 +55,10 @@ extension TeamSheet {
 
         if let teamSheetId {
             map["id"] = teamSheetId
+        }
+
+        if let category {
+            map["categoryId"] = category.id
         }
 
         return map
