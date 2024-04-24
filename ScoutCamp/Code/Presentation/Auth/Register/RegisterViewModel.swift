@@ -5,17 +5,46 @@
 //  Created by Igor SOKÓŁ on 16/06/2023.
 //
 
-import Foundation
 import Combine
 
-struct RegisterViewModelActions {
+struct RegisterViewModelActions { 
     let goBackToLoginScreen: () -> Void
+    let showMainFlow: () -> Void
 }
 
-@MainActor
-class RegisterViewModel: ObservableObject {
+protocol RegisterViewModelInput {
+    func signUp() async
+    func goBackToLoginScreen()
+}
 
-    @Service private var authService: AuthServiceProtocol
+protocol RegisterViewModelOutput: ObservableObject {
+    var email: String { get set }
+    var password: String { get set }
+    var confirmPassword: String { get set }
+
+    var isEmailValid: Bool { get }
+    var isPasswordValid: Bool { get }
+    var isConfirmPasswordValid: Bool { get }
+    var canSubmit: Bool { get }
+    var isSubmitClicked: Bool { get }
+
+    var emailPrompt: String { get }
+    var passwordPrompt: String { get }
+    var confirmPasswordPrompt: String { get }
+
+    var error: Error? { get set }
+    var isLoading: Bool { get }
+}
+
+protocol RegisterViewModel: RegisterViewModelInput, RegisterViewModelOutput {}
+
+final class DefaultRegisterViewModel: RegisterViewModel {
+
+    private let actions: RegisterViewModelActions
+    private let signUpUseCase: SignUpUseCase
+    private var cancellables: Set<AnyCancellable> = []
+
+    // MARK: - OUTPUT
 
     @Published var email: String = ""
     @Published var password: String = ""
@@ -30,7 +59,6 @@ class RegisterViewModel: ObservableObject {
     @Published var error: Error?
     @Published var isLoading = false
 
-    private var cancellables: Set<AnyCancellable> = []
 
     var emailPrompt: String {
         isEmailValid || !isSubmitClicked ? "" : "Validation.Email.Invalid"
@@ -43,7 +71,18 @@ class RegisterViewModel: ObservableObject {
         isConfirmPasswordValid || !isSubmitClicked ? "" : "Validation.Password.MustMatch"
     }
 
-    init() {
+    // MARK: - Init
+
+    init(_ actions: RegisterViewModelActions, signUpUseCase: SignUpUseCase) {
+        self.actions = actions
+        self.signUpUseCase = signUpUseCase
+        initObservables()
+    }
+
+
+    // MARK: - Private
+
+    private func initObservables() {
         $email
             .map { Validation.isEmailValid($0) }
             .assign(to: \.isEmailValid, on: self)
@@ -69,8 +108,11 @@ class RegisterViewModel: ObservableObject {
             .assign(to: \.canSubmit, on: self)
             .store(in: &cancellables)
     }
+}
 
-    func register() async {
+extension DefaultRegisterViewModel {
+    @MainActor
+    func signUp() async {
         if !isSubmitClicked {
             isSubmitClicked = true
         }
@@ -78,9 +120,20 @@ class RegisterViewModel: ObservableObject {
             return
         }
         isLoading = true
-        if let error = await authService.signUp(email: email, password: password) {
+        let requestValue = SignUpUseCaseRequestValue(
+            email: email,
+            password: password
+        )
+        if let error = await signUpUseCase.execute(requestValue: requestValue) {
             self.error = error
+            isLoading = false
+            return
         }
         isLoading = false
+        actions.showMainFlow()
+    }
+
+    func goBackToLoginScreen() {
+        actions.goBackToLoginScreen()
     }
 }

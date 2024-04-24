@@ -34,6 +34,10 @@ final class AuthDIContainer: AuthFlowCoordinatorDependencies {
         DefaultSignInUseCase(authRepository: makeAuthRepository())
     }
 
+    private func makeSignUpUseCase() -> SignUpUseCase {
+        DefaultSignUpUseCase(authRepository: makeAuthRepository())
+    }
+
     // MARK: - Screens
 
     func makeLoginScreen(actions: LoginViewModelActions) -> UIViewController {
@@ -50,18 +54,28 @@ final class AuthDIContainer: AuthFlowCoordinatorDependencies {
     }
 
     func makeRegisterScreen(actions: RegisterViewModelActions) -> UIViewController {
-        let view = RegisterScreen()
+        let viewModel: DefaultRegisterViewModel = makeRegisterViewModel(actions: actions)
+        let view = RegisterScreen(viewModel: viewModel)
         return UIHostingController(rootView: view)
+    }
+
+    private func makeRegisterViewModel<T: RegisterViewModel>(actions: RegisterViewModelActions) -> T {
+        DefaultRegisterViewModel(
+            actions,
+            signUpUseCase: makeSignUpUseCase()
+        ) as! T
     }
 
     // MARK: - Flow Coordinators
 
     func makeAuthFlowCoordinator(
-        _ navigationController: UINavigationController
+        _ navigationController: UINavigationController,
+        actions: AuthFlowCoordinatorActions
     ) -> AuthFlowCoordinator {
         AuthFlowCoordinator(
             navigationController: navigationController,
-            dependencies: self
+            dependencies: self,
+            actions: actions
         )
     }
 }

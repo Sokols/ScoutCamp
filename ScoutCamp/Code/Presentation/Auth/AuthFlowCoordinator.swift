@@ -20,16 +20,19 @@ final class AuthFlowCoordinator {
 
     weak var navigationController: UINavigationController?
     private let dependencies: AuthFlowCoordinatorDependencies
+    private let actions: AuthFlowCoordinatorActions
 
     init(
         navigationController: UINavigationController,
-        dependencies: AuthFlowCoordinatorDependencies
+        dependencies: AuthFlowCoordinatorDependencies,
+        actions: AuthFlowCoordinatorActions
     ) {
         self.navigationController = navigationController
         self.dependencies = dependencies
+        self.actions = actions
     }
 
-    func start(_ actions: AuthFlowCoordinatorActions) {
+    func start() {
         let actions = LoginViewModelActions(
             showRegisterScreen: showRegisterScreen,
             showMainFlow: actions.showMainFlow
@@ -39,7 +42,10 @@ final class AuthFlowCoordinator {
     }
 
     private func showRegisterScreen() {
-        let actions = RegisterViewModelActions(goBackToLoginScreen: goBackToLoginScreen)
+        let actions = RegisterViewModelActions(
+            goBackToLoginScreen: goBackToLoginScreen,
+            showMainFlow: actions.showMainFlow
+        )
         let vc = dependencies.makeRegisterScreen(actions: actions)
         navigationController?.pushViewController(vc, animated: false)
     }

@@ -8,9 +8,7 @@
 import Foundation
 
 protocol SignInUseCase {
-    func execute(
-        requestValue: SignInUseCaseRequestValue
-    ) async -> Error?
+    func execute(requestValue: SignInUseCaseRequestValue) async -> Error?
 }
 
 final class DefaultSignInUseCase: SignInUseCase {

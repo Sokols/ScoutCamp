@@ -7,15 +7,12 @@
 
 import SwiftUI
 
-struct RegisterScreen: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @StateObject private var viewModel: RegisterViewModel
+struct RegisterScreen<T: RegisterViewModel>: View {
+    @StateObject private var viewModel: T
     @State private var showAlert = false
 
-    init() {
-        _viewModel = StateObject(
-            wrappedValue: RegisterViewModel()
-        )
+    init(viewModel: T) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -56,7 +53,7 @@ struct RegisterScreen: View {
 
                 Button("Register.RegisterButton.Title", action: {
                     Task {
-                        await viewModel.register()
+                        await viewModel.signUp()
                     }
                 })
                 .buttonStyle(MainActionButton())
@@ -65,13 +62,13 @@ struct RegisterScreen: View {
 
                 Spacer()
 
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("Register.LoginNav.Title")
-                        .foregroundColor(.white)
-                })
-
+                Text("Register.RegisterNav.Title")
+                    .foregroundColor(.white)
+                    .onTapGesture {
+                        Task {
+                            viewModel.goBackToLoginScreen()
+                        }
+                    }
             }
             .padding(32.0)
             .errorAlert(error: $viewModel.error)
@@ -82,7 +79,28 @@ struct RegisterScreen: View {
 }
 
 struct RegisterScreen_Previews: PreviewProvider {
+    class MockViewModel: RegisterViewModel {
+        func signUp() async {}
+        func goBackToLoginScreen() {}
+
+        var email: String = ""
+        var password: String = ""
+        var confirmPassword: String = ""
+        var isEmailValid: Bool = false
+        var isPasswordValid: Bool = false
+        var isConfirmPasswordValid: Bool = false
+        var canSubmit: Bool = false
+        var isSubmitClicked: Bool = false
+        var emailPrompt: String = ""
+        var passwordPrompt: String = ""
+        var confirmPasswordPrompt: String = ""
+        var error: Error?
+        var isLoading: Bool = false
+    }
+
+    private static var mockViewModel: MockViewModel = MockViewModel()
+
     static var previews: some View {
-        RegisterScreen()
+        RegisterScreen(viewModel: mockViewModel)
     }
 }

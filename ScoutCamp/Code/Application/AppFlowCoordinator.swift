@@ -34,8 +34,8 @@ final class AppFlowCoordinator: AuthFlowCoordinatorActions {
 
     func showAuthFlow() {
         let authDIContainer = appDIContainer.makeAuthDIContainer()
-        let flow = authDIContainer.makeAuthFlowCoordinator(navigationController)
-        flow.start(self)
+        let flow = authDIContainer.makeAuthFlowCoordinator(navigationController, actions: self)
+        flow.start()
     }
 
     func showMainFlow() {
