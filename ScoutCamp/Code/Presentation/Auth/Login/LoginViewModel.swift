@@ -95,6 +95,7 @@ final class DefaultLoginViewModel: LoginViewModel {
 }
 
 extension DefaultLoginViewModel {
+    @MainActor
     func signIn() async {
         if !isSubmitClicked {
             isSubmitClicked = true

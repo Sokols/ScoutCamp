@@ -68,7 +68,9 @@ struct LoginScreen<T: LoginViewModel>: View {
                     Text("Login.RegisterNav.Title")
                         .foregroundColor(.white)
                         .onTapGesture {
-                            viewModel.showRegisterScreen()
+                            Task {
+                                viewModel.showRegisterScreen()
+                            }
                         }
                 }
                 .padding(32.0)
@@ -80,7 +82,6 @@ struct LoginScreen<T: LoginViewModel>: View {
 }
 
 struct LoginScreen_Previews: PreviewProvider {
-
     class MockViewModel: LoginViewModel {
         func signIn() async {}
         func showRegisterScreen() {}

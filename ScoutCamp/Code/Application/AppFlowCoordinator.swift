@@ -12,6 +12,8 @@ final class AppFlowCoordinator: AuthFlowCoordinatorActions {
     var navigationController: UINavigationController
     private let appDIContainer: AppDIContainer
 
+    // MARK: - Init
+
     init(
         navigationController: UINavigationController,
         appDIContainer: AppDIContainer
@@ -19,6 +21,8 @@ final class AppFlowCoordinator: AuthFlowCoordinatorActions {
         self.navigationController = navigationController
         self.appDIContainer = appDIContainer
     }
+
+    // MARK: - Public
 
     func start() {
         if isUserLoggedIn() {
@@ -35,13 +39,10 @@ final class AppFlowCoordinator: AuthFlowCoordinatorActions {
     }
 
     func showMainFlow() {
-        #warning("TODO")
-        let categorizationDIContainer = appDIContainer.makeCategorizationDIContainer()
-        let flow = categorizationDIContainer.makeCategorizationFlowCoordinator(navigationController)
+        let mainDIContainer = appDIContainer.makeMainDIContainer()
+        let flow = mainDIContainer.makeMainFlowCoordinator(navigationController)
         flow.start()
     }
-
-    // MARK: - Private
 
     private func isUserLoggedIn() -> Bool {
         let auth = appDIContainer.makeAuthRepository()

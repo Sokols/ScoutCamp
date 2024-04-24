@@ -28,10 +28,10 @@ final class AppDIContainer {
         return AuthDIContainer(dependencies: dependencies)
     }
 
-    func makeCategorizationDIContainer() -> CategorizationDIContainer {
-        let dependencies = CategorizationDIContainer.Dependencies(
+    func makeMainDIContainer() -> MainDIContainer {
+        let dependencies = MainDIContainer.Dependencies(
             firebaseDataService: firebaseDataService
         )
-        return CategorizationDIContainer(dependencies: dependencies)
+        return MainDIContainer(dependencies: dependencies)
     }
 }

@@ -44,7 +44,6 @@ struct CategorizationSheetScreen: View {
         .onChange(of: viewModel.successfulUpdate) { _ in
             navigateBack()
         }
-        .navigationBarBackButtonHidden()
         .errorAlert(error: $viewModel.error)
         .fullScreenCover(
             item: $viewModel.assignmentToShowSharesInfo,

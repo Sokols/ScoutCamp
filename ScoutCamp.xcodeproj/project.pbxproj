@@ -105,6 +105,7 @@
 		3F39413B2B837AAC003DD454 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39413A2B837AAC003DD454 /* AuthRepository.swift */; };
 		3F39413D2B837B46003DD454 /* DefaultAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39413C2B837B46003DD454 /* DefaultAuthRepository.swift */; };
 		3F3941402B83801C003DD454 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39413F2B83801C003DD454 /* SignInUseCase.swift */; };
+		3F3941422B83903F003DD454 /* MainDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941412B83903F003DD454 /* MainDIContainer.swift */; };
 		3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */; };
 		3F3E50DF2AF1332000552CC2 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50DE2AF1332000552CC2 /* FirebaseRemoteConfig */; };
 		3F3E50E12AF1332000552CC2 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50E02AF1332000552CC2 /* FirebaseRemoteConfigSwift */; };
@@ -122,7 +123,6 @@
 		3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F78A0122AC88E7000945FDE /* FirebaseFirestore */; };
 		3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0142AC890F100945FDE /* ProfileViewModel.swift */; };
 		3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0152AC890F100945FDE /* ProfileScreen.swift */; };
-		3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */; };
 		3F87C5B02B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift */; };
 		3FBA1CB52B03B8240019A84A /* TeamAssignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CB42B03B8240019A84A /* TeamAssignmentView.swift */; };
 		3FBA1CB82B03BCBC0019A84A /* AssignmentCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CB72B03BCBC0019A84A /* AssignmentCheckbox.swift */; };
@@ -282,6 +282,7 @@
 		3F39413A2B837AAC003DD454 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		3F39413C2B837B46003DD454 /* DefaultAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthRepository.swift; sourceTree = "<group>"; };
 		3F39413F2B83801C003DD454 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
+		3F3941412B83903F003DD454 /* MainDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDIContainer.swift; sourceTree = "<group>"; };
 		3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsCarouselView.swift; sourceTree = "<group>"; };
 		3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunctionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunctionDTO.swift; sourceTree = "<group>"; };
@@ -296,7 +297,6 @@
 		3F6B18632A52CDFD00F3C665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F78A0142AC890F100945FDE /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3F78A0152AC890F100945FDE /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
-		3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
 		3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumDTO.swift; sourceTree = "<group>"; };
 		3FBA1CB42B03B8240019A84A /* TeamAssignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAssignmentView.swift; sourceTree = "<group>"; };
 		3FBA1CB72B03BCBC0019A84A /* AssignmentCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentCheckbox.swift; sourceTree = "<group>"; };
@@ -621,6 +621,7 @@
 				3F25CB692B7B9398003EE8D3 /* AppDIContainer.swift */,
 				3F3941382B7E5AB6003DD454 /* AuthDIContainer.swift */,
 				3F25CB662B7B871D003EE8D3 /* CategorizationDIContainer.swift */,
+				3F3941412B83903F003DD454 /* MainDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -640,7 +641,6 @@
 				3F1421CB2AC9A9A500EA364A /* MyTeams */,
 				3F7C59EA2A9C8C9300AA64AA /* Profile */,
 				3F286EA92A49A9EA00BA00BE /* Home */,
-				3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */,
 				3F3941192B7CE21D003DD454 /* MainFlowCoordinator.swift */,
 			);
 			path = Main;
@@ -1095,6 +1095,7 @@
 				3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */,
 				3F393F142B27256300419385 /* SharesPieChartView.swift in Sources */,
 				3F3941372B7E5A8C003DD454 /* AuthFlowCoordinator.swift in Sources */,
+				3F3941422B83903F003DD454 /* MainDIContainer.swift in Sources */,
 				3F25CB6E2B7B951B003EE8D3 /* CategorizationFlowCoordinator.swift in Sources */,
 				3F25CB282B724790003EE8D3 /* CategorizationSheetDTO+DataMapping.swift in Sources */,
 				3FBA1D3C2B10A8550019A84A /* DependencyPropertyWrapper.swift in Sources */,
@@ -1158,7 +1159,6 @@
 				3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift in Sources */,
 				3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */,
 				3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */,
-				3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */,
 				3F3E50EA2AFA99E800552CC2 /* BaseToolbarView.swift in Sources */,
 				3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */,
 				3F39412E2B7D19ED003DD454 /* DefaultAssignmentsRepository.swift in Sources */,

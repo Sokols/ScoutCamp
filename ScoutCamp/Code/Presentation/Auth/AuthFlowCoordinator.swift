@@ -21,8 +21,6 @@ final class AuthFlowCoordinator {
     weak var navigationController: UINavigationController?
     private let dependencies: AuthFlowCoordinatorDependencies
 
-    private weak var loginScreen: UIViewController?
-
     init(
         navigationController: UINavigationController,
         dependencies: AuthFlowCoordinatorDependencies
@@ -38,7 +36,6 @@ final class AuthFlowCoordinator {
         )
         let vc = dependencies.makeLoginScreen(actions: actions)
         navigationController?.pushViewController(vc, animated: false)
-        loginScreen = vc
     }
 
     private func showRegisterScreen() {
@@ -50,5 +47,4 @@ final class AuthFlowCoordinator {
     private func goBackToLoginScreen() {
         navigationController?.popViewController(animated: false)
     }
-
 }

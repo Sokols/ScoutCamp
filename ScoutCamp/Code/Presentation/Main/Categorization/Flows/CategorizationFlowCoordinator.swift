@@ -7,35 +7,28 @@
 
 import SwiftUI
 
-protocol CategorizationFlowCoordinatorDependencies {
-    func makeCategorizationHomeScreen(actions: CategorizationHomeViewModelActions) -> UIViewController
-    func makeCategorizationSheetScreen(sheet: TeamSheet) -> UIViewController
-}
-
 final class CategorizationFlowCoordinator {
 
     private weak var navigationController: UINavigationController?
-    private let dependencies: CategorizationFlowCoordinatorDependencies
-
-    private weak var categorizationHomeScreen: UIViewController?
+    private let categorizationDIContainer: CategorizationDIContainer
 
     init(
         navigationController: UINavigationController,
-        dependencies: CategorizationFlowCoordinatorDependencies
+        categorizationDIContainer: CategorizationDIContainer
     ) {
         self.navigationController = navigationController
-        self.dependencies = dependencies
+        self.categorizationDIContainer = categorizationDIContainer
     }
 
-    func start() {
+    func start() -> UIViewController {
         let actions = CategorizationHomeViewModelActions(showSheetScreen: showSheetScreen)
-        let vc = dependencies.makeCategorizationHomeScreen(actions: actions)
-        navigationController?.pushViewController(vc, animated: false)
-        categorizationHomeScreen = vc
+        let vc = categorizationDIContainer.makeCategorizationHomeScreen(actions: actions)
+        return vc
     }
 
     private func showSheetScreen(sheet: TeamSheet) {
-        let vc = dependencies.makeCategorizationSheetScreen(sheet: sheet)
+        let vc = categorizationDIContainer.makeCategorizationSheetScreen(sheet: sheet)
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
 }

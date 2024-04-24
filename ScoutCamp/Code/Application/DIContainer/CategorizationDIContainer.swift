@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-final class CategorizationDIContainer: CategorizationFlowCoordinatorDependencies {
+final class CategorizationDIContainer {
 
     struct Dependencies {
         let firebaseDataService: FirebaseDataService
@@ -70,13 +70,17 @@ final class CategorizationDIContainer: CategorizationFlowCoordinatorDependencies
 
     // MARK: - Categorization Home Screen
 
-    func makeCategorizationHomeScreen(actions: CategorizationHomeViewModelActions) -> UIViewController {
+    func makeCategorizationHomeScreen(
+        actions: CategorizationHomeViewModelActions
+    ) -> UIViewController {
         let viewModel: DefaultCategorizationHomeViewModel = makeCategorizationHomeViewModel(actions: actions)
         let view = CategorizationHomeScreen(viewModel: viewModel)
         return UIHostingController(rootView: view)
     }
 
-    func makeCategorizationHomeViewModel<T: CategorizationHomeViewModel>(actions: CategorizationHomeViewModelActions) -> T {
+    private func makeCategorizationHomeViewModel<T: CategorizationHomeViewModel>(
+        actions: CategorizationHomeViewModelActions
+    ) -> T {
         let useCases = CategorizationHomeViewModelUseCases(
             fetchTeamSheetsUseCase: makeFetchTeamSheetsUseCase(),
             fetchUserTeamsUseCase: makeFetchUserTeamsUseCase()
@@ -98,7 +102,7 @@ final class CategorizationDIContainer: CategorizationFlowCoordinatorDependencies
     ) -> CategorizationFlowCoordinator {
         CategorizationFlowCoordinator(
             navigationController: navigationController,
-            dependencies: self
+            categorizationDIContainer: self
         )
     }
 }
