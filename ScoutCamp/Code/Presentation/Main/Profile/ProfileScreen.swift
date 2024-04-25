@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-struct ProfileScreen: View {
-    @StateObject private var viewModel: ProfileViewModel
+struct ProfileScreen<T: ProfileViewModel>: View {
+    @StateObject private var viewModel: T
 
-    init() {
-        _viewModel = StateObject(
-            wrappedValue: ProfileViewModel()
-        )
+    init(viewModel: T) {
+        _viewModel = StateObject(wrappedValue: viewModel)
         UIScrollView.appearance().bounces = false
     }
 
@@ -45,7 +43,7 @@ struct ProfileScreen: View {
             .padding(.vertical)
             .frame(maxHeight: 250)
 
-            Button("Profile.Logout".localized, action: viewModel.logOut)
+            Button("Profile.Logout".localized, action: viewModel.signOut)
 
             Spacer()
         }
@@ -54,21 +52,18 @@ struct ProfileScreen: View {
     // MARK: - Components
 
     private func listItem(for item: OptionItem) -> some View {
-        ZStack {
-            VStack {
-                HStack {
-                    Text(item.title)
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                }
-                .padding(.vertical, 8)
-                Color.backgroundColor
-                    .frame(height: 1)
+        VStack {
+            HStack {
+                Text(item.title)
+                Spacer()
+                Image(systemName: "chevron.right")
             }
-            NavigationLink(destination: item.navigationScreen) {
-                EmptyView()
-            }
-            .opacity(0)
+            .padding(.vertical, 8)
+            Color.backgroundColor
+                .frame(height: 1)
+        }
+        .onTapGesture {
+            item.navigationAction()
         }
     }
 
@@ -77,19 +72,30 @@ struct ProfileScreen: View {
     private struct OptionItem: Identifiable {
         var id = UUID()
         var title: String
-        var navigationScreen: AnyView
+        var navigationAction: () -> Void
     }
 
     private var optionItems: [OptionItem] {
         [
-            OptionItem(title: "Edit profile", navigationScreen: AnyView(Text("Edit profile"))),
-            OptionItem(title: "Settings", navigationScreen: AnyView(Text("Settings")))
+            OptionItem(title: "Edit profile", navigationAction: viewModel.navigateToEditProfile),
+            OptionItem(title: "Settings", navigationAction: viewModel.navigateToSettings)
         ]
     }
 }
 
 struct ProfileScreen_Previews: PreviewProvider {
+    class MockViewModel: ProfileViewModel {
+        func navigateToEditProfile() {}
+        func navigateToSettings() {}
+        func signOut() {}
+        func deleteAccount() {}
+
+        var error: Error? = nil
+    }
+
+    private static var mockViewModel: MockViewModel = MockViewModel()
+
     static var previews: some View {
-        ProfileScreen()
+        ProfileScreen(viewModel: mockViewModel)
     }
 }

@@ -41,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
     func setupServiceContainer() {
         ServiceContainer.register(type: TeamsServiceProtocol.self, TeamsService())
-        ServiceContainer.register(type: AuthServiceProtocol.self, AuthService())
         ServiceContainer.register(type: AssignmentGroupsServiceProtocol.self, AssignmentGroupsService())
         ServiceContainer.register(type: AssignmentGroupAssignmentJunctionsServiceProtocol.self, AssignmentGroupAssignmentJunctionsService())
         ServiceContainer.register(type: AssignmentGroupCategoryMinimumsServiceProtocol.self, AssignmentGroupCategoryMinimumsService())

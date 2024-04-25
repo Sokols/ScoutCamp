@@ -11,7 +11,7 @@ protocol MainFlowCoordinatorDependencies {
     func makeHomeScreen() -> UIViewController
     func makeCategorizationScreen(_ navigationController: UINavigationController) -> UIViewController
     func makeMyTeamsScreen() -> UIViewController
-    func makeProfileScreen() -> UIViewController
+    func makeProfileScreen(_ navigationController: UINavigationController) -> UIViewController
 }
 
 enum MainTabPage: Int, CaseIterable {
@@ -117,7 +117,7 @@ final class MainFlowCoordinator: NSObject {
         case .myTeams:
             return dependencies.makeMyTeamsScreen()
         case .profile:
-            return dependencies.makeProfileScreen()
+            return dependencies.makeProfileScreen(navigationController)
         }
     }
 }

@@ -7,12 +7,60 @@
 
 import Combine
 
-@MainActor
-class ProfileViewModel: ObservableObject {
+struct ProfileViewModelActions {
+    let navigateToEditProfile: () -> Void
+    let navigateToSettings: () -> Void
+    let navigateToAuthFlow: () -> Void
+}
 
-    @Service private var authService: AuthServiceProtocol
+protocol ProfileViewModelInput {
+    func signOut()
+    func navigateToEditProfile()
+    func navigateToSettings()
+    func deleteAccount()
+}
 
-    func logOut() {
-        authService.signOut()
+protocol ProfileViewModelOutput: ObservableObject  {
+    var error: Error? { get set }
+}
+
+protocol ProfileViewModel: ProfileViewModelInput, ProfileViewModelOutput {}
+
+final class DefaultProfileViewModel: ProfileViewModel {
+
+    private let actions: ProfileViewModelActions
+    private let signOutUseCase: SignOutUseCase
+
+    // MARK: - OUTPUT
+
+    @Published var error: Error?
+
+    // MARK: - Init
+
+    init(_ actions: ProfileViewModelActions, signOutUseCase: SignOutUseCase) {
+        self.actions = actions
+        self.signOutUseCase = signOutUseCase
+    }
+}
+
+extension DefaultProfileViewModel {
+    func signOut() {
+        if let error = signOutUseCase.execute() {
+            self.error = error
+            return
+        }
+        actions.navigateToAuthFlow()
+    }
+
+    func deleteAccount() {
+        #warning("TODO")
+    }
+
+    func navigateToEditProfile() {
+        actions.navigateToEditProfile()
+    }
+
+    func navigateToSettings() {
+        actions.navigateToSettings()
     }
 }

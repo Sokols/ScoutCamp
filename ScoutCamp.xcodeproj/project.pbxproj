@@ -12,7 +12,6 @@
 		3F0D58F72A484BE40072EF1F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3F0D58F62A484BE40072EF1F /* FirebaseAnalytics */; };
 		3F0D58F92A484BE40072EF1F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3F0D58F82A484BE40072EF1F /* FirebaseAuth */; };
 		3F0D58FB2A484BE40072EF1F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3F0D58FA2A484BE40072EF1F /* FirebaseCrashlytics */; };
-		3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */; };
 		3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421CC2AC9A9B400EA364A /* MyTeamsScreen.swift */; };
 		3F1421CF2AC9AA1900EA364A /* MyTeamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421CE2AC9AA1900EA364A /* MyTeamsViewModel.swift */; };
 		3F1421D12AC9AB4500EA364A /* TeamsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421D02AC9AB4500EA364A /* TeamsService.swift */; };
@@ -107,6 +106,9 @@
 		3F3941402B83801C003DD454 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39413F2B83801C003DD454 /* SignInUseCase.swift */; };
 		3F3941422B83903F003DD454 /* MainDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941412B83903F003DD454 /* MainDIContainer.swift */; };
 		3F3C2D262BD930D3007B6F6E /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D252BD930D3007B6F6E /* SignUpUseCase.swift */; };
+		3F3C2D2A2BD95158007B6F6E /* ProfileDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D292BD95158007B6F6E /* ProfileDIContainer.swift */; };
+		3F3C2D2C2BD951CC007B6F6E /* SignOutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D2B2BD951CC007B6F6E /* SignOutUseCase.swift */; };
+		3F3C2D2F2BD95886007B6F6E /* ProfileFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D2E2BD95886007B6F6E /* ProfileFlowCoordinator.swift */; };
 		3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */; };
 		3F3E50DF2AF1332000552CC2 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50DE2AF1332000552CC2 /* FirebaseRemoteConfig */; };
 		3F3E50E12AF1332000552CC2 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50E02AF1332000552CC2 /* FirebaseRemoteConfigSwift */; };
@@ -192,7 +194,6 @@
 /* Begin PBXFileReference section */
 		3F0D58F12A483A410072EF1F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		3F0D58F32A4845890072EF1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3F1421CC2AC9A9B400EA364A /* MyTeamsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTeamsScreen.swift; sourceTree = "<group>"; };
 		3F1421CE2AC9AA1900EA364A /* MyTeamsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTeamsViewModel.swift; sourceTree = "<group>"; };
 		3F1421D02AC9AB4500EA364A /* TeamsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsService.swift; sourceTree = "<group>"; };
@@ -285,6 +286,9 @@
 		3F39413F2B83801C003DD454 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
 		3F3941412B83903F003DD454 /* MainDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDIContainer.swift; sourceTree = "<group>"; };
 		3F3C2D252BD930D3007B6F6E /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
+		3F3C2D292BD95158007B6F6E /* ProfileDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDIContainer.swift; sourceTree = "<group>"; };
+		3F3C2D2B2BD951CC007B6F6E /* SignOutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutUseCase.swift; sourceTree = "<group>"; };
+		3F3C2D2E2BD95886007B6F6E /* ProfileFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlowCoordinator.swift; sourceTree = "<group>"; };
 		3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsCarouselView.swift; sourceTree = "<group>"; };
 		3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunctionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunctionDTO.swift; sourceTree = "<group>"; };
@@ -516,8 +520,8 @@
 		3F25CB182B6A8E4E003EE8D3 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				3F3C2D242BD930C5007B6F6E /* auth */,
-				3F25CB542B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift */,
+				3F3C2D272BD93E7D007B6F6E /* Categorization */,
+				3F3C2D242BD930C5007B6F6E /* Auth */,
 				3F25CB5E2B7520D9003EE8D3 /* FetchUserTeamsUseCase.swift */,
 			);
 			path = UseCases;
@@ -620,10 +624,9 @@
 		3F25CB652B7B86FF003EE8D3 /* DIContainer */ = {
 			isa = PBXGroup;
 			children = (
+				3F3C2D282BD9512B007B6F6E /* Main */,
 				3F25CB692B7B9398003EE8D3 /* AppDIContainer.swift */,
 				3F3941382B7E5AB6003DD454 /* AuthDIContainer.swift */,
-				3F25CB662B7B871D003EE8D3 /* CategorizationDIContainer.swift */,
-				3F3941412B83903F003DD454 /* MainDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -711,19 +714,45 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
-		3F3C2D242BD930C5007B6F6E /* auth */ = {
+		3F3C2D242BD930C5007B6F6E /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				3F39413F2B83801C003DD454 /* SignInUseCase.swift */,
 				3F3C2D252BD930D3007B6F6E /* SignUpUseCase.swift */,
+				3F3C2D2B2BD951CC007B6F6E /* SignOutUseCase.swift */,
 			);
-			path = auth;
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		3F3C2D272BD93E7D007B6F6E /* Categorization */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB542B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift */,
+			);
+			path = Categorization;
+			sourceTree = "<group>";
+		};
+		3F3C2D282BD9512B007B6F6E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3F3941412B83903F003DD454 /* MainDIContainer.swift */,
+				3F25CB662B7B871D003EE8D3 /* CategorizationDIContainer.swift */,
+				3F3C2D292BD95158007B6F6E /* ProfileDIContainer.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3F3C2D2D2BD9586F007B6F6E /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				3F3C2D2E2BD95886007B6F6E /* ProfileFlowCoordinator.swift */,
+			);
+			path = Flows;
 			sourceTree = "<group>";
 		};
 		3F3E50E22AF134AB00552CC2 /* FirebaseServices */ = {
 			isa = PBXGroup;
 			children = (
-				3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */,
 				3F5438512AEAC2F000C9AEB8 /* StorageManager.swift */,
 				3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */,
 			);
@@ -752,6 +781,7 @@
 		3F7C59EA2A9C8C9300AA64AA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				3F3C2D2D2BD9586F007B6F6E /* Flows */,
 				3F78A0152AC890F100945FDE /* ProfileScreen.swift */,
 				3F78A0142AC890F100945FDE /* ProfileViewModel.swift */,
 			);
@@ -1111,6 +1141,7 @@
 				3F25CB282B724790003EE8D3 /* CategorizationSheetDTO+DataMapping.swift in Sources */,
 				3FBA1D3C2B10A8550019A84A /* DependencyPropertyWrapper.swift in Sources */,
 				3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */,
+				3F3C2D2F2BD95886007B6F6E /* ProfileFlowCoordinator.swift in Sources */,
 				3F25CB212B724128003EE8D3 /* AssignmentDTO+DataMapping.swift in Sources */,
 				3F3941332B7D1BE0003DD454 /* DefaultAssignmentGroupsRepository.swift in Sources */,
 				3F25CB342B725393003EE8D3 /* CategorizationPeriod.swift in Sources */,
@@ -1138,7 +1169,6 @@
 				3F25CB4C2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift in Sources */,
 				3FFFCA7C2A38EB5200481DAE /* String+Extensions.swift in Sources */,
 				3F3C2D262BD930D3007B6F6E /* SignUpUseCase.swift in Sources */,
-				3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */,
 				3F0D58F22A483A410072EF1F /* Error.swift in Sources */,
 				3F1421D82AC9B78300EA364A /* Team.swift in Sources */,
 				3F39413D2B837B46003DD454 /* DefaultAuthRepository.swift in Sources */,
@@ -1168,6 +1198,7 @@
 				3F38142F2AE2A4A300B4C0E3 /* SheetTypeDTO.swift in Sources */,
 				3FBA1D442B10C4200019A84A /* AppDelegate.swift in Sources */,
 				3F25CB322B725210003EE8D3 /* CategoryDTO+DataMapping.swift in Sources */,
+				3F3C2D2C2BD951CC007B6F6E /* SignOutUseCase.swift in Sources */,
 				3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift in Sources */,
 				3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */,
 				3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */,
@@ -1191,6 +1222,7 @@
 				3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */,
 				3F3941312B7D1BAE003DD454 /* AssignmentGroupsRepository.swift in Sources */,
 				3F25CB672B7B871D003EE8D3 /* CategorizationDIContainer.swift in Sources */,
+				3F3C2D2A2BD95158007B6F6E /* ProfileDIContainer.swift in Sources */,
 				3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */,
 				3F2E56002A3C4E1500E3BC30 /* Color+Extensions.swift in Sources */,
 				3F3814252AE29EE300B4C0E3 /* CategorizationPeriodsService.swift in Sources */,

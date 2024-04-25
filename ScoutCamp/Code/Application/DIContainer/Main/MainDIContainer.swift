@@ -40,9 +40,10 @@ final class MainDIContainer: MainFlowCoordinatorDependencies {
         return UIHostingController(rootView: view)
     }
 
-    func makeProfileScreen() -> UIViewController {
-        let view = ProfileScreen()
-        return UIHostingController(rootView: view)
+    func makeProfileScreen(_ navigationController: UINavigationController) -> UIViewController {
+        let container = makeProfileDIContainer()
+        let flow = container.makeProfileFlowCoordinator(navigationController)
+        return flow.start()
     }
 
     // MARK: - Flow Coordinators
@@ -58,10 +59,17 @@ final class MainDIContainer: MainFlowCoordinatorDependencies {
 
     // MARK: - DIContainers of screens
 
-    func makeCategorizationDIContainer() -> CategorizationDIContainer {
+    private func makeCategorizationDIContainer() -> CategorizationDIContainer {
         let dependencies = CategorizationDIContainer.Dependencies(
             firebaseDataService: dependencies.firebaseDataService
         )
         return CategorizationDIContainer(dependencies: dependencies)
+    }
+
+    private func makeProfileDIContainer() -> ProfileDIContainer {
+        let dependencies = ProfileDIContainer.Dependencies(
+            firebaseDataService: dependencies.firebaseDataService
+        )
+        return ProfileDIContainer(dependencies: dependencies)
     }
 }

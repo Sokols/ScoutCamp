@@ -5,7 +5,6 @@
 //  Created by Igor SOKÓŁ on 13/02/2024.
 //
 
-import UIKit
 import SwiftUI
 
 final class CategorizationDIContainer {

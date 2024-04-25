@@ -25,10 +25,9 @@ final class AppFlowCoordinator: AuthFlowCoordinatorActions {
     // MARK: - Public
 
     func start() {
+        showAuthFlow()
         if isUserLoggedIn() {
             showMainFlow()
-        } else {
-            showAuthFlow()
         }
     }
 
