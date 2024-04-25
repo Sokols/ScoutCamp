@@ -40,10 +40,10 @@ final class AuthDIContainer: AuthFlowCoordinatorDependencies {
 
     // MARK: - Screens
 
-    func makeLoginScreen(actions: LoginViewModelActions) -> UIViewController {
+    func makeLoginScreen(actions: LoginViewModelActions) -> LoginViewController<LoginScreen<DefaultLoginViewModel>> {
         let viewModel: DefaultLoginViewModel = makeLoginViewModel(actions: actions)
         let view = LoginScreen(viewModel: viewModel)
-        return UIHostingController(rootView: view)
+        return LoginViewController(rootView: view)
     }
 
     private func makeLoginViewModel<T: LoginViewModel>(actions: LoginViewModelActions) -> T {

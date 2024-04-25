@@ -38,6 +38,7 @@ final class CategoriesService: BaseService, CategoriesServiceProtocol {
 
     func getCategories() async -> ResultArray<CategoryDTO> {
         let result: ResultArray<CategoryDTO> = await getAll(collection: .categories)
+        CategoriesService.categories.removeAll()
         result.0?.forEach { category in
             CategoriesService.categories.append(category)
         }

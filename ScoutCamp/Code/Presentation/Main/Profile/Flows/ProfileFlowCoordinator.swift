@@ -11,10 +11,6 @@ protocol ProfileFlowCoordinatorDependencies {
     func makeProfileScreen(actions: ProfileViewModelActions) -> UIViewController
 }
 
-protocol ProfileFlowCoordinatorActions {
-    func navigateToAuthFlow()
-}
-
 final class ProfileFlowCoordinator {
 
     private weak var navigationController: UINavigationController?
@@ -47,6 +43,8 @@ final class ProfileFlowCoordinator {
     }
 
     private func navigateToAuthFlow() {
-        navigationController?.popToRootViewController(animated: true)
+        guard let loginVC = navigationController?.viewControllers
+            .first(where: {$0.className.contains("LoginViewController")}) else { return }
+        navigationController?.popToViewController(loginVC, animated: true)
     }
 }

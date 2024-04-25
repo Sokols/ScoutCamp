@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AuthFlowCoordinatorDependencies {
-    func makeLoginScreen(actions: LoginViewModelActions) -> UIViewController
+    func makeLoginScreen(actions: LoginViewModelActions) -> LoginViewController<LoginScreen<DefaultLoginViewModel>>
     func makeRegisterScreen(actions: RegisterViewModelActions) -> UIViewController
 }
 

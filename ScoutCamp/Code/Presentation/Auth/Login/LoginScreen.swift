@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+class LoginViewController<Content>: UIHostingController<Content> where Content : View {}
+
 struct LoginScreen<T: LoginViewModel>: View {
     @StateObject private var viewModel: T
 

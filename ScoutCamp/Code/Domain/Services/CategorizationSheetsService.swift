@@ -28,6 +28,7 @@ final class CategorizationSheetsService: BaseService, CategorizationSheetsServic
 
     func getCategorizationSheets() async -> ResultArray<CategorizationSheetDTO> {
         let result: ResultArray<CategorizationSheetDTO> = await getAll(collection: .categorizationSheets)
+        CategorizationSheetsService.categorizationSheets.removeAll()
         result.0?.forEach { period in
             CategorizationSheetsService.categorizationSheets.append(period)
         }

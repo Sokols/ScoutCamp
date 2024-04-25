@@ -20,6 +20,7 @@ final class SheetTypesService: BaseService, SheetTypesServiceProtocol {
 
     func getSheetTypes() async -> ResultArray<SheetTypeDTO> {
         let result: ResultArray<SheetTypeDTO> = await getAll(collection: .sheetTypes)
+        SheetTypesService.sheetTypes.removeAll()
         result.0?.forEach { sheetType in
             SheetTypesService.sheetTypes.append(sheetType)
         }

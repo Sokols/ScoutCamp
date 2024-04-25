@@ -109,6 +109,7 @@
 		3F3C2D2A2BD95158007B6F6E /* ProfileDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D292BD95158007B6F6E /* ProfileDIContainer.swift */; };
 		3F3C2D2C2BD951CC007B6F6E /* SignOutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D2B2BD951CC007B6F6E /* SignOutUseCase.swift */; };
 		3F3C2D2F2BD95886007B6F6E /* ProfileFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D2E2BD95886007B6F6E /* ProfileFlowCoordinator.swift */; };
+		3F3C2D332BDA714A007B6F6E /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D322BDA714A007B6F6E /* UIViewController+Extensions.swift */; };
 		3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */; };
 		3F3E50DF2AF1332000552CC2 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50DE2AF1332000552CC2 /* FirebaseRemoteConfig */; };
 		3F3E50E12AF1332000552CC2 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50E02AF1332000552CC2 /* FirebaseRemoteConfigSwift */; };
@@ -289,6 +290,7 @@
 		3F3C2D292BD95158007B6F6E /* ProfileDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDIContainer.swift; sourceTree = "<group>"; };
 		3F3C2D2B2BD951CC007B6F6E /* SignOutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutUseCase.swift; sourceTree = "<group>"; };
 		3F3C2D2E2BD95886007B6F6E /* ProfileFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlowCoordinator.swift; sourceTree = "<group>"; };
+		3F3C2D322BDA714A007B6F6E /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsCarouselView.swift; sourceTree = "<group>"; };
 		3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunctionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunctionDTO.swift; sourceTree = "<group>"; };
@@ -925,6 +927,7 @@
 				3FBA1D322B0F678F0019A84A /* Decimal+Extensions.swift */,
 				3FBA1D342B0F97100019A84A /* Date+Extensions.swift */,
 				3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */,
+				3F3C2D322BDA714A007B6F6E /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1225,6 +1228,7 @@
 				3F3C2D2A2BD95158007B6F6E /* ProfileDIContainer.swift in Sources */,
 				3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */,
 				3F2E56002A3C4E1500E3BC30 /* Color+Extensions.swift in Sources */,
+				3F3C2D332BDA714A007B6F6E /* UIViewController+Extensions.swift in Sources */,
 				3F3814252AE29EE300B4C0E3 /* CategorizationPeriodsService.swift in Sources */,
 				3F393F092B2336C600419385 /* TeamAssignmentsGroupView.swift in Sources */,
 				3F2E56072A3C5FE200E3BC30 /* ButtonStyles.swift in Sources */,

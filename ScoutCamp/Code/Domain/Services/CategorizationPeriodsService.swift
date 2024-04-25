@@ -20,6 +20,7 @@ final class CategorizationPeriodsService: BaseService, CategorizationPeriodsServ
 
     func getCategorizationPeriods() async -> ResultArray<CategorizationPeriodDTO> {
         let result: ResultArray<CategorizationPeriodDTO> = await getAll(collection: .categorizationPeriods)
+        CategorizationPeriodsService.periods.removeAll()
         result.0?.forEach { period in
             CategorizationPeriodsService.periods.append(period)
         }
