@@ -10,8 +10,8 @@ import Foundation
 struct AssignmentGroupSection {
     let group: AssignmentGroup
     let groupMinimums: [AssignmentGroupCategoryMinimum]    // sorted from the lowest category to the highest
-    var assignments: [Assignment]
-    var partialAssignments: [Assignment]
+    var assignments: [AppAssignment]
+    var partialAssignments: [AppAssignment]
 }
 
 extension AssignmentGroupSection {

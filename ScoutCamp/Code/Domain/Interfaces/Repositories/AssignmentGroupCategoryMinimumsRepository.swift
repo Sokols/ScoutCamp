@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AssignmentGroupCategoryMinimumsRepository {
-    func fetchGroupMinimums(groupIds: [String]) async -> Result<[AssignmentGroupCategoryMinimum], Error>
+    func fetchGroupMinimums(for groupIds: [String]) async -> Result<[AssignmentGroupCategoryMinimum], Error>
 }

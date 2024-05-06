@@ -85,7 +85,7 @@ struct TestData {
 
     // MARK: - App models
 
-    static let numericAppAssignment = Assignment(
+    static let numericAppAssignment = AppAssignment(
         assignmentId: "",
         teamAssignmentId: nil,
         mainAssignmentGroup: TestData.assignmentGroup,
@@ -97,7 +97,7 @@ struct TestData {
         maxScoringValue: 20
     )
 
-    static let booleanAppAssignment = Assignment(
+    static let booleanAppAssignment = AppAssignment(
         assignmentId: "",
         teamAssignmentId: nil,
         mainAssignmentGroup: TestData.assignmentGroup,
@@ -147,11 +147,11 @@ struct TestData {
     )
 
     static let assignmentGroupShares = [
-        Assignment.AssignmentGroupShare(
+        AppAssignment.AssignmentGroupShare(
             assignmentGroup: TestData.assignmentGroup,
             percentageShare: 0.2
         ),
-        Assignment.AssignmentGroupShare(
+        AppAssignment.AssignmentGroupShare(
             assignmentGroup: TestData.secondAssignmentGroup,
             percentageShare: 0.8
         )

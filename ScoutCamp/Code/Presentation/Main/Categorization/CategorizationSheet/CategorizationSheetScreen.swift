@@ -7,21 +7,18 @@
 
 import SwiftUI
 
-struct CategorizationSheetScreen: View {
-    @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel: CategorizationSheetViewModel
+struct CategorizationSheetScreen<T: CategorizationSheetViewModel>: View {
+    @StateObject private var viewModel: T
 
-    init(sheet: TeamSheet) {
-        _viewModel = StateObject(
-            wrappedValue: CategorizationSheetViewModel(sheet: sheet)
-        )
+    init(viewModel: T) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     // MARK: - UI
 
     var body: some View {
         VStack(spacing: 0) {
-            BaseToolbarView(backAction: navigateBack)
+            BaseToolbarView(backAction: viewModel.navigateBack)
             Text("\(viewModel.sheet.sheet.sheetType.name)")
                 .font(.system(size: 18, weight: .bold))
                 .padding(.vertical)
@@ -36,14 +33,12 @@ struct CategorizationSheetScreen: View {
             bottomBar()
         }
         .task {
-            await viewModel.fetchData()
+            await viewModel.onLoad()
         }
         .onTapGesture {
             UIApplication.shared.endEditing()
         }
-        .onChange(of: viewModel.successfulUpdate) { _ in
-            navigateBack()
-        }
+        .navigationBarHidden(true)
         .errorAlert(error: $viewModel.error)
         .fullScreenCover(
             item: $viewModel.assignmentToShowSharesInfo,
@@ -83,7 +78,7 @@ struct CategorizationSheetScreen: View {
             CircleButton(
                 systemImageName: "checkmark",
                 backgroundColor: .secondaryColor,
-                action: complete
+                action: completeSheet
             )
         }
         .padding(.horizontal)
@@ -98,9 +93,9 @@ struct CategorizationSheetScreen: View {
         }
     }
 
-    private func complete() {
+    private func completeSheet() {
         Task {
-            await viewModel.complete()
+            await viewModel.completeSheet()
         }
     }
 
@@ -109,14 +104,29 @@ struct CategorizationSheetScreen: View {
     private func hideInfoView() {
         viewModel.showAssignmentSharesInfo(nil)
     }
-
-    private func navigateBack() {
-        dismiss()
-    }
 }
 
 struct CategorizationSheetScreen_Previews: PreviewProvider {
+    class MockViewModel: CategorizationSheetViewModel {
+        func onLoad() async {}
+        func completeSheet() async {}
+        func saveAsDraft() async {}
+        func navigateBack() {}
+        func showAssignmentSharesInfo(_ assignment: AppAssignment?) {}
+        
+        var sections: [AssignmentGroupSection] = []
+        var assignmentToShowSharesInfo: AppAssignment?
+        var sheet: TeamSheet = TestData.appTeamSheet
+        var error: Error?
+        var isLoading: Bool = false
+        var appAssignments: [AppAssignment] = []
+        var points: Double = 0.0
+        var expectedCategory: Category?
+    }
+
+    private static var mockViewModel: MockViewModel = MockViewModel()
+
     static var previews: some View {
-        CategorizationSheetScreen(sheet: TestData.appTeamSheet)
+        CategorizationSheetScreen(viewModel: mockViewModel)
     }
 }

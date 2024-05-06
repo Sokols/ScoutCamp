@@ -27,8 +27,13 @@ final class CategorizationFlowCoordinator {
     }
 
     private func showSheetScreen(sheet: TeamSheet) {
-        let vc = categorizationDIContainer.makeCategorizationSheetScreen(sheet: sheet)
+        let actions = CategorizationSheetViewModelActions(navigateBack: navigateBack)
+        let vc = categorizationDIContainer.makeCategorizationSheetScreen(actions: actions, sheet: sheet)
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func navigateBack() {
+        navigationController?.popViewController(animated: true)
     }
 }

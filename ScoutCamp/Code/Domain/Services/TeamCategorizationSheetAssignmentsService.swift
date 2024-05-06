@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 protocol TeamCategorizationSheetAssignmentsServiceProtocol {
     func getTeamCategorizationSheetAssignmentsFor(_ teamCategorizationSheetId: String) async -> ResultArray<TeamCategorizationSheetAssignmentDTO>
-    func createUpdateTeamAssignments(_ assignments: [Assignment], teamCategorizationSheetId: String) async -> Error?
+    func createUpdateTeamAssignments(_ assignments: [AppAssignment], teamCategorizationSheetId: String) async -> Error?
 }
 
 final class TeamCategorizationSheetAssignmentsService: BaseService, TeamCategorizationSheetAssignmentsServiceProtocol {
@@ -23,7 +23,7 @@ final class TeamCategorizationSheetAssignmentsService: BaseService, TeamCategori
         return await fetch(query: query)
     }
 
-    func createUpdateTeamAssignments(_ assignments: [Assignment], teamCategorizationSheetId: String) async -> Error? {
+    func createUpdateTeamAssignments(_ assignments: [AppAssignment], teamCategorizationSheetId: String) async -> Error? {
         let firestore = Firestore.firestore()
         let batch = firestore.batch()
         let collection = firestore.collection(FirebaseCollection.teamCategorizationSheetAssignments.rawValue)

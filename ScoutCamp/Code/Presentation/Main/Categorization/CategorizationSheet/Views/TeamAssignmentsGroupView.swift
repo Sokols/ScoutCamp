@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TeamAssignmentsGroupView: View {
     @Binding var section: AssignmentGroupSection
-    let openSharesView: (Assignment) -> Void
+    let openSharesView: (AppAssignment) -> Void
 
     var body: some View {
         VStack(alignment: .leading) {

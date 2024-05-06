@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AssignmentGroupsChartView: View {
-    let assignment: Assignment
+    let assignment: AppAssignment
     let backAction: () -> Void
 
     var body: some View {

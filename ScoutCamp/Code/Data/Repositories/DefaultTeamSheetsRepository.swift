@@ -26,6 +26,27 @@ final class DefaultTeamSheetsRepository {
 }
 
 extension DefaultTeamSheetsRepository: TeamSheetsRepository {
+    func saveTeamSheet(_ sheet: TeamSheet) async -> Result<String, Error> {
+        let collection = Firestore.firestore()
+            .collection(FirebaseCollection.teamCategorizationSheets.rawValue)
+
+        do {
+            var data = sheet.toTeamSheetData()
+            if let id = sheet.teamSheetId {   // Update if teamSheetId exists
+                let ref = collection.document(id)
+                try await ref.updateData(data)
+                return .success(ref.documentID)
+            } else {   // Create if teamSheetId doesn't exist
+                let ref = collection.document()
+                data["id"] = ref.documentID
+                try await ref.setData(data)
+                return .success(ref.documentID)
+            }
+        } catch {
+            return .failure(error)
+        }
+    }
+    
     func fetchTeamSheets(team: Team) async -> Result<[TeamSheet], Error> {
         // Fetch categorization sheets
         let sheetsResult = await categorizationSheetsRepository.fetchCategorizationSheets()

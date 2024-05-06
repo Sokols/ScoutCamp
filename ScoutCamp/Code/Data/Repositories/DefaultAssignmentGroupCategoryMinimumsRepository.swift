@@ -23,7 +23,7 @@ final class DefaultAssignmentGroupCategoryMinimumsRepository {
 }
 
 extension DefaultAssignmentGroupCategoryMinimumsRepository: AssignmentGroupCategoryMinimumsRepository {
-    func fetchGroupMinimums(groupIds: [String]) async -> Result<[AssignmentGroupCategoryMinimum], Error> {
+    func fetchGroupMinimums(for groupIds: [String]) async -> Result<[AssignmentGroupCategoryMinimum], Error> {
         // Fetch categories
         let categoriesResult = await categoriesRepository.fetchCategories()
         if case .failure(let error) = categoriesResult {

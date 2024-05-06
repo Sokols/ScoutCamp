@@ -24,13 +24,29 @@ final class CategorizationDIContainer {
     // MARK: - Use Cases
 
     func makeFetchTeamSheetsUseCase() -> FetchTeamSheetsUseCase {
-        DefaultFetchTeamSheetsUseCase(
-            teamSheetsRepository: makeTeamSheetsRepository()
-        )
+        DefaultFetchTeamSheetsUseCase(teamSheetsRepository: makeTeamSheetsRepository())
     }
 
     func makeFetchUserTeamsUseCase() -> FetchUserTeamsUseCase {
         DefaultFetchUserTeamsUseCase(teamsRepository: makeTeamsRepository())
+    }
+
+    func makeFetchSectionsUseCase() -> FetchAssignmentGroupSectionsUseCase {
+        DefaultFetchAssignmentGroupSectionsUseCase(
+            assignmentsRepository: makeAssignmentsRepository(),
+            categorizationSheetsRepository: makeCategorizationSheetsRepository(),
+            junctionsRepository: makeJunctionsRepository(),
+            groupMinimumsRepository: makeGroupMinimumsRepository(), 
+            groupsRepository: makeAssignmentGroupsRepository(),
+            teamAssignmentsRepository: makeTeamAssignmentsRepository()
+        )
+    }
+
+    func makeSaveTeamSheetUseCase() -> SaveTeamSheetUseCase {
+        DefaultSaveTeamSheetUseCase(
+            teamSheetsRepository: makeTeamSheetsRepository(),
+            teamAssignmentsRepository: makeTeamAssignmentsRepository()
+        )
     }
 
     // MARK: - Repositories
@@ -67,6 +83,29 @@ final class CategorizationDIContainer {
         )
     }
 
+    private func makeTeamAssignmentsRepository() -> TeamAssignmentsRepository {
+        DefaultTeamAssignmentsRepository(with: dependencies.firebaseDataService)
+    }
+
+    private func makeAssignmentsRepository() -> AssignmentsRepository {
+        DefaultAssignmentsRepository(with: dependencies.firebaseDataService)
+    }
+
+    private func makeJunctionsRepository() -> AssignmentGroupJunctionsRepository {
+        DefaultAssignmentGroupJunctionsRepository(with: dependencies.firebaseDataService)
+    }
+
+    private func makeGroupMinimumsRepository() -> AssignmentGroupCategoryMinimumsRepository {
+        DefaultAssignmentGroupCategoryMinimumsRepository(
+            with: dependencies.firebaseDataService,
+            categoriesRepository: makeCategoriesRepository()
+        )
+    }
+
+    private func makeAssignmentGroupsRepository() -> AssignmentGroupsRepository {
+        DefaultAssignmentGroupsRepository(with: dependencies.firebaseDataService)
+    }
+
     // MARK: - Categorization Home Screen
 
     func makeCategorizationHomeScreen(
@@ -89,9 +128,25 @@ final class CategorizationDIContainer {
 
     // MARK: - Categorization Sheet Screen
 
-    func makeCategorizationSheetScreen(sheet: TeamSheet) -> UIViewController {
-        let view = CategorizationSheetScreen(sheet: sheet)
+    func makeCategorizationSheetScreen(
+        actions: CategorizationSheetViewModelActions,
+        sheet: TeamSheet
+    ) -> UIViewController {
+        let viewModel: DefaultCategorizationSheetViewModel = makeCategorizationSheetViewModel(actions: actions, sheet: sheet)
+        let view = CategorizationSheetScreen(viewModel: viewModel)
         return UIHostingController(rootView: view)
+    }
+
+    private func makeCategorizationSheetViewModel<T: CategorizationSheetViewModel>(
+        actions: CategorizationSheetViewModelActions,
+        sheet: TeamSheet
+    ) -> T {
+        return DefaultCategorizationSheetViewModel(
+            fetchSectionsUseCase: makeFetchSectionsUseCase(),
+            saveTeamSheetUseCase: makeSaveTeamSheetUseCase(),
+            actions: actions, 
+            sheet: sheet
+        ) as! T
     }
 
     // MARK: - Flow Coordinators

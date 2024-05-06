@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct TeamAssignmentView: View {
-    @Binding var assignment: Assignment
+    @Binding var assignment: AppAssignment
     let partialAssignmentGroupId: String?
-    let openSharesView: (Assignment) -> Void
+    let openSharesView: (AppAssignment) -> Void
 
     var body: some View {
         HStack {
