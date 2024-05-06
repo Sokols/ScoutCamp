@@ -75,6 +75,7 @@ final class DefaultCategorizationHomeViewModel: CategorizationHomeViewModel {
         return userTeams.first(where: {$0.id == selectedTeam?.key})
     }
 
+    @MainActor
     private func loadUserTeams() async {
         let result = await fetchUserTeamsUseCase.execute()
         switch result {
@@ -88,6 +89,7 @@ final class DefaultCategorizationHomeViewModel: CategorizationHomeViewModel {
         }
     }
 
+    @MainActor
     private func loadTeamSheets() async {
         guard let team = getTeam(),
               let currentPeriodId = currentPeriodId else { return }

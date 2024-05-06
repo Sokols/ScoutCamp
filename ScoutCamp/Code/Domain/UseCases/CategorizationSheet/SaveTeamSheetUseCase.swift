@@ -25,22 +25,17 @@ final class DefaultSaveTeamSheetUseCase: SaveTeamSheetUseCase {
     }
 
     func execute(requestValue: SaveTeamSheetUseCaseRequestValue) async -> Error? {
-        let result = await teamSheetsRepository.saveTeamSheet(
-            requestValue.teamSheet
-        )
-
-        if case .failure(let error) = result {
-            return error
-        }
-
         do {
+            let result = await teamSheetsRepository.saveTeamSheet(
+                requestValue.teamSheet
+            )
             let teamSheetId = try result.get()
             let assignmentsResult = await teamAssignmentsRepository.saveTeamAssignments(
                 requestValue.assignments,
                 teamSheetId: teamSheetId
             )
 
-            if case .failure(let error) = result {
+            if let error = assignmentsResult {
                 return error
             }
 

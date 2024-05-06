@@ -49,7 +49,10 @@ extension Assignment {
             assignmentType: assignmentType,
             assignmentGroupShares: shares,
             description: self.description,
-            maxPoints: self.maxPoints
+            maxPoints: self.maxPoints,
+            isCompleted: teamAssignment?.isCompleted ?? false,
+            value: teamAssignment?.value ?? 0,
+            maxScoringValue: self.maxScoringValue
         )
     }
 }

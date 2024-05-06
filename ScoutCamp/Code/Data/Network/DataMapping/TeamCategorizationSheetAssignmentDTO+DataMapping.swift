@@ -9,10 +9,12 @@ import Foundation
 
 extension TeamCategorizationSheetAssignmentDTO {
     func toDomain() -> TeamCategorizationSheetAssignment {
-        return TeamCategorizationSheetAssignment.init(
-            id: id,
-            assignmentId: assignmentId,
-            teamCategorizationSheetId: teamCategorizationSheetId
+        return TeamCategorizationSheetAssignment(
+            id: self.id,
+            assignmentId: self.assignmentId,
+            teamCategorizationSheetId: self.teamCategorizationSheetId,
+            isCompleted: self.isCompleted,
+            value: self.value
         )
     }
 }

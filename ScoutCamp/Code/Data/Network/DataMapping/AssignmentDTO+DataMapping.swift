@@ -12,7 +12,7 @@ extension AssignmentDTO {
     func toDomain() -> Assignment {
         return Assignment(
             id: self.id,
-            mainAssignmentGroupId: self.id,
+            mainAssignmentGroupId: self.mainAssignmentGroupId,
             dependentOnAssignmentId: self.dependentOnAssignmentId,
             assignmentType: self.assignmentType,
             description: self.description,

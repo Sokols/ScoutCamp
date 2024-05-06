@@ -20,13 +20,6 @@ struct HomeScreen: View {
         ZStack {
             Text("Home.Name".localized)
         }
-        .errorAlert(error: $viewModel.error)
-        .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
-        .onLoad {
-            Task {
-                await viewModel.fetchStaticData()
-            }
-        }
     }
 }
 

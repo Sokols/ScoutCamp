@@ -89,6 +89,7 @@ final class DefaultCategorizationSheetViewModel: CategorizationSheetViewModel {
 
     // MARK: - Data handling
 
+    @MainActor
     private func fetchSections() async {
         let requestValue = FetchSectionsUseCaseRequestValue(teamSheet: sheet)
         let result = await fetchSectionsUseCase.execute(requestValue: requestValue)
@@ -101,6 +102,7 @@ final class DefaultCategorizationSheetViewModel: CategorizationSheetViewModel {
         }
     }
 
+    @MainActor
     private func createUpdateTeamSheet(isDraft: Bool) async {
         guard let newAppSheet = generateAppTeamSheet(isDraft: isDraft) else { return }
         let requestValue = SaveTeamSheetUseCaseRequestValue(
@@ -118,6 +120,7 @@ final class DefaultCategorizationSheetViewModel: CategorizationSheetViewModel {
 
     // MARK: - Helpers
 
+    @MainActor
     private func fetchData() async {
         isLoading = true
         await fetchSections()
@@ -140,6 +143,7 @@ final class DefaultCategorizationSheetViewModel: CategorizationSheetViewModel {
 }
 
 extension DefaultCategorizationSheetViewModel {
+    @MainActor
     func onLoad() async {
         await fetchData()
     }
