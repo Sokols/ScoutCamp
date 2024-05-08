@@ -35,15 +35,18 @@ protocol CategorizationHomeViewModel: CategorizationHomeViewModelInput, Categori
 struct CategorizationHomeViewModelUseCases {
     let fetchTeamSheetsUseCase: FetchTeamSheetsUseCase
     let fetchUserTeamsUseCase: FetchUserTeamsUseCase
+    let fetchPeriodsUseCase: FetchPeriodsUseCase
 }
 
 final class DefaultCategorizationHomeViewModel: CategorizationHomeViewModel {
 
     private let fetchTeamSheetsUseCase: FetchTeamSheetsUseCase
     private let fetchUserTeamsUseCase: FetchUserTeamsUseCase
+    private let fetchPeriodsUseCase: FetchPeriodsUseCase
     private let actions: CategorizationHomeViewModelActions
 
     private let currentPeriodId = RemoteConfigManager.shared.currentPeriodId
+    private var periods: [CategorizationPeriod] = []
 
     // MARK: - OUTPUT
 
@@ -53,10 +56,7 @@ final class DefaultCategorizationHomeViewModel: CategorizationHomeViewModel {
     @Published var error: Error?
     @Published var isLoading = false
     @Published var selectedTeam: DropdownOption?
-
-    var currentPeriod: CategorizationPeriod? {
-        CategorizationPeriodsService.categoryPeriodFor(id: currentPeriodId)?.toDomain()
-    }
+    @Published var currentPeriod: CategorizationPeriod?
 
     // MARK: - Init
 
@@ -66,6 +66,7 @@ final class DefaultCategorizationHomeViewModel: CategorizationHomeViewModel {
     ) {
         self.fetchTeamSheetsUseCase = useCases.fetchTeamSheetsUseCase
         self.fetchUserTeamsUseCase = useCases.fetchUserTeamsUseCase
+        self.fetchPeriodsUseCase = useCases.fetchPeriodsUseCase
         self.actions = actions
     }
 
@@ -73,6 +74,18 @@ final class DefaultCategorizationHomeViewModel: CategorizationHomeViewModel {
 
     private func getTeam() -> Team? {
         return userTeams.first(where: {$0.id == selectedTeam?.key})
+    }
+
+    @MainActor
+    private func loadPeriods() async {
+        let result = await fetchPeriodsUseCase.execute()
+        switch result {
+        case .success(let success):
+            self.periods = success.periods
+            setupCurrentPeriod()
+        case .failure(let error):
+            self.error = error
+        }
     }
 
     @MainActor
@@ -106,6 +119,10 @@ final class DefaultCategorizationHomeViewModel: CategorizationHomeViewModel {
             self.error = error
         }
     }
+
+    private func setupCurrentPeriod() {
+        self.currentPeriod = periods.first { $0.id == currentPeriodId }
+    }
 }
 
 extension DefaultCategorizationHomeViewModel {
@@ -118,9 +135,14 @@ extension DefaultCategorizationHomeViewModel {
         selectedTeam = option
     }
 
+    @MainActor
     func onLoad() async {
-        await loadUserTeams()
-        await loadTeamSheets()
+        isLoading = true
+        async let periods: () = loadPeriods()
+        async let userTeams: () = loadUserTeams()
+        async let teamSheets: () = loadTeamSheets()
+        (_, _, _) = await (periods, userTeams, teamSheets)
+        isLoading = false
     }
 
     func onAppear() async {

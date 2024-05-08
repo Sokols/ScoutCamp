@@ -9,4 +9,5 @@ import Foundation
 
 protocol CategoriesRepository {
     func fetchCategories() async -> Result<[Category], Error>
+    func fetchCategoryUrls(for imagePaths: [String]) async -> Result<[String:URL], Error>
 }

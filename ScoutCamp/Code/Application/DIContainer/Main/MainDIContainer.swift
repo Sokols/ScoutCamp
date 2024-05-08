@@ -12,6 +12,7 @@ final class MainDIContainer: MainFlowCoordinatorDependencies {
 
     struct Dependencies {
         let firebaseDataService: FirebaseDataService
+        let storageManager: StorageManager
     }
 
     private let dependencies: Dependencies
@@ -61,7 +62,8 @@ final class MainDIContainer: MainFlowCoordinatorDependencies {
 
     private func makeCategorizationDIContainer() -> CategorizationDIContainer {
         let dependencies = CategorizationDIContainer.Dependencies(
-            firebaseDataService: dependencies.firebaseDataService
+            firebaseDataService: dependencies.firebaseDataService,
+            storageManager: dependencies.storageManager
         )
         return CategorizationDIContainer(dependencies: dependencies)
     }

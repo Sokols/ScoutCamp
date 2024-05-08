@@ -11,7 +11,8 @@ final class AppDIContainer {
 
     // MARK: - Network
 
-    lazy var firebaseDataService: FirebaseDataService = DefaultFirebaseDataService()
+    private lazy var firebaseDataService: FirebaseDataService = DefaultFirebaseDataService()
+    private lazy var storageManager: StorageManager = DefaultStorageManager()
 
     // MARK: - Repositories
 
@@ -30,7 +31,8 @@ final class AppDIContainer {
 
     func makeMainDIContainer() -> MainDIContainer {
         let dependencies = MainDIContainer.Dependencies(
-            firebaseDataService: firebaseDataService
+            firebaseDataService: firebaseDataService,
+            storageManager: storageManager
         )
         return MainDIContainer(dependencies: dependencies)
     }

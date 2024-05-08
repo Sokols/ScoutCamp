@@ -28,7 +28,6 @@ protocol CategorizationSheetViewModelOutput: ObservableObject {
     var error: Error? { get set }
     var isLoading: Bool { get }
 
-    var appAssignments: [AppAssignment] { get }
     var points: Double { get }
     var expectedCategory: Category? { get }
 }
@@ -39,7 +38,10 @@ final class DefaultCategorizationSheetViewModel: CategorizationSheetViewModel {
 
     private let fetchSectionsUseCase: FetchAssignmentGroupSectionsUseCase
     private let saveTeamSheetUseCase: SaveTeamSheetUseCase
+    private let fetchCategoriesUseCase: FetchCategoriesUseCase
     private let actions: CategorizationSheetViewModelActions
+
+    private var categories: [Category] = []
 
     // MARK: - OUTPUT
 
@@ -49,23 +51,15 @@ final class DefaultCategorizationSheetViewModel: CategorizationSheetViewModel {
     @Published var error: Error?
     @Published var isLoading = false
 
-    var appAssignments: [AppAssignment] {
-        var assignments: [AppAssignment] = []
-        sections.forEach {
-            assignments.append(contentsOf: $0.assignments)
-        }
-        return assignments
-    }
-
     var points: Double {
         let sum = sections.map { $0.totalPoints }.reduce(0, +)
         return sum.isNaN ? 0 : sum
     }
 
     var expectedCategory: Category? {
-        var category = CategoriesService.categories.last?.toDomain()
+        var category = categories.last
         let expectedCategories = sections
-            .compactMap { $0.highestPossibleCategory }
+            .compactMap { $0.getHighestPossibleCategory(from: categories) }
             .sorted(by: {$0.order < $1.order })
         if let first = expectedCategories.first {
             category = first
@@ -73,16 +67,28 @@ final class DefaultCategorizationSheetViewModel: CategorizationSheetViewModel {
         return category
     }
 
+    // MARK: - Computed properties
+
+    private var appAssignments: [AppAssignment] {
+        var assignments: [AppAssignment] = []
+        sections.forEach {
+            assignments.append(contentsOf: $0.assignments)
+        }
+        return assignments
+    }
+
     // MARK: - Initialization
 
     init(
         fetchSectionsUseCase: FetchAssignmentGroupSectionsUseCase,
         saveTeamSheetUseCase: SaveTeamSheetUseCase,
+        fetchCategoriesUseCase: FetchCategoriesUseCase,
         actions: CategorizationSheetViewModelActions,
         sheet: TeamSheet
     ) {
         self.fetchSectionsUseCase = fetchSectionsUseCase
         self.saveTeamSheetUseCase = saveTeamSheetUseCase
+        self.fetchCategoriesUseCase = fetchCategoriesUseCase
         self.actions = actions
         self.sheet = sheet
     }
@@ -97,6 +103,18 @@ final class DefaultCategorizationSheetViewModel: CategorizationSheetViewModel {
         switch result {
         case .success(let success):
             self.sections = success.sections
+        case .failure(let error):
+            self.error = error
+        }
+    }
+
+    @MainActor
+    private func fetchCategories() async {
+        let result = await fetchCategoriesUseCase.execute()
+
+        switch result {
+        case .success(let success):
+            self.categories = success.categories
         case .failure(let error):
             self.error = error
         }
@@ -120,13 +138,6 @@ final class DefaultCategorizationSheetViewModel: CategorizationSheetViewModel {
 
     // MARK: - Helpers
 
-    @MainActor
-    private func fetchData() async {
-        isLoading = true
-        await fetchSections()
-        isLoading = false
-    }
-
     private func generateAppTeamSheet(isDraft: Bool) -> TeamSheet? {
         guard let category = expectedCategory else { return nil }
         return TeamSheet(
@@ -145,7 +156,11 @@ final class DefaultCategorizationSheetViewModel: CategorizationSheetViewModel {
 extension DefaultCategorizationSheetViewModel {
     @MainActor
     func onLoad() async {
-        await fetchData()
+        isLoading = true
+        async let categories: () = fetchCategories()
+        async let sections: () = fetchSections()
+        (_, _) = await (categories, sections)
+        isLoading = false
     }
 
     func completeSheet() async {

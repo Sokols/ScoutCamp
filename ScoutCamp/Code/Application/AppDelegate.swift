@@ -41,8 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
     func setupServiceContainer() {
         ServiceContainer.register(type: TeamsServiceProtocol.self, TeamsService())
-        ServiceContainer.register(type: CategoriesServiceProtocol.self, CategoriesService())
-        ServiceContainer.register(type: CategorizationPeriodsServiceProtocol.self, CategorizationPeriodsService())
-        ServiceContainer.register(type: StorageManagerProtocol.self, StorageManager())
+        ServiceContainer.register(type: StorageManager.self, DefaultStorageManager())
     }
 }

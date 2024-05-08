@@ -12,16 +12,16 @@ final class DefaultTeamSheetsRepository {
 
     private let dataService: FirebaseDataService
     private let categorizationSheetsRepository: CategorizationSheetsRepository
-    private let categoriesRepository: CategoriesRepository
+    private let fetchCategoriesUseCase: FetchCategoriesUseCase
 
     init(
         with dataService: FirebaseDataService,
         categorizationSheetsRepository: CategorizationSheetsRepository,
-        categoriesRepository: CategoriesRepository
+        fetchCategoriesUseCase: FetchCategoriesUseCase
     ) {
         self.dataService = dataService
         self.categorizationSheetsRepository = categorizationSheetsRepository
-        self.categoriesRepository = categoriesRepository
+        self.fetchCategoriesUseCase = fetchCategoriesUseCase
     }
 }
 
@@ -55,16 +55,13 @@ extension DefaultTeamSheetsRepository: TeamSheetsRepository {
         }        
 
         // Fetch categories
-        let categoriesResult = await categoriesRepository.fetchCategories()
-        if case .failure(let error) = categoriesResult {
-            return .failure(error)
-        }
+        let categoriesResult = await fetchCategoriesUseCase.execute()
 
         var sheets: [CategorizationSheet] = []
         var categories: [Category] = []
         do {
             sheets = try sheetsResult.get()
-            categories = try categoriesResult.get()
+            categories = try categoriesResult.get().categories
         } catch {
             return .failure(error)
         }

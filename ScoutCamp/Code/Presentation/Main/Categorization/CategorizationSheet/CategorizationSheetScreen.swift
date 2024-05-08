@@ -119,7 +119,6 @@ struct CategorizationSheetScreen_Previews: PreviewProvider {
         var sheet: TeamSheet = TestData.appTeamSheet
         var error: Error?
         var isLoading: Bool = false
-        var appAssignments: [AppAssignment] = []
         var points: Double = 0.0
         var expectedCategory: Category?
     }

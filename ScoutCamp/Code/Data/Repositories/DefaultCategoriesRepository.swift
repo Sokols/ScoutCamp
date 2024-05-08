@@ -10,13 +10,27 @@ import Foundation
 final class DefaultCategoriesRepository {
 
     private let dataService: FirebaseDataService
+    private let storageManager: StorageManager
 
-    init(with dataService: FirebaseDataService) {
+    init(
+        with dataService: FirebaseDataService,
+        storageManager: StorageManager
+    ) {
         self.dataService = dataService
+        self.storageManager = storageManager
     }
 }
 
 extension DefaultCategoriesRepository: CategoriesRepository {
+    func fetchCategoryUrls(for imagePaths: [String]) async -> Result<[String:URL], Error> {
+        do {
+            let urls = try await storageManager.getImageUrls(from: imagePaths)
+            return .success(urls)
+        } catch {
+            return .failure(error)
+        }
+    }
+
     func fetchCategories() async -> Result<[Category], Error> {
         let result: ResultArray<CategoryDTO> = await dataService.getAll(collection: .categories)
         if let data = result.0 {

@@ -11,6 +11,7 @@ final class CategorizationDIContainer {
 
     struct Dependencies {
         let firebaseDataService: FirebaseDataService
+        let storageManager: StorageManager
     }
 
     private let dependencies: Dependencies
@@ -49,6 +50,14 @@ final class CategorizationDIContainer {
         )
     }
 
+    func makeFetchPeriodsUseCase() -> FetchPeriodsUseCase {
+        DefaultFetchPeriodsUseCase(periodsRepository: makeCategorizationPeriodsRepository())
+    }
+
+    func makeFetchCategoriesUseCase() -> FetchCategoriesUseCase {
+        DefaultFetchCategoriesUseCase(categoriesRepository: makeCategoriesRepository())
+    }
+
     // MARK: - Repositories
 
     private func makeTeamsRepository() -> TeamsRepository {
@@ -64,14 +73,14 @@ final class CategorizationDIContainer {
     }
 
     private func makeCategoriesRepository() -> CategoriesRepository {
-        DefaultCategoriesRepository(with: dependencies.firebaseDataService)
+        DefaultCategoriesRepository(with: dependencies.firebaseDataService, storageManager: dependencies.storageManager)
     }
 
     private func makeTeamSheetsRepository() -> TeamSheetsRepository {
         DefaultTeamSheetsRepository(
             with: dependencies.firebaseDataService,
             categorizationSheetsRepository: makeCategorizationSheetsRepository(),
-            categoriesRepository: makeCategoriesRepository()
+            fetchCategoriesUseCase: makeFetchCategoriesUseCase()
         )
     }
 
@@ -98,7 +107,7 @@ final class CategorizationDIContainer {
     private func makeGroupMinimumsRepository() -> AssignmentGroupCategoryMinimumsRepository {
         DefaultAssignmentGroupCategoryMinimumsRepository(
             with: dependencies.firebaseDataService,
-            categoriesRepository: makeCategoriesRepository()
+            fetchCategoriesUseCase: makeFetchCategoriesUseCase()
         )
     }
 
@@ -121,7 +130,8 @@ final class CategorizationDIContainer {
     ) -> T {
         let useCases = CategorizationHomeViewModelUseCases(
             fetchTeamSheetsUseCase: makeFetchTeamSheetsUseCase(),
-            fetchUserTeamsUseCase: makeFetchUserTeamsUseCase()
+            fetchUserTeamsUseCase: makeFetchUserTeamsUseCase(),
+            fetchPeriodsUseCase: makeFetchPeriodsUseCase()
         )
         return DefaultCategorizationHomeViewModel(useCases, actions: actions) as! T
     }
@@ -144,7 +154,8 @@ final class CategorizationDIContainer {
         return DefaultCategorizationSheetViewModel(
             fetchSectionsUseCase: makeFetchSectionsUseCase(),
             saveTeamSheetUseCase: makeSaveTeamSheetUseCase(),
-            actions: actions, 
+            fetchCategoriesUseCase: makeFetchCategoriesUseCase(),
+            actions: actions,
             sheet: sheet
         ) as! T
     }

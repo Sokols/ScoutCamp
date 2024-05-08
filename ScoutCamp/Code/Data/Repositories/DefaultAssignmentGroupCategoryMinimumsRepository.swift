@@ -11,28 +11,25 @@ import FirebaseFirestore
 final class DefaultAssignmentGroupCategoryMinimumsRepository {
 
     private let dataService: FirebaseDataService
-    private let categoriesRepository: CategoriesRepository
+    private let fetchCategoriesUseCase: FetchCategoriesUseCase
 
     init(
         with dataService: FirebaseDataService,
-        categoriesRepository: CategoriesRepository
+        fetchCategoriesUseCase: FetchCategoriesUseCase
     ) {
         self.dataService = dataService
-        self.categoriesRepository = categoriesRepository
+        self.fetchCategoriesUseCase = fetchCategoriesUseCase
     }
 }
 
 extension DefaultAssignmentGroupCategoryMinimumsRepository: AssignmentGroupCategoryMinimumsRepository {
     func fetchGroupMinimums(for groupIds: [String]) async -> Result<[AssignmentGroupCategoryMinimum], Error> {
         // Fetch categories
-        let categoriesResult = await categoriesRepository.fetchCategories()
-        if case .failure(let error) = categoriesResult {
-            return .failure(error)
-        }
+        let categoriesResult = await fetchCategoriesUseCase.execute()
 
         var categories: [Category] = []
         do {
-            categories = try categoriesResult.get()
+            categories = try categoriesResult.get().categories
         } catch {
             return .failure(error)
         }

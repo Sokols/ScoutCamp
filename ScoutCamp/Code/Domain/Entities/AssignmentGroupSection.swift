@@ -21,11 +21,11 @@ extension AssignmentGroupSection {
         return sum.isNaN ? 0 : sum
     }
 
-    var highestPossibleCategory: Category? {
+    func getHighestPossibleCategory(from categories: [Category]) -> Category? {
         if groupMinimums.isEmpty {
-            return CategoriesService.getLastCategory()?.toDomain()
+            return categories.getLastCategory()
         }
-        var current: Category? = CategoriesService.getFirstCategory()?.toDomain()
+        var current: Category? = categories.getFirstCategory()
         for groupMinimum in self.groupMinimums where totalPoints >= Double(groupMinimum.minimumPoints) {
             current = groupMinimum.category
         }
