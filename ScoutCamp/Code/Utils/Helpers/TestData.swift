@@ -44,7 +44,7 @@ struct TestData {
         name: ""
     )
 
-    static let assignment = Assignment(
+    static let assignment = AssignmentDTO(
         id: "",
         mainAssignmentGroupId: "",
         dependentOnAssignmentId: nil,
@@ -66,13 +66,13 @@ struct TestData {
         order: 1
     )
 
-    static let categorizationSheet = CategorizationSheet(
+    static let categorizationSheetDTO = CategorizationSheetDTO(
         id: "",
         periodId: "",
         sheetTypeId: ""
     )
 
-    static let teamCategorizationSheet = TeamCategorizationSheet(
+    static let teamCategorizationSheet = TeamSheetDTO(
         id: "1",
         categorizationSheetId: "1",
         teamId: "1",
@@ -108,15 +108,15 @@ struct TestData {
         maxScoringValue: nil
     )
 
-    static let appSheet = AppSheet(
+    static let categorizationSheet = CategorizationSheet(
         sheetId: "testId",
         period: TestData.period,
         sheetType: TestData.sheetType
     )
 
-    static let appTeamSheet = AppTeamSheet(
+    static let appTeamSheet = TeamSheet(
         teamSheetId: "testId",
-        sheet: TestData.appSheet,
+        sheet: TestData.categorizationSheet,
         team: TestData.team,
         category: TestData.firstCategory,
         points: 10,
@@ -125,14 +125,14 @@ struct TestData {
         updatedAt: .now
     )
 
-    static let firstAssignmentGroupMinimum = AppGroupMinimum(
+    static let firstAssignmentGroupMinimum = AssignmentGroupCategoryMinimum(
         groupMinimumId: "testId",
         assignmentGroupId: TestData.assignmentGroup.id,
         category: TestData.firstCategory,
         minimumPoints: 5
     )
 
-    static let secondAssignmentGroupMinimum = AppGroupMinimum(
+    static let secondAssignmentGroupMinimum = AssignmentGroupCategoryMinimum(
         groupMinimumId: "testId",
         assignmentGroupId: TestData.assignmentGroup.id,
         category: TestData.secondCategory,
