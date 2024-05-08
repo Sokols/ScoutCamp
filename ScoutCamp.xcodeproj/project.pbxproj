@@ -7,29 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		142AA44BF6EC1FC9175AA5BC /* Pods_ScoutCamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C71F63815B6CBEE12D0EDF47 /* Pods_ScoutCamp.framework */; };
 		3F0D58F22A483A410072EF1F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D58F12A483A410072EF1F /* Error.swift */; };
 		3F0D58F42A4845890072EF1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F0D58F32A4845890072EF1F /* GoogleService-Info.plist */; };
 		3F0D58F72A484BE40072EF1F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3F0D58F62A484BE40072EF1F /* FirebaseAnalytics */; };
 		3F0D58F92A484BE40072EF1F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3F0D58F82A484BE40072EF1F /* FirebaseAuth */; };
 		3F0D58FB2A484BE40072EF1F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3F0D58FA2A484BE40072EF1F /* FirebaseCrashlytics */; };
-		3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */; };
 		3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421CC2AC9A9B400EA364A /* MyTeamsScreen.swift */; };
 		3F1421CF2AC9AA1900EA364A /* MyTeamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421CE2AC9AA1900EA364A /* MyTeamsViewModel.swift */; };
-		3F1421D12AC9AB4500EA364A /* TeamsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421D02AC9AB4500EA364A /* TeamsService.swift */; };
-		3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421D22AC9AB8A00EA364A /* BaseService.swift */; };
 		3F1421D52AC9B09400EA364A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F1421D42AC9B09400EA364A /* FirebaseFirestoreSwift */; };
 		3F1421D82AC9B78300EA364A /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421D72AC9B78300EA364A /* Team.swift */; };
 		3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421DD2ACA084500EA364A /* CreateEditTeamScreen.swift */; };
 		3F1421E12ACA086200EA364A /* CreateEditTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1421E02ACA086200EA364A /* CreateEditTeamViewModel.swift */; };
 		3F1E132A2A38F17300CB64FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E13292A38F17300CB64FD /* Preview Assets.xcassets */; };
-		3F1E132F2A38F43900CB64FD /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132C2A38F43900CB64FD /* Podfile.lock */; };
 		3F1E13302A38F43900CB64FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132D2A38F43900CB64FD /* README.md */; };
-		3F1E13312A38F43900CB64FD /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3F1E132E2A38F43900CB64FD /* Podfile */; };
-		3F25CB0F2B627EF2003EE8D3 /* AppGroupMinimum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB0E2B627EF2003EE8D3 /* AppGroupMinimum.swift */; };
-		3F25CB112B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB102B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift */; };
-		3F25CB132B67BE32003EE8D3 /* CategorizationSheetAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB122B67BE32003EE8D3 /* CategorizationSheetAssignment.swift */; };
-		3F25CB152B67BE9A003EE8D3 /* CategorizationSheetAssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB142B67BE9A003EE8D3 /* CategorizationSheetAssignmentsService.swift */; };
+		3F25CB0F2B627EF2003EE8D3 /* AssignmentGroupCategoryMinimum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB0E2B627EF2003EE8D3 /* AssignmentGroupCategoryMinimum.swift */; };
+		3F25CB132B67BE32003EE8D3 /* CategorizationSheetAssignmentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB122B67BE32003EE8D3 /* CategorizationSheetAssignmentDTO.swift */; };
+		3F25CB212B724128003EE8D3 /* AssignmentDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB202B724128003EE8D3 /* AssignmentDTO+DataMapping.swift */; };
+		3F25CB242B7246A0003EE8D3 /* AssignmentGroupCategoryMinimumDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB232B7246A0003EE8D3 /* AssignmentGroupCategoryMinimumDTO+DataMapping.swift */; };
+		3F25CB282B724790003EE8D3 /* CategorizationSheetDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB272B724790003EE8D3 /* CategorizationSheetDTO+DataMapping.swift */; };
+		3F25CB2A2B724A43003EE8D3 /* TeamSheetDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB292B724A43003EE8D3 /* TeamSheetDTO+DataMapping.swift */; };
+		3F25CB2C2B724DA3003EE8D3 /* AssignmentGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB2B2B724DA3003EE8D3 /* AssignmentGroup.swift */; };
+		3F25CB2E2B724DD4003EE8D3 /* AssignmentGroupDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB2D2B724DD4003EE8D3 /* AssignmentGroupDTO+DataMapping.swift */; };
+		3F25CB302B725199003EE8D3 /* CategoryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB2F2B725199003EE8D3 /* CategoryDTO.swift */; };
+		3F25CB322B725210003EE8D3 /* CategoryDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB312B725210003EE8D3 /* CategoryDTO+DataMapping.swift */; };
+		3F25CB342B725393003EE8D3 /* CategorizationPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB332B725393003EE8D3 /* CategorizationPeriod.swift */; };
+		3F25CB362B725413003EE8D3 /* CategorizationPeriodDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB352B725413003EE8D3 /* CategorizationPeriodDTO+DataMapping.swift */; };
+		3F25CB382B7254B3003EE8D3 /* CategorizationSheetAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB372B7254B3003EE8D3 /* CategorizationSheetAssignment.swift */; };
+		3F25CB3A2B7254D1003EE8D3 /* CategorizationSheetAssignmentDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB392B7254D1003EE8D3 /* CategorizationSheetAssignmentDTO+DataMapping.swift */; };
+		3F25CB3C2B725F78003EE8D3 /* SheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB3B2B725F78003EE8D3 /* SheetType.swift */; };
+		3F25CB3F2B725F9A003EE8D3 /* SheetTypeDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB3E2B725F9A003EE8D3 /* SheetTypeDTO+DataMapping.swift */; };
+		3F25CB412B726039003EE8D3 /* TeamDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB402B726039003EE8D3 /* TeamDTO.swift */; };
+		3F25CB432B726073003EE8D3 /* TeamDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB422B726073003EE8D3 /* TeamDTO+DataMapping.swift */; };
+		3F25CB452B726207003EE8D3 /* TeamCategorizationSheetAssignmentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB442B726207003EE8D3 /* TeamCategorizationSheetAssignmentDTO.swift */; };
+		3F25CB472B72680D003EE8D3 /* TeamCategorizationSheetAssignmentDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB462B72680D003EE8D3 /* TeamCategorizationSheetAssignmentDTO+DataMapping.swift */; };
+		3F25CB4A2B726C06003EE8D3 /* CategorizationSheetsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB492B726C06003EE8D3 /* CategorizationSheetsRepository.swift */; };
+		3F25CB4C2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB4B2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift */; };
+		3F25CB532B7271CE003EE8D3 /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB522B7271CE003EE8D3 /* FirebaseDataService.swift */; };
+		3F25CB552B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB542B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift */; };
+		3F25CB572B727730003EE8D3 /* TeamSheetsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB562B727730003EE8D3 /* TeamSheetsRepository.swift */; };
+		3F25CB592B72777E003EE8D3 /* DefaultTeamSheetsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB582B72777E003EE8D3 /* DefaultTeamSheetsRepository.swift */; };
+		3F25CB5B2B72828F003EE8D3 /* TeamsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB5A2B72828F003EE8D3 /* TeamsRepository.swift */; };
+		3F25CB5D2B72830F003EE8D3 /* DefaultTeamsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB5C2B72830F003EE8D3 /* DefaultTeamsRepository.swift */; };
+		3F25CB5F2B7520D9003EE8D3 /* FetchUserTeamsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB5E2B7520D9003EE8D3 /* FetchUserTeamsUseCase.swift */; };
+		3F25CB672B7B871D003EE8D3 /* CategorizationDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB662B7B871D003EE8D3 /* CategorizationDIContainer.swift */; };
+		3F25CB6A2B7B9398003EE8D3 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB692B7B9398003EE8D3 /* AppDIContainer.swift */; };
+		3F25CB6C2B7B9493003EE8D3 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB6B2B7B9493003EE8D3 /* AppFlowCoordinator.swift */; };
+		3F25CB6E2B7B951B003EE8D3 /* CategorizationFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25CB6D2B7B951B003EE8D3 /* CategorizationFlowCoordinator.swift */; };
 		3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */; };
 		3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E42A39DD6B00E3BC30 /* LoginViewModel.swift */; };
 		3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */; };
@@ -41,17 +64,12 @@
 		3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */; };
 		3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560A2A3C797F00E3BC30 /* Validation.swift */; };
 		3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */; };
-		3F3814212AE29DD100B4C0E3 /* CategorizationPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814202AE29DD100B4C0E3 /* CategorizationPeriod.swift */; };
+		3F3814212AE29DD100B4C0E3 /* CategorizationPeriodDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814202AE29DD100B4C0E3 /* CategorizationPeriodDTO.swift */; };
 		3F3814232AE29EBD00B4C0E3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814222AE29EBD00B4C0E3 /* Category.swift */; };
-		3F3814252AE29EE300B4C0E3 /* CategorizationPeriodsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */; };
-		3F38142B2AE2A10200B4C0E3 /* CategorizationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38142A2AE2A10200B4C0E3 /* CategorizationSheet.swift */; };
-		3F38142D2AE2A15900B4C0E3 /* CategorizationSheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38142C2AE2A15900B4C0E3 /* CategorizationSheetsService.swift */; };
-		3F38142F2AE2A4A300B4C0E3 /* SheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38142E2AE2A4A300B4C0E3 /* SheetType.swift */; };
-		3F3814312AE2A4CA00B4C0E3 /* SheetTypesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814302AE2A4CA00B4C0E3 /* SheetTypesService.swift */; };
+		3F38142B2AE2A10200B4C0E3 /* CategorizationSheetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38142A2AE2A10200B4C0E3 /* CategorizationSheetDTO.swift */; };
+		3F38142F2AE2A4A300B4C0E3 /* SheetTypeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38142E2AE2A4A300B4C0E3 /* SheetTypeDTO.swift */; };
 		3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift */; };
-		3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift */; };
-		3F3814372AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */; };
-		3F3814392AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */; };
+		3F3814372AE2A62F00B4C0E3 /* TeamSheetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3814362AE2A62F00B4C0E3 /* TeamSheetDTO.swift */; };
 		3F393F052B1F4B3700419385 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */; };
 		3F393F092B2336C600419385 /* TeamAssignmentsGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F082B2336C600419385 /* TeamAssignmentsGroupView.swift */; };
 		3F393F0B2B2345F300419385 /* AssignmentGroupSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F0A2B2345F300419385 /* AssignmentGroupSection.swift */; };
@@ -59,12 +77,39 @@
 		3F393F102B2723D400419385 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 3F393F0F2B2723D400419385 /* DGCharts */; };
 		3F393F122B27245600419385 /* AssignmentGroupsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F112B27245600419385 /* AssignmentGroupsChartView.swift */; };
 		3F393F142B27256300419385 /* SharesPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393F132B27256300419385 /* SharesPieChartView.swift */; };
+		3F39411A2B7CE21D003DD454 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941192B7CE21D003DD454 /* MainFlowCoordinator.swift */; };
+		3F39411C2B7CEE91003DD454 /* SheetTypesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39411B2B7CEE91003DD454 /* SheetTypesRepository.swift */; };
+		3F39411E2B7CEECA003DD454 /* DefaultSheetTypesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39411D2B7CEECA003DD454 /* DefaultSheetTypesRepository.swift */; };
+		3F3941202B7CEF0F003DD454 /* CategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39411F2B7CEF0F003DD454 /* CategoriesRepository.swift */; };
+		3F3941222B7CEF26003DD454 /* DefaultCategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941212B7CEF26003DD454 /* DefaultCategoriesRepository.swift */; };
+		3F3941242B7CEFC5003DD454 /* CategorizationPeriodsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941232B7CEFC5003DD454 /* CategorizationPeriodsRepository.swift */; };
+		3F3941262B7CEFE3003DD454 /* DefaultCategorizationPeriodsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941252B7CEFE3003DD454 /* DefaultCategorizationPeriodsRepository.swift */; };
+		3F3941282B7D16B3003DD454 /* AssignmentGroupCategoryMinimumsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941272B7D16B3003DD454 /* AssignmentGroupCategoryMinimumsRepository.swift */; };
+		3F39412A2B7D171F003DD454 /* DefaultAssignmentGroupCategoryMinimumsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941292B7D171F003DD454 /* DefaultAssignmentGroupCategoryMinimumsRepository.swift */; };
+		3F39412C2B7D19C3003DD454 /* AssignmentsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39412B2B7D19C3003DD454 /* AssignmentsRepository.swift */; };
+		3F39412E2B7D19ED003DD454 /* DefaultAssignmentsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39412D2B7D19ED003DD454 /* DefaultAssignmentsRepository.swift */; };
+		3F3941312B7D1BAE003DD454 /* AssignmentGroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941302B7D1BAE003DD454 /* AssignmentGroupsRepository.swift */; };
+		3F3941332B7D1BE0003DD454 /* DefaultAssignmentGroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941322B7D1BE0003DD454 /* DefaultAssignmentGroupsRepository.swift */; };
+		3F3941372B7E5A8C003DD454 /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941362B7E5A8C003DD454 /* AuthFlowCoordinator.swift */; };
+		3F3941392B7E5AB6003DD454 /* AuthDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941382B7E5AB6003DD454 /* AuthDIContainer.swift */; };
+		3F39413B2B837AAC003DD454 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39413A2B837AAC003DD454 /* AuthRepository.swift */; };
+		3F39413D2B837B46003DD454 /* DefaultAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39413C2B837B46003DD454 /* DefaultAuthRepository.swift */; };
+		3F3941402B83801C003DD454 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39413F2B83801C003DD454 /* SignInUseCase.swift */; };
+		3F3941422B83903F003DD454 /* MainDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3941412B83903F003DD454 /* MainDIContainer.swift */; };
+		3F3C2D262BD930D3007B6F6E /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D252BD930D3007B6F6E /* SignUpUseCase.swift */; };
+		3F3C2D2A2BD95158007B6F6E /* ProfileDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D292BD95158007B6F6E /* ProfileDIContainer.swift */; };
+		3F3C2D2C2BD951CC007B6F6E /* SignOutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D2B2BD951CC007B6F6E /* SignOutUseCase.swift */; };
+		3F3C2D2F2BD95886007B6F6E /* ProfileFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D2E2BD95886007B6F6E /* ProfileFlowCoordinator.swift */; };
+		3F3C2D332BDA714A007B6F6E /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D322BDA714A007B6F6E /* UIViewController+Extensions.swift */; };
+		3F3C2D3A2BDA7CD0007B6F6E /* SaveTeamSheetUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D392BDA7CD0007B6F6E /* SaveTeamSheetUseCase.swift */; };
+		3F3C2D3C2BDA836E007B6F6E /* TeamAssignmentsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D3B2BDA836E007B6F6E /* TeamAssignmentsRepository.swift */; };
+		3F3C2D3E2BDA83CA007B6F6E /* DefaultTeamAssignmentsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D3D2BDA83CA007B6F6E /* DefaultTeamAssignmentsRepository.swift */; };
+		3F3C2D402BDA8699007B6F6E /* FetchAssignmentGroupSectionsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C2D3F2BDA8699007B6F6E /* FetchAssignmentGroupSectionsUseCase.swift */; };
 		3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */; };
 		3F3E50DF2AF1332000552CC2 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50DE2AF1332000552CC2 /* FirebaseRemoteConfig */; };
 		3F3E50E12AF1332000552CC2 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3E50E02AF1332000552CC2 /* FirebaseRemoteConfigSwift */; };
 		3F3E50E42AF134C700552CC2 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */; };
-		3F3E50E62AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */; };
-		3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E72AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift */; };
+		3F3E50E62AF7C21C00552CC2 /* AssignmentGroupAssignmentJunctionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunctionDTO.swift */; };
 		3F3E50EA2AFA99E800552CC2 /* BaseToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50E92AFA99E800552CC2 /* BaseToolbarView.swift */; };
 		3F3E50EC2AFA9DC000552CC2 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E50EB2AFA9DC000552CC2 /* CircleButton.swift */; };
 		3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */; };
@@ -76,9 +121,7 @@
 		3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F78A0122AC88E7000945FDE /* FirebaseFirestore */; };
 		3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0142AC890F100945FDE /* ProfileViewModel.swift */; };
 		3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0152AC890F100945FDE /* ProfileScreen.swift */; };
-		3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */; };
-		3F87C5AE2B62600D007BD798 /* AssignmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87C5AD2B62600D007BD798 /* AssignmentType.swift */; };
-		3F87C5B02B62621D007BD798 /* AssignmentGroupCategoryMinimum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimum.swift */; };
+		3F87C5B02B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift */; };
 		3FBA1CB52B03B8240019A84A /* TeamAssignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CB42B03B8240019A84A /* TeamAssignmentView.swift */; };
 		3FBA1CB82B03BCBC0019A84A /* AssignmentCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CB72B03BCBC0019A84A /* AssignmentCheckbox.swift */; };
 		3FBA1CBA2B03E2EA0019A84A /* AssignmentNumericInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1CB92B03E2EA0019A84A /* AssignmentNumericInput.swift */; };
@@ -88,25 +131,34 @@
 		3FBA1D312B0E384F0019A84A /* AppAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D302B0E384F0019A84A /* AppAssignment.swift */; };
 		3FBA1D332B0F678F0019A84A /* Decimal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D322B0F678F0019A84A /* Decimal+Extensions.swift */; };
 		3FBA1D352B0F97100019A84A /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D342B0F97100019A84A /* Date+Extensions.swift */; };
-		3FBA1D372B0F97EA0019A84A /* AppTeamSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */; };
+		3FBA1D372B0F97EA0019A84A /* TeamSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D362B0F97EA0019A84A /* TeamSheet.swift */; };
 		3FBA1D3C2B10A8550019A84A /* DependencyPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D3B2B10A8550019A84A /* DependencyPropertyWrapper.swift */; };
 		3FBA1D3E2B10A86A0019A84A /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D3D2B10A86A0019A84A /* ServiceContainer.swift */; };
 		3FBA1D402B10A8870019A84A /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D3F2B10A8870019A84A /* ServiceType.swift */; };
-		3FBA1D422B10B4560019A84A /* AppSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D412B10B4560019A84A /* AppSheet.swift */; };
+		3FBA1D422B10B4560019A84A /* CategorizationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D412B10B4560019A84A /* CategorizationSheet.swift */; };
 		3FBA1D442B10C4200019A84A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA1D432B10C4200019A84A /* AppDelegate.swift */; };
+		3FCCD9D12BEBA46E00EDBFF2 /* MyTeamsDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCCD9D02BEBA46E00EDBFF2 /* MyTeamsDIContainer.swift */; };
+		3FCCD9D32BEBA4A600EDBFF2 /* MyTeamsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCCD9D22BEBA4A600EDBFF2 /* MyTeamsFlowCoordinator.swift */; };
+		3FCCD9D62BEBA92D00EDBFF2 /* FetchRegimentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCCD9D52BEBA92D00EDBFF2 /* FetchRegimentsUseCase.swift */; };
+		3FCCD9D82BEBA9AB00EDBFF2 /* FetchRegimentTroopsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCCD9D72BEBA9AB00EDBFF2 /* FetchRegimentTroopsUseCase.swift */; };
+		3FCCD9DA2BEBAA6300EDBFF2 /* DeleteTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCCD9D92BEBAA6300EDBFF2 /* DeleteTeamUseCase.swift */; };
+		3FCCD9DC2BEBAAA200EDBFF2 /* CreateTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCCD9DB2BEBAAA200EDBFF2 /* CreateTeamUseCase.swift */; };
+		3FCCD9DE2BEBAB0B00EDBFF2 /* UpdateTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCCD9DD2BEBAB0B00EDBFF2 /* UpdateTeamUseCase.swift */; };
+		3FD7BDC62BDF98C500A114F2 /* AssignmentGroupJunctionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7BDC52BDF98C500A114F2 /* AssignmentGroupJunctionsRepository.swift */; };
+		3FD7BDC82BDF9B3100A114F2 /* AssignmentGroupJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7BDC72BDF9B3100A114F2 /* AssignmentGroupJunction.swift */; };
+		3FD7BDCA2BDF9B6200A114F2 /* AssignmentGroupAssignmentJunctionDTO+DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7BDC92BDF9B6200A114F2 /* AssignmentGroupAssignmentJunctionDTO+DataMapping.swift */; };
+		3FD7BDCC2BDF9BB200A114F2 /* DefaultAssignmentGroupJunctionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7BDCB2BDF9BB200A114F2 /* DefaultAssignmentGroupJunctionsRepository.swift */; };
+		3FD7BDD12BDF9DE400A114F2 /* FetchCategoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7BDD02BDF9DE400A114F2 /* FetchCategoriesUseCase.swift */; };
+		3FD7BDD32BE1353400A114F2 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7BDD22BE1353400A114F2 /* Assignment.swift */; };
 		3FDF9A3F2AE6E2A300F5F111 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */; };
+		3FE24B1B2BE903C200FF1FF3 /* FetchPeriodsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE24B1A2BE903C200FF1FF3 /* FetchPeriodsUseCase.swift */; };
 		3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4132AD41AEF000E455F /* DropdownField.swift */; };
 		3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */; };
-		3FE3A42C2ADD50F3000E455F /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42B2ADD50F3000E455F /* Assignment.swift */; };
-		3FE3A42E2ADD5252000E455F /* AssignmentGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42D2ADD5252000E455F /* AssignmentGroup.swift */; };
-		3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */; };
-		3FE3A4342ADD5BF7000E455F /* AssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4332ADD5BF7000E455F /* AssignmentsService.swift */; };
-		3FE3A4362ADD5C4E000E455F /* AssignmentGroupsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A4352ADD5C4E000E455F /* AssignmentGroupsService.swift */; };
+		3FE3A42C2ADD50F3000E455F /* AssignmentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42B2ADD50F3000E455F /* AssignmentDTO.swift */; };
+		3FE3A42E2ADD5252000E455F /* AssignmentGroupDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A42D2ADD5252000E455F /* AssignmentGroupDTO.swift */; };
 		3FE3A43B2ADD5FC6000E455F /* CategorizationHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */; };
 		3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */; };
 		3FE3A43F2ADD60BA000E455F /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */; };
-		3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549B2A365E0D00498112 /* ScoutCampApp.swift */; };
-		3FED549E2A365E0D00498112 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED549D2A365E0D00498112 /* ContentView.swift */; };
 		3FED54A02A365E0E00498112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FED549F2A365E0E00498112 /* Assets.xcassets */; };
 		3FED54AD2A365E0E00498112 /* ScoutCampTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED54AC2A365E0E00498112 /* ScoutCampTests.swift */; };
 		3FED54B72A365E0F00498112 /* ScoutCampUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED54B62A365E0F00498112 /* ScoutCampUITests.swift */; };
@@ -132,25 +184,62 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3FFC98672B7CD865004EA584 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3F0D58F12A483A410072EF1F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		3F0D58F32A4845890072EF1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3F1421CC2AC9A9B400EA364A /* MyTeamsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTeamsScreen.swift; sourceTree = "<group>"; };
 		3F1421CE2AC9AA1900EA364A /* MyTeamsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTeamsViewModel.swift; sourceTree = "<group>"; };
-		3F1421D02AC9AB4500EA364A /* TeamsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsService.swift; sourceTree = "<group>"; };
-		3F1421D22AC9AB8A00EA364A /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		3F1421D72AC9B78300EA364A /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		3F1421DD2ACA084500EA364A /* CreateEditTeamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditTeamScreen.swift; sourceTree = "<group>"; };
 		3F1421E02ACA086200EA364A /* CreateEditTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditTeamViewModel.swift; sourceTree = "<group>"; };
 		3F1E13292A38F17300CB64FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3F1E132C2A38F43900CB64FD /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		3F1E132D2A38F43900CB64FD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		3F1E132E2A38F43900CB64FD /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		3F25CB0E2B627EF2003EE8D3 /* AppGroupMinimum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupMinimum.swift; sourceTree = "<group>"; };
-		3F25CB102B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumsService.swift; sourceTree = "<group>"; };
-		3F25CB122B67BE32003EE8D3 /* CategorizationSheetAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetAssignment.swift; sourceTree = "<group>"; };
-		3F25CB142B67BE9A003EE8D3 /* CategorizationSheetAssignmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetAssignmentsService.swift; sourceTree = "<group>"; };
+		3F25CB0E2B627EF2003EE8D3 /* AssignmentGroupCategoryMinimum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimum.swift; sourceTree = "<group>"; };
+		3F25CB122B67BE32003EE8D3 /* CategorizationSheetAssignmentDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetAssignmentDTO.swift; sourceTree = "<group>"; };
+		3F25CB202B724128003EE8D3 /* AssignmentDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssignmentDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB232B7246A0003EE8D3 /* AssignmentGroupCategoryMinimumDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssignmentGroupCategoryMinimumDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB272B724790003EE8D3 /* CategorizationSheetDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategorizationSheetDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB292B724A43003EE8D3 /* TeamSheetDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamSheetDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB2B2B724DA3003EE8D3 /* AssignmentGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroup.swift; sourceTree = "<group>"; };
+		3F25CB2D2B724DD4003EE8D3 /* AssignmentGroupDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssignmentGroupDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB2F2B725199003EE8D3 /* CategoryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDTO.swift; sourceTree = "<group>"; };
+		3F25CB312B725210003EE8D3 /* CategoryDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB332B725393003EE8D3 /* CategorizationPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriod.swift; sourceTree = "<group>"; };
+		3F25CB352B725413003EE8D3 /* CategorizationPeriodDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategorizationPeriodDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB372B7254B3003EE8D3 /* CategorizationSheetAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetAssignment.swift; sourceTree = "<group>"; };
+		3F25CB392B7254D1003EE8D3 /* CategorizationSheetAssignmentDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategorizationSheetAssignmentDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB3B2B725F78003EE8D3 /* SheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetType.swift; sourceTree = "<group>"; };
+		3F25CB3E2B725F9A003EE8D3 /* SheetTypeDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SheetTypeDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB402B726039003EE8D3 /* TeamDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDTO.swift; sourceTree = "<group>"; };
+		3F25CB422B726073003EE8D3 /* TeamDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB442B726207003EE8D3 /* TeamCategorizationSheetAssignmentDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetAssignmentDTO.swift; sourceTree = "<group>"; };
+		3F25CB462B72680D003EE8D3 /* TeamCategorizationSheetAssignmentDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamCategorizationSheetAssignmentDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3F25CB492B726C06003EE8D3 /* CategorizationSheetsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsRepository.swift; sourceTree = "<group>"; };
+		3F25CB4B2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCategorizationSheetsRepository.swift; sourceTree = "<group>"; };
+		3F25CB522B7271CE003EE8D3 /* FirebaseDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
+		3F25CB542B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamSheetsUseCase.swift; sourceTree = "<group>"; };
+		3F25CB562B727730003EE8D3 /* TeamSheetsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSheetsRepository.swift; sourceTree = "<group>"; };
+		3F25CB582B72777E003EE8D3 /* DefaultTeamSheetsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTeamSheetsRepository.swift; sourceTree = "<group>"; };
+		3F25CB5A2B72828F003EE8D3 /* TeamsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsRepository.swift; sourceTree = "<group>"; };
+		3F25CB5C2B72830F003EE8D3 /* DefaultTeamsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTeamsRepository.swift; sourceTree = "<group>"; };
+		3F25CB5E2B7520D9003EE8D3 /* FetchUserTeamsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserTeamsUseCase.swift; sourceTree = "<group>"; };
+		3F25CB662B7B871D003EE8D3 /* CategorizationDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationDIContainer.swift; sourceTree = "<group>"; };
+		3F25CB692B7B9398003EE8D3 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		3F25CB6B2B7B9493003EE8D3 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
+		3F25CB6D2B7B951B003EE8D3 /* CategorizationFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationFlowCoordinator.swift; sourceTree = "<group>"; };
 		3F286EAB2A49A9FA00BA00BE /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		3F2E55E42A39DD6B00E3BC30 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3F2E55E62A39DDD000E3BC30 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
@@ -162,27 +251,49 @@
 		3F2E56082A3C611400E3BC30 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		3F2E560A2A3C797F00E3BC30 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		3F2E560C2A3C8A7E00E3BC30 /* EntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryField.swift; sourceTree = "<group>"; };
-		3F3814202AE29DD100B4C0E3 /* CategorizationPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriod.swift; sourceTree = "<group>"; };
+		3F3814202AE29DD100B4C0E3 /* CategorizationPeriodDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriodDTO.swift; sourceTree = "<group>"; };
 		3F3814222AE29EBD00B4C0E3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriodsService.swift; sourceTree = "<group>"; };
-		3F38142A2AE2A10200B4C0E3 /* CategorizationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheet.swift; sourceTree = "<group>"; };
-		3F38142C2AE2A15900B4C0E3 /* CategorizationSheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsService.swift; sourceTree = "<group>"; };
-		3F38142E2AE2A4A300B4C0E3 /* SheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetType.swift; sourceTree = "<group>"; };
-		3F3814302AE2A4CA00B4C0E3 /* SheetTypesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTypesService.swift; sourceTree = "<group>"; };
+		3F38142A2AE2A10200B4C0E3 /* CategorizationSheetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetDTO.swift; sourceTree = "<group>"; };
+		3F38142E2AE2A4A300B4C0E3 /* SheetTypeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTypeDTO.swift; sourceTree = "<group>"; };
 		3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetAssignment.swift; sourceTree = "<group>"; };
-		3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetAssignmentsService.swift; sourceTree = "<group>"; };
-		3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheet.swift; sourceTree = "<group>"; };
-		3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCategorizationSheetsService.swift; sourceTree = "<group>"; };
+		3F3814362AE2A62F00B4C0E3 /* TeamSheetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSheetDTO.swift; sourceTree = "<group>"; };
 		3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		3F393F082B2336C600419385 /* TeamAssignmentsGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAssignmentsGroupView.swift; sourceTree = "<group>"; };
 		3F393F0A2B2345F300419385 /* AssignmentGroupSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupSection.swift; sourceTree = "<group>"; };
 		3F393F0C2B235E0000419385 /* CategoryAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAsyncImage.swift; sourceTree = "<group>"; };
 		3F393F112B27245600419385 /* AssignmentGroupsChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupsChartView.swift; sourceTree = "<group>"; };
 		3F393F132B27256300419385 /* SharesPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharesPieChartView.swift; sourceTree = "<group>"; };
+		3F3941192B7CE21D003DD454 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
+		3F39411B2B7CEE91003DD454 /* SheetTypesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTypesRepository.swift; sourceTree = "<group>"; };
+		3F39411D2B7CEECA003DD454 /* DefaultSheetTypesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSheetTypesRepository.swift; sourceTree = "<group>"; };
+		3F39411F2B7CEF0F003DD454 /* CategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRepository.swift; sourceTree = "<group>"; };
+		3F3941212B7CEF26003DD454 /* DefaultCategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCategoriesRepository.swift; sourceTree = "<group>"; };
+		3F3941232B7CEFC5003DD454 /* CategorizationPeriodsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriodsRepository.swift; sourceTree = "<group>"; };
+		3F3941252B7CEFE3003DD454 /* DefaultCategorizationPeriodsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCategorizationPeriodsRepository.swift; sourceTree = "<group>"; };
+		3F3941272B7D16B3003DD454 /* AssignmentGroupCategoryMinimumsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumsRepository.swift; sourceTree = "<group>"; };
+		3F3941292B7D171F003DD454 /* DefaultAssignmentGroupCategoryMinimumsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAssignmentGroupCategoryMinimumsRepository.swift; sourceTree = "<group>"; };
+		3F39412B2B7D19C3003DD454 /* AssignmentsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsRepository.swift; sourceTree = "<group>"; };
+		3F39412D2B7D19ED003DD454 /* DefaultAssignmentsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAssignmentsRepository.swift; sourceTree = "<group>"; };
+		3F3941302B7D1BAE003DD454 /* AssignmentGroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupsRepository.swift; sourceTree = "<group>"; };
+		3F3941322B7D1BE0003DD454 /* DefaultAssignmentGroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAssignmentGroupsRepository.swift; sourceTree = "<group>"; };
+		3F3941362B7E5A8C003DD454 /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
+		3F3941382B7E5AB6003DD454 /* AuthDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDIContainer.swift; sourceTree = "<group>"; };
+		3F39413A2B837AAC003DD454 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		3F39413C2B837B46003DD454 /* DefaultAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthRepository.swift; sourceTree = "<group>"; };
+		3F39413F2B83801C003DD454 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
+		3F3941412B83903F003DD454 /* MainDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDIContainer.swift; sourceTree = "<group>"; };
+		3F3C2D252BD930D3007B6F6E /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
+		3F3C2D292BD95158007B6F6E /* ProfileDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDIContainer.swift; sourceTree = "<group>"; };
+		3F3C2D2B2BD951CC007B6F6E /* SignOutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutUseCase.swift; sourceTree = "<group>"; };
+		3F3C2D2E2BD95886007B6F6E /* ProfileFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlowCoordinator.swift; sourceTree = "<group>"; };
+		3F3C2D322BDA714A007B6F6E /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		3F3C2D392BDA7CD0007B6F6E /* SaveTeamSheetUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTeamSheetUseCase.swift; sourceTree = "<group>"; };
+		3F3C2D3B2BDA836E007B6F6E /* TeamAssignmentsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAssignmentsRepository.swift; sourceTree = "<group>"; };
+		3F3C2D3D2BDA83CA007B6F6E /* DefaultTeamAssignmentsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTeamAssignmentsRepository.swift; sourceTree = "<group>"; };
+		3F3C2D3F2BDA8699007B6F6E /* FetchAssignmentGroupSectionsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAssignmentGroupSectionsUseCase.swift; sourceTree = "<group>"; };
 		3F3E50DC2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsCarouselView.swift; sourceTree = "<group>"; };
 		3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
-		3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunction.swift; sourceTree = "<group>"; };
-		3F3E50E72AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunctionsService.swift; sourceTree = "<group>"; };
+		3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunctionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupAssignmentJunctionDTO.swift; sourceTree = "<group>"; };
 		3F3E50E92AFA99E800552CC2 /* BaseToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseToolbarView.swift; sourceTree = "<group>"; };
 		3F3E50EB2AFA9DC000552CC2 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		3F4F657D2ADE78CF003B2F0A /* CategorizationSheetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetScreen.swift; sourceTree = "<group>"; };
@@ -193,9 +304,7 @@
 		3F6B18632A52CDFD00F3C665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F78A0142AC890F100945FDE /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3F78A0152AC890F100945FDE /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
-		3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainer.swift; sourceTree = "<group>"; };
-		3F87C5AD2B62600D007BD798 /* AssignmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentType.swift; sourceTree = "<group>"; };
-		3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimum.swift; sourceTree = "<group>"; };
+		3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumDTO.swift; sourceTree = "<group>"; };
 		3FBA1CB42B03B8240019A84A /* TeamAssignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAssignmentView.swift; sourceTree = "<group>"; };
 		3FBA1CB72B03BCBC0019A84A /* AssignmentCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentCheckbox.swift; sourceTree = "<group>"; };
 		3FBA1CB92B03E2EA0019A84A /* AssignmentNumericInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentNumericInput.swift; sourceTree = "<group>"; };
@@ -205,26 +314,35 @@
 		3FBA1D302B0E384F0019A84A /* AppAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssignment.swift; sourceTree = "<group>"; };
 		3FBA1D322B0F678F0019A84A /* Decimal+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Extensions.swift"; sourceTree = "<group>"; };
 		3FBA1D342B0F97100019A84A /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTeamSheet.swift; sourceTree = "<group>"; };
+		3FBA1D362B0F97EA0019A84A /* TeamSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSheet.swift; sourceTree = "<group>"; };
 		3FBA1D3B2B10A8550019A84A /* DependencyPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyPropertyWrapper.swift; sourceTree = "<group>"; };
 		3FBA1D3D2B10A86A0019A84A /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
 		3FBA1D3F2B10A8870019A84A /* ServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceType.swift; sourceTree = "<group>"; };
-		3FBA1D412B10B4560019A84A /* AppSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSheet.swift; sourceTree = "<group>"; };
+		3FBA1D412B10B4560019A84A /* CategorizationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheet.swift; sourceTree = "<group>"; };
 		3FBA1D432B10C4200019A84A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3FCCD9D02BEBA46E00EDBFF2 /* MyTeamsDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTeamsDIContainer.swift; sourceTree = "<group>"; };
+		3FCCD9D22BEBA4A600EDBFF2 /* MyTeamsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTeamsFlowCoordinator.swift; sourceTree = "<group>"; };
+		3FCCD9D52BEBA92D00EDBFF2 /* FetchRegimentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRegimentsUseCase.swift; sourceTree = "<group>"; };
+		3FCCD9D72BEBA9AB00EDBFF2 /* FetchRegimentTroopsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRegimentTroopsUseCase.swift; sourceTree = "<group>"; };
+		3FCCD9D92BEBAA6300EDBFF2 /* DeleteTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTeamUseCase.swift; sourceTree = "<group>"; };
+		3FCCD9DB2BEBAAA200EDBFF2 /* CreateTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamUseCase.swift; sourceTree = "<group>"; };
+		3FCCD9DD2BEBAB0B00EDBFF2 /* UpdateTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTeamUseCase.swift; sourceTree = "<group>"; };
+		3FD7BDC52BDF98C500A114F2 /* AssignmentGroupJunctionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupJunctionsRepository.swift; sourceTree = "<group>"; };
+		3FD7BDC72BDF9B3100A114F2 /* AssignmentGroupJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupJunction.swift; sourceTree = "<group>"; };
+		3FD7BDC92BDF9B6200A114F2 /* AssignmentGroupAssignmentJunctionDTO+DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssignmentGroupAssignmentJunctionDTO+DataMapping.swift"; sourceTree = "<group>"; };
+		3FD7BDCB2BDF9BB200A114F2 /* DefaultAssignmentGroupJunctionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAssignmentGroupJunctionsRepository.swift; sourceTree = "<group>"; };
+		3FD7BDD02BDF9DE400A114F2 /* FetchCategoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCategoriesUseCase.swift; sourceTree = "<group>"; };
+		3FD7BDD22BE1353400A114F2 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		3FDF9A3E2AE6E2A300F5F111 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
+		3FE24B1A2BE903C200FF1FF3 /* FetchPeriodsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPeriodsUseCase.swift; sourceTree = "<group>"; };
 		3FE3A4132AD41AEF000E455F /* DropdownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownField.swift; sourceTree = "<group>"; };
 		3FE3A4152AD441ED000E455F /* TextFieldStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
-		3FE3A42B2ADD50F3000E455F /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
-		3FE3A42D2ADD5252000E455F /* AssignmentGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroup.swift; sourceTree = "<group>"; };
-		3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
-		3FE3A4332ADD5BF7000E455F /* AssignmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsService.swift; sourceTree = "<group>"; };
-		3FE3A4352ADD5C4E000E455F /* AssignmentGroupsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupsService.swift; sourceTree = "<group>"; };
+		3FE3A42B2ADD50F3000E455F /* AssignmentDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDTO.swift; sourceTree = "<group>"; };
+		3FE3A42D2ADD5252000E455F /* AssignmentGroupDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupDTO.swift; sourceTree = "<group>"; };
 		3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationHomeScreen.swift; sourceTree = "<group>"; };
 		3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationHomeViewModel.swift; sourceTree = "<group>"; };
 		3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		3FED54982A365E0D00498112 /* ScoutCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoutCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FED549B2A365E0D00498112 /* ScoutCampApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampApp.swift; sourceTree = "<group>"; };
-		3FED549D2A365E0D00498112 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3FED549F2A365E0E00498112 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FED54A82A365E0E00498112 /* ScoutCampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoutCampTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED54AC2A365E0E00498112 /* ScoutCampTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampTests.swift; sourceTree = "<group>"; };
@@ -234,9 +352,6 @@
 		3FFFCA7B2A38EB5200481DAE /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		3FFFCA852A38ED8700481DAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FFFCA872A38EDA100481DAE /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B33C261D9EB797A99F6870AE /* Pods-ScoutCamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoutCamp.debug.xcconfig"; path = "Target Support Files/Pods-ScoutCamp/Pods-ScoutCamp.debug.xcconfig"; sourceTree = "<group>"; };
-		C71F63815B6CBEE12D0EDF47 /* Pods_ScoutCamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScoutCamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD951BCD08AA876EA34A8B83 /* Pods-ScoutCamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoutCamp.release.xcconfig"; path = "Target Support Files/Pods-ScoutCamp/Pods-ScoutCamp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,7 +367,6 @@
 				3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */,
 				3F54384E2AEABB0A00C9AEB8 /* FirebaseStorage in Frameworks */,
 				3F1421D52AC9B09400EA364A /* FirebaseFirestoreSwift in Frameworks */,
-				142AA44BF6EC1FC9175AA5BC /* Pods_ScoutCamp.framework in Frameworks */,
 				3F3E50DF2AF1332000552CC2 /* FirebaseRemoteConfig in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,56 +388,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F0D58FC2A48BE630072EF1F /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				3F3E50E22AF134AB00552CC2 /* FirebaseServices */,
-				3F1421D22AC9AB8A00EA364A /* BaseService.swift */,
-				3FE3A4332ADD5BF7000E455F /* AssignmentsService.swift */,
-				3F3E50E72AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift */,
-				3F25CB102B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift */,
-				3FE3A4352ADD5C4E000E455F /* AssignmentGroupsService.swift */,
-				3FE3A4312ADD5B8C000E455F /* CategoriesService.swift */,
-				3F3814242AE29EE300B4C0E3 /* CategorizationPeriodsService.swift */,
-				3F38142C2AE2A15900B4C0E3 /* CategorizationSheetsService.swift */,
-				3F25CB142B67BE9A003EE8D3 /* CategorizationSheetAssignmentsService.swift */,
-				3F3814302AE2A4CA00B4C0E3 /* SheetTypesService.swift */,
-				3F1421D02AC9AB4500EA364A /* TeamsService.swift */,
-				3F3814342AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift */,
-				3F3814382AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		3F1421CB2AC9A9A500EA364A /* MyTeams */ = {
 			isa = PBXGroup;
 			children = (
 				3F1421DF2ACA084900EA364A /* CreateEditTeam */,
 				3F1421CC2AC9A9B400EA364A /* MyTeamsScreen.swift */,
 				3F1421CE2AC9AA1900EA364A /* MyTeamsViewModel.swift */,
+				3FCCD9D22BEBA4A600EDBFF2 /* MyTeamsFlowCoordinator.swift */,
 			);
 			path = MyTeams;
-			sourceTree = "<group>";
-		};
-		3F1421D62AC9B77800EA364A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3FBA1D2F2B0E38430019A84A /* AppModels */,
-				3FE3A42B2ADD50F3000E455F /* Assignment.swift */,
-				3FE3A42D2ADD5252000E455F /* AssignmentGroup.swift */,
-				3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimum.swift */,
-				3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift */,
-				3F87C5AD2B62600D007BD798 /* AssignmentType.swift */,
-				3F3814222AE29EBD00B4C0E3 /* Category.swift */,
-				3F3814202AE29DD100B4C0E3 /* CategorizationPeriod.swift */,
-				3F38142A2AE2A10200B4C0E3 /* CategorizationSheet.swift */,
-				3F25CB122B67BE32003EE8D3 /* CategorizationSheetAssignment.swift */,
-				3F38142E2AE2A4A300B4C0E3 /* SheetType.swift */,
-				3F1421D72AC9B78300EA364A /* Team.swift */,
-				3F3814362AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift */,
-				3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		3F1421DF2ACA084900EA364A /* CreateEditTeam */ = {
@@ -355,10 +428,11 @@
 		3F1E13332A38F69300CB64FD /* Code */ = {
 			isa = PBXGroup;
 			children = (
-				3F1421D62AC9B77800EA364A /* Models */,
+				3F25CB4F2B7271AB003EE8D3 /* Infrastructure */,
+				3F25CB1A2B6A8E94003EE8D3 /* Data */,
+				3F25CB162B6A8E28003EE8D3 /* Domain */,
+				3FFFCA772A38EAE200481DAE /* Presentation */,
 				3F1E13352A38F7D100CB64FD /* Application */,
-				3F0D58FC2A48BE630072EF1F /* Services */,
-				3FFFCA772A38EAE200481DAE /* Features */,
 				3F1E13342A38F69D00CB64FD /* Utils */,
 			);
 			path = Code;
@@ -380,9 +454,9 @@
 		3F1E13352A38F7D100CB64FD /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				3FED549B2A365E0D00498112 /* ScoutCampApp.swift */,
-				3FED549D2A365E0D00498112 /* ContentView.swift */,
+				3F25CB652B7B86FF003EE8D3 /* DIContainer */,
 				3FBA1D432B10C4200019A84A /* AppDelegate.swift */,
+				3F25CB6B2B7B9493003EE8D3 /* AppFlowCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -405,6 +479,157 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		3F25CB162B6A8E28003EE8D3 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA1D2F2B0E38430019A84A /* Entities */,
+				3F25CB192B6A8E56003EE8D3 /* Interfaces */,
+				3F25CB182B6A8E4E003EE8D3 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3F25CB172B6A8E35003EE8D3 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				3FE3A42B2ADD50F3000E455F /* AssignmentDTO.swift */,
+				3FE3A42D2ADD5252000E455F /* AssignmentGroupDTO.swift */,
+				3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift */,
+				3F3E50E52AF7C21C00552CC2 /* AssignmentGroupAssignmentJunctionDTO.swift */,
+				3F25CB2F2B725199003EE8D3 /* CategoryDTO.swift */,
+				3F3814202AE29DD100B4C0E3 /* CategorizationPeriodDTO.swift */,
+				3F38142A2AE2A10200B4C0E3 /* CategorizationSheetDTO.swift */,
+				3F25CB122B67BE32003EE8D3 /* CategorizationSheetAssignmentDTO.swift */,
+				3F38142E2AE2A4A300B4C0E3 /* SheetTypeDTO.swift */,
+				3F25CB402B726039003EE8D3 /* TeamDTO.swift */,
+				3F3814362AE2A62F00B4C0E3 /* TeamSheetDTO.swift */,
+				3F25CB442B726207003EE8D3 /* TeamCategorizationSheetAssignmentDTO.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		3F25CB182B6A8E4E003EE8D3 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				3FCCD9D42BEBA91E00EDBFF2 /* Teams */,
+				3F3C2D342BDA7BEB007B6F6E /* CategorizationSheet */,
+				3F3C2D272BD93E7D007B6F6E /* Categorization */,
+				3F3C2D242BD930C5007B6F6E /* Auth */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		3F25CB192B6A8E56003EE8D3 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB482B726B8F003EE8D3 /* Repositories */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		3F25CB1A2B6A8E94003EE8D3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB1C2B6A8E9E003EE8D3 /* Network */,
+				3F25CB1B2B6A8E99003EE8D3 /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3F25CB1B2B6A8E99003EE8D3 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				3F39413C2B837B46003DD454 /* DefaultAuthRepository.swift */,
+				3F39412D2B7D19ED003DD454 /* DefaultAssignmentsRepository.swift */,
+				3F3941292B7D171F003DD454 /* DefaultAssignmentGroupCategoryMinimumsRepository.swift */,
+				3FD7BDCB2BDF9BB200A114F2 /* DefaultAssignmentGroupJunctionsRepository.swift */,
+				3F3941322B7D1BE0003DD454 /* DefaultAssignmentGroupsRepository.swift */,
+				3F3941212B7CEF26003DD454 /* DefaultCategoriesRepository.swift */,
+				3F3941252B7CEFE3003DD454 /* DefaultCategorizationPeriodsRepository.swift */,
+				3F25CB4B2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift */,
+				3F39411D2B7CEECA003DD454 /* DefaultSheetTypesRepository.swift */,
+				3F25CB582B72777E003EE8D3 /* DefaultTeamSheetsRepository.swift */,
+				3F25CB5C2B72830F003EE8D3 /* DefaultTeamsRepository.swift */,
+				3F3C2D3D2BDA83CA007B6F6E /* DefaultTeamAssignmentsRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		3F25CB1C2B6A8E9E003EE8D3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB172B6A8E35003EE8D3 /* DTOs */,
+				3F25CB1E2B6A8EF2003EE8D3 /* DataMapping */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3F25CB1E2B6A8EF2003EE8D3 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB202B724128003EE8D3 /* AssignmentDTO+DataMapping.swift */,
+				3F25CB2D2B724DD4003EE8D3 /* AssignmentGroupDTO+DataMapping.swift */,
+				3F25CB232B7246A0003EE8D3 /* AssignmentGroupCategoryMinimumDTO+DataMapping.swift */,
+				3FD7BDC92BDF9B6200A114F2 /* AssignmentGroupAssignmentJunctionDTO+DataMapping.swift */,
+				3F25CB352B725413003EE8D3 /* CategorizationPeriodDTO+DataMapping.swift */,
+				3F25CB272B724790003EE8D3 /* CategorizationSheetDTO+DataMapping.swift */,
+				3F25CB392B7254D1003EE8D3 /* CategorizationSheetAssignmentDTO+DataMapping.swift */,
+				3F25CB312B725210003EE8D3 /* CategoryDTO+DataMapping.swift */,
+				3F25CB3E2B725F9A003EE8D3 /* SheetTypeDTO+DataMapping.swift */,
+				3F25CB422B726073003EE8D3 /* TeamDTO+DataMapping.swift */,
+				3F25CB462B72680D003EE8D3 /* TeamCategorizationSheetAssignmentDTO+DataMapping.swift */,
+				3F25CB292B724A43003EE8D3 /* TeamSheetDTO+DataMapping.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		3F25CB482B726B8F003EE8D3 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				3F39413A2B837AAC003DD454 /* AuthRepository.swift */,
+				3F39412B2B7D19C3003DD454 /* AssignmentsRepository.swift */,
+				3F3941272B7D16B3003DD454 /* AssignmentGroupCategoryMinimumsRepository.swift */,
+				3FD7BDC52BDF98C500A114F2 /* AssignmentGroupJunctionsRepository.swift */,
+				3F3941302B7D1BAE003DD454 /* AssignmentGroupsRepository.swift */,
+				3F39411F2B7CEF0F003DD454 /* CategoriesRepository.swift */,
+				3F3941232B7CEFC5003DD454 /* CategorizationPeriodsRepository.swift */,
+				3F25CB492B726C06003EE8D3 /* CategorizationSheetsRepository.swift */,
+				3F39411B2B7CEE91003DD454 /* SheetTypesRepository.swift */,
+				3F25CB562B727730003EE8D3 /* TeamSheetsRepository.swift */,
+				3F25CB5A2B72828F003EE8D3 /* TeamsRepository.swift */,
+				3F3C2D3B2BDA836E007B6F6E /* TeamAssignmentsRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		3F25CB4F2B7271AB003EE8D3 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB512B7271BA003EE8D3 /* Firebase */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		3F25CB512B7271BA003EE8D3 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */,
+				3F5438512AEAC2F000C9AEB8 /* StorageManager.swift */,
+				3F25CB522B7271CE003EE8D3 /* FirebaseDataService.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		3F25CB652B7B86FF003EE8D3 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				3F3C2D282BD9512B007B6F6E /* Main */,
+				3F25CB692B7B9398003EE8D3 /* AppDIContainer.swift */,
+				3F3941382B7E5AB6003DD454 /* AuthDIContainer.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
 		3F286EA82A49A9E000BA00BE /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,7 +637,7 @@
 				3F1421CB2AC9A9A500EA364A /* MyTeams */,
 				3F7C59EA2A9C8C9300AA64AA /* Profile */,
 				3F286EA92A49A9EA00BA00BE /* Home */,
-				3F7C59E82A9C8BE700AA64AA /* MainContainer.swift */,
+				3F3941192B7CE21D003DD454 /* MainFlowCoordinator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -456,6 +681,7 @@
 			children = (
 				3F2E55F12A3C484000E3BC30 /* Register */,
 				3F1E13372A39BF3600CB64FD /* Login */,
+				3F3941362B7E5A8C003DD454 /* AuthFlowCoordinator.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -479,14 +705,52 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
-		3F3E50E22AF134AB00552CC2 /* FirebaseServices */ = {
+		3F3C2D242BD930C5007B6F6E /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				3F0D58FE2A48BE7D0072EF1F /* AuthService.swift */,
-				3F5438512AEAC2F000C9AEB8 /* StorageManager.swift */,
-				3F3E50E32AF134C700552CC2 /* RemoteConfigManager.swift */,
+				3F39413F2B83801C003DD454 /* SignInUseCase.swift */,
+				3F3C2D252BD930D3007B6F6E /* SignUpUseCase.swift */,
+				3F3C2D2B2BD951CC007B6F6E /* SignOutUseCase.swift */,
 			);
-			path = FirebaseServices;
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		3F3C2D272BD93E7D007B6F6E /* Categorization */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB542B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift */,
+				3FD7BDD02BDF9DE400A114F2 /* FetchCategoriesUseCase.swift */,
+				3FE24B1A2BE903C200FF1FF3 /* FetchPeriodsUseCase.swift */,
+			);
+			path = Categorization;
+			sourceTree = "<group>";
+		};
+		3F3C2D282BD9512B007B6F6E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3F3941412B83903F003DD454 /* MainDIContainer.swift */,
+				3F25CB662B7B871D003EE8D3 /* CategorizationDIContainer.swift */,
+				3FCCD9D02BEBA46E00EDBFF2 /* MyTeamsDIContainer.swift */,
+				3F3C2D292BD95158007B6F6E /* ProfileDIContainer.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3F3C2D2D2BD9586F007B6F6E /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				3F3C2D2E2BD95886007B6F6E /* ProfileFlowCoordinator.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		3F3C2D342BDA7BEB007B6F6E /* CategorizationSheet */ = {
+			isa = PBXGroup;
+			children = (
+				3F3C2D392BDA7CD0007B6F6E /* SaveTeamSheetUseCase.swift */,
+				3F3C2D3F2BDA8699007B6F6E /* FetchAssignmentGroupSectionsUseCase.swift */,
+			);
+			path = CategorizationSheet;
 			sourceTree = "<group>";
 		};
 		3F4F657C2ADE782C003B2F0A /* CategorizationSheet */ = {
@@ -511,6 +775,7 @@
 		3F7C59EA2A9C8C9300AA64AA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				3F3C2D2D2BD9586F007B6F6E /* Flows */,
 				3F78A0152AC890F100945FDE /* ProfileScreen.swift */,
 				3F78A0142AC890F100945FDE /* ProfileViewModel.swift */,
 			);
@@ -536,16 +801,25 @@
 			path = AssignmentComponents;
 			sourceTree = "<group>";
 		};
-		3FBA1D2F2B0E38430019A84A /* AppModels */ = {
+		3FBA1D2F2B0E38430019A84A /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				3FBA1D302B0E384F0019A84A /* AppAssignment.swift */,
-				3F25CB0E2B627EF2003EE8D3 /* AppGroupMinimum.swift */,
-				3FBA1D362B0F97EA0019A84A /* AppTeamSheet.swift */,
-				3FBA1D412B10B4560019A84A /* AppSheet.swift */,
+				3FD7BDD42BE1355D00A114F2 /* Helpers */,
+				3FD7BDD22BE1353400A114F2 /* Assignment.swift */,
+				3F25CB0E2B627EF2003EE8D3 /* AssignmentGroupCategoryMinimum.swift */,
+				3FD7BDC72BDF9B3100A114F2 /* AssignmentGroupJunction.swift */,
 				3F393F0A2B2345F300419385 /* AssignmentGroupSection.swift */,
+				3F25CB2B2B724DA3003EE8D3 /* AssignmentGroup.swift */,
+				3F25CB332B725393003EE8D3 /* CategorizationPeriod.swift */,
+				3FBA1D412B10B4560019A84A /* CategorizationSheet.swift */,
+				3F25CB372B7254B3003EE8D3 /* CategorizationSheetAssignment.swift */,
+				3F3814222AE29EBD00B4C0E3 /* Category.swift */,
+				3F25CB3B2B725F78003EE8D3 /* SheetType.swift */,
+				3F1421D72AC9B78300EA364A /* Team.swift */,
+				3F3814322AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift */,
+				3FBA1D362B0F97EA0019A84A /* TeamSheet.swift */,
 			);
-			path = AppModels;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		3FBA1D3A2B10A81D0019A84A /* DI */ = {
@@ -556,6 +830,27 @@
 				3FBA1D3F2B10A8870019A84A /* ServiceType.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		3FCCD9D42BEBA91E00EDBFF2 /* Teams */ = {
+			isa = PBXGroup;
+			children = (
+				3F25CB5E2B7520D9003EE8D3 /* FetchUserTeamsUseCase.swift */,
+				3FCCD9D52BEBA92D00EDBFF2 /* FetchRegimentsUseCase.swift */,
+				3FCCD9D72BEBA9AB00EDBFF2 /* FetchRegimentTroopsUseCase.swift */,
+				3FCCD9D92BEBAA6300EDBFF2 /* DeleteTeamUseCase.swift */,
+				3FCCD9DB2BEBAAA200EDBFF2 /* CreateTeamUseCase.swift */,
+				3FCCD9DD2BEBAB0B00EDBFF2 /* UpdateTeamUseCase.swift */,
+			);
+			path = Teams;
+			sourceTree = "<group>";
+		};
+		3FD7BDD42BE1355D00A114F2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA1D302B0E384F0019A84A /* AppAssignment.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		3FDF9A3D2AE6E29500F5F111 /* Modifiers */ = {
@@ -575,6 +870,7 @@
 				3F4F657C2ADE782C003B2F0A /* CategorizationSheet */,
 				3FE3A43A2ADD5FC6000E455F /* CategorizationHomeScreen.swift */,
 				3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */,
+				3F25CB6D2B7B951B003EE8D3 /* CategorizationFlowCoordinator.swift */,
 			);
 			path = Categorization;
 			sourceTree = "<group>";
@@ -585,12 +881,8 @@
 				3FED549A2A365E0D00498112 /* ScoutCamp */,
 				3F1E132B2A38F25100CB64FD /* Tests */,
 				3FED54992A365E0D00498112 /* Products */,
-				E54D8EA202B6EFD451F9C118 /* Pods */,
 				3F0D58F32A4845890072EF1F /* GoogleService-Info.plist */,
 				3F1E132D2A38F43900CB64FD /* README.md */,
-				3F1E132E2A38F43900CB64FD /* Podfile */,
-				3F1E132C2A38F43900CB64FD /* Podfile.lock */,
-				A4522EE60C44E5AA9B63D848 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -632,13 +924,13 @@
 			path = ScoutCampUITests;
 			sourceTree = "<group>";
 		};
-		3FFFCA772A38EAE200481DAE /* Features */ = {
+		3FFFCA772A38EAE200481DAE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				3F286EA82A49A9E000BA00BE /* Main */,
 				3F2E55F02A3C483A00E3BC30 /* Auth */,
 			);
-			path = Features;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		3FFFCA7A2A38EB0300481DAE /* Extensions */ = {
@@ -650,25 +942,9 @@
 				3FBA1D322B0F678F0019A84A /* Decimal+Extensions.swift */,
 				3FBA1D342B0F97100019A84A /* Date+Extensions.swift */,
 				3F393F042B1F4B3700419385 /* UIApplication+Extensions.swift */,
+				3F3C2D322BDA714A007B6F6E /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		A4522EE60C44E5AA9B63D848 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C71F63815B6CBEE12D0EDF47 /* Pods_ScoutCamp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E54D8EA202B6EFD451F9C118 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B33C261D9EB797A99F6870AE /* Pods-ScoutCamp.debug.xcconfig */,
-				CD951BCD08AA876EA34A8B83 /* Pods-ScoutCamp.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -678,11 +954,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FED54BC2A365E0F00498112 /* Build configuration list for PBXNativeTarget "ScoutCamp" */;
 			buildPhases = (
-				439206071A6D8B32DEAD2D0C /* [CP] Check Pods Manifest.lock */,
 				3FED54942A365E0D00498112 /* Sources */,
 				3FED54952A365E0D00498112 /* Frameworks */,
 				3FED54962A365E0D00498112 /* Resources */,
 				3F1E13322A38F4CC00CB64FD /* ShellScript */,
+				3FFC98672B7CD865004EA584 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -793,11 +1069,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F1E13312A38F43900CB64FD /* Podfile in Resources */,
 				3F1E132A2A38F17300CB64FD /* Preview Assets.xcassets in Resources */,
 				3FFFCA842A38ED8700481DAE /* Localizable.strings in Resources */,
 				3F1E13302A38F43900CB64FD /* README.md in Resources */,
-				3F1E132F2A38F43900CB64FD /* Podfile.lock in Resources */,
 				3FED54A02A365E0E00498112 /* Assets.xcassets in Resources */,
 				3F0D58F42A4845890072EF1F /* GoogleService-Info.plist in Resources */,
 			);
@@ -835,29 +1109,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
-		439206071A6D8B32DEAD2D0C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ScoutCamp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -866,90 +1119,145 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FE3A42E2ADD5252000E455F /* AssignmentGroup.swift in Sources */,
+				3FE3A42E2ADD5252000E455F /* AssignmentGroupDTO.swift in Sources */,
 				3FDF9A3F2AE6E2A300F5F111 /* ViewDidLoadModifier.swift in Sources */,
-				3F3814312AE2A4CA00B4C0E3 /* SheetTypesService.swift in Sources */,
 				3FBA1CBE2B0BA5130019A84A /* TestData.swift in Sources */,
+				3F39411E2B7CEECA003DD454 /* DefaultSheetTypesRepository.swift in Sources */,
+				3F25CB2C2B724DA3003EE8D3 /* AssignmentGroup.swift in Sources */,
+				3FCCD9D32BEBA4A600EDBFF2 /* MyTeamsFlowCoordinator.swift in Sources */,
 				3FBA1CBA2B03E2EA0019A84A /* AssignmentNumericInput.swift in Sources */,
-				3FE3A42C2ADD50F3000E455F /* Assignment.swift in Sources */,
-				3F3E50E62AF7C21C00552CC2 /* AssignmentGroupAssignmentJunction.swift in Sources */,
-				3FED549E2A365E0D00498112 /* ContentView.swift in Sources */,
+				3FE3A42C2ADD50F3000E455F /* AssignmentDTO.swift in Sources */,
+				3FD7BDC82BDF9B3100A114F2 /* AssignmentGroupJunction.swift in Sources */,
+				3F3E50E62AF7C21C00552CC2 /* AssignmentGroupAssignmentJunctionDTO.swift in Sources */,
+				3F3C2D3E2BDA83CA007B6F6E /* DefaultTeamAssignmentsRepository.swift in Sources */,
+				3FCCD9DE2BEBAB0B00EDBFF2 /* UpdateTeamUseCase.swift in Sources */,
+				3F3941242B7CEFC5003DD454 /* CategorizationPeriodsRepository.swift in Sources */,
+				3F39411A2B7CE21D003DD454 /* MainFlowCoordinator.swift in Sources */,
+				3F25CB2E2B724DD4003EE8D3 /* AssignmentGroupDTO+DataMapping.swift in Sources */,
 				3F54384C2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift in Sources */,
 				3FE3A43B2ADD5FC6000E455F /* CategorizationHomeScreen.swift in Sources */,
 				3F1421CF2AC9AA1900EA364A /* MyTeamsViewModel.swift in Sources */,
+				3F3941222B7CEF26003DD454 /* DefaultCategoriesRepository.swift in Sources */,
 				3F2E55EA2A39DE3500E3BC30 /* ActivityIndicatorModifier.swift in Sources */,
-				3FE3A4362ADD5C4E000E455F /* AssignmentGroupsService.swift in Sources */,
+				3F39412A2B7D171F003DD454 /* DefaultAssignmentGroupCategoryMinimumsRepository.swift in Sources */,
 				3F3E50E42AF134C700552CC2 /* RemoteConfigManager.swift in Sources */,
 				3F1421CD2AC9A9B400EA364A /* MyTeamsScreen.swift in Sources */,
-				3FE3A4342ADD5BF7000E455F /* AssignmentsService.swift in Sources */,
+				3FD7BDD12BDF9DE400A114F2 /* FetchCategoriesUseCase.swift in Sources */,
+				3FD7BDCC2BDF9BB200A114F2 /* DefaultAssignmentGroupJunctionsRepository.swift in Sources */,
+				3F3941282B7D16B3003DD454 /* AssignmentGroupCategoryMinimumsRepository.swift in Sources */,
 				3F3814232AE29EBD00B4C0E3 /* Category.swift in Sources */,
+				3F25CB3C2B725F78003EE8D3 /* SheetType.swift in Sources */,
 				3FBA1D332B0F678F0019A84A /* Decimal+Extensions.swift in Sources */,
-				3F87C5AE2B62600D007BD798 /* AssignmentType.swift in Sources */,
-				3F25CB132B67BE32003EE8D3 /* CategorizationSheetAssignment.swift in Sources */,
+				3F25CB242B7246A0003EE8D3 /* AssignmentGroupCategoryMinimumDTO+DataMapping.swift in Sources */,
+				3F25CB132B67BE32003EE8D3 /* CategorizationSheetAssignmentDTO.swift in Sources */,
 				3F3E50EC2AFA9DC000552CC2 /* CircleButton.swift in Sources */,
+				3F25CB5B2B72828F003EE8D3 /* TeamsRepository.swift in Sources */,
 				3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */,
 				3FBA1D3E2B10A86A0019A84A /* ServiceContainer.swift in Sources */,
-				3F1421D32AC9AB8A00EA364A /* BaseService.swift in Sources */,
 				3F393F142B27256300419385 /* SharesPieChartView.swift in Sources */,
+				3F3941372B7E5A8C003DD454 /* AuthFlowCoordinator.swift in Sources */,
+				3F3941422B83903F003DD454 /* MainDIContainer.swift in Sources */,
+				3F25CB6E2B7B951B003EE8D3 /* CategorizationFlowCoordinator.swift in Sources */,
+				3F25CB282B724790003EE8D3 /* CategorizationSheetDTO+DataMapping.swift in Sources */,
+				3FCCD9D12BEBA46E00EDBFF2 /* MyTeamsDIContainer.swift in Sources */,
 				3FBA1D3C2B10A8550019A84A /* DependencyPropertyWrapper.swift in Sources */,
-				3F3E50E82AF9851D00552CC2 /* AssignmentGroupAssignmentJunctionsService.swift in Sources */,
+				3F3C2D2F2BD95886007B6F6E /* ProfileFlowCoordinator.swift in Sources */,
+				3F25CB212B724128003EE8D3 /* AssignmentDTO+DataMapping.swift in Sources */,
+				3F3941332B7D1BE0003DD454 /* DefaultAssignmentGroupsRepository.swift in Sources */,
+				3F25CB342B725393003EE8D3 /* CategorizationPeriod.swift in Sources */,
 				3F2E560B2A3C797F00E3BC30 /* Validation.swift in Sources */,
-				3FE3A4322ADD5B8C000E455F /* CategoriesService.swift in Sources */,
+				3F25CB592B72777E003EE8D3 /* DefaultTeamSheetsRepository.swift in Sources */,
+				3FCCD9DC2BEBAAA200EDBFF2 /* CreateTeamUseCase.swift in Sources */,
 				3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */,
 				3FBA1D352B0F97100019A84A /* Date+Extensions.swift in Sources */,
 				3F2E56092A3C611400E3BC30 /* RegisterScreen.swift in Sources */,
 				3FBA1CB82B03BCBC0019A84A /* AssignmentCheckbox.swift in Sources */,
 				3F393F0D2B235E0000419385 /* CategoryAsyncImage.swift in Sources */,
-				3F87C5B02B62621D007BD798 /* AssignmentGroupCategoryMinimum.swift in Sources */,
+				3F87C5B02B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift in Sources */,
+				3F25CB532B7271CE003EE8D3 /* FirebaseDataService.swift in Sources */,
 				3FBA1D312B0E384F0019A84A /* AppAssignment.swift in Sources */,
+				3F25CB412B726039003EE8D3 /* TeamDTO.swift in Sources */,
+				3F25CB3F2B725F9A003EE8D3 /* SheetTypeDTO+DataMapping.swift in Sources */,
+				3F3C2D3C2BDA836E007B6F6E /* TeamAssignmentsRepository.swift in Sources */,
 				3FBA1D2E2B0CDEBD0019A84A /* CenterModifier.swift in Sources */,
 				3F2E55E72A39DDD000E3BC30 /* LoginScreen.swift in Sources */,
+				3F25CB382B7254B3003EE8D3 /* CategorizationSheetAssignment.swift in Sources */,
 				3F393F122B27245600419385 /* AssignmentGroupsChartView.swift in Sources */,
+				3F25CB362B725413003EE8D3 /* CategorizationPeriodDTO+DataMapping.swift in Sources */,
 				3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */,
-				3F38142B2AE2A10200B4C0E3 /* CategorizationSheet.swift in Sources */,
+				3FCCD9D82BEBA9AB00EDBFF2 /* FetchRegimentTroopsUseCase.swift in Sources */,
+				3F38142B2AE2A10200B4C0E3 /* CategorizationSheetDTO.swift in Sources */,
 				3F393F052B1F4B3700419385 /* UIApplication+Extensions.swift in Sources */,
+				3F25CB4C2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift in Sources */,
 				3FFFCA7C2A38EB5200481DAE /* String+Extensions.swift in Sources */,
-				3F0D58FF2A48BE7D0072EF1F /* AuthService.swift in Sources */,
+				3F3C2D262BD930D3007B6F6E /* SignUpUseCase.swift in Sources */,
 				3F0D58F22A483A410072EF1F /* Error.swift in Sources */,
 				3F1421D82AC9B78300EA364A /* Team.swift in Sources */,
+				3F39413D2B837B46003DD454 /* DefaultAuthRepository.swift in Sources */,
 				3FBA1CB52B03B8240019A84A /* TeamAssignmentView.swift in Sources */,
 				3F1421E12ACA086200EA364A /* CreateEditTeamViewModel.swift in Sources */,
-				3F25CB112B62809E003EE8D3 /* AssignmentGroupCategoryMinimumsService.swift in Sources */,
+				3F3941402B83801C003DD454 /* SignInUseCase.swift in Sources */,
 				3FBA1CBC2B03E3440019A84A /* CheckboxToggleStyle.swift in Sources */,
-				3FBA1D372B0F97EA0019A84A /* AppTeamSheet.swift in Sources */,
+				3F25CB5D2B72830F003EE8D3 /* DefaultTeamsRepository.swift in Sources */,
+				3FBA1D372B0F97EA0019A84A /* TeamSheet.swift in Sources */,
+				3F25CB5F2B7520D9003EE8D3 /* FetchUserTeamsUseCase.swift in Sources */,
 				3F393F0B2B2345F300419385 /* AssignmentGroupSection.swift in Sources */,
-				3F25CB0F2B627EF2003EE8D3 /* AppGroupMinimum.swift in Sources */,
+				3F25CB0F2B627EF2003EE8D3 /* AssignmentGroupCategoryMinimum.swift in Sources */,
 				3F4F657E2ADE78CF003B2F0A /* CategorizationSheetScreen.swift in Sources */,
-				3F38142D2AE2A15900B4C0E3 /* CategorizationSheetsService.swift in Sources */,
-				3FBA1D422B10B4560019A84A /* AppSheet.swift in Sources */,
+				3F25CB432B726073003EE8D3 /* TeamDTO+DataMapping.swift in Sources */,
+				3F39412C2B7D19C3003DD454 /* AssignmentsRepository.swift in Sources */,
+				3FD7BDCA2BDF9B6200A114F2 /* AssignmentGroupAssignmentJunctionDTO+DataMapping.swift in Sources */,
+				3FBA1D422B10B4560019A84A /* CategorizationSheet.swift in Sources */,
 				3F5438522AEAC2F000C9AEB8 /* StorageManager.swift in Sources */,
+				3F25CB302B725199003EE8D3 /* CategoryDTO.swift in Sources */,
 				3F286EAC2A49A9FA00BA00BE /* HomeScreen.swift in Sources */,
+				3F25CB3A2B7254D1003EE8D3 /* CategorizationSheetAssignmentDTO+DataMapping.swift in Sources */,
+				3FCCD9DA2BEBAA6300EDBFF2 /* DeleteTeamUseCase.swift in Sources */,
 				3F4F65802ADE78DA003B2F0A /* CategorizationSheetViewModel.swift in Sources */,
-				3F38142F2AE2A4A300B4C0E3 /* SheetType.swift in Sources */,
+				3F39411C2B7CEE91003DD454 /* SheetTypesRepository.swift in Sources */,
+				3F25CB452B726207003EE8D3 /* TeamCategorizationSheetAssignmentDTO.swift in Sources */,
+				3F25CB552B7274AE003EE8D3 /* FetchTeamSheetsUseCase.swift in Sources */,
+				3F38142F2AE2A4A300B4C0E3 /* SheetTypeDTO.swift in Sources */,
 				3FBA1D442B10C4200019A84A /* AppDelegate.swift in Sources */,
-				3F3814352AE2A57000B4C0E3 /* TeamCategorizationSheetAssignmentsService.swift in Sources */,
+				3F25CB322B725210003EE8D3 /* CategoryDTO+DataMapping.swift in Sources */,
+				3F3C2D2C2BD951CC007B6F6E /* SignOutUseCase.swift in Sources */,
+				3FD7BDC62BDF98C500A114F2 /* AssignmentGroupJunctionsRepository.swift in Sources */,
 				3F1421DE2ACA084500EA364A /* CreateEditTeamScreen.swift in Sources */,
 				3F3E50DD2AF131A500552CC2 /* CategorizationSheetsCarouselView.swift in Sources */,
-				3F7C59E92A9C8BE700AA64AA /* MainContainer.swift in Sources */,
 				3F3E50EA2AFA99E800552CC2 /* BaseToolbarView.swift in Sources */,
 				3F2E55FE2A3C49B700E3BC30 /* RegisterViewModel.swift in Sources */,
-				3F25CB152B67BE9A003EE8D3 /* CategorizationSheetAssignmentsService.swift in Sources */,
+				3F39412E2B7D19ED003DD454 /* DefaultAssignmentsRepository.swift in Sources */,
+				3F25CB472B72680D003EE8D3 /* TeamCategorizationSheetAssignmentDTO+DataMapping.swift in Sources */,
+				3F3941262B7CEFE3003DD454 /* DefaultCategorizationPeriodsRepository.swift in Sources */,
+				3F39413B2B837AAC003DD454 /* AuthRepository.swift in Sources */,
+				3F25CB2A2B724A43003EE8D3 /* TeamSheetDTO+DataMapping.swift in Sources */,
+				3F3941202B7CEF0F003DD454 /* CategoriesRepository.swift in Sources */,
+				3F25CB6A2B7B9398003EE8D3 /* AppDIContainer.swift in Sources */,
 				3F5438442AE7E05500C9AEB8 /* HomeViewModel.swift in Sources */,
-				3F3814392AE2A6C400B4C0E3 /* TeamCategorizationSheetsService.swift in Sources */,
+				3F3C2D3A2BDA7CD0007B6F6E /* SaveTeamSheetUseCase.swift in Sources */,
+				3F25CB4A2B726C06003EE8D3 /* CategorizationSheetsRepository.swift in Sources */,
+				3F25CB6C2B7B9493003EE8D3 /* AppFlowCoordinator.swift in Sources */,
 				3F2E55E52A39DD6B00E3BC30 /* LoginViewModel.swift in Sources */,
 				3FE3A4142AD41AEF000E455F /* DropdownField.swift in Sources */,
-				3F3814372AE2A62F00B4C0E3 /* TeamCategorizationSheet.swift in Sources */,
+				3FCCD9D62BEBA92D00EDBFF2 /* FetchRegimentsUseCase.swift in Sources */,
+				3FD7BDD32BE1353400A114F2 /* Assignment.swift in Sources */,
+				3F3814372AE2A62F00B4C0E3 /* TeamSheetDTO.swift in Sources */,
 				3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */,
+				3FE24B1B2BE903C200FF1FF3 /* FetchPeriodsUseCase.swift in Sources */,
+				3F3941312B7D1BAE003DD454 /* AssignmentGroupsRepository.swift in Sources */,
+				3F25CB672B7B871D003EE8D3 /* CategorizationDIContainer.swift in Sources */,
+				3F3C2D2A2BD95158007B6F6E /* ProfileDIContainer.swift in Sources */,
 				3FE3A4162AD441ED000E455F /* TextFieldStyles.swift in Sources */,
-				3FED549C2A365E0D00498112 /* ScoutCampApp.swift in Sources */,
 				3F2E56002A3C4E1500E3BC30 /* Color+Extensions.swift in Sources */,
-				3F3814252AE29EE300B4C0E3 /* CategorizationPeriodsService.swift in Sources */,
+				3F3C2D332BDA714A007B6F6E /* UIViewController+Extensions.swift in Sources */,
 				3F393F092B2336C600419385 /* TeamAssignmentsGroupView.swift in Sources */,
 				3F2E56072A3C5FE200E3BC30 /* ButtonStyles.swift in Sources */,
+				3F25CB572B727730003EE8D3 /* TeamSheetsRepository.swift in Sources */,
 				3F2E56042A3C5BE400E3BC30 /* View+Extensions.swift in Sources */,
-				3F3814212AE29DD100B4C0E3 /* CategorizationPeriod.swift in Sources */,
+				3F3C2D402BDA8699007B6F6E /* FetchAssignmentGroupSectionsUseCase.swift in Sources */,
+				3F3814212AE29DD100B4C0E3 /* CategorizationPeriodDTO.swift in Sources */,
 				3FE3A43F2ADD60BA000E455F /* FloatingActionButton.swift in Sources */,
-				3F1421D12AC9AB4500EA364A /* TeamsService.swift in Sources */,
+				3F3941392B7E5AB6003DD454 /* AuthDIContainer.swift in Sources */,
 				3F2E560D2A3C8A7E00E3BC30 /* EntryField.swift in Sources */,
 				3FBA1D402B10A8870019A84A /* ServiceType.swift in Sources */,
 			);
@@ -1003,6 +1311,7 @@
 		3FED54BA2A365E0F00498112 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1037,6 +1346,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1064,6 +1374,7 @@
 		3FED54BB2A365E0F00498112 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1098,6 +1409,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1118,7 +1430,6 @@
 		};
 		3FED54BD2A365E0F00498112 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B33C261D9EB797A99F6870AE /* Pods-ScoutCamp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1131,7 +1442,7 @@
 				INFOPLIST_FILE = ScoutCamp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Scout Camp";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
@@ -1155,7 +1466,6 @@
 		};
 		3FED54BE2A365E0F00498112 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD951BCD08AA876EA34A8B83 /* Pods-ScoutCamp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1168,7 +1478,7 @@
 				INFOPLIST_FILE = ScoutCamp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Scout Camp";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
