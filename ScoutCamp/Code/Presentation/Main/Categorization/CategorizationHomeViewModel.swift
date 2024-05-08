@@ -6,7 +6,6 @@
 //
 
 import Combine
-import Foundation
 
 struct CategorizationHomeViewModelActions {
     let showSheetScreen: (TeamSheet) -> Void
@@ -120,6 +119,16 @@ final class DefaultCategorizationHomeViewModel: CategorizationHomeViewModel {
         }
     }
 
+    @MainActor
+    private func fetchData() async {
+        isLoading = true
+        async let periods: () = loadPeriods()
+        async let userTeams: () = loadUserTeams()
+        async let teamSheets: () = loadTeamSheets()
+        (_, _, _) = await (periods, userTeams, teamSheets)
+        isLoading = false
+    }
+
     private func setupCurrentPeriod() {
         self.currentPeriod = periods.first { $0.id == currentPeriodId }
     }
@@ -135,18 +144,12 @@ extension DefaultCategorizationHomeViewModel {
         selectedTeam = option
     }
 
-    @MainActor
     func onLoad() async {
-        isLoading = true
-        async let periods: () = loadPeriods()
-        async let userTeams: () = loadUserTeams()
-        async let teamSheets: () = loadTeamSheets()
-        (_, _, _) = await (periods, userTeams, teamSheets)
-        isLoading = false
+        await fetchData()
     }
 
     func onAppear() async {
-        await loadTeamSheets()
+        await fetchData()
     }
 
     func onTeamDidChange() async {

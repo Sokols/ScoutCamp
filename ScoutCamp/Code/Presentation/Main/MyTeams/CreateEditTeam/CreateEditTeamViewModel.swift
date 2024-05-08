@@ -7,37 +7,78 @@
 
 import Combine
 
-class CreateEditTeamViewModel: ObservableObject {
+struct CreateEditTeamViewModelActions {
+    let navigateBack: () -> Void
+}
 
-    @Service private var teamsService: TeamsServiceProtocol
+protocol CreateEditTeamViewModelInput {
+    func onLoad() async
+    func fetchTroops() async
+    func selectRegiment(option: DropdownOption)
+    func selectTroop(option: DropdownOption)
+    func saveTeam() async
+    func deleteTeam() async
+}
+
+protocol CreateEditTeamViewModelOutput: ObservableObject {
+    var error: Error? { get set }
+    var isLoading: Bool { get }
+    var regiments: [Team] { get }
+    var troops: [Team] { get }
+    var selectedRegiment: DropdownOption? { get set }
+    var selectedTroop: DropdownOption? { get set }
+    var name: String { get set }
+    var isEditFlow: Bool { get }
+    var isActionAvailable: Bool { get }
+}
+
+protocol CreateEditTeamViewModel: CreateEditTeamViewModelInput, CreateEditTeamViewModelOutput {}
+
+struct CreateEditTeamViewModelUseCases {
+    let fetchRegimentsUseCase: FetchRegimentsUseCase
+    let fetchRegimentTroopsUseCase: FetchRegimentTroopsUseCase
+    let createTeamUseCase: CreateTeamUseCase
+    let updateTeamUseCase: UpdateTeamUseCase
+    let deleteTeamUseCase: DeleteTeamUseCase
+}
+
+final class DefaultCreateEditTeamViewModel: CreateEditTeamViewModel {
 
     private let teamToEdit: Team?
-
-    @Published var userTeams: [Team] = []
-    @Published var error: Error?
-    @Published var isLoading = false
-    @Published var newUpdatedTeam: Team?
-
-    @Published var regiments: [Team] = []
-    @Published var troops: [Team] = []
-
-    @Published var selectedRegiment: DropdownOption?
-    @Published var selectedTroop: DropdownOption?
-    @Published var name: String = ""
+    private let useCases: CreateEditTeamViewModelUseCases
+    private let actions: CreateEditTeamViewModelActions
 
     private var isInitialEditFlowCall: Bool
-
-    var isActionAvailable: Bool {
-        isRegimentValid && isTroopValid && isNameValid
-    }
-    var isEditFlow: Bool { teamToEdit != nil }
-
     private var isRegimentValid: Bool { selectedRegiment != nil }
     private var isTroopValid: Bool { selectedTroop != nil }
     private var isNameValid: Bool { !name.isEmpty }
 
-    init(teamToEdit: Team?) {
+    // MARK: - OUTPUT
+
+    @Published var error: Error?
+    @Published var isLoading = false
+    @Published var regiments: [Team] = []
+    @Published var troops: [Team] = []
+    @Published var selectedRegiment: DropdownOption?
+    @Published var selectedTroop: DropdownOption?
+    @Published var name: String = ""
+
+    var isActionAvailable: Bool {
+        isRegimentValid && isTroopValid && isNameValid
+    }
+
+    var isEditFlow: Bool { teamToEdit != nil }
+
+    // MARK: - Init
+
+    init(
+        teamToEdit: Team?,
+        useCases: CreateEditTeamViewModelUseCases,
+        actions: CreateEditTeamViewModelActions
+    ) {
         self.teamToEdit = teamToEdit
+        self.useCases = useCases
+        self.actions = actions
 
         name = teamToEdit?.name ?? ""
         isInitialEditFlowCall = teamToEdit != nil
@@ -46,46 +87,21 @@ class CreateEditTeamViewModel: ObservableObject {
     // MARK: - Fetch data
 
     @MainActor
-    func fetchRegiments() async {
-        isLoading = true
-        let result = await teamsService.getRegiments()
-        isLoading = false
-
-        if let error = result.1 {
-            self.error = error
-        } else if let regiments = result.0 {
-            self.regiments = regiments.map { $0.toDomain() }
-            if self.isEditFlow {
-                self.selectedRegiment = self.regiments.first { $0.id == teamToEdit?.regimentId }?.toDropdownOption()
-            }
-        }
-    }
-
-    @MainActor
     func fetchTroops() async {
         guard let regimentId = selectedRegiment?.key else { return }
-        let result = await teamsService.getTroopsForRegiment(regimentId: regimentId)
+        let requestValue = FetchRegimentTroopsUseCaseRequestValue(regimentId: regimentId)
+        let result = await useCases.fetchRegimentTroopsUseCase.execute(requestValue: requestValue)
 
-        if let error = result.1 {
-            self.error = error
-        } else if let troops = result.0 {
-            self.troops = troops.map { $0.toDomain() }
+        switch result {
+        case .success(let troops):
+            self.troops = troops
             if self.isInitialEditFlowCall {
                 self.selectedTroop = self.troops.first { $0.id == teamToEdit?.troopId }?.toDropdownOption()
                 self.isInitialEditFlowCall = false
             }
+        case .failure(let failure):
+            self.error = failure
         }
-    }
-
-    // MARK: - Selections
-
-    func selectRegiment(option: DropdownOption) {
-        selectedRegiment = option
-        selectedTroop = nil
-    }
-
-    func selectTroop(option: DropdownOption) {
-        selectedTroop = option
     }
 
     // MARK: - Team operations
@@ -93,21 +109,33 @@ class CreateEditTeamViewModel: ObservableObject {
     @MainActor
     func deleteTeam() async {
         guard let team = teamToEdit else { return }
+
         isLoading = true
-        let error = await teamsService.deleteTeam(teamId: team.id)
+        let requestValue = DeleteTeamUseCaseRequestValue(teamId: team.id)
+        let error = await useCases.deleteTeamUseCase.execute(requestValue: requestValue)
         isLoading = false
+
         if let error {
             self.error = error
         } else {
-            self.newUpdatedTeam = nil
+            actions.navigateBack()
         }
     }
 
-    func save() async {
-        if isEditFlow {
-            await updateTeam()
-        } else {
-            await createTeam()
+    @MainActor
+    private func fetchRegiments() async {
+        isLoading = true
+        let result = await useCases.fetchRegimentsUseCase.execute()
+        isLoading = false
+
+        switch result {
+        case .success(let regiments):
+            self.regiments = regiments
+            if self.isEditFlow {
+                self.selectedRegiment = self.regiments.first { $0.id == teamToEdit?.regimentId }?.toDropdownOption()
+            }
+        case .failure(let failure):
+            self.error = failure
         }
     }
 
@@ -115,17 +143,19 @@ class CreateEditTeamViewModel: ObservableObject {
     private func updateTeam() async {
         guard let team = teamToEdit else { return }
         isLoading = true
-        let result = await teamsService.updateTeam(
-            team,
+        let requestValue = UpdateTeamUseCaseRequestValue(
+            team: team,
             regimentId: selectedRegiment?.key,
             troopId: selectedTroop?.key,
             name: name
         )
+        let result = await useCases.updateTeamUseCase.execute(requestValue: requestValue)
         isLoading = false
+
         if let error = result {
             self.error = error
         } else {
-            self.newUpdatedTeam = teamToEdit
+            actions.navigateBack()
         }
     }
 
@@ -134,18 +164,45 @@ class CreateEditTeamViewModel: ObservableObject {
         guard let regimentId = selectedRegiment?.key,
               let troopId = selectedTroop?.key,
               !name.isEmpty else { return }
+
         isLoading = true
-        let result = await teamsService.createTeam(
+        let requestValue = CreateTeamUseCaseRequestValue(
             regimentId: regimentId,
             troopId: troopId,
             name: name
         )
+        let result = await useCases.createTeamUseCase.execute(requestValue: requestValue)
         isLoading = false
 
-        if let error = result.1 {
-            self.error = error
-        } else if let newUpdatedTeam = result.0 {
-            self.newUpdatedTeam = newUpdatedTeam.toDomain()
+        switch result {
+        case .success:
+            actions.navigateBack()
+        case .failure(let failure):
+            self.error = failure
         }
+    }
+}
+
+// MARK: - Input
+extension DefaultCreateEditTeamViewModel {
+    func onLoad() async {
+        await fetchRegiments()
+    }
+
+    func saveTeam() async {
+        if isEditFlow {
+            await updateTeam()
+        } else {
+            await createTeam()
+        }
+    }
+
+    func selectRegiment(option: DropdownOption) {
+        selectedRegiment = option
+        selectedTroop = nil
+    }
+
+    func selectTroop(option: DropdownOption) {
+        selectedTroop = option
     }
 }

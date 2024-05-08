@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-struct MyTeamsScreen: View {
-    @StateObject private var viewModel: MyTeamsViewModel
+struct MyTeamsScreen<T: MyTeamsViewModel>: View {
+    @StateObject private var viewModel: T
 
-    init() {
-        _viewModel = StateObject(
-            wrappedValue: MyTeamsViewModel()
-        )
+    init(viewModel: T) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -31,9 +29,10 @@ struct MyTeamsScreen: View {
                 } else {
                     List {
                         ForEach(viewModel.userTeams) { item in
-                            NavigationLink(destination: CreateEditTeamScreen(teamToEdit: item)) {
-                                Text(item.name)
-                            }
+                            Text(item.name)
+                                .onTapGesture {
+                                    viewModel.showMyTeamScreen(item)
+                                }
                         }
                         .listRowInsets(EdgeInsets())
                     }
@@ -44,23 +43,41 @@ struct MyTeamsScreen: View {
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            NavigationLink(destination: CreateEditTeamScreen(teamToEdit: nil)) {
-                FloatingActionButton()
-            }
+            FloatingActionButton()
+                .onTapGesture {
+                    viewModel.showMyTeamScreen(nil)
+                }
         }
         .padding()
         .errorAlert(error: $viewModel.error)
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
+        .onLoad {
+            Task {
+                await viewModel.onLoad()
+            }
+        }
         .onAppear {
             Task {
-                await viewModel.fetchMyTeams()
+                await viewModel.onAppear()
             }
         }
     }
 }
 
 struct MyTeamsScreen_Previews: PreviewProvider {
+    class MockViewModel: MyTeamsViewModel {
+        func onLoad() async {}
+        func onAppear() async {}
+        func showMyTeamScreen(_ team: Team?) {}
+
+        var userTeams: [Team] = []
+        var error: Error?
+        var isLoading: Bool = false
+    }
+
+    private static var mockViewModel: MockViewModel = MockViewModel()
+
     static var previews: some View {
-        MyTeamsScreen()
+        MyTeamsScreen(viewModel: mockViewModel)
     }
 }

@@ -91,3 +91,27 @@ struct CategorizationHomeScreen<T: CategorizationHomeViewModel>: View  {
         }
     }
 }
+
+struct CategorizationHomeScreen_Previews: PreviewProvider {
+    class MockViewModel: CategorizationHomeViewModel {
+        func onLoad() async { }
+        func onAppear() async {}
+        func onTeamDidChange() async {}
+        func selectTeam(option: DropdownOption) {}
+        func showSheetScreen(_ sheet: TeamSheet) {}
+        
+        var userTeams: [Team] = []
+        var currentSheets: [TeamSheet] = []
+        var oldSheets: [TeamSheet] = []
+        var error: Error?
+        var isLoading: Bool = false
+        var selectedTeam: DropdownOption?
+        var currentPeriod: CategorizationPeriod?
+    }
+
+    private static var mockViewModel: MockViewModel = MockViewModel()
+
+    static var previews: some View {
+        CategorizationHomeScreen(viewModel: mockViewModel)
+    }
+}

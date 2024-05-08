@@ -7,15 +7,12 @@
 
 import SwiftUI
 
-struct CreateEditTeamScreen: View {
-    @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel: CreateEditTeamViewModel
+struct CreateEditTeamScreen<T: CreateEditTeamViewModel>: View {
+    @StateObject private var viewModel: T
     @State private var showDeleteTeamAlert = false
 
-    init(teamToEdit: Team?) {
-        _viewModel = StateObject(
-            wrappedValue: CreateEditTeamViewModel(teamToEdit: teamToEdit)
-        )
+    init(viewModel: T) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -68,14 +65,13 @@ struct CreateEditTeamScreen: View {
         .errorAlert(error: $viewModel.error)
         .navigationBarBackButtonHidden()
         .modifier(ActivityIndicatorModifier(isLoading: viewModel.isLoading))
-        .task {
-            fetchRegiments()
+        .onLoad {
+            Task {
+                await viewModel.onLoad()
+            }
         }
         .onChange(of: viewModel.selectedRegiment) { _ in
             fetchTroops()
-        }
-        .onChange(of: viewModel.newUpdatedTeam) { _ in
-            dismiss()
         }
         .alert("Are you sure?", isPresented: $showDeleteTeamAlert) {
             Button("Yes", action: deleteTeam)
@@ -95,13 +91,7 @@ struct CreateEditTeamScreen: View {
 
     private func saveTeam() {
         Task {
-            await viewModel.save()
-        }
-    }
-
-    private func fetchRegiments() {
-        Task {
-            await viewModel.fetchRegiments()
+            await viewModel.saveTeam()
         }
     }
 
@@ -119,7 +109,28 @@ struct CreateEditTeamScreen: View {
 }
 
 struct CreateEditTeamScreen_Previews: PreviewProvider {
+    class MockViewModel: CreateEditTeamViewModel {
+        func fetchTroops() async {}
+        func selectRegiment(option: DropdownOption) {}
+        func selectTroop(option: DropdownOption) {}
+        func saveTeam() async {}
+        func deleteTeam() async {}
+        func onLoad() async {}
+
+        var error: Error?
+        var isLoading: Bool = false
+        var regiments: [Team] = []
+        var troops: [Team] = []
+        var selectedRegiment: DropdownOption?
+        var selectedTroop: DropdownOption?
+        var name: String = ""
+        var isEditFlow: Bool = false
+        var isActionAvailable: Bool = false
+    }
+
+    private static var mockViewModel: MockViewModel = MockViewModel()
+
     static var previews: some View {
-        CreateEditTeamScreen(teamToEdit: TestData.team)
+        CreateEditTeamScreen(viewModel: mockViewModel)
     }
 }

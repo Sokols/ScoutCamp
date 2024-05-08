@@ -9,7 +9,7 @@ import SwiftUI
 
 final class CategorizationFlowCoordinator {
 
-    private weak var navigationController: UINavigationController?
+    private let navigationController: UINavigationController
     private let categorizationDIContainer: CategorizationDIContainer
 
     init(
@@ -30,10 +30,10 @@ final class CategorizationFlowCoordinator {
         let actions = CategorizationSheetViewModelActions(navigateBack: navigateBack)
         let vc = categorizationDIContainer.makeCategorizationSheetScreen(actions: actions, sheet: sheet)
         vc.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController.pushViewController(vc, animated: true)
     }
 
     private func navigateBack() {
-        navigationController?.popViewController(animated: true)
+        navigationController.popViewController(animated: true)
     }
 }

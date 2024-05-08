@@ -36,9 +36,10 @@ final class MainDIContainer: MainFlowCoordinatorDependencies {
         return flow.start()
     }
 
-    func makeMyTeamsScreen() -> UIViewController {
-        let view = MyTeamsScreen()
-        return UIHostingController(rootView: view)
+    func makeMyTeamsScreen(_ navigationController: UINavigationController) -> UIViewController {
+        let container = makeMyTeamsDIContainer()
+        let flow = container.makeMyTeamsFlowCoordinator(navigationController)
+        return flow.start()
     }
 
     func makeProfileScreen(_ navigationController: UINavigationController) -> UIViewController {
@@ -66,6 +67,13 @@ final class MainDIContainer: MainFlowCoordinatorDependencies {
             storageManager: dependencies.storageManager
         )
         return CategorizationDIContainer(dependencies: dependencies)
+    }
+
+    private func makeMyTeamsDIContainer() -> MyTeamsDIContainer {
+        let dependencies = MyTeamsDIContainer.Dependencies(
+            firebaseDataService: dependencies.firebaseDataService
+        )
+        return MyTeamsDIContainer(dependencies: dependencies)
     }
 
     private func makeProfileDIContainer() -> ProfileDIContainer {

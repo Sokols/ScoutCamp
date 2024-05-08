@@ -10,7 +10,7 @@ import SwiftUI
 protocol MainFlowCoordinatorDependencies {
     func makeHomeScreen() -> UIViewController
     func makeCategorizationScreen(_ navigationController: UINavigationController) -> UIViewController
-    func makeMyTeamsScreen() -> UIViewController
+    func makeMyTeamsScreen(_ navigationController: UINavigationController) -> UIViewController
     func makeProfileScreen(_ navigationController: UINavigationController) -> UIViewController
 }
 
@@ -73,7 +73,7 @@ extension MainFlowCoordinator {
         case .categorization:
             return dependencies.makeCategorizationScreen(navigationController)
         case .myTeams:
-            return dependencies.makeMyTeamsScreen()
+            return dependencies.makeMyTeamsScreen(navigationController)
         case .profile:
             return dependencies.makeProfileScreen(navigationController)
         }
