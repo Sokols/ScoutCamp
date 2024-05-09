@@ -8,9 +8,9 @@
 import XCTest
 @testable import ScoutCamp
 
-final class FetchRegimentsUseCase: XCTestCase {
+final class FetchRegimentsUseCaseTests: XCTestCase {
 
-    func testFetchRegimentsUseCase_whenSuccessfullyFetchesRegiments_thenListIsReturned() async throws {
+    func testFetchRegimentsUseCase_whenSuccess_thenListIsReturned() async throws {
         // given
         let teamsRepository = TeamsRepositoryMock(isFailure: false)
         let useCase = DefaultFetchRegimentsUseCase(teamsRepository: teamsRepository)
@@ -23,7 +23,7 @@ final class FetchRegimentsUseCase: XCTestCase {
         XCTAssertTrue(regiments.contains(TestData.regiment))
     }
 
-    func testFetchRegimentsUseCase_whenFailedFetchingRegiments_thenErrorIsReturned() async throws {
+    func testFetchRegimentsUseCase_whenFailure_thenErrorIsReturned() async throws {
         // given
         let teamsRepository = TeamsRepositoryMock(isFailure: true)
         let useCase = DefaultFetchRegimentsUseCase(teamsRepository: teamsRepository)
