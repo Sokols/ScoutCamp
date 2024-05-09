@@ -9,6 +9,7 @@ import XCTest
 @testable import ScoutCamp
 
 final class FetchUserTeamsUseCase: XCTestCase {
+    
     func testFetchUserTeamsUseCase_whenSuccessfullyFetchesUserTeams_thenListIsReturned() async throws {
         // given
         let teamsRepository = TeamsRepositoryMock(isFailure: false)
@@ -28,7 +29,7 @@ final class FetchUserTeamsUseCase: XCTestCase {
         XCTAssertTrue(userTeams.contains(createdTeam))
     }
 
-    func testFetchUserTeamsUseCase_whenSFailedFetchingUserTeams_thenErrorIsReturned() async throws {
+    func testFetchUserTeamsUseCase_whenFailedFetchingUserTeams_thenErrorIsReturned() async throws {
         // given
         let teamsRepository = TeamsRepositoryMock(isFailure: true)
         let useCase = DefaultFetchUserTeamsUseCase(teamsRepository: teamsRepository)

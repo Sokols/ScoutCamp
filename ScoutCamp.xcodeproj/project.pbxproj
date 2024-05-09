@@ -120,6 +120,8 @@
 		3F5438522AEAC2F000C9AEB8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5438512AEAC2F000C9AEB8 /* StorageManager.swift */; };
 		3F7597992BED54A600AB6EEC /* TeamsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597982BED54A600AB6EEC /* TeamsRepositoryMock.swift */; };
 		3F75979B2BED5A9700AB6EEC /* FetchUserTeamsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75979A2BED5A9700AB6EEC /* FetchUserTeamsUseCase.swift */; };
+		3F75979D2BED5E1900AB6EEC /* FetchRegimentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75979C2BED5E1900AB6EEC /* FetchRegimentsUseCase.swift */; };
+		3F75979F2BED5EA400AB6EEC /* FetchRegimentTroopsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75979E2BED5EA400AB6EEC /* FetchRegimentTroopsUseCase.swift */; };
 		3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F78A0122AC88E7000945FDE /* FirebaseFirestore */; };
 		3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0142AC890F100945FDE /* ProfileViewModel.swift */; };
 		3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0152AC890F100945FDE /* ProfileScreen.swift */; };
@@ -296,6 +298,8 @@
 		3F6B18632A52CDFD00F3C665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F7597982BED54A600AB6EEC /* TeamsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsRepositoryMock.swift; sourceTree = "<group>"; };
 		3F75979A2BED5A9700AB6EEC /* FetchUserTeamsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserTeamsUseCase.swift; sourceTree = "<group>"; };
+		3F75979C2BED5E1900AB6EEC /* FetchRegimentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRegimentsUseCase.swift; sourceTree = "<group>"; };
+		3F75979E2BED5EA400AB6EEC /* FetchRegimentTroopsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRegimentTroopsUseCase.swift; sourceTree = "<group>"; };
 		3F78A0142AC890F100945FDE /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3F78A0152AC890F100945FDE /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumDTO.swift; sourceTree = "<group>"; };
@@ -766,6 +770,8 @@
 			isa = PBXGroup;
 			children = (
 				3F75979A2BED5A9700AB6EEC /* FetchUserTeamsUseCase.swift */,
+				3F75979C2BED5E1900AB6EEC /* FetchRegimentsUseCase.swift */,
+				3F75979E2BED5EA400AB6EEC /* FetchRegimentTroopsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -1245,6 +1251,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F75979B2BED5A9700AB6EEC /* FetchUserTeamsUseCase.swift in Sources */,
+				3F75979F2BED5EA400AB6EEC /* FetchRegimentTroopsUseCase.swift in Sources */,
+				3F75979D2BED5E1900AB6EEC /* FetchRegimentsUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
