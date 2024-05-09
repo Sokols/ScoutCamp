@@ -37,11 +37,27 @@ struct TestData {
     )
 
     static let team = Team(
-        id: "",
-        userId: "",
-        troopId: "",
-        regimentId: "",
-        name: ""
+        id: "team_id",
+        userId: "user_id",
+        troopId: "troop_id",
+        regimentId: "regiment_id",
+        name: "name"
+    )
+
+    static let troop = Team(
+        id: "troop_id",
+        userId: nil,
+        troopId: nil,
+        regimentId: "regiment_id",
+        name: "name"
+    )
+
+    static let regiment = Team(
+        id: "regiment_id",
+        userId: nil,
+        troopId: nil,
+        regimentId: nil,
+        name: "name"
     )
 
     static let assignment = AssignmentDTO(

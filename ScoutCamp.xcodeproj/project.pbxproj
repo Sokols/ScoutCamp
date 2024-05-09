@@ -118,6 +118,13 @@
 		3F54384C2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F54384B2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift */; };
 		3F54384E2AEABB0A00C9AEB8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3F54384D2AEABB0A00C9AEB8 /* FirebaseStorage */; };
 		3F5438522AEAC2F000C9AEB8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5438512AEAC2F000C9AEB8 /* StorageManager.swift */; };
+		3F7597992BED54A600AB6EEC /* TeamsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597982BED54A600AB6EEC /* TeamsRepositoryMock.swift */; };
+		3F75979B2BED5A9700AB6EEC /* FetchUserTeamsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75979A2BED5A9700AB6EEC /* FetchUserTeamsUseCaseTests.swift */; };
+		3F75979D2BED5E1900AB6EEC /* FetchRegimentsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75979C2BED5E1900AB6EEC /* FetchRegimentsUseCaseTests.swift */; };
+		3F75979F2BED5EA400AB6EEC /* FetchRegimentTroopsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75979E2BED5EA400AB6EEC /* FetchRegimentTroopsUseCaseTests.swift */; };
+		3F7597A22BED5FC800AB6EEC /* DeleteTeamUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597A12BED5FC800AB6EEC /* DeleteTeamUseCaseTests.swift */; };
+		3F7597A42BED619900AB6EEC /* CreateTeamUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597A32BED619900AB6EEC /* CreateTeamUseCaseTests.swift */; };
+		3F7597A62BED62DB00AB6EEC /* UpdateTeamUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597A52BED62DB00AB6EEC /* UpdateTeamUseCaseTests.swift */; };
 		3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F78A0122AC88E7000945FDE /* FirebaseFirestore */; };
 		3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0142AC890F100945FDE /* ProfileViewModel.swift */; };
 		3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0152AC890F100945FDE /* ProfileScreen.swift */; };
@@ -160,22 +167,12 @@
 		3FE3A43D2ADD5FD7000E455F /* CategorizationHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43C2ADD5FD7000E455F /* CategorizationHomeViewModel.swift */; };
 		3FE3A43F2ADD60BA000E455F /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3A43E2ADD60BA000E455F /* FloatingActionButton.swift */; };
 		3FED54A02A365E0E00498112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FED549F2A365E0E00498112 /* Assets.xcassets */; };
-		3FED54AD2A365E0E00498112 /* ScoutCampTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED54AC2A365E0E00498112 /* ScoutCampTests.swift */; };
-		3FED54B72A365E0F00498112 /* ScoutCampUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED54B62A365E0F00498112 /* ScoutCampUITests.swift */; };
-		3FED54B92A365E0F00498112 /* ScoutCampUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED54B82A365E0F00498112 /* ScoutCampUITestsLaunchTests.swift */; };
 		3FFFCA7C2A38EB5200481DAE /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFFCA7B2A38EB5200481DAE /* String+Extensions.swift */; };
 		3FFFCA842A38ED8700481DAE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FFFCA862A38ED8700481DAE /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		3FED54A92A365E0E00498112 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3FED54902A365E0D00498112 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3FED54972A365E0D00498112;
-			remoteInfo = ScoutCamp;
-		};
-		3FED54B32A365E0F00498112 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3FED54902A365E0D00498112 /* Project object */;
 			proxyType = 1;
@@ -302,6 +299,13 @@
 		3F54384B2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetItemView.swift; sourceTree = "<group>"; };
 		3F5438512AEAC2F000C9AEB8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		3F6B18632A52CDFD00F3C665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F7597982BED54A600AB6EEC /* TeamsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsRepositoryMock.swift; sourceTree = "<group>"; };
+		3F75979A2BED5A9700AB6EEC /* FetchUserTeamsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserTeamsUseCaseTests.swift; sourceTree = "<group>"; };
+		3F75979C2BED5E1900AB6EEC /* FetchRegimentsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRegimentsUseCaseTests.swift; sourceTree = "<group>"; };
+		3F75979E2BED5EA400AB6EEC /* FetchRegimentTroopsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRegimentTroopsUseCaseTests.swift; sourceTree = "<group>"; };
+		3F7597A12BED5FC800AB6EEC /* DeleteTeamUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTeamUseCaseTests.swift; sourceTree = "<group>"; };
+		3F7597A32BED619900AB6EEC /* CreateTeamUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamUseCaseTests.swift; sourceTree = "<group>"; };
+		3F7597A52BED62DB00AB6EEC /* UpdateTeamUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTeamUseCaseTests.swift; sourceTree = "<group>"; };
 		3F78A0142AC890F100945FDE /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3F78A0152AC890F100945FDE /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumDTO.swift; sourceTree = "<group>"; };
@@ -345,10 +349,6 @@
 		3FED54982A365E0D00498112 /* ScoutCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoutCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED549F2A365E0E00498112 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FED54A82A365E0E00498112 /* ScoutCampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoutCampTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FED54AC2A365E0E00498112 /* ScoutCampTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampTests.swift; sourceTree = "<group>"; };
-		3FED54B22A365E0F00498112 /* ScoutCampUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoutCampUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FED54B62A365E0F00498112 /* ScoutCampUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampUITests.swift; sourceTree = "<group>"; };
-		3FED54B82A365E0F00498112 /* ScoutCampUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutCampUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3FFFCA7B2A38EB5200481DAE /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		3FFFCA852A38ED8700481DAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FFFCA872A38EDA100481DAE /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -372,13 +372,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3FED54A52A365E0E00498112 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3FED54AF2A365E0F00498112 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -420,7 +413,6 @@
 			isa = PBXGroup;
 			children = (
 				3FED54AB2A365E0E00498112 /* ScoutCampTests */,
-				3FED54B52A365E0F00498112 /* ScoutCampUITests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -772,6 +764,43 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3F7597922BED19DB00AB6EEC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3F7597932BED19DF00AB6EEC /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3F7597932BED19DF00AB6EEC /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				3F75979A2BED5A9700AB6EEC /* FetchUserTeamsUseCaseTests.swift */,
+				3F75979C2BED5E1900AB6EEC /* FetchRegimentsUseCaseTests.swift */,
+				3F75979E2BED5EA400AB6EEC /* FetchRegimentTroopsUseCaseTests.swift */,
+				3F7597A12BED5FC800AB6EEC /* DeleteTeamUseCaseTests.swift */,
+				3F7597A32BED619900AB6EEC /* CreateTeamUseCaseTests.swift */,
+				3F7597A52BED62DB00AB6EEC /* UpdateTeamUseCaseTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		3F7597962BED547000AB6EEC /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3F7597972BED548000AB6EEC /* MockedRepositories */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		3F7597972BED548000AB6EEC /* MockedRepositories */ = {
+			isa = PBXGroup;
+			children = (
+				3F7597982BED54A600AB6EEC /* TeamsRepositoryMock.swift */,
+			);
+			path = MockedRepositories;
+			sourceTree = "<group>";
+		};
 		3F7C59EA2A9C8C9300AA64AA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -891,7 +920,6 @@
 			children = (
 				3FED54982A365E0D00498112 /* ScoutCamp.app */,
 				3FED54A82A365E0E00498112 /* ScoutCampTests.xctest */,
-				3FED54B22A365E0F00498112 /* ScoutCampUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -910,18 +938,10 @@
 		3FED54AB2A365E0E00498112 /* ScoutCampTests */ = {
 			isa = PBXGroup;
 			children = (
-				3FED54AC2A365E0E00498112 /* ScoutCampTests.swift */,
+				3F7597962BED547000AB6EEC /* Mocks */,
+				3F7597922BED19DB00AB6EEC /* Domain */,
 			);
 			path = ScoutCampTests;
-			sourceTree = "<group>";
-		};
-		3FED54B52A365E0F00498112 /* ScoutCampUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3FED54B62A365E0F00498112 /* ScoutCampUITests.swift */,
-				3FED54B82A365E0F00498112 /* ScoutCampUITestsLaunchTests.swift */,
-			);
-			path = ScoutCampUITests;
 			sourceTree = "<group>";
 		};
 		3FFFCA772A38EAE200481DAE /* Presentation */ = {
@@ -998,24 +1018,6 @@
 			productReference = 3FED54A82A365E0E00498112 /* ScoutCampTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3FED54B12A365E0F00498112 /* ScoutCampUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3FED54C22A365E0F00498112 /* Build configuration list for PBXNativeTarget "ScoutCampUITests" */;
-			buildPhases = (
-				3FED54AE2A365E0F00498112 /* Sources */,
-				3FED54AF2A365E0F00498112 /* Frameworks */,
-				3FED54B02A365E0F00498112 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3FED54B42A365E0F00498112 /* PBXTargetDependency */,
-			);
-			name = ScoutCampUITests;
-			productName = ScoutCampUITests;
-			productReference = 3FED54B22A365E0F00498112 /* ScoutCampUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1031,10 +1033,7 @@
 					};
 					3FED54A72A365E0E00498112 = {
 						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 3FED54972A365E0D00498112;
-					};
-					3FED54B12A365E0F00498112 = {
-						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1500;
 						TestTargetID = 3FED54972A365E0D00498112;
 					};
 				};
@@ -1059,7 +1058,6 @@
 			targets = (
 				3FED54972A365E0D00498112 /* ScoutCamp */,
 				3FED54A72A365E0E00498112 /* ScoutCampTests */,
-				3FED54B12A365E0F00498112 /* ScoutCampUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1078,13 +1076,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3FED54A62A365E0E00498112 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3FED54B02A365E0F00498112 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1149,6 +1140,7 @@
 				3F25CB3C2B725F78003EE8D3 /* SheetType.swift in Sources */,
 				3FBA1D332B0F678F0019A84A /* Decimal+Extensions.swift in Sources */,
 				3F25CB242B7246A0003EE8D3 /* AssignmentGroupCategoryMinimumDTO+DataMapping.swift in Sources */,
+				3F7597992BED54A600AB6EEC /* TeamsRepositoryMock.swift in Sources */,
 				3F25CB132B67BE32003EE8D3 /* CategorizationSheetAssignmentDTO.swift in Sources */,
 				3F3E50EC2AFA9DC000552CC2 /* CircleButton.swift in Sources */,
 				3F25CB5B2B72828F003EE8D3 /* TeamsRepository.swift in Sources */,
@@ -1267,16 +1259,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FED54AD2A365E0E00498112 /* ScoutCampTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3FED54AE2A365E0F00498112 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3FED54B92A365E0F00498112 /* ScoutCampUITestsLaunchTests.swift in Sources */,
-				3FED54B72A365E0F00498112 /* ScoutCampUITests.swift in Sources */,
+				3F75979B2BED5A9700AB6EEC /* FetchUserTeamsUseCaseTests.swift in Sources */,
+				3F7597A62BED62DB00AB6EEC /* UpdateTeamUseCaseTests.swift in Sources */,
+				3F7597A42BED619900AB6EEC /* CreateTeamUseCaseTests.swift in Sources */,
+				3F7597A22BED5FC800AB6EEC /* DeleteTeamUseCaseTests.swift in Sources */,
+				3F75979F2BED5EA400AB6EEC /* FetchRegimentTroopsUseCaseTests.swift in Sources */,
+				3F75979D2BED5E1900AB6EEC /* FetchRegimentsUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1287,11 +1275,6 @@
 			isa = PBXTargetDependency;
 			target = 3FED54972A365E0D00498112 /* ScoutCamp */;
 			targetProxy = 3FED54A92A365E0E00498112 /* PBXContainerItemProxy */;
-		};
-		3FED54B42A365E0F00498112 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3FED54972A365E0D00498112 /* ScoutCamp */;
-			targetProxy = 3FED54B32A365E0F00498112 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1505,14 +1488,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sokol.ScoutCampTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScoutCamp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScoutCamp";
@@ -1524,8 +1510,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
@@ -1535,40 +1523,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScoutCamp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScoutCamp";
-			};
-			name = Release;
-		};
-		3FED54C32A365E0F00498112 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sokol.ScoutCampUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ScoutCamp;
-			};
-			name = Debug;
-		};
-		3FED54C42A365E0F00498112 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sokol.ScoutCampUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ScoutCamp;
 			};
 			name = Release;
 		};
@@ -1598,15 +1552,6 @@
 			buildConfigurations = (
 				3FED54C02A365E0F00498112 /* Debug */,
 				3FED54C12A365E0F00498112 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3FED54C22A365E0F00498112 /* Build configuration list for PBXNativeTarget "ScoutCampUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3FED54C32A365E0F00498112 /* Debug */,
-				3FED54C42A365E0F00498112 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
