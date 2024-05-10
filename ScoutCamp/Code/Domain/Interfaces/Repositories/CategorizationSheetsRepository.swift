@@ -9,5 +9,4 @@ import Foundation
 
 protocol CategorizationSheetsRepository {
     func fetchCategorizationSheets() async -> Result<[CategorizationSheet], Error>
-    func fetchAssignments(for sheetId: String) async -> Result<[CategorizationSheetAssignment], Error>
 }

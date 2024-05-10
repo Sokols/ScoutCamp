@@ -14,7 +14,7 @@ protocol FetchAssignmentGroupSectionsUseCase {
 final class DefaultFetchAssignmentGroupSectionsUseCase: FetchAssignmentGroupSectionsUseCase {
 
     private let assignmentsRepository: AssignmentsRepository
-    private let categorizationSheetsRepository: CategorizationSheetsRepository
+    private let categorizationSheetAssignmentsRepository: CategorizationSheetAssignmentsRepository
     private let junctionsRepository: AssignmentGroupJunctionsRepository
     private let groupMinimumsRepository: AssignmentGroupCategoryMinimumsRepository
     private let groupsRepository: AssignmentGroupsRepository
@@ -22,14 +22,14 @@ final class DefaultFetchAssignmentGroupSectionsUseCase: FetchAssignmentGroupSect
 
     init(
         assignmentsRepository: AssignmentsRepository,
-        categorizationSheetsRepository: CategorizationSheetsRepository,
+        categorizationSheetAssignmentsRepository: CategorizationSheetAssignmentsRepository,
         junctionsRepository: AssignmentGroupJunctionsRepository,
         groupMinimumsRepository: AssignmentGroupCategoryMinimumsRepository,
         groupsRepository: AssignmentGroupsRepository,
         teamAssignmentsRepository: TeamAssignmentsRepository
     ) {
         self.assignmentsRepository = assignmentsRepository
-        self.categorizationSheetsRepository = categorizationSheetsRepository
+        self.categorizationSheetAssignmentsRepository = categorizationSheetAssignmentsRepository
         self.junctionsRepository = junctionsRepository
         self.groupMinimumsRepository = groupMinimumsRepository
         self.groupsRepository = groupsRepository
@@ -52,7 +52,7 @@ struct FetchSectionsUseCaseResponse {
 extension DefaultFetchAssignmentGroupSectionsUseCase {
     private func fetchSections(_ requestValue: FetchSectionsUseCaseRequestValue) async -> Result<FetchSectionsUseCaseResponse, Error> {
         do {
-            let sheetAssignmentsResult = await categorizationSheetsRepository.fetchAssignments(for: requestValue.teamSheet.sheet.sheetId)
+            let sheetAssignmentsResult = await categorizationSheetAssignmentsRepository.fetchAssignments(for: requestValue.teamSheet.sheet.sheetId)
             let assignmentIds = try sheetAssignmentsResult.get().map { $0.assignmentId }
 
             let assignmentsResult = await assignmentsRepository.fetchAssignments(for: assignmentIds)
