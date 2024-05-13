@@ -118,13 +118,30 @@
 		3F54384C2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F54384B2AEA8E9C00C9AEB8 /* CategorizationSheetItemView.swift */; };
 		3F54384E2AEABB0A00C9AEB8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3F54384D2AEABB0A00C9AEB8 /* FirebaseStorage */; };
 		3F5438522AEAC2F000C9AEB8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5438512AEAC2F000C9AEB8 /* StorageManager.swift */; };
-		3F7597992BED54A600AB6EEC /* TeamsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597982BED54A600AB6EEC /* TeamsRepositoryMock.swift */; };
 		3F75979B2BED5A9700AB6EEC /* FetchUserTeamsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75979A2BED5A9700AB6EEC /* FetchUserTeamsUseCaseTests.swift */; };
 		3F75979D2BED5E1900AB6EEC /* FetchRegimentsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75979C2BED5E1900AB6EEC /* FetchRegimentsUseCaseTests.swift */; };
 		3F75979F2BED5EA400AB6EEC /* FetchRegimentTroopsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75979E2BED5EA400AB6EEC /* FetchRegimentTroopsUseCaseTests.swift */; };
 		3F7597A22BED5FC800AB6EEC /* DeleteTeamUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597A12BED5FC800AB6EEC /* DeleteTeamUseCaseTests.swift */; };
 		3F7597A42BED619900AB6EEC /* CreateTeamUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597A32BED619900AB6EEC /* CreateTeamUseCaseTests.swift */; };
 		3F7597A62BED62DB00AB6EEC /* UpdateTeamUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597A52BED62DB00AB6EEC /* UpdateTeamUseCaseTests.swift */; };
+		3F7597AB2BEE1F9F00AB6EEC /* TeamsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597982BED54A600AB6EEC /* TeamsRepositoryMock.swift */; };
+		3F7597AC2BEE1FA200AB6EEC /* TeamSheetsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597A92BEE1F8E00AB6EEC /* TeamSheetsRepositoryMock.swift */; };
+		3F7597AE2BEE221D00AB6EEC /* TeamAssignmentsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597AD2BEE221D00AB6EEC /* TeamAssignmentsRepositoryMock.swift */; };
+		3F7597B22BEE257600AB6EEC /* SaveTeamSheetUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597B12BEE257600AB6EEC /* SaveTeamSheetUseCaseTests.swift */; };
+		3F7597B42BEE324900AB6EEC /* AssignmentsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597B32BEE324900AB6EEC /* AssignmentsRepositoryMock.swift */; };
+		3F7597B62BEE32E800AB6EEC /* CategorizationSheetsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597B52BEE32E800AB6EEC /* CategorizationSheetsRepositoryMock.swift */; };
+		3F7597B82BEE357300AB6EEC /* CategorizationSheetAssignmentsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597B72BEE357300AB6EEC /* CategorizationSheetAssignmentsRepository.swift */; };
+		3F7597BA2BEE359E00AB6EEC /* DefaultCategorizationSheetAssignmentsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597B92BEE359E00AB6EEC /* DefaultCategorizationSheetAssignmentsRepository.swift */; };
+		3F7597BD2BEE365C00AB6EEC /* CategorizationSheetAssignmentsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597BB2BEE364400AB6EEC /* CategorizationSheetAssignmentsRepositoryMock.swift */; };
+		3F7597BF2BEE379100AB6EEC /* AssignmentGroupJunctionsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597BE2BEE379100AB6EEC /* AssignmentGroupJunctionsRepositoryMock.swift */; };
+		3F7597C12BEE380D00AB6EEC /* AssignmentGroupCategoryMinimumsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597C02BEE380D00AB6EEC /* AssignmentGroupCategoryMinimumsRepositoryMock.swift */; };
+		3F7597C32BEE389B00AB6EEC /* AssignmentGroupsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597C22BEE389B00AB6EEC /* AssignmentGroupsRepositoryMock.swift */; };
+		3F7597C52BEE3BE000AB6EEC /* FetchAssignmentGroupSectionsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597C42BEE3BE000AB6EEC /* FetchAssignmentGroupSectionsUseCaseTests.swift */; };
+		3F7597C82BF20C6900AB6EEC /* FetchTeamSheetsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597C72BF20C6900AB6EEC /* FetchTeamSheetsUseCaseTests.swift */; };
+		3F7597CA2BF20E4F00AB6EEC /* FetchCategoriesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597C92BF20E4F00AB6EEC /* FetchCategoriesUseCaseTests.swift */; };
+		3F7597CC2BF20E8800AB6EEC /* CategoriesRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597CB2BF20E8800AB6EEC /* CategoriesRepositoryMock.swift */; };
+		3F7597CE2BF213C000AB6EEC /* CategorizationPeriodsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597CD2BF213C000AB6EEC /* CategorizationPeriodsRepositoryMock.swift */; };
+		3F7597D02BF2140F00AB6EEC /* FetchPeriodsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597CF2BF2140F00AB6EEC /* FetchPeriodsUseCaseTests.swift */; };
 		3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F78A0122AC88E7000945FDE /* FirebaseFirestore */; };
 		3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0142AC890F100945FDE /* ProfileViewModel.swift */; };
 		3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0152AC890F100945FDE /* ProfileScreen.swift */; };
@@ -306,6 +323,23 @@
 		3F7597A12BED5FC800AB6EEC /* DeleteTeamUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTeamUseCaseTests.swift; sourceTree = "<group>"; };
 		3F7597A32BED619900AB6EEC /* CreateTeamUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamUseCaseTests.swift; sourceTree = "<group>"; };
 		3F7597A52BED62DB00AB6EEC /* UpdateTeamUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTeamUseCaseTests.swift; sourceTree = "<group>"; };
+		3F7597A92BEE1F8E00AB6EEC /* TeamSheetsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSheetsRepositoryMock.swift; sourceTree = "<group>"; };
+		3F7597AD2BEE221D00AB6EEC /* TeamAssignmentsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAssignmentsRepositoryMock.swift; sourceTree = "<group>"; };
+		3F7597B12BEE257600AB6EEC /* SaveTeamSheetUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTeamSheetUseCaseTests.swift; sourceTree = "<group>"; };
+		3F7597B32BEE324900AB6EEC /* AssignmentsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsRepositoryMock.swift; sourceTree = "<group>"; };
+		3F7597B52BEE32E800AB6EEC /* CategorizationSheetsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetsRepositoryMock.swift; sourceTree = "<group>"; };
+		3F7597B72BEE357300AB6EEC /* CategorizationSheetAssignmentsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetAssignmentsRepository.swift; sourceTree = "<group>"; };
+		3F7597B92BEE359E00AB6EEC /* DefaultCategorizationSheetAssignmentsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCategorizationSheetAssignmentsRepository.swift; sourceTree = "<group>"; };
+		3F7597BB2BEE364400AB6EEC /* CategorizationSheetAssignmentsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationSheetAssignmentsRepositoryMock.swift; sourceTree = "<group>"; };
+		3F7597BE2BEE379100AB6EEC /* AssignmentGroupJunctionsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupJunctionsRepositoryMock.swift; sourceTree = "<group>"; };
+		3F7597C02BEE380D00AB6EEC /* AssignmentGroupCategoryMinimumsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumsRepositoryMock.swift; sourceTree = "<group>"; };
+		3F7597C22BEE389B00AB6EEC /* AssignmentGroupsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupsRepositoryMock.swift; sourceTree = "<group>"; };
+		3F7597C42BEE3BE000AB6EEC /* FetchAssignmentGroupSectionsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAssignmentGroupSectionsUseCaseTests.swift; sourceTree = "<group>"; };
+		3F7597C72BF20C6900AB6EEC /* FetchTeamSheetsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamSheetsUseCaseTests.swift; sourceTree = "<group>"; };
+		3F7597C92BF20E4F00AB6EEC /* FetchCategoriesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCategoriesUseCaseTests.swift; sourceTree = "<group>"; };
+		3F7597CB2BF20E8800AB6EEC /* CategoriesRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRepositoryMock.swift; sourceTree = "<group>"; };
+		3F7597CD2BF213C000AB6EEC /* CategorizationPeriodsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizationPeriodsRepositoryMock.swift; sourceTree = "<group>"; };
+		3F7597CF2BF2140F00AB6EEC /* FetchPeriodsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPeriodsUseCaseTests.swift; sourceTree = "<group>"; };
 		3F78A0142AC890F100945FDE /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3F78A0152AC890F100945FDE /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumDTO.swift; sourceTree = "<group>"; };
@@ -539,6 +573,7 @@
 				3F3941212B7CEF26003DD454 /* DefaultCategoriesRepository.swift */,
 				3F3941252B7CEFE3003DD454 /* DefaultCategorizationPeriodsRepository.swift */,
 				3F25CB4B2B726D22003EE8D3 /* DefaultCategorizationSheetsRepository.swift */,
+				3F7597B92BEE359E00AB6EEC /* DefaultCategorizationSheetAssignmentsRepository.swift */,
 				3F39411D2B7CEECA003DD454 /* DefaultSheetTypesRepository.swift */,
 				3F25CB582B72777E003EE8D3 /* DefaultTeamSheetsRepository.swift */,
 				3F25CB5C2B72830F003EE8D3 /* DefaultTeamsRepository.swift */,
@@ -586,6 +621,7 @@
 				3F39411F2B7CEF0F003DD454 /* CategoriesRepository.swift */,
 				3F3941232B7CEFC5003DD454 /* CategorizationPeriodsRepository.swift */,
 				3F25CB492B726C06003EE8D3 /* CategorizationSheetsRepository.swift */,
+				3F7597B72BEE357300AB6EEC /* CategorizationSheetAssignmentsRepository.swift */,
 				3F39411B2B7CEE91003DD454 /* SheetTypesRepository.swift */,
 				3F25CB562B727730003EE8D3 /* TeamSheetsRepository.swift */,
 				3F25CB5A2B72828F003EE8D3 /* TeamsRepository.swift */,
@@ -775,12 +811,9 @@
 		3F7597932BED19DF00AB6EEC /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				3F75979A2BED5A9700AB6EEC /* FetchUserTeamsUseCaseTests.swift */,
-				3F75979C2BED5E1900AB6EEC /* FetchRegimentsUseCaseTests.swift */,
-				3F75979E2BED5EA400AB6EEC /* FetchRegimentTroopsUseCaseTests.swift */,
-				3F7597A12BED5FC800AB6EEC /* DeleteTeamUseCaseTests.swift */,
-				3F7597A32BED619900AB6EEC /* CreateTeamUseCaseTests.swift */,
-				3F7597A52BED62DB00AB6EEC /* UpdateTeamUseCaseTests.swift */,
+				3F7597A72BEE1F4900AB6EEC /* Teams */,
+				3F7597A82BEE1F5900AB6EEC /* CategorizationSheets */,
+				3F7597C62BF20C4E00AB6EEC /* Categorization */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -796,9 +829,51 @@
 		3F7597972BED548000AB6EEC /* MockedRepositories */ = {
 			isa = PBXGroup;
 			children = (
+				3F7597B32BEE324900AB6EEC /* AssignmentsRepositoryMock.swift */,
+				3F7597C02BEE380D00AB6EEC /* AssignmentGroupCategoryMinimumsRepositoryMock.swift */,
+				3F7597BE2BEE379100AB6EEC /* AssignmentGroupJunctionsRepositoryMock.swift */,
+				3F7597C22BEE389B00AB6EEC /* AssignmentGroupsRepositoryMock.swift */,
+				3F7597CB2BF20E8800AB6EEC /* CategoriesRepositoryMock.swift */,
+				3F7597CD2BF213C000AB6EEC /* CategorizationPeriodsRepositoryMock.swift */,
+				3F7597B52BEE32E800AB6EEC /* CategorizationSheetsRepositoryMock.swift */,
+				3F7597BB2BEE364400AB6EEC /* CategorizationSheetAssignmentsRepositoryMock.swift */,
 				3F7597982BED54A600AB6EEC /* TeamsRepositoryMock.swift */,
+				3F7597A92BEE1F8E00AB6EEC /* TeamSheetsRepositoryMock.swift */,
+				3F7597AD2BEE221D00AB6EEC /* TeamAssignmentsRepositoryMock.swift */,
 			);
 			path = MockedRepositories;
+			sourceTree = "<group>";
+		};
+		3F7597A72BEE1F4900AB6EEC /* Teams */ = {
+			isa = PBXGroup;
+			children = (
+				3F75979A2BED5A9700AB6EEC /* FetchUserTeamsUseCaseTests.swift */,
+				3F75979C2BED5E1900AB6EEC /* FetchRegimentsUseCaseTests.swift */,
+				3F75979E2BED5EA400AB6EEC /* FetchRegimentTroopsUseCaseTests.swift */,
+				3F7597A12BED5FC800AB6EEC /* DeleteTeamUseCaseTests.swift */,
+				3F7597A32BED619900AB6EEC /* CreateTeamUseCaseTests.swift */,
+				3F7597A52BED62DB00AB6EEC /* UpdateTeamUseCaseTests.swift */,
+			);
+			path = Teams;
+			sourceTree = "<group>";
+		};
+		3F7597A82BEE1F5900AB6EEC /* CategorizationSheets */ = {
+			isa = PBXGroup;
+			children = (
+				3F7597B12BEE257600AB6EEC /* SaveTeamSheetUseCaseTests.swift */,
+				3F7597C42BEE3BE000AB6EEC /* FetchAssignmentGroupSectionsUseCaseTests.swift */,
+			);
+			path = CategorizationSheets;
+			sourceTree = "<group>";
+		};
+		3F7597C62BF20C4E00AB6EEC /* Categorization */ = {
+			isa = PBXGroup;
+			children = (
+				3F7597C72BF20C6900AB6EEC /* FetchTeamSheetsUseCaseTests.swift */,
+				3F7597C92BF20E4F00AB6EEC /* FetchCategoriesUseCaseTests.swift */,
+				3F7597CF2BF2140F00AB6EEC /* FetchPeriodsUseCaseTests.swift */,
+			);
+			path = Categorization;
 			sourceTree = "<group>";
 		};
 		3F7C59EA2A9C8C9300AA64AA /* Profile */ = {
@@ -1118,6 +1193,7 @@
 				3FCCD9D32BEBA4A600EDBFF2 /* MyTeamsFlowCoordinator.swift in Sources */,
 				3FBA1CBA2B03E2EA0019A84A /* AssignmentNumericInput.swift in Sources */,
 				3FE3A42C2ADD50F3000E455F /* AssignmentDTO.swift in Sources */,
+				3F7597BA2BEE359E00AB6EEC /* DefaultCategorizationSheetAssignmentsRepository.swift in Sources */,
 				3FD7BDC82BDF9B3100A114F2 /* AssignmentGroupJunction.swift in Sources */,
 				3F3E50E62AF7C21C00552CC2 /* AssignmentGroupAssignmentJunctionDTO.swift in Sources */,
 				3F3C2D3E2BDA83CA007B6F6E /* DefaultTeamAssignmentsRepository.swift in Sources */,
@@ -1140,10 +1216,10 @@
 				3F25CB3C2B725F78003EE8D3 /* SheetType.swift in Sources */,
 				3FBA1D332B0F678F0019A84A /* Decimal+Extensions.swift in Sources */,
 				3F25CB242B7246A0003EE8D3 /* AssignmentGroupCategoryMinimumDTO+DataMapping.swift in Sources */,
-				3F7597992BED54A600AB6EEC /* TeamsRepositoryMock.swift in Sources */,
 				3F25CB132B67BE32003EE8D3 /* CategorizationSheetAssignmentDTO.swift in Sources */,
 				3F3E50EC2AFA9DC000552CC2 /* CircleButton.swift in Sources */,
 				3F25CB5B2B72828F003EE8D3 /* TeamsRepository.swift in Sources */,
+				3F7597B82BEE357300AB6EEC /* CategorizationSheetAssignmentsRepository.swift in Sources */,
 				3F3814332AE2A50D00B4C0E3 /* TeamCategorizationSheetAssignment.swift in Sources */,
 				3FBA1D3E2B10A86A0019A84A /* ServiceContainer.swift in Sources */,
 				3F393F142B27256300419385 /* SharesPieChartView.swift in Sources */,
@@ -1259,12 +1335,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F7597CA2BF20E4F00AB6EEC /* FetchCategoriesUseCaseTests.swift in Sources */,
+				3F7597CC2BF20E8800AB6EEC /* CategoriesRepositoryMock.swift in Sources */,
 				3F75979B2BED5A9700AB6EEC /* FetchUserTeamsUseCaseTests.swift in Sources */,
 				3F7597A62BED62DB00AB6EEC /* UpdateTeamUseCaseTests.swift in Sources */,
+				3F7597C32BEE389B00AB6EEC /* AssignmentGroupsRepositoryMock.swift in Sources */,
+				3F7597D02BF2140F00AB6EEC /* FetchPeriodsUseCaseTests.swift in Sources */,
+				3F7597B42BEE324900AB6EEC /* AssignmentsRepositoryMock.swift in Sources */,
+				3F7597AE2BEE221D00AB6EEC /* TeamAssignmentsRepositoryMock.swift in Sources */,
 				3F7597A42BED619900AB6EEC /* CreateTeamUseCaseTests.swift in Sources */,
 				3F7597A22BED5FC800AB6EEC /* DeleteTeamUseCaseTests.swift in Sources */,
+				3F7597BF2BEE379100AB6EEC /* AssignmentGroupJunctionsRepositoryMock.swift in Sources */,
 				3F75979F2BED5EA400AB6EEC /* FetchRegimentTroopsUseCaseTests.swift in Sources */,
+				3F7597C82BF20C6900AB6EEC /* FetchTeamSheetsUseCaseTests.swift in Sources */,
+				3F7597C52BEE3BE000AB6EEC /* FetchAssignmentGroupSectionsUseCaseTests.swift in Sources */,
+				3F7597C12BEE380D00AB6EEC /* AssignmentGroupCategoryMinimumsRepositoryMock.swift in Sources */,
+				3F7597BD2BEE365C00AB6EEC /* CategorizationSheetAssignmentsRepositoryMock.swift in Sources */,
 				3F75979D2BED5E1900AB6EEC /* FetchRegimentsUseCaseTests.swift in Sources */,
+				3F7597B62BEE32E800AB6EEC /* CategorizationSheetsRepositoryMock.swift in Sources */,
+				3F7597B22BEE257600AB6EEC /* SaveTeamSheetUseCaseTests.swift in Sources */,
+				3F7597AC2BEE1FA200AB6EEC /* TeamSheetsRepositoryMock.swift in Sources */,
+				3F7597CE2BF213C000AB6EEC /* CategorizationPeriodsRepositoryMock.swift in Sources */,
+				3F7597AB2BEE1F9F00AB6EEC /* TeamsRepositoryMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,7 +35,7 @@ final class CategorizationDIContainer {
     func makeFetchSectionsUseCase() -> FetchAssignmentGroupSectionsUseCase {
         DefaultFetchAssignmentGroupSectionsUseCase(
             assignmentsRepository: makeAssignmentsRepository(),
-            categorizationSheetsRepository: makeCategorizationSheetsRepository(),
+            categorizationSheetAssignmentsRepository: makeCategorizationSheetAssignmentsRepository(),
             junctionsRepository: makeJunctionsRepository(),
             groupMinimumsRepository: makeGroupMinimumsRepository(), 
             groupsRepository: makeAssignmentGroupsRepository(),
@@ -82,6 +82,10 @@ final class CategorizationDIContainer {
             categorizationSheetsRepository: makeCategorizationSheetsRepository(),
             fetchCategoriesUseCase: makeFetchCategoriesUseCase()
         )
+    }
+
+    private func makeCategorizationSheetAssignmentsRepository() -> CategorizationSheetAssignmentsRepository {
+        DefaultCategorizationSheetAssignmentsRepository(with: dependencies.firebaseDataService)
     }
 
     private func makeCategorizationSheetsRepository() -> CategorizationSheetsRepository {

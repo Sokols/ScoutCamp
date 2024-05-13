@@ -60,14 +60,33 @@ struct TestData {
         name: "name"
     )
 
-    static let assignment = AssignmentDTO(
-        id: "",
-        mainAssignmentGroupId: "",
+    static let junction = AssignmentGroupJunction(
+        id: "junction_id",
+        assignmentGroupId: assignmentGroup.id,
+        assignmentId: assignment.id,
+        percentageShare: 1.0
+    )
+
+    static let sheetAssignment = CategorizationSheetAssignment(
+        id: "test_id",
+        assignmentId: assignment.id,
+        categorizationSheetId: categorizationSheet.sheetId
+    )
+
+    static let assignment = Assignment(
+        id: "test_id",
+        mainAssignmentGroupId: assignmentGroup.id,
         dependentOnAssignmentId: nil,
         assignmentType: "numeric",
         description: "TEST DESCRIPTION",
         maxPoints: 5,
         maxScoringValue: nil
+    )
+
+    static let teamAssignment = TeamCategorizationSheetAssignment(
+        id: "test_id",
+        assignmentId: assignment.id,
+        teamCategorizationSheetId: appTeamSheet.teamSheetId ?? "test_id"
     )
 
     static let assignmentGroup = AssignmentGroup(
@@ -81,25 +100,6 @@ struct TestData {
         name: "Second AssignmentGroup",
         order: 1
     )
-
-    static let categorizationSheetDTO = CategorizationSheetDTO(
-        id: "",
-        periodId: "",
-        sheetTypeId: ""
-    )
-
-    static let teamCategorizationSheet = TeamSheetDTO(
-        id: "1",
-        categorizationSheetId: "1",
-        teamId: "1",
-        categoryId: "1",
-        points: 1,
-        isDraft: true,
-        createdAt: Date(),
-        updatedAt: Date()
-    )
-
-    // MARK: - App models
 
     static let numericAppAssignment = AppAssignment(
         assignmentId: "",
