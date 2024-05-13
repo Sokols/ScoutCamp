@@ -137,6 +137,7 @@
 		3F7597C12BEE380D00AB6EEC /* AssignmentGroupCategoryMinimumsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597C02BEE380D00AB6EEC /* AssignmentGroupCategoryMinimumsRepositoryMock.swift */; };
 		3F7597C32BEE389B00AB6EEC /* AssignmentGroupsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597C22BEE389B00AB6EEC /* AssignmentGroupsRepositoryMock.swift */; };
 		3F7597C52BEE3BE000AB6EEC /* FetchAssignmentGroupSectionsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597C42BEE3BE000AB6EEC /* FetchAssignmentGroupSectionsUseCaseTests.swift */; };
+		3F7597C82BF20C6900AB6EEC /* FetchTeamSheetsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7597C72BF20C6900AB6EEC /* FetchTeamSheetsUseCaseTests.swift */; };
 		3F78A0132AC88E7000945FDE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F78A0122AC88E7000945FDE /* FirebaseFirestore */; };
 		3F78A0162AC890F100945FDE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0142AC890F100945FDE /* ProfileViewModel.swift */; };
 		3F78A0172AC890F100945FDE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78A0152AC890F100945FDE /* ProfileScreen.swift */; };
@@ -330,6 +331,7 @@
 		3F7597C02BEE380D00AB6EEC /* AssignmentGroupCategoryMinimumsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumsRepositoryMock.swift; sourceTree = "<group>"; };
 		3F7597C22BEE389B00AB6EEC /* AssignmentGroupsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupsRepositoryMock.swift; sourceTree = "<group>"; };
 		3F7597C42BEE3BE000AB6EEC /* FetchAssignmentGroupSectionsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAssignmentGroupSectionsUseCaseTests.swift; sourceTree = "<group>"; };
+		3F7597C72BF20C6900AB6EEC /* FetchTeamSheetsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamSheetsUseCaseTests.swift; sourceTree = "<group>"; };
 		3F78A0142AC890F100945FDE /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3F78A0152AC890F100945FDE /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		3F87C5AF2B62621D007BD798 /* AssignmentGroupCategoryMinimumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentGroupCategoryMinimumDTO.swift; sourceTree = "<group>"; };
@@ -801,8 +803,9 @@
 		3F7597932BED19DF00AB6EEC /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				3F7597A82BEE1F5900AB6EEC /* CategorizationSheets */,
 				3F7597A72BEE1F4900AB6EEC /* Teams */,
+				3F7597A82BEE1F5900AB6EEC /* CategorizationSheets */,
+				3F7597C62BF20C4E00AB6EEC /* Categorization */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -851,6 +854,14 @@
 				3F7597C42BEE3BE000AB6EEC /* FetchAssignmentGroupSectionsUseCaseTests.swift */,
 			);
 			path = CategorizationSheets;
+			sourceTree = "<group>";
+		};
+		3F7597C62BF20C4E00AB6EEC /* Categorization */ = {
+			isa = PBXGroup;
+			children = (
+				3F7597C72BF20C6900AB6EEC /* FetchTeamSheetsUseCaseTests.swift */,
+			);
+			path = Categorization;
 			sourceTree = "<group>";
 		};
 		3F7C59EA2A9C8C9300AA64AA /* Profile */ = {
@@ -1321,6 +1332,7 @@
 				3F7597A22BED5FC800AB6EEC /* DeleteTeamUseCaseTests.swift in Sources */,
 				3F7597BF2BEE379100AB6EEC /* AssignmentGroupJunctionsRepositoryMock.swift in Sources */,
 				3F75979F2BED5EA400AB6EEC /* FetchRegimentTroopsUseCaseTests.swift in Sources */,
+				3F7597C82BF20C6900AB6EEC /* FetchTeamSheetsUseCaseTests.swift in Sources */,
 				3F7597C52BEE3BE000AB6EEC /* FetchAssignmentGroupSectionsUseCaseTests.swift in Sources */,
 				3F7597C12BEE380D00AB6EEC /* AssignmentGroupCategoryMinimumsRepositoryMock.swift in Sources */,
 				3F7597BD2BEE365C00AB6EEC /* CategorizationSheetAssignmentsRepositoryMock.swift in Sources */,
