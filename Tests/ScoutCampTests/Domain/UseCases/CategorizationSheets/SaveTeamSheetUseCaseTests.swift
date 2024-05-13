@@ -13,7 +13,7 @@ final class SaveTeamSheetUseCaseTests: XCTestCase {
     func testSaveTeamSheetUseCase_whenSuccess_thenNilIsReturned() async throws {
         // given
         let teamSheetsRepository = TeamSheetsRepositoryMock(isFailure: false)
-        let teamAssignmentsRepository = TeamAssignmentsRepositoryMock(isFailure: false)
+        let teamAssignmentsRepository = TeamAssignmentsRepositoryMock(isFailure: false, teamAssignments: [])
         let useCase = DefaultSaveTeamSheetUseCase(
             teamSheetsRepository: teamSheetsRepository,
             teamAssignmentsRepository: teamAssignmentsRepository
@@ -38,7 +38,7 @@ final class SaveTeamSheetUseCaseTests: XCTestCase {
     func testSaveTeamSheetUseCase_whenFailure_thenErrorIsReturned() async throws {
         // given
         let teamSheetsRepository = TeamSheetsRepositoryMock(isFailure: true)
-        let teamAssignmentsRepository = TeamAssignmentsRepositoryMock(isFailure: true)
+        let teamAssignmentsRepository = TeamAssignmentsRepositoryMock(isFailure: true, teamAssignments: [])
         let useCase = DefaultSaveTeamSheetUseCase(
             teamSheetsRepository: teamSheetsRepository,
             teamAssignmentsRepository: teamAssignmentsRepository

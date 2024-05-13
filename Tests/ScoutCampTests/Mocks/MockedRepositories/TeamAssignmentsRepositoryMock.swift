@@ -18,12 +18,13 @@ final class TeamAssignmentsRepositoryMock: TeamAssignmentsRepository {
     private let isFailure: Bool
     private var teamAssignments: [TeamCategorizationSheetAssignment] = []
 
-    init(isFailure: Bool) {
+    init(isFailure: Bool, teamAssignments: [TeamCategorizationSheetAssignment]) {
         self.isFailure = isFailure
+        self.teamAssignments = teamAssignments
     }
 
     func saveTeamAssignments(
-        _ assignments: [ScoutCamp.AppAssignment], 
+        _ assignments: [AppAssignment],
         teamSheetId: String
     ) async -> Error? {
         if isFailure {
@@ -48,7 +49,7 @@ final class TeamAssignmentsRepositoryMock: TeamAssignmentsRepository {
 
     func fetchTeamAssignments(
         teamSheetId: String
-    ) async -> Result<[ScoutCamp.TeamCategorizationSheetAssignment], Error> {
+    ) async -> Result<[TeamCategorizationSheetAssignment], Error> {
         if isFailure {
             return .failure(TeamAssignmentsRepositoryMockError.failedFetching)
         }
